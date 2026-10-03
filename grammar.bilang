@@ -10,8 +10,8 @@ RetrieveDocument: 'retrieve' 'document' invoice=Invoice;
 
 Person: PersonByEmail | PersonByAlias | PersonByName;
 PersonByEmail: 'person' 'with' 'email' emailaddress=STRING;
-PersonByByAlias: 'person' 'with' 'alias' alias=STRING;
-PersonByByName: 'person' 'with' 'firstname' firstName=STRING 'and' 'lastname' lastName=STRING;
+PersonByAlias: 'person' 'with' 'alias' alias=STRING;
+PersonByName: 'person' 'with' 'firstname' firstName=STRING 'and' 'lastname' lastName=STRING;
 
 Content: Message | Invoice;
 Message: 'message' message=STRING;

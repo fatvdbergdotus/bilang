@@ -20,7 +20,7 @@ SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' 'content' c
 RetrieveDocument: 'retrieve' 'document' document | Document;
 RetrieveFullAddress: 'retrieve' 'street' 'and' 'city' 'of' personAdress=PersonByAddress;
 CallPerson: 'phone' 'call' person=Person;
-AddPerson: 'add' alias=PersonByAlias ('and' person+=Person)+
+AddPerson: 'add' alias=PersonByAlias ('and' person+=Person)+;
 DeletePerson: 'delete' alias=PersonByAlias;
 
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;

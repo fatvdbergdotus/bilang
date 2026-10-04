@@ -11,15 +11,17 @@ AbstractProcess: 'abstract' 'process' 'with' 'name' name=STRING 'and' paramValue
 ParamValue: 'parameter' param=STRING 'value' value=STRING;
 
 RetrieveTask: RetrieveDocument | RetrieveFullAddress;
-SendTask: SendEmail | SendSMS;
-PersonTask: CallPerson | AddPerson;
+SendTask: SendEmail | SendSMS | SendSnailMail;
+PersonTask: CallPerson | AddPerson | DeletePerson;
 
 SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
 SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;
+SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' 'content' content=Content;
 RetrieveDocument: 'retrieve' 'document' document | Document;
 RetrieveFullAddress: 'retrieve' 'street' 'and' 'city' 'of' personAdress=PersonByAddress;
 CallPerson: 'phone' 'call' person=Person;
 AddPerson: 'add' alias=PersonByAlias ('and' person+=Person)+
+DeletePerson: 'delete' alias=PersonByAlias;
 
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
 PersonByEmail: 'person' 'with' 'email' emailaddress=STRING;

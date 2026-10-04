@@ -11,7 +11,11 @@ SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content
 RetrieveDocument: 'retrieve' 'document' invoice=Invoice;
 CallPerson: 'phone' 'call' person=Person;
 ViewPerson: 'view' 'information' 'of' person=Person;
-AddPerson: 'add' alias=PersonByAlias email=PersonByEmail? name=PersonByName? phone=PersonByPhone?;
+AddPerson:
+    'add' alias=PersonByAlias
+    ('and' email=PersonByEmail)?
+    ('and' name=PersonByName)?
+    ('and' phone=PersonByPhone)?;
 
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone;
 PersonByEmail: 'person' 'with' 'email' emailaddress=STRING;

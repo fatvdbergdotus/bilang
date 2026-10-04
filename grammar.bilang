@@ -4,11 +4,15 @@ generate bilang "http://www.bilang.org/language/Bilang"
 
 Model: Task | CompoundProcess | AbstractProcess;
 
-Task: SendEmail | SendSMS | RetrieveDocument | CallPerson | AddPerson | RetrieveFullAddress;
+Task: SendTask | RetrieveTask | PersonTask;
 CompoundProcess: 'compound' 'process' ('task' task+=Task)+;
 AbstractProcess: 'abstract' 'process' 'with' 'name' name=STRING 'and' paramValues+=ParamValue+;
 
 ParamValue: 'parameter' param=STRING 'value' value=STRING;
+
+RetrieveTask: RetrieveDocument | RetrieveFullAddress;
+SendTask: SendEmail | SendSMS;
+PersonTask: CallPerson | AddPerson;
 
 SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
 SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;

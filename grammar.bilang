@@ -2,11 +2,14 @@ grammar org.bilang.language.Idsl with org.eclipse.xtext.common.Terminals
 
 generate bilang "http://www.bilang.org/language/Bilang"
 
-Model: SendEmail | SendSMS | RetrieveDocument;
+Model: Task;
+
+Task: SendEmail | SendSMS | RetrieveDocument | CallPerson;
 
 SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
 SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;
 RetrieveDocument: 'retrieve' 'document' invoice=Invoice;
+CallPerson: 'phone' 'call' person=Person;
 
 Person: PersonByEmail | PersonByAlias | PersonByName;
 PersonByEmail: 'person' 'with' 'email' emailaddress=STRING;

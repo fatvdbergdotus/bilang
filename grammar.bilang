@@ -27,6 +27,6 @@ PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=STRING 'and' 'housenumber'
 Content: Message | Document;
 Message: 'message' message=STRING;
 
-Document: Invoice;
+Document: Invoice | DocumentPerson;
 Invoice: 'invoice' 'with' 'code' code=STRING;
 DocumentPerson: 'information' 'about' person=Person

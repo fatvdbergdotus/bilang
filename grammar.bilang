@@ -5,7 +5,7 @@ generate bilang "http://www.bilang.org/language/Bilang"
 Model: Task | Process;
 
 Task: SendEmail | SendSMS | RetrieveDocument | CallPerson | ViewPerson | AddPerson;
-Process: 'process' ('task' task=Task)+
+Process: 'process' ('task' task+=Task)+;
 
 SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
 SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;

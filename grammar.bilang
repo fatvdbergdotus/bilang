@@ -4,7 +4,7 @@ generate bilang "http://www.bilang.org/language/Bilang"
 
 Model: Task | CompoundProcess | AbstractProcess;
 
-Task: SendEmail | SendSMS | RetrieveDocument | CallPerson | ViewPerson | AddPerson | RetrieveFullAddress;
+Task: SendEmail | SendSMS | RetrieveDocument | CallPerson | AddPerson | RetrieveFullAddress;
 CompoundProcess: 'compound' 'process' ('task' task+=Task)+;
 AbstractProcess: 'abstract' 'process' 'with' 'name' name=STRING 'and' paramValues+=ParamValue+;
 
@@ -12,10 +12,9 @@ ParamValue: 'parameter' param=STRING 'value' value=STRING;
 
 SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
 SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;
-RetrieveDocument: 'retrieve' 'document' invoice=Invoice;
+RetrieveDocument: 'retrieve' 'document' document | Document;
 RetrieveFullAddress: 'retrieve' 'street' 'and' 'city' 'of' personAdress=PersonByAddress;
 CallPerson: 'phone' 'call' person=Person;
-ViewPerson: 'view' 'information' 'of' person=Person;
 AddPerson: 'add' alias=PersonByAlias ('and' person+=Person)+
 
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
@@ -25,6 +24,9 @@ PersonByName: 'person' 'with' 'firstname' firstName=STRING 'and' 'lastname' last
 PersonByPhone: 'person' 'with' 'phone' 'number' phone=STRING;
 PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=STRING 'and' 'housenumber' housenumber=STRING;
 
-Content: Message | Invoice;
+Content: Message | Document;
 Message: 'message' message=STRING;
+
+Document: Invoice;
 Invoice: 'invoice' 'with' 'code' code=STRING;
+DocumentPerson: 'information' 'about' person=Person

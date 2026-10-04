@@ -25,10 +25,10 @@ DeletePerson: 'delete' alias=PersonByAlias;
 
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
 PersonByEmail: 'person' 'with' 'email' emailaddress=EmailAddress;
-PersonByAlias: 'person' 'with' 'alias' alias=STRING;
-PersonByName: 'person' 'with' 'firstname' firstName=STRING 'and' 'lastname' lastName=STRING;
+PersonByAlias: 'person' 'with' 'alias' alias=ID;
+PersonByName: 'person' 'with' 'firstname' firstName=ID 'and' 'lastname' lastName=ID;
 PersonByPhone: 'person' 'with' 'phone' 'number' phone=STRING;
-PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=STRING 'and' 'housenumber' housenumber=STRING;
+PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=ID 'and' 'housenumber' housenumber=ID;
 
 Content: Message | Document;
 Message: 'message' message=STRING;

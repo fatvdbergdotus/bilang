@@ -4,17 +4,20 @@ generate bilang "http://www.bilang.org/language/Bilang"
 
 Model: Task;
 
-Task: SendEmail | SendSMS | RetrieveDocument | CallPerson;
+Task: SendEmail | SendSMS | RetrieveDocument | CallPerson | ViewPerson | AddPerson;
 
 SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
 SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;
 RetrieveDocument: 'retrieve' 'document' invoice=Invoice;
 CallPerson: 'phone' 'call' person=Person;
+ViewPerson: 'view' 'information' 'of' person=Person;
+AddPerson: 'add' alias=PersonByAlias email=PersonByEmail? name=PersonByName? phone=PersonByPhone?;
 
-Person: PersonByEmail | PersonByAlias | PersonByName;
+Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone;
 PersonByEmail: 'person' 'with' 'email' emailaddress=STRING;
 PersonByAlias: 'person' 'with' 'alias' alias=STRING;
 PersonByName: 'person' 'with' 'firstname' firstName=STRING 'and' 'lastname' lastName=STRING;
+PersonByPhone: 'person' 'with' 'phone' 'number' phone=STRING;
 
 Content: Message | Invoice;
 Message: 'message' message=STRING;

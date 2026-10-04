@@ -24,7 +24,7 @@ AddPerson: 'add' alias=PersonByAlias ('and' person+=Person)+
 DeletePerson: 'delete' alias=PersonByAlias;
 
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
-PersonByEmail: 'person' 'with' 'email' emailaddress=STRING;
+PersonByEmail: 'person' 'with' 'email' emailaddress=EmailAddress;
 PersonByAlias: 'person' 'with' 'alias' alias=STRING;
 PersonByName: 'person' 'with' 'firstname' firstName=STRING 'and' 'lastname' lastName=STRING;
 PersonByPhone: 'person' 'with' 'phone' 'number' phone=STRING;
@@ -36,3 +36,14 @@ Message: 'message' message=STRING;
 Document: Invoice | DocumentPerson;
 Invoice: 'invoice' 'with' 'code' code=STRING;
 DocumentPerson: 'information' 'about' person=Person
+
+grammar org.example.domainmodel.EmailDSL with org.eclipse.xtext.common.Terminals
+
+generate emailDSL "http://example.org"
+
+EmailAddress:
+    localPart=LocalPart '@' domain=Domain
+LocalPart:
+    value=ID ('.' value=ID)*;
+Domain:
+    parts+=ID ('.' parts+=ID)+;

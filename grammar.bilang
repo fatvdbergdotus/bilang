@@ -26,9 +26,9 @@ DeletePerson: 'delete' alias=PersonByAlias;
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
 PersonByEmail: 'person' 'with' 'email' emailaddress=EmailAddress;
 PersonByAlias: 'person' 'with' 'alias' alias=ID;
-PersonByName: 'person' 'with' 'firstname' firstName=ID 'and' 'lastname' lastName=ID;
+PersonByName: 'person' 'with' 'firstname' firstName=ID 'and' 'lastname' lastName=Lastname;
 PersonByPhone: 'person' 'with' 'phone' 'number' phone=PhoneNumber;
-PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=ID 'and' 'housenumber' housenumber=Housenumber;
+PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'housenumber' housenumber=Housenumber;
 
 Content: Message | Document;
 Message: 'message' message=STRING;
@@ -37,14 +37,15 @@ Document: Invoice | DocumentPerson;
 Invoice: 'invoice' 'with' 'code' code=STRING;
 DocumentPerson: 'information' 'about' person=Person
 
-EmailAddress:
-    localPart=LocalPart '@' domain=Domain
-LocalPart:
-    value=ID ('.' value=ID)*;
-Domain:
-    parts+=ID ('.' parts+=ID)+;
 
-PhoneNumber returns ecore::EString:
-    ('+' | '0'..'9') ('0'..'9' | '-' | ' ')*;
+EmailAddress: localPart=LocalPart '@' domain=Domain
+LocalPart: value=ID ('.' value=ID)*;
+Domain: parts+=ID ('.' parts+=ID)+;
+
+PhoneNumber returns ecore::EString: ('+' | '0'..'9') ('0'..'9' | '-' | ' ')*;
 
 Housenumber: number=INT (extension=ID)?;
+
+Lastname: parts+=ID (' ' parts+ID)*;
+
+terminal DUTCH_POSTCODE: ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9') ' '? ('A'..'Z') ('A'..'Z');

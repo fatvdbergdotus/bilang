@@ -4,6 +4,8 @@
 
 Bilang provides a declarative intermediate representation between natural-language business requirements and executable automation.
 
+The grammar and a natural-language business requirement are the prompt of an LLM (e.g., ChatGPT) after which a formal, unambiguous, read-to-execute statement is returned.
+
 It is developed using **Eclipse Xtext**, the **Eclipse Modeling Framework (EMF)**, and model-driven engineering principles.
 
 ## Features
@@ -28,17 +30,20 @@ Bilang provides language constructs for:
 ### Send an Email
 
 ```
-send an email to person with email example@email.org with content message welcome
+send an email to example@email.org with a welcome message
 ```
+converts into
 
 ```bilang
-send an email to example@email.org with a welcome message
+send an email to person with email example@email.org with content message welcome
 ```
 
 ### Send an SMS
 ```
 sms +31 6 12345678 and +31 6 87654321 hello, how are you?
 ```
+
+converts into
 
 ```bilang
 send an sms to person with phone number +31 6 12345678 and person with phone number +31 6 87654321 with content message hello, how are you?
@@ -50,6 +55,8 @@ send an sms to person with phone number +31 6 12345678 and person with phone num
 add freekvdb with email freek@gmail.com
 ```
 
+converts into
+
 ```bilang
 add person with alias freekvdb and person with email freek@gmail.com
 ```
@@ -58,6 +65,8 @@ add person with alias freekvdb and person with email freek@gmail.com
 ```
 retrieve invoice 345 and 53563
 ```
+
+converts into
 
 ```bilang
 compound process
@@ -92,6 +101,8 @@ send an email to person with email f@vdberg.us with content message "Welcome!"
 call +31612345678
 ```
 
+converts into
+
 ```bilang
 phone call person with phone number +31612345678
 ```
@@ -106,6 +117,8 @@ For example:
 address of 5421TR 33c
 ```
 
+converts into
+
 ```bilang
 retrieve full address of person with zip code 5421TR and housenumber 33c
 ```
@@ -119,6 +132,8 @@ A compound process groups multiple tasks into a single process description.
 ```
 add person freek and send him a welcome message
 ```
+
+converts into
 
 ```bilang
 compound process
@@ -136,6 +151,8 @@ This process describes two operations:
 email and sms person with email freek@gmail.com and number +6 12345678 to tell that the order has been shipped
 ```
 
+converts into
+
 ```bilang
 compound process
 task send an email to person with email freek@gmail.com with content message the order has been shipped
@@ -147,6 +164,8 @@ task send an sms to person with phone number +6 12345678 with content message th
 ```
 retrieve invoice 122994 and forward it to freek
 ```
+
+converts into
 
 ```bilang
 compound process
@@ -165,6 +184,8 @@ For example:
 ```
 execute process handle order with name freek van den berg and product phone
 ```
+
+converts into
 
 ```bilang
 abstract process with name handleOrder and parameter name value freek and parameter product value phone

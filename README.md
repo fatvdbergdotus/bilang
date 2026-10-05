@@ -46,8 +46,12 @@ send an sms to person with phone +31 6 12345678 with content message "Hello, how
 
 ### Add a Person
 
+```
+add freekvdb with email freek@gmail.com
+```
+
 ```bilang
-add person with alias freek and person with email f@vdberg.us
+add person with name "freekvdb" and email "freek@gmail.com"
 ```
 
 ### Retrieve an Invoice

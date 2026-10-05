@@ -1,5 +1,7 @@
 De volgende voorbeelden tonen hoe queries in het Nederlands vertalen naar Bilang (Business Intermediate Language).
 
+------
+
 ```
 stuur een email naar f@mail.com en freek@mail.com met een welkomstbericht
 ```
@@ -52,4 +54,16 @@ task retrieve document invoice with code 1234
 task retrieve document invoice with code 5678
 task send an email to person with email f@email.com and person with email freek@email.com with content message invoice 1234
 task send an email to person with email f@email.com and person with email freek@email.com with content message invoice 5678
+```
+
+------
+
+```
+Voer process onderafhandeling uit met naam Freek en product Telefoon
+```
+
+wordt omgezet naar
+
+```bilang
+abstract process with name onderafhandeling and parameter name value Freek and parameter product value Telefoon
 ```

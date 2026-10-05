@@ -28,20 +28,20 @@ Bilang provides language constructs for:
 ### Send an Email
 
 ```
-send an email to example@email.org with a welcome message
+send an email to person with email example@email.org with content message welcome
 ```
 
 ```bilang
-send an email to person with email example@email.org with content message "Welcome!"
+send an email to example@email.org with a welcome message
 ```
 
 ### Send an SMS
 ```
-send an sms to +31 6 12345678 with a greeting
+sms +31 6 12345678 and +31 6 87654321 hello, how are you?
 ```
 
 ```bilang
-send an sms to person with phone +31 6 12345678 with content message "Hello, how are you?"
+send an sms to person with phone number +31 6 12345678 and person with phone number +31 6 87654321 with content message hello, how are you?
 ```
 
 ### Add a Person
@@ -51,13 +51,18 @@ add freekvdb with email freek@gmail.com
 ```
 
 ```bilang
-add person with name "freekvdb" and email "freek@gmail.com"
+add person with alias freekvdb and person with email freek@gmail.com
 ```
 
 ### Retrieve an Invoice
+```
+retrieve invoice 345 and 53563
+```
 
 ```bilang
-retrieve document invoice with code "122994"
+compound process
+task retrieve document invoice with code 345
+task retrieve document invoice with code 53563
 ```
 
 ## Language Concepts
@@ -69,28 +74,6 @@ Bilang distinguishes three primary concepts:
 | Task | An individual business operation |
 | Compound Process | A collection of business tasks |
 | Abstract Process | A reusable process with parameters |
-
-### Tasks
-
-Tasks represent individual business operations, such as sending messages, retrieving documents, or managing people.
-
-Examples:
-
-```bilang
-send an email to person with email f@vdberg.us with content message "Hello"
-```
-
-```bilang
-send an sms to person with phone number +31612345678 with content message "Hello"
-```
-
-```bilang
-retrieve document invoice with code "122994"
-```
-
-```bilang
-add person with alias freek and person with email f@vdberg.us
-```
 
 ## Communication
 
@@ -104,96 +87,10 @@ Bilang supports email communication with one or more recipients.
 send an email to person with email f@vdberg.us with content message "Welcome!"
 ```
 
-**Multiple recipients:**
-
-```bilang
-send an email to person with email f@vdberg.us person with email test@example.com with content message "Hello!"
-```
-
-Example email addresses:
-
-```text
-f@vdberg.us
-john.doe@example.com
-info@example.org
-```
-
-### SMS
-
-SMS messages can be sent to a person identified by a telephone number.
-
-```bilang
-send an sms to person with phone number +31612345678 with content message "Hello"
-```
-
-Telephone numbers may contain:
-
-- A leading plus sign
-- Digits
-- Spaces
-- Hyphens
-
-Examples:
-
-```text
-+31612345678
-+31 6 12345678
-06-12345678
-```
-
-### Physical Mail
-
-Bilang also includes constructs for sending physical mail.
-
-A postal recipient can be identified using address information, including a Dutch postcode and house number.
-
-## Person Management
-
-People can be identified using different properties.
-
-### Identify by Email
-
-```bilang
-person with email f@vdberg.us
-```
-
-### Identify by Alias
-
-```bilang
-person with alias freek
-```
-
-### Identify by Name
-
-```bilang
-person with firstname Freek and lastname "van den Berg"
-```
-
-### Identify by Telephone Number
-
-```bilang
-person with phone number +31612345678
-```
-
-### Identify by Address
-
-```bilang
-person with zip code 5611 CA and housenumber 12
-```
-
-### Add a Person
-
-```bilang
-add person with alias freek and person with email f@vdberg.us
-```
-
-### Delete a Person
-
-```bilang
-delete person with alias freek
-```
-
 ### Call a Person
+```
+call +31612345678
+```
 
 ```bilang
 phone call person with phone number +31612345678
@@ -205,46 +102,13 @@ Bilang supports address-based identification.
 
 For example:
 
-```bilang
-person with zip code 5611 CA and housenumber 12
 ```
-
-### Dutch Postal Codes
-
-Dutch postal codes generally consist of four digits followed by two uppercase letters.
-
-Examples:
-
-```text
-5611 CA
-5611CA
-1012 JS
-1012JS
+address of 5421TR 33c
 ```
-
-An Xtext terminal supporting both spaced and unspaced formats can be defined as:
-
-```xtext
-terminal DUTCH_POSTCODE:
-    ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9')
-    (' ')?
-    ('A'..'Z') ('A'..'Z')
-;
-```
-
-This terminal validates the basic format. Additional semantic validation can enforce Dutch postcode restrictions.
-
-## Document Retrieval
-
-Bilang supports retrieving business documents using identifying information.
-
-### Retrieve an Invoice
 
 ```bilang
-retrieve document invoice with code "122994"
+retrieve full address of person with zip code 5421TR and housenumber 33c
 ```
-
-Document retrieval can form part of a larger business workflow.
 
 ## Compound Processes
 
@@ -252,10 +116,14 @@ A compound process groups multiple tasks into a single process description.
 
 ### Example: Customer Onboarding
 
+```
+add person freek and send him a welcome message
+```
+
 ```bilang
 compound process
-    task add person with alias freek and person with email f@vdberg.us
-    task send an email to person with alias freek with content message "Welcome to Bilang!"
+task add person with alias freek
+task send an email to person with alias freek with content message welcome
 ```
 
 This process describes two operations:
@@ -264,19 +132,26 @@ This process describes two operations:
 2. Send a welcome email to that person.
 
 ### Example: Customer Communication
+```
+email and sms person with email freek@gmail.com and number +6 12345678 to tell that the order has been shipped
+```
 
 ```bilang
 compound process
-    task send an email to person with email customer@example.com with content message "Your order has been shipped."
-    task send an sms to person with phone number +31612345678 with content message "Your order has been shipped."
+task send an email to person with email freek@gmail.com with content message the order has been shipped
+task send an sms to person with phone number +6 12345678 with content message the order has been shipped
 ```
 
 ### Example: Invoice Processing
 
+```
+retrieve invoice 122994 and forward it to freek
+```
+
 ```bilang
 compound process
-    task retrieve document invoice with code "122994"
-    task send an email to person with email customer@example.com with content message "Your invoice is available."
+task retrieve document invoice with code 122994
+task send an email to person with alias freek with content invoice with code 122994
 ```
 
 These examples illustrate process descriptions; actual execution depends on an appropriate runtime implementation.
@@ -287,10 +162,12 @@ Abstract processes represent reusable business processes with named parameters.
 
 For example:
 
+```
+execute process handle order with name freek van den berg and product phone
+```
+
 ```bilang
-abstract process with name "Handle Order"
-    parameter "name" value "Freek van den Berg"
-    parameter "product" value "phone"
+abstract process with name handleOrder and parameter name value freek and parameter product value phone
 ```
 
 Abstract processes provide a foundation for separating reusable process definitions from concrete parameter values.
@@ -416,8 +293,8 @@ The corresponding Bilang representation is:
 
 ```bilang
 compound process
-    task add person with alias freek and person with email f@vdberg.us
-    task send an email to person with alias freek with content message "Welcome!"
+task add person with alias Freek and person with email f@vdberg.us
+task send an email to person with alias Freek with content message welcome
 ```
 
 This representation separates the business intent from the implementation details.
@@ -477,38 +354,6 @@ The language should support integration with existing model-driven engineering t
 ### 7. Executability
 
 Bilang models should be suitable for transformation into executable workflows.
-
-## Example Use Cases
-
-### Customer Registration
-
-```bilang
-compound process
-    task add person with alias customer and person with email customer@example.com
-    task send an email to person with alias customer with content message "Welcome!"
-```
-
-### Invoice Notification
-
-```bilang
-compound process
-    task retrieve document invoice with code "122994"
-    task send an email to person with email customer@example.com with content message "Your invoice is available."
-```
-
-### Order Notification
-
-```bilang
-compound process
-    task send an email to person with email customer@example.com with content message "Your order has been shipped."
-    task send an sms to person with phone number +31612345678 with content message "Your order has been shipped."
-```
-
-### Telephone Contact
-
-```bilang
-phone call person with phone number +31612345678
-```
 
 ## Technology Stack
 

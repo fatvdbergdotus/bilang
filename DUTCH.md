@@ -10,6 +10,8 @@ wordt omgezet naar
 send an email to person with email f@mail.com and person with email freek@mail.com with content message welkomstbericht
 ```
 
+------
+
 ```
 stuur een email en sms naar f@mail.com en +31 6 12345678 met factuur 1234
 ```
@@ -22,6 +24,8 @@ task send an email to person with email f@mail.com with content invoice with cod
 task send an sms to person with phone number +31 6 12345678 with content invoice with code 1234
 ```
 
+------
+
 ```
 voeg persoon met adres 5421 TR 33c toe en zoek zijn volledige adres op
 ```
@@ -33,6 +37,8 @@ compound process
 task add person with alias person and person with zip code 5421 TR and housenumber 33c
 task retrieve full address of person with zip code 5421 TR and housenumber 33c
 ```
+
+------
 
 ```
 ontvang factuur 1234 and 5678 and stuur deze door naar f@email.com en freek@email.com

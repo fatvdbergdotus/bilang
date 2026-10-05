@@ -74,6 +74,22 @@ task retrieve document invoice with code 345
 task retrieve document invoice with code 53563
 ```
 
+### Retrieve much information at once
+
+```
+retrieve information about person freek and john and invoice 123 and 456
+```
+
+converts into
+
+```
+compound process
+task retrieve document information about person with alias freek
+task retrieve document information about person with alias john
+task retrieve document invoice with code 123
+task retrieve document invoice with code 456
+```
+
 ## Language Concepts
 
 Bilang distinguishes three primary concepts:
@@ -85,16 +101,6 @@ Bilang distinguishes three primary concepts:
 | Abstract Process | A reusable process with parameters |
 
 ## Communication
-
-### Email
-
-Bilang supports email communication with one or more recipients.
-
-**Single recipient:**
-
-```bilang
-send an email to person with email f@vdberg.us with content message "Welcome!"
-```
 
 ### Call a Person
 ```
@@ -130,20 +136,20 @@ A compound process groups multiple tasks into a single process description.
 ### Example: Customer Onboarding
 
 ```
-add person freek and send him a welcome message
+add person freek with email freek@email.com and send him a welcome message
 ```
 
 converts into
 
 ```bilang
 compound process
-task add person with alias freek
+task add person with alias freek and person with email freek@email.com
 task send an email to person with alias freek with content message welcome
 ```
 
 This process describes two operations:
 
-1. Add a person with alias `freek`.
+1. Add a person with alias `freek` and email `freek@email.com`.
 2. Send a welcome email to that person.
 
 ### Example: Customer Communication

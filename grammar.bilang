@@ -6,9 +6,9 @@ Model: Task | CompoundProcess | AbstractProcess;
 
 Task: SendTask | RetrieveTask | PersonTask;
 CompoundProcess: 'compound' 'process' ('task' task+=Task)+;
-AbstractProcess: 'abstract' 'process' 'with' 'name' name=STRING 'and' paramValues+=ParamValue+;
+AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue+;
 
-ParamValue: 'parameter' param=STRING 'value' value=STRING;
+ParamValue: 'parameter' param=ID 'value' value=ID;
 
 RetrieveTask: RetrieveDocument | RetrieveFullAddress | RetrievePersons;
 SendTask: SendEmail | SendSMS | SendSnailMail;
@@ -27,15 +27,15 @@ DeletePerson: 'delete' alias=PersonByAlias;
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
 PersonByEmail: 'person' 'with' 'email' emailaddress=EmailAddress;
 PersonByAlias: 'person' 'with' 'alias' alias=ID;
-PersonByName: 'person' 'with' 'firstname' firstName=ID 'and' 'lastname' lastName=Lastname;
+PersonByName: 'person' 'with' 'firstname' firstName=ID 'and' 'lastname' lastName=TextWithSpaces;
 PersonByPhone: 'person' 'with' 'phone' 'number' phone=PhoneNumber;
 PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'housenumber' housenumber=Housenumber;
 
 Content: Message | Document;
-Message: 'message' message=STRING;
+Message: 'message' message=TextWithSpaces;
 
 Document: Invoice | DocumentPerson;
-Invoice: 'invoice' 'with' 'code' code=STRING;
+Invoice: 'invoice' 'with' 'code' code=INT;
 DocumentPerson: 'information' 'about' person=Person
 
 
@@ -47,6 +47,6 @@ PhoneNumber returns ecore::EString: ('+' | '0'..'9') ('0'..'9' | '-' | ' ')*;
 
 Housenumber: number=INT (extension=ID)?;
 
-Lastname: parts+=ID (' ' parts+ID)*;
+TextWithSpaces: parts+=ID (' ' parts+ID)*;
 
 terminal DUTCH_POSTCODE: ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9') ' '? ('A'..'Z') ('A'..'Z');

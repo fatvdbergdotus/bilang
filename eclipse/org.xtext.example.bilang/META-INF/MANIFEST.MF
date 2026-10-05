@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.bilang
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.bilang
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.bilang; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.44.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-25
+Export-Package: org.xtext.example.bilang.parser.antlr,
+ org.xtext.example.bilang.services,
+ org.xtext.example.bilang,
+ org.xtext.example.bilang.validation,
+ org.xtext.example.bilang.serializer,
+ org.xtext.example.bilang.generator,
+ org.xtext.example.bilang.parser.antlr.internal,
+ org.xtext.example.bilang.bilang.impl,
+ org.xtext.example.bilang.bilang.util,
+ org.xtext.example.bilang.bilang,
+ org.xtext.example.bilang.scoping
+Import-Package: org.apache.log4j

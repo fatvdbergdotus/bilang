@@ -1,0 +1,54 @@
+grammar org.xtext.example.bilang.Bilang with org.eclipse.xtext.common.Terminals
+
+generate bilang "http://www.xtext.org/example/bilang/Bilang"
+
+Model: Task | CompoundProcess | AbstractProcess;
+
+Task: SendTask | RetrieveTask | PersonTask;
+CompoundProcess: 'compound' 'process' ('task' task+=Task)+;
+AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue+;
+
+ParamValue: 'parameter' param=ID 'value' value=ID;
+
+RetrieveTask: RetrieveDocument | RetrieveFullAddress | RetrievePersons;
+SendTask: SendEmail | SendSMS | SendSnailMail;
+PersonTask: CallPerson | AddPerson | DeletePerson;
+
+SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
+SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;
+SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' 'content' content=Content;
+RetrieveDocument: 'retrieve' 'document' document=Document;
+RetrieveFullAddress: 'retrieve' 'full' 'address' 'of' personAdress=PersonByAddress;
+RetrievePersons: 'retrieve' 'persons' 'with' 'search' personSearch=ID;
+CallPerson: 'phone' 'call' person=Person;
+AddPerson: 'add' alias=PersonByAlias ('and' person+=Person)+;
+DeletePerson: 'delete' alias=PersonByAlias;
+
+Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
+PersonByEmail: 'person' 'with' 'email' emailaddress=EMAIL_ADDRESS;
+PersonByAlias: 'person' 'with' 'alias' alias=ID;
+PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=TextWithSpaces;
+PersonByPhone: 'person' 'with' 'phone' 'number' phone=PHONE_NUMBER;
+PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=HOUSENUMBER;
+
+Content: Message | Document;
+Message: 'message' message=TextWithSpaces;
+
+Document: Invoice | DocumentPerson;
+Invoice: 'invoice' 'with' 'code' code=INT;
+DocumentPerson: 'information' 'about' person=Person;
+
+
+terminal EMAIL_ADDRESS:
+    ('a'..'z' | 'A'..'Z' | '0'..'9' | '_' | '-' | '.')+
+    '@'
+    ('a'..'z' | 'A'..'Z' | '0'..'9' | '-' | '.')+;
+
+terminal PHONE_NUMBER: '+' ('0'..'9')+;
+
+terminal HOUSENUMBER:
+    ('0'..'9')+ ('a'..'z' | 'A'..'Z')?;
+
+TextWithSpaces: parts+=ID parts+=ID+;
+
+terminal DUTCH_POSTCODE: ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9') ' '? ('A'..'Z') ('A'..'Z');

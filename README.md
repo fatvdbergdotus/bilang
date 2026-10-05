@@ -3,6 +3,7 @@
 **Bilang (Business Intermediate Language)** is a domain-specific language (DSL) for describing business processes using a simple, human-readable syntax.
 
 Bilang provides a declarative intermediate representation between natural-language business requirements and executable automation.
+The intermediate representation is in English, but the natural language can be Dutch as illustrated [here](DUTCH.md).
 
 The grammar and a natural-language business requirement are the prompt of an LLM (e.g., ChatGPT) after which a formal, unambiguous, read-to-execute statement is returned.
 

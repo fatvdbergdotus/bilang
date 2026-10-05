@@ -19,7 +19,7 @@ SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content
 SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' 'content' content=Content;
 RetrieveDocument: 'retrieve' 'document' document | Document;
 RetrieveFullAddress: 'retrieve' 'full' 'address' 'of' personAdress=PersonByAddress;
-RetrievePersons: 'retrieve' 'person' 'with' 'search' personSearch=ID;
+RetrievePersons: 'retrieve' 'persons' 'with' 'search' personSearch=ID;
 CallPerson: 'phone' 'call' person=Person;
 AddPerson: 'add' alias=PersonByAlias ('and' person+=Person)+;
 DeletePerson: 'delete' alias=PersonByAlias;

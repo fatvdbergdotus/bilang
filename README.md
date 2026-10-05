@@ -27,14 +27,21 @@ Bilang provides language constructs for:
 
 ### Send an Email
 
+```
+send an email to example@email.org with a welcome message
+```
+
 ```bilang
-send an email to person with email f@vdberg.us with content message "Welcome to Bilang!"
+send an email to person with email example@email.org with content message "Welcome!"
 ```
 
 ### Send an SMS
+```
+send an sms to +31 6 12345678 with a greeting
+```
 
 ```bilang
-send an sms to person with phone number +31612345678 with content message "Hello"
+send an sms to person with phone +31 6 12345678 with content message "Hello, how are you?"
 ```
 
 ### Add a Person

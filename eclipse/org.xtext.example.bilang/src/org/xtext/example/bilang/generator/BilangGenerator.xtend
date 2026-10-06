@@ -3,14 +3,19 @@
  */
 package org.xtext.example.bilang.generator
 
+import java.io.InputStreamReader
+import java.nio.charset.StandardCharsets
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.xtext.example.bilang.bilang.Task
-import org.xtext.example.bilang.bilang.CompoundProcess
 import org.xtext.example.bilang.bilang.AbstractProcess
-import org.eclipse.emf.ecore.EObject
+import org.xtext.example.bilang.bilang.CompoundProcess
+import org.xtext.example.bilang.bilang.Message
+import org.xtext.example.bilang.bilang.PersonByEmail
+import org.xtext.example.bilang.bilang.SendEmail
+import org.xtext.example.bilang.bilang.Task
 
 /**
  * Generates code from your model files on save.
@@ -24,21 +29,21 @@ class BilangGenerator extends AbstractGenerator {
         IFileSystemAccess2 fsa,
         IGeneratorContext context
     ) {
-        fsa.generateFile('generated_code.py', toCode(resource))
+        toCode(resource, fsa)
     }
 
-    def static toCode(Resource resource) {
+    def static toCode(Resource resource, IFileSystemAccess2 fsa) {
         '''
         «FOR element : resource.contents»
-            «generate(element)»
+            «generate(element, fsa)»
         «ENDFOR»
         '''
     }
 
-    def static generate(EObject element) {
+    def static generate(EObject element, IFileSystemAccess2 fsa) {
         switch element {
             Task:
-                '''it is a task'''
+                generate(element, fsa)
             CompoundProcess:
                 '''it is a compound process'''
             AbstractProcess:
@@ -47,4 +52,26 @@ class BilangGenerator extends AbstractGenerator {
                 '''not recognized'''
         }
     }
+    
+    def static generateStaticContent(String filename) {
+		val input = typeof(BilangGenerator).getResourceAsStream("templates/"+filename+".py")
+		val reader = new InputStreamReader(input, StandardCharsets.UTF_8)
+		val staticContent = reader.readAllLines.join("\n")
+		staticContent    	
+    }
+    
+	def static generate(Task task, IFileSystemAccess2 fsa) {
+	    switch task {
+	        SendEmail: {
+	            fsa.generateFile("execute.py", '''
+	                «generateStaticContent("sendemail")»
+	                
+	                # dynamically added
+	                «FOR person : task.person»«IF person instanceof PersonByEmail»«val content = task.content»«IF content instanceof Message»
+	                			sendemail("«person.emailaddress»", "«content.message.parts.join(" ")»")
+	                «ENDIF»«ENDIF»«ENDFOR»
+	            ''')
+	       }
+	    }
+	}
 }

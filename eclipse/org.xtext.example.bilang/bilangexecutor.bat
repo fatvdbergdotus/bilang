@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk-27\bin\java.exe" -cp "D:\utwente.svn\github fatvdbergdotus\bilang\bilang\eclipse\org.xtext.example.bilang\bin;D:\utwente.svn\eclipse bilang\plugins\*" org.xtext.example.bilang.generator.BilangExecutor

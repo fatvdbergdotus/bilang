@@ -3,6 +3,9 @@
  */
 package org.xtext.example.bilang.generator;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -10,8 +13,15 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.example.bilang.bilang.AbstractProcess;
 import org.xtext.example.bilang.bilang.CompoundProcess;
+import org.xtext.example.bilang.bilang.Content;
+import org.xtext.example.bilang.bilang.Message;
+import org.xtext.example.bilang.bilang.Person;
+import org.xtext.example.bilang.bilang.PersonByEmail;
+import org.xtext.example.bilang.bilang.SendEmail;
 import org.xtext.example.bilang.bilang.Task;
 
 /**
@@ -23,15 +33,15 @@ import org.xtext.example.bilang.bilang.Task;
 public class BilangGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    fsa.generateFile("generated_code.py", BilangGenerator.toCode(resource));
+    BilangGenerator.toCode(resource, fsa);
   }
 
-  public static CharSequence toCode(final Resource resource) {
+  public static CharSequence toCode(final Resource resource, final IFileSystemAccess2 fsa) {
     StringConcatenation _builder = new StringConcatenation();
     {
       EList<EObject> _contents = resource.getContents();
       for(final EObject element : _contents) {
-        CharSequence _generate = BilangGenerator.generate(element);
+        CharSequence _generate = BilangGenerator.generate(element, fsa);
         _builder.append(_generate);
         _builder.newLineIfNotEmpty();
       }
@@ -39,14 +49,12 @@ public class BilangGenerator extends AbstractGenerator {
     return _builder;
   }
 
-  public static CharSequence generate(final EObject element) {
+  public static CharSequence generate(final EObject element, final IFileSystemAccess2 fsa) {
     CharSequence _switchResult = null;
     boolean _matched = false;
     if (element instanceof Task) {
       _matched=true;
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("it is a task");
-      _switchResult = _builder;
+      BilangGenerator.generate(((Task)element), fsa);
     }
     if (!_matched) {
       if (element instanceof CompoundProcess) {
@@ -70,5 +78,58 @@ public class BilangGenerator extends AbstractGenerator {
       _switchResult = _builder;
     }
     return _switchResult;
+  }
+
+  public static String generateStaticContent(final String filename) {
+    try {
+      String _xblockexpression = null;
+      {
+        final InputStream input = BilangGenerator.class.getResourceAsStream((("templates/" + filename) + ".py"));
+        final InputStreamReader reader = new InputStreamReader(input, StandardCharsets.UTF_8);
+        final String staticContent = IterableExtensions.join(reader.readAllLines(), "\n");
+        _xblockexpression = staticContent;
+      }
+      return _xblockexpression;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  public static void generate(final Task task, final IFileSystemAccess2 fsa) {
+    boolean _matched = false;
+    if (task instanceof SendEmail) {
+      _matched=true;
+      StringConcatenation _builder = new StringConcatenation();
+      String _generateStaticContent = BilangGenerator.generateStaticContent("sendemail");
+      _builder.append(_generateStaticContent);
+      _builder.newLineIfNotEmpty();
+      _builder.newLine();
+      _builder.append("# dynamically added");
+      _builder.newLine();
+      {
+        EList<Person> _person = ((SendEmail)task).getPerson();
+        for(final Person person : _person) {
+          {
+            if ((person instanceof PersonByEmail)) {
+              final Content content = ((SendEmail)task).getContent();
+              {
+                if ((content instanceof Message)) {
+                  _builder.newLineIfNotEmpty();
+                  _builder.append("sendemail(\"");
+                  String _emailaddress = ((PersonByEmail)person).getEmailaddress();
+                  _builder.append(_emailaddress);
+                  _builder.append("\", \"");
+                  String _join = IterableExtensions.join(((Message)content).getMessage().getParts(), " ");
+                  _builder.append(_join);
+                  _builder.append("\")");
+                  _builder.newLineIfNotEmpty();
+                }
+              }
+            }
+          }
+        }
+      }
+      fsa.generateFile("execute.py", _builder);
+    }
   }
 }

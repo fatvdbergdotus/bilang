@@ -27,12 +27,12 @@ DeletePerson: 'delete' alias=PersonByAlias;
 Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
 PersonByEmail: 'person' 'with' 'email' emailaddress=EMAIL_ADDRESS;
 PersonByAlias: 'person' 'with' 'alias' alias=ID;
-PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=TextWithSpaces;
+PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=STRING;
 PersonByPhone: 'person' 'with' 'phone' 'number' phone=PHONE_NUMBER;
 PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=HOUSENUMBER;
 
 Content: Message | Document;
-Message: 'message' message=TextWithSpaces;
+Message: 'message' message=STRING;
 
 Document: Invoice | DocumentPerson;
 Invoice: 'invoice' 'with' 'code' code=INT;
@@ -48,7 +48,5 @@ terminal PHONE_NUMBER: '+' ('0'..'9')+;
 
 terminal HOUSENUMBER:
     ('0'..'9')+ ('a'..'z' | 'A'..'Z')?;
-
-TextWithSpaces: parts+=ID parts+=ID+;
 
 terminal DUTCH_POSTCODE: ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9') ' '? ('A'..'Z') ('A'..'Z');

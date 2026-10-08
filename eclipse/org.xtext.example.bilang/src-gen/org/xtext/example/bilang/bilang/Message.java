@@ -23,25 +23,25 @@ package org.xtext.example.bilang.bilang;
 public interface Message extends Content
 {
   /**
-   * Returns the value of the '<em><b>Message</b></em>' containment reference.
+   * Returns the value of the '<em><b>Message</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Message</em>' containment reference.
-   * @see #setMessage(TextWithSpaces)
+   * @return the value of the '<em>Message</em>' attribute.
+   * @see #setMessage(String)
    * @see org.xtext.example.bilang.bilang.BilangPackage#getMessage_Message()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  TextWithSpaces getMessage();
+  String getMessage();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.bilang.bilang.Message#getMessage <em>Message</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.bilang.bilang.Message#getMessage <em>Message</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Message</em>' containment reference.
+   * @param value the new value of the '<em>Message</em>' attribute.
    * @see #getMessage()
    * @generated
    */
-  void setMessage(TextWithSpaces value);
+  void setMessage(String value);
 
 } // Message

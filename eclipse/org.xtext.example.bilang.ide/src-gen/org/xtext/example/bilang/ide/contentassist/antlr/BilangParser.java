@@ -32,15 +32,16 @@ public class BilangParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, BilangGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getModelAccess().getAlternatives(), "rule__Model__Alternatives");
-			builder.put(grammarAccess.getTaskAccess().getAlternatives(), "rule__Task__Alternatives");
+			builder.put(grammarAccess.getTaskAccess().getKindAlternatives_1_0(), "rule__Task__KindAlternatives_1_0");
 			builder.put(grammarAccess.getRetrieveTaskAccess().getAlternatives(), "rule__RetrieveTask__Alternatives");
 			builder.put(grammarAccess.getSendTaskAccess().getAlternatives(), "rule__SendTask__Alternatives");
 			builder.put(grammarAccess.getPersonTaskAccess().getAlternatives(), "rule__PersonTask__Alternatives");
 			builder.put(grammarAccess.getPersonAccess().getAlternatives(), "rule__Person__Alternatives");
 			builder.put(grammarAccess.getContentAccess().getAlternatives(), "rule__Content__Alternatives");
 			builder.put(grammarAccess.getDocumentAccess().getAlternatives(), "rule__Document__Alternatives");
+			builder.put(grammarAccess.getTaskAccess().getGroup(), "rule__Task__Group__0");
+			builder.put(grammarAccess.getEmptyProcessAccess().getGroup(), "rule__EmptyProcess__Group__0");
 			builder.put(grammarAccess.getCompoundProcessAccess().getGroup(), "rule__CompoundProcess__Group__0");
-			builder.put(grammarAccess.getCompoundProcessAccess().getGroup_2(), "rule__CompoundProcess__Group_2__0");
 			builder.put(grammarAccess.getAbstractProcessAccess().getGroup(), "rule__AbstractProcess__Group__0");
 			builder.put(grammarAccess.getParamValueAccess().getGroup(), "rule__ParamValue__Group__0");
 			builder.put(grammarAccess.getSendEmailAccess().getGroup(), "rule__SendEmail__Group__0");
@@ -61,12 +62,12 @@ public class BilangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMessageAccess().getGroup(), "rule__Message__Group__0");
 			builder.put(grammarAccess.getInvoiceAccess().getGroup(), "rule__Invoice__Group__0");
 			builder.put(grammarAccess.getDocumentPersonAccess().getGroup(), "rule__DocumentPerson__Group__0");
-			builder.put(grammarAccess.getTextWithSpacesAccess().getGroup(), "rule__TextWithSpaces__Group__0");
-			builder.put(grammarAccess.getCompoundProcessAccess().getTaskAssignment_2_1(), "rule__CompoundProcess__TaskAssignment_2_1");
+			builder.put(grammarAccess.getTaskAccess().getKindAssignment_1(), "rule__Task__KindAssignment_1");
+			builder.put(grammarAccess.getCompoundProcessAccess().getTaskAssignment_2(), "rule__CompoundProcess__TaskAssignment_2");
 			builder.put(grammarAccess.getAbstractProcessAccess().getNameAssignment_4(), "rule__AbstractProcess__NameAssignment_4");
 			builder.put(grammarAccess.getAbstractProcessAccess().getParamValuesAssignment_6(), "rule__AbstractProcess__ParamValuesAssignment_6");
 			builder.put(grammarAccess.getParamValueAccess().getParamAssignment_1(), "rule__ParamValue__ParamAssignment_1");
-			builder.put(grammarAccess.getParamValueAccess().getValueAssignment_3(), "rule__ParamValue__ValueAssignment_3");
+			builder.put(grammarAccess.getParamValueAccess().getValueAssignment_4(), "rule__ParamValue__ValueAssignment_4");
 			builder.put(grammarAccess.getSendEmailAccess().getPersonAssignment_4(), "rule__SendEmail__PersonAssignment_4");
 			builder.put(grammarAccess.getSendEmailAccess().getContentAssignment_7(), "rule__SendEmail__ContentAssignment_7");
 			builder.put(grammarAccess.getSendSMSAccess().getPersonAssignment_4(), "rule__SendSMS__PersonAssignment_4");
@@ -90,8 +91,6 @@ public class BilangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMessageAccess().getMessageAssignment_1(), "rule__Message__MessageAssignment_1");
 			builder.put(grammarAccess.getInvoiceAccess().getCodeAssignment_3(), "rule__Invoice__CodeAssignment_3");
 			builder.put(grammarAccess.getDocumentPersonAccess().getPersonAssignment_2(), "rule__DocumentPerson__PersonAssignment_2");
-			builder.put(grammarAccess.getTextWithSpacesAccess().getPartsAssignment_0(), "rule__TextWithSpaces__PartsAssignment_0");
-			builder.put(grammarAccess.getTextWithSpacesAccess().getPartsAssignment_1(), "rule__TextWithSpaces__PartsAssignment_1");
 		}
 	}
 	

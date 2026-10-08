@@ -102,6 +102,14 @@ ruleModel returns [EObject current=null]
 			$current = $this_AbstractProcess_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getModelAccess().getEmptyProcessParserRuleCall_3());
+		}
+		ruleEmptyProcess
+		{
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -121,31 +129,91 @@ ruleTask returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='task'
 		{
-			newCompositeNode(grammarAccess.getTaskAccess().getSendTaskParserRuleCall_0());
+			newLeafNode(otherlv_0, grammarAccess.getTaskAccess().getTaskKeyword_0());
 		}
-		this_SendTask_0=ruleSendTask
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTaskAccess().getKindSendTaskParserRuleCall_1_0_0());
+					}
+					lv_kind_1_1=ruleSendTask
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTaskRule());
+						}
+						add(
+							$current,
+							"kind",
+							lv_kind_1_1,
+							"org.xtext.example.bilang.Bilang.SendTask");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getTaskAccess().getKindRetrieveTaskParserRuleCall_1_0_1());
+					}
+					lv_kind_1_2=ruleRetrieveTask
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTaskRule());
+						}
+						add(
+							$current,
+							"kind",
+							lv_kind_1_2,
+							"org.xtext.example.bilang.Bilang.RetrieveTask");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getTaskAccess().getKindPersonTaskParserRuleCall_1_0_2());
+					}
+					lv_kind_1_3=rulePersonTask
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTaskRule());
+						}
+						add(
+							$current,
+							"kind",
+							lv_kind_1_3,
+							"org.xtext.example.bilang.Bilang.PersonTask");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEmptyProcess
+entryRuleEmptyProcess returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEmptyProcessRule()); }
+	iv_ruleEmptyProcess=ruleEmptyProcess
+	{ $current=$iv_ruleEmptyProcess.current.getText(); }
+	EOF;
+
+// Rule EmptyProcess
+ruleEmptyProcess returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='empty'
 		{
-			$current = $this_SendTask_0.current;
-			afterParserOrEnumRuleCall();
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getEmptyProcessAccess().getEmptyKeyword_0());
 		}
-		    |
+		kw='process'
 		{
-			newCompositeNode(grammarAccess.getTaskAccess().getRetrieveTaskParserRuleCall_1());
-		}
-		this_RetrieveTask_1=ruleRetrieveTask
-		{
-			$current = $this_RetrieveTask_1.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getTaskAccess().getPersonTaskParserRuleCall_2());
-		}
-		this_PersonTask_2=rulePersonTask
-		{
-			$current = $this_PersonTask_2.current;
-			afterParserOrEnumRuleCall();
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getEmptyProcessAccess().getProcessKeyword_1());
 		}
 	)
 ;
@@ -175,28 +243,22 @@ ruleCompoundProcess returns [EObject current=null]
 			newLeafNode(otherlv_1, grammarAccess.getCompoundProcessAccess().getProcessKeyword_1());
 		}
 		(
-			otherlv_2='task'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getCompoundProcessAccess().getTaskKeyword_2_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCompoundProcessAccess().getTaskTaskParserRuleCall_2_1_0());
+				{
+					newCompositeNode(grammarAccess.getCompoundProcessAccess().getTaskTaskParserRuleCall_2_0());
+				}
+				lv_task_2_0=ruleTask
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCompoundProcessRule());
 					}
-					lv_task_3_0=ruleTask
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCompoundProcessRule());
-						}
-						add(
-							$current,
-							"task",
-							lv_task_3_0,
-							"org.xtext.example.bilang.Bilang.Task");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					add(
+						$current,
+						"task",
+						lv_task_2_0,
+						"org.xtext.example.bilang.Bilang.Task");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)+
 	)
@@ -316,15 +378,19 @@ ruleParamValue returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='value'
+		otherlv_2='and'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getParamValueAccess().getValueKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getParamValueAccess().getAndKeyword_2());
+		}
+		otherlv_3='value'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getParamValueAccess().getValueKeyword_3());
 		}
 		(
 			(
-				lv_value_3_0=RULE_ID
+				lv_value_4_0=RULE_ID
 				{
-					newLeafNode(lv_value_3_0, grammarAccess.getParamValueAccess().getValueIDTerminalRuleCall_3_0());
+					newLeafNode(lv_value_4_0, grammarAccess.getParamValueAccess().getValueIDTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -333,7 +399,7 @@ ruleParamValue returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"value",
-						lv_value_3_0,
+						lv_value_4_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -1256,20 +1322,19 @@ rulePersonByName returns [EObject current=null]
 		}
 		(
 			(
+				lv_lastName_8_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getPersonByNameAccess().getLastNameTextWithSpacesParserRuleCall_8_0());
+					newLeafNode(lv_lastName_8_0, grammarAccess.getPersonByNameAccess().getLastNameSTRINGTerminalRuleCall_8_0());
 				}
-				lv_lastName_8_0=ruleTextWithSpaces
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPersonByNameRule());
+						$current = createModelElement(grammarAccess.getPersonByNameRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"lastName",
 						lv_lastName_8_0,
-						"org.xtext.example.bilang.Bilang.TextWithSpaces");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -1470,20 +1535,19 @@ ruleMessage returns [EObject current=null]
 		}
 		(
 			(
+				lv_message_1_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getMessageAccess().getMessageTextWithSpacesParserRuleCall_1_0());
+					newLeafNode(lv_message_1_0, grammarAccess.getMessageAccess().getMessageSTRINGTerminalRuleCall_1_0());
 				}
-				lv_message_1_0=ruleTextWithSpaces
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMessageRule());
+						$current = createModelElement(grammarAccess.getMessageRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"message",
 						lv_message_1_0,
-						"org.xtext.example.bilang.Bilang.TextWithSpaces");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -1618,61 +1682,6 @@ ruleDocumentPerson returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleTextWithSpaces
-entryRuleTextWithSpaces returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTextWithSpacesRule()); }
-	iv_ruleTextWithSpaces=ruleTextWithSpaces
-	{ $current=$iv_ruleTextWithSpaces.current; }
-	EOF;
-
-// Rule TextWithSpaces
-ruleTextWithSpaces returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_parts_0_0=RULE_ID
-				{
-					newLeafNode(lv_parts_0_0, grammarAccess.getTextWithSpacesAccess().getPartsIDTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTextWithSpacesRule());
-					}
-					addWithLastConsumed(
-						$current,
-						"parts",
-						lv_parts_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				lv_parts_1_0=RULE_ID
-				{
-					newLeafNode(lv_parts_1_0, grammarAccess.getTextWithSpacesAccess().getPartsIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTextWithSpacesRule());
-					}
-					addWithLastConsumed(
-						$current,
-						"parts",
-						lv_parts_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)+
 	)
 ;
 

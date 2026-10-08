@@ -35,7 +35,7 @@ import org.xtext.example.bilang.bilang.RetrievePersons;
 import org.xtext.example.bilang.bilang.SendEmail;
 import org.xtext.example.bilang.bilang.SendSMS;
 import org.xtext.example.bilang.bilang.SendSnailMail;
-import org.xtext.example.bilang.bilang.TextWithSpaces;
+import org.xtext.example.bilang.bilang.Task;
 import org.xtext.example.bilang.services.BilangGrammarAccess;
 
 @SuppressWarnings("all")
@@ -112,8 +112,8 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case BilangPackage.SEND_SNAIL_MAIL:
 				sequence_SendSnailMail(context, (SendSnailMail) semanticObject); 
 				return; 
-			case BilangPackage.TEXT_WITH_SPACES:
-				sequence_TextWithSpaces(context, (TextWithSpaces) semanticObject); 
+			case BilangPackage.TASK:
+				sequence_Task(context, (Task) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -138,8 +138,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns AddPerson
-	 *     Task returns AddPerson
 	 *     PersonTask returns AddPerson
 	 *     AddPerson returns AddPerson
 	 *
@@ -155,8 +153,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns CallPerson
-	 *     Task returns CallPerson
 	 *     PersonTask returns CallPerson
 	 *     CallPerson returns CallPerson
 	 *
@@ -193,8 +189,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns DeletePerson
-	 *     Task returns DeletePerson
 	 *     PersonTask returns DeletePerson
 	 *     DeletePerson returns DeletePerson
 	 *
@@ -264,7 +258,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Message returns Message
 	 *
 	 * Constraint:
-	 *     message=TextWithSpaces
+	 *     message=STRING
 	 * </pre>
 	 */
 	protected void sequence_Message(ISerializationContext context, Message semanticObject) {
@@ -273,7 +267,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.MESSAGE__MESSAGE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMessageAccess().getMessageTextWithSpacesParserRuleCall_1_0(), semanticObject.getMessage());
+		feeder.accept(grammarAccess.getMessageAccess().getMessageSTRINGTerminalRuleCall_1_0(), semanticObject.getMessage());
 		feeder.finish();
 	}
 	
@@ -296,7 +290,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParamValueAccess().getParamIDTerminalRuleCall_1_0(), semanticObject.getParam());
-		feeder.accept(grammarAccess.getParamValueAccess().getValueIDTerminalRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getParamValueAccess().getValueIDTerminalRuleCall_4_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -374,7 +368,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     PersonByName returns PersonByName
 	 *
 	 * Constraint:
-	 *     (firstName=ID lastName=TextWithSpaces)
+	 *     (firstName=ID lastName=STRING)
 	 * </pre>
 	 */
 	protected void sequence_PersonByName(ISerializationContext context, PersonByName semanticObject) {
@@ -386,7 +380,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPersonByNameAccess().getFirstNameIDTerminalRuleCall_4_0(), semanticObject.getFirstName());
-		feeder.accept(grammarAccess.getPersonByNameAccess().getLastNameTextWithSpacesParserRuleCall_8_0(), semanticObject.getLastName());
+		feeder.accept(grammarAccess.getPersonByNameAccess().getLastNameSTRINGTerminalRuleCall_8_0(), semanticObject.getLastName());
 		feeder.finish();
 	}
 	
@@ -415,8 +409,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns RetrieveDocument
-	 *     Task returns RetrieveDocument
 	 *     RetrieveTask returns RetrieveDocument
 	 *     RetrieveDocument returns RetrieveDocument
 	 *
@@ -438,8 +430,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns RetrieveFullAddress
-	 *     Task returns RetrieveFullAddress
 	 *     RetrieveTask returns RetrieveFullAddress
 	 *     RetrieveFullAddress returns RetrieveFullAddress
 	 *
@@ -461,8 +451,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns RetrievePersons
-	 *     Task returns RetrievePersons
 	 *     RetrieveTask returns RetrievePersons
 	 *     RetrievePersons returns RetrievePersons
 	 *
@@ -484,8 +472,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns SendEmail
-	 *     Task returns SendEmail
 	 *     SendTask returns SendEmail
 	 *     SendEmail returns SendEmail
 	 *
@@ -501,8 +487,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns SendSMS
-	 *     Task returns SendSMS
 	 *     SendTask returns SendSMS
 	 *     SendSMS returns SendSMS
 	 *
@@ -518,8 +502,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns SendSnailMail
-	 *     Task returns SendSnailMail
 	 *     SendTask returns SendSnailMail
 	 *     SendSnailMail returns SendSnailMail
 	 *
@@ -535,13 +517,14 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     TextWithSpaces returns TextWithSpaces
+	 *     Model returns Task
+	 *     Task returns Task
 	 *
 	 * Constraint:
-	 *     (parts+=ID parts+=ID+)
+	 *     (kind+=SendTask | kind+=RetrieveTask | kind+=PersonTask)
 	 * </pre>
 	 */
-	protected void sequence_TextWithSpaces(ISerializationContext context, TextWithSpaces semanticObject) {
+	protected void sequence_Task(ISerializationContext context, Task semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

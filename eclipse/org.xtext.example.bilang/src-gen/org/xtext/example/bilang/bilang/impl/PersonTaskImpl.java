@@ -5,6 +5,8 @@ package org.xtext.example.bilang.bilang.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.PersonTask;
 
@@ -15,7 +17,7 @@ import org.xtext.example.bilang.bilang.PersonTask;
  *
  * @generated
  */
-public class PersonTaskImpl extends TaskImpl implements PersonTask
+public class PersonTaskImpl extends MinimalEObjectImpl.Container implements PersonTask
 {
   /**
    * <!-- begin-user-doc -->

@@ -21,16 +21,17 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBilangParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_EMAIL_ADDRESS", "RULE_PHONE_NUMBER", "RULE_DUTCH_POSTCODE", "RULE_HOUSENUMBER", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'compound'", "'process'", "'task'", "'abstract'", "'with'", "'name'", "'and'", "'parameter'", "'value'", "'send'", "'an'", "'email'", "'to'", "'content'", "'sms'", "'a'", "'snail'", "'mail'", "'retrieve'", "'document'", "'full'", "'address'", "'of'", "'persons'", "'search'", "'phone'", "'call'", "'add'", "'delete'", "'person'", "'alias'", "'first'", "'last'", "'number'", "'zip'", "'code'", "'house'", "'message'", "'invoice'", "'information'", "'about'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_EMAIL_ADDRESS", "RULE_STRING", "RULE_PHONE_NUMBER", "RULE_DUTCH_POSTCODE", "RULE_HOUSENUMBER", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'task'", "'empty'", "'process'", "'compound'", "'abstract'", "'with'", "'name'", "'and'", "'parameter'", "'value'", "'send'", "'an'", "'email'", "'to'", "'content'", "'sms'", "'a'", "'snail'", "'mail'", "'retrieve'", "'document'", "'full'", "'address'", "'of'", "'persons'", "'search'", "'phone'", "'call'", "'add'", "'delete'", "'person'", "'alias'", "'first'", "'last'", "'number'", "'zip'", "'code'", "'house'", "'message'", "'invoice'", "'information'", "'about'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
-    public static final int RULE_DUTCH_POSTCODE=7;
+    public static final int RULE_DUTCH_POSTCODE=8;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__55=55;
+    public static final int T__56=56;
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__53=53;
@@ -39,7 +40,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
-    public static final int RULE_INT=9;
+    public static final int RULE_INT=10;
     public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=11;
@@ -48,7 +49,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
     public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
-    public static final int RULE_STRING=10;
+    public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=12;
     public static final int T__37=37;
     public static final int T__38=38;
@@ -60,14 +61,14 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
     public static final int EOF=-1;
     public static final int T__30=30;
     public static final int T__31=31;
-    public static final int RULE_HOUSENUMBER=8;
+    public static final int RULE_HOUSENUMBER=9;
     public static final int T__32=32;
     public static final int RULE_WS=13;
     public static final int RULE_EMAIL_ADDRESS=5;
     public static final int RULE_ANY_OTHER=14;
     public static final int T__48=48;
     public static final int T__49=49;
-    public static final int RULE_PHONE_NUMBER=6;
+    public static final int RULE_PHONE_NUMBER=7;
     public static final int T__44=44;
     public static final int T__45=45;
     public static final int T__46=46;
@@ -153,7 +154,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModel"
-    // InternalBilang.g:71:1: ruleModel returns [EObject current=null] : (this_Task_0= ruleTask | this_CompoundProcess_1= ruleCompoundProcess | this_AbstractProcess_2= ruleAbstractProcess ) ;
+    // InternalBilang.g:71:1: ruleModel returns [EObject current=null] : (this_Task_0= ruleTask | this_CompoundProcess_1= ruleCompoundProcess | this_AbstractProcess_2= ruleAbstractProcess | ruleEmptyProcess ) ;
     public final EObject ruleModel() throws RecognitionException {
         EObject current = null;
 
@@ -168,29 +169,30 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:77:2: ( (this_Task_0= ruleTask | this_CompoundProcess_1= ruleCompoundProcess | this_AbstractProcess_2= ruleAbstractProcess ) )
-            // InternalBilang.g:78:2: (this_Task_0= ruleTask | this_CompoundProcess_1= ruleCompoundProcess | this_AbstractProcess_2= ruleAbstractProcess )
+            // InternalBilang.g:77:2: ( (this_Task_0= ruleTask | this_CompoundProcess_1= ruleCompoundProcess | this_AbstractProcess_2= ruleAbstractProcess | ruleEmptyProcess ) )
+            // InternalBilang.g:78:2: (this_Task_0= ruleTask | this_CompoundProcess_1= ruleCompoundProcess | this_AbstractProcess_2= ruleAbstractProcess | ruleEmptyProcess )
             {
-            // InternalBilang.g:78:2: (this_Task_0= ruleTask | this_CompoundProcess_1= ruleCompoundProcess | this_AbstractProcess_2= ruleAbstractProcess )
-            int alt1=3;
+            // InternalBilang.g:78:2: (this_Task_0= ruleTask | this_CompoundProcess_1= ruleCompoundProcess | this_AbstractProcess_2= ruleAbstractProcess | ruleEmptyProcess )
+            int alt1=4;
             switch ( input.LA(1) ) {
-            case 24:
-            case 33:
-            case 40:
-            case 42:
-            case 43:
+            case 15:
                 {
                 alt1=1;
                 }
                 break;
-            case 15:
+            case 18:
                 {
                 alt1=2;
                 }
                 break;
-            case 18:
+            case 19:
                 {
                 alt1=3;
+                }
+                break;
+            case 16:
+                {
+                alt1=4;
                 }
                 break;
             default:
@@ -255,6 +257,23 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 4 :
+                    // InternalBilang.g:106:3: ruleEmptyProcess
+                    {
+
+                    			newCompositeNode(grammarAccess.getModelAccess().getEmptyProcessParserRuleCall_3());
+                    		
+                    pushFollow(FOLLOW_2);
+                    ruleEmptyProcess();
+
+                    state._fsp--;
+
+
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
 
             }
 
@@ -278,7 +297,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTask"
-    // InternalBilang.g:109:1: entryRuleTask returns [EObject current=null] : iv_ruleTask= ruleTask EOF ;
+    // InternalBilang.g:117:1: entryRuleTask returns [EObject current=null] : iv_ruleTask= ruleTask EOF ;
     public final EObject entryRuleTask() throws RecognitionException {
         EObject current = null;
 
@@ -286,8 +305,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:109:45: (iv_ruleTask= ruleTask EOF )
-            // InternalBilang.g:110:2: iv_ruleTask= ruleTask EOF
+            // InternalBilang.g:117:45: (iv_ruleTask= ruleTask EOF )
+            // InternalBilang.g:118:2: iv_ruleTask= ruleTask EOF
             {
              newCompositeNode(grammarAccess.getTaskRule()); 
             pushFollow(FOLLOW_1);
@@ -314,40 +333,54 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTask"
-    // InternalBilang.g:116:1: ruleTask returns [EObject current=null] : (this_SendTask_0= ruleSendTask | this_RetrieveTask_1= ruleRetrieveTask | this_PersonTask_2= rulePersonTask ) ;
+    // InternalBilang.g:124:1: ruleTask returns [EObject current=null] : (otherlv_0= 'task' ( ( (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask ) ) ) ) ;
     public final EObject ruleTask() throws RecognitionException {
         EObject current = null;
 
-        EObject this_SendTask_0 = null;
+        Token otherlv_0=null;
+        EObject lv_kind_1_1 = null;
 
-        EObject this_RetrieveTask_1 = null;
+        EObject lv_kind_1_2 = null;
 
-        EObject this_PersonTask_2 = null;
+        EObject lv_kind_1_3 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBilang.g:122:2: ( (this_SendTask_0= ruleSendTask | this_RetrieveTask_1= ruleRetrieveTask | this_PersonTask_2= rulePersonTask ) )
-            // InternalBilang.g:123:2: (this_SendTask_0= ruleSendTask | this_RetrieveTask_1= ruleRetrieveTask | this_PersonTask_2= rulePersonTask )
+            // InternalBilang.g:130:2: ( (otherlv_0= 'task' ( ( (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask ) ) ) ) )
+            // InternalBilang.g:131:2: (otherlv_0= 'task' ( ( (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask ) ) ) )
             {
-            // InternalBilang.g:123:2: (this_SendTask_0= ruleSendTask | this_RetrieveTask_1= ruleRetrieveTask | this_PersonTask_2= rulePersonTask )
+            // InternalBilang.g:131:2: (otherlv_0= 'task' ( ( (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask ) ) ) )
+            // InternalBilang.g:132:3: otherlv_0= 'task' ( ( (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask ) ) )
+            {
+            otherlv_0=(Token)match(input,15,FOLLOW_3); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getTaskAccess().getTaskKeyword_0());
+            		
+            // InternalBilang.g:136:3: ( ( (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask ) ) )
+            // InternalBilang.g:137:4: ( (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask ) )
+            {
+            // InternalBilang.g:137:4: ( (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask ) )
+            // InternalBilang.g:138:5: (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask )
+            {
+            // InternalBilang.g:138:5: (lv_kind_1_1= ruleSendTask | lv_kind_1_2= ruleRetrieveTask | lv_kind_1_3= rulePersonTask )
             int alt2=3;
             switch ( input.LA(1) ) {
-            case 24:
+            case 25:
                 {
                 alt2=1;
                 }
                 break;
-            case 33:
+            case 34:
                 {
                 alt2=2;
                 }
                 break;
-            case 40:
-            case 42:
+            case 41:
             case 43:
+            case 44:
                 {
                 alt2=3;
                 }
@@ -361,59 +394,89 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             switch (alt2) {
                 case 1 :
-                    // InternalBilang.g:124:3: this_SendTask_0= ruleSendTask
+                    // InternalBilang.g:139:6: lv_kind_1_1= ruleSendTask
                     {
 
-                    			newCompositeNode(grammarAccess.getTaskAccess().getSendTaskParserRuleCall_0());
-                    		
+                    						newCompositeNode(grammarAccess.getTaskAccess().getKindSendTaskParserRuleCall_1_0_0());
+                    					
                     pushFollow(FOLLOW_2);
-                    this_SendTask_0=ruleSendTask();
+                    lv_kind_1_1=ruleSendTask();
 
                     state._fsp--;
 
 
-                    			current = this_SendTask_0;
-                    			afterParserOrEnumRuleCall();
-                    		
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getTaskRule());
+                    						}
+                    						add(
+                    							current,
+                    							"kind",
+                    							lv_kind_1_1,
+                    							"org.xtext.example.bilang.Bilang.SendTask");
+                    						afterParserOrEnumRuleCall();
+                    					
 
                     }
                     break;
                 case 2 :
-                    // InternalBilang.g:133:3: this_RetrieveTask_1= ruleRetrieveTask
+                    // InternalBilang.g:155:6: lv_kind_1_2= ruleRetrieveTask
                     {
 
-                    			newCompositeNode(grammarAccess.getTaskAccess().getRetrieveTaskParserRuleCall_1());
-                    		
+                    						newCompositeNode(grammarAccess.getTaskAccess().getKindRetrieveTaskParserRuleCall_1_0_1());
+                    					
                     pushFollow(FOLLOW_2);
-                    this_RetrieveTask_1=ruleRetrieveTask();
+                    lv_kind_1_2=ruleRetrieveTask();
 
                     state._fsp--;
 
 
-                    			current = this_RetrieveTask_1;
-                    			afterParserOrEnumRuleCall();
-                    		
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getTaskRule());
+                    						}
+                    						add(
+                    							current,
+                    							"kind",
+                    							lv_kind_1_2,
+                    							"org.xtext.example.bilang.Bilang.RetrieveTask");
+                    						afterParserOrEnumRuleCall();
+                    					
 
                     }
                     break;
                 case 3 :
-                    // InternalBilang.g:142:3: this_PersonTask_2= rulePersonTask
+                    // InternalBilang.g:171:6: lv_kind_1_3= rulePersonTask
                     {
 
-                    			newCompositeNode(grammarAccess.getTaskAccess().getPersonTaskParserRuleCall_2());
-                    		
+                    						newCompositeNode(grammarAccess.getTaskAccess().getKindPersonTaskParserRuleCall_1_0_2());
+                    					
                     pushFollow(FOLLOW_2);
-                    this_PersonTask_2=rulePersonTask();
+                    lv_kind_1_3=rulePersonTask();
 
                     state._fsp--;
 
 
-                    			current = this_PersonTask_2;
-                    			afterParserOrEnumRuleCall();
-                    		
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getTaskRule());
+                    						}
+                    						add(
+                    							current,
+                    							"kind",
+                    							lv_kind_1_3,
+                    							"org.xtext.example.bilang.Bilang.PersonTask");
+                    						afterParserOrEnumRuleCall();
+                    					
 
                     }
                     break;
+
+            }
+
+
+            }
+
+
+            }
+
 
             }
 
@@ -436,8 +499,93 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleTask"
 
 
+    // $ANTLR start "entryRuleEmptyProcess"
+    // InternalBilang.g:193:1: entryRuleEmptyProcess returns [String current=null] : iv_ruleEmptyProcess= ruleEmptyProcess EOF ;
+    public final String entryRuleEmptyProcess() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleEmptyProcess = null;
+
+
+        try {
+            // InternalBilang.g:193:52: (iv_ruleEmptyProcess= ruleEmptyProcess EOF )
+            // InternalBilang.g:194:2: iv_ruleEmptyProcess= ruleEmptyProcess EOF
+            {
+             newCompositeNode(grammarAccess.getEmptyProcessRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleEmptyProcess=ruleEmptyProcess();
+
+            state._fsp--;
+
+             current =iv_ruleEmptyProcess.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleEmptyProcess"
+
+
+    // $ANTLR start "ruleEmptyProcess"
+    // InternalBilang.g:200:1: ruleEmptyProcess returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'empty' kw= 'process' ) ;
+    public final AntlrDatatypeRuleToken ruleEmptyProcess() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalBilang.g:206:2: ( (kw= 'empty' kw= 'process' ) )
+            // InternalBilang.g:207:2: (kw= 'empty' kw= 'process' )
+            {
+            // InternalBilang.g:207:2: (kw= 'empty' kw= 'process' )
+            // InternalBilang.g:208:3: kw= 'empty' kw= 'process'
+            {
+            kw=(Token)match(input,16,FOLLOW_4); 
+
+            			current.merge(kw);
+            			newLeafNode(kw, grammarAccess.getEmptyProcessAccess().getEmptyKeyword_0());
+            		
+            kw=(Token)match(input,17,FOLLOW_2); 
+
+            			current.merge(kw);
+            			newLeafNode(kw, grammarAccess.getEmptyProcessAccess().getProcessKeyword_1());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleEmptyProcess"
+
+
     // $ANTLR start "entryRuleCompoundProcess"
-    // InternalBilang.g:154:1: entryRuleCompoundProcess returns [EObject current=null] : iv_ruleCompoundProcess= ruleCompoundProcess EOF ;
+    // InternalBilang.g:222:1: entryRuleCompoundProcess returns [EObject current=null] : iv_ruleCompoundProcess= ruleCompoundProcess EOF ;
     public final EObject entryRuleCompoundProcess() throws RecognitionException {
         EObject current = null;
 
@@ -445,8 +593,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:154:56: (iv_ruleCompoundProcess= ruleCompoundProcess EOF )
-            // InternalBilang.g:155:2: iv_ruleCompoundProcess= ruleCompoundProcess EOF
+            // InternalBilang.g:222:56: (iv_ruleCompoundProcess= ruleCompoundProcess EOF )
+            // InternalBilang.g:223:2: iv_ruleCompoundProcess= ruleCompoundProcess EOF
             {
              newCompositeNode(grammarAccess.getCompoundProcessRule()); 
             pushFollow(FOLLOW_1);
@@ -473,82 +621,71 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCompoundProcess"
-    // InternalBilang.g:161:1: ruleCompoundProcess returns [EObject current=null] : (otherlv_0= 'compound' otherlv_1= 'process' (otherlv_2= 'task' ( (lv_task_3_0= ruleTask ) ) )+ ) ;
+    // InternalBilang.g:229:1: ruleCompoundProcess returns [EObject current=null] : (otherlv_0= 'compound' otherlv_1= 'process' ( (lv_task_2_0= ruleTask ) )+ ) ;
     public final EObject ruleCompoundProcess() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        EObject lv_task_3_0 = null;
+        EObject lv_task_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBilang.g:167:2: ( (otherlv_0= 'compound' otherlv_1= 'process' (otherlv_2= 'task' ( (lv_task_3_0= ruleTask ) ) )+ ) )
-            // InternalBilang.g:168:2: (otherlv_0= 'compound' otherlv_1= 'process' (otherlv_2= 'task' ( (lv_task_3_0= ruleTask ) ) )+ )
+            // InternalBilang.g:235:2: ( (otherlv_0= 'compound' otherlv_1= 'process' ( (lv_task_2_0= ruleTask ) )+ ) )
+            // InternalBilang.g:236:2: (otherlv_0= 'compound' otherlv_1= 'process' ( (lv_task_2_0= ruleTask ) )+ )
             {
-            // InternalBilang.g:168:2: (otherlv_0= 'compound' otherlv_1= 'process' (otherlv_2= 'task' ( (lv_task_3_0= ruleTask ) ) )+ )
-            // InternalBilang.g:169:3: otherlv_0= 'compound' otherlv_1= 'process' (otherlv_2= 'task' ( (lv_task_3_0= ruleTask ) ) )+
+            // InternalBilang.g:236:2: (otherlv_0= 'compound' otherlv_1= 'process' ( (lv_task_2_0= ruleTask ) )+ )
+            // InternalBilang.g:237:3: otherlv_0= 'compound' otherlv_1= 'process' ( (lv_task_2_0= ruleTask ) )+
             {
-            otherlv_0=(Token)match(input,15,FOLLOW_3); 
+            otherlv_0=(Token)match(input,18,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCompoundProcessAccess().getCompoundKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_4); 
+            otherlv_1=(Token)match(input,17,FOLLOW_5); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCompoundProcessAccess().getProcessKeyword_1());
             		
-            // InternalBilang.g:177:3: (otherlv_2= 'task' ( (lv_task_3_0= ruleTask ) ) )+
+            // InternalBilang.g:245:3: ( (lv_task_2_0= ruleTask ) )+
             int cnt3=0;
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==17) ) {
+                if ( (LA3_0==15) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalBilang.g:178:4: otherlv_2= 'task' ( (lv_task_3_0= ruleTask ) )
+            	    // InternalBilang.g:246:4: (lv_task_2_0= ruleTask )
             	    {
-            	    otherlv_2=(Token)match(input,17,FOLLOW_5); 
-
-            	    				newLeafNode(otherlv_2, grammarAccess.getCompoundProcessAccess().getTaskKeyword_2_0());
-            	    			
-            	    // InternalBilang.g:182:4: ( (lv_task_3_0= ruleTask ) )
-            	    // InternalBilang.g:183:5: (lv_task_3_0= ruleTask )
-            	    {
-            	    // InternalBilang.g:183:5: (lv_task_3_0= ruleTask )
-            	    // InternalBilang.g:184:6: lv_task_3_0= ruleTask
+            	    // InternalBilang.g:246:4: (lv_task_2_0= ruleTask )
+            	    // InternalBilang.g:247:5: lv_task_2_0= ruleTask
             	    {
 
-            	    						newCompositeNode(grammarAccess.getCompoundProcessAccess().getTaskTaskParserRuleCall_2_1_0());
-            	    					
+            	    					newCompositeNode(grammarAccess.getCompoundProcessAccess().getTaskTaskParserRuleCall_2_0());
+            	    				
             	    pushFollow(FOLLOW_6);
-            	    lv_task_3_0=ruleTask();
+            	    lv_task_2_0=ruleTask();
 
             	    state._fsp--;
 
 
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getCompoundProcessRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"task",
-            	    							lv_task_3_0,
-            	    							"org.xtext.example.bilang.Bilang.Task");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getCompoundProcessRule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"task",
+            	    						lv_task_2_0,
+            	    						"org.xtext.example.bilang.Bilang.Task");
+            	    					afterParserOrEnumRuleCall();
+            	    				
 
             	    }
 
@@ -588,7 +725,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAbstractProcess"
-    // InternalBilang.g:206:1: entryRuleAbstractProcess returns [EObject current=null] : iv_ruleAbstractProcess= ruleAbstractProcess EOF ;
+    // InternalBilang.g:268:1: entryRuleAbstractProcess returns [EObject current=null] : iv_ruleAbstractProcess= ruleAbstractProcess EOF ;
     public final EObject entryRuleAbstractProcess() throws RecognitionException {
         EObject current = null;
 
@@ -596,8 +733,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:206:56: (iv_ruleAbstractProcess= ruleAbstractProcess EOF )
-            // InternalBilang.g:207:2: iv_ruleAbstractProcess= ruleAbstractProcess EOF
+            // InternalBilang.g:268:56: (iv_ruleAbstractProcess= ruleAbstractProcess EOF )
+            // InternalBilang.g:269:2: iv_ruleAbstractProcess= ruleAbstractProcess EOF
             {
              newCompositeNode(grammarAccess.getAbstractProcessRule()); 
             pushFollow(FOLLOW_1);
@@ -624,7 +761,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAbstractProcess"
-    // InternalBilang.g:213:1: ruleAbstractProcess returns [EObject current=null] : (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ ) ;
+    // InternalBilang.g:275:1: ruleAbstractProcess returns [EObject current=null] : (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ ) ;
     public final EObject ruleAbstractProcess() throws RecognitionException {
         EObject current = null;
 
@@ -641,33 +778,33 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:219:2: ( (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ ) )
-            // InternalBilang.g:220:2: (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ )
+            // InternalBilang.g:281:2: ( (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ ) )
+            // InternalBilang.g:282:2: (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ )
             {
-            // InternalBilang.g:220:2: (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ )
-            // InternalBilang.g:221:3: otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+
+            // InternalBilang.g:282:2: (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ )
+            // InternalBilang.g:283:3: otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_3); 
+            otherlv_0=(Token)match(input,19,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAbstractProcessAccess().getAbstractKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_7); 
+            otherlv_1=(Token)match(input,17,FOLLOW_7); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAbstractProcessAccess().getProcessKeyword_1());
             		
-            otherlv_2=(Token)match(input,19,FOLLOW_8); 
+            otherlv_2=(Token)match(input,20,FOLLOW_8); 
 
             			newLeafNode(otherlv_2, grammarAccess.getAbstractProcessAccess().getWithKeyword_2());
             		
-            otherlv_3=(Token)match(input,20,FOLLOW_9); 
+            otherlv_3=(Token)match(input,21,FOLLOW_9); 
 
             			newLeafNode(otherlv_3, grammarAccess.getAbstractProcessAccess().getNameKeyword_3());
             		
-            // InternalBilang.g:237:3: ( (lv_name_4_0= RULE_ID ) )
-            // InternalBilang.g:238:4: (lv_name_4_0= RULE_ID )
+            // InternalBilang.g:299:3: ( (lv_name_4_0= RULE_ID ) )
+            // InternalBilang.g:300:4: (lv_name_4_0= RULE_ID )
             {
-            // InternalBilang.g:238:4: (lv_name_4_0= RULE_ID )
-            // InternalBilang.g:239:5: lv_name_4_0= RULE_ID
+            // InternalBilang.g:300:4: (lv_name_4_0= RULE_ID )
+            // InternalBilang.g:301:5: lv_name_4_0= RULE_ID
             {
             lv_name_4_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
@@ -689,28 +826,28 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,21,FOLLOW_11); 
+            otherlv_5=(Token)match(input,22,FOLLOW_11); 
 
             			newLeafNode(otherlv_5, grammarAccess.getAbstractProcessAccess().getAndKeyword_5());
             		
-            // InternalBilang.g:259:3: ( (lv_paramValues_6_0= ruleParamValue ) )+
+            // InternalBilang.g:321:3: ( (lv_paramValues_6_0= ruleParamValue ) )+
             int cnt4=0;
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==22) ) {
+                if ( (LA4_0==23) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalBilang.g:260:4: (lv_paramValues_6_0= ruleParamValue )
+            	    // InternalBilang.g:322:4: (lv_paramValues_6_0= ruleParamValue )
             	    {
-            	    // InternalBilang.g:260:4: (lv_paramValues_6_0= ruleParamValue )
-            	    // InternalBilang.g:261:5: lv_paramValues_6_0= ruleParamValue
+            	    // InternalBilang.g:322:4: (lv_paramValues_6_0= ruleParamValue )
+            	    // InternalBilang.g:323:5: lv_paramValues_6_0= ruleParamValue
             	    {
 
             	    					newCompositeNode(grammarAccess.getAbstractProcessAccess().getParamValuesParamValueParserRuleCall_6_0());
@@ -770,7 +907,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParamValue"
-    // InternalBilang.g:282:1: entryRuleParamValue returns [EObject current=null] : iv_ruleParamValue= ruleParamValue EOF ;
+    // InternalBilang.g:344:1: entryRuleParamValue returns [EObject current=null] : iv_ruleParamValue= ruleParamValue EOF ;
     public final EObject entryRuleParamValue() throws RecognitionException {
         EObject current = null;
 
@@ -778,8 +915,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:282:51: (iv_ruleParamValue= ruleParamValue EOF )
-            // InternalBilang.g:283:2: iv_ruleParamValue= ruleParamValue EOF
+            // InternalBilang.g:344:51: (iv_ruleParamValue= ruleParamValue EOF )
+            // InternalBilang.g:345:2: iv_ruleParamValue= ruleParamValue EOF
             {
              newCompositeNode(grammarAccess.getParamValueRule()); 
             pushFollow(FOLLOW_1);
@@ -806,36 +943,37 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParamValue"
-    // InternalBilang.g:289:1: ruleParamValue returns [EObject current=null] : (otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'value' ( (lv_value_3_0= RULE_ID ) ) ) ;
+    // InternalBilang.g:351:1: ruleParamValue returns [EObject current=null] : (otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'and' otherlv_3= 'value' ( (lv_value_4_0= RULE_ID ) ) ) ;
     public final EObject ruleParamValue() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_param_1_0=null;
         Token otherlv_2=null;
-        Token lv_value_3_0=null;
+        Token otherlv_3=null;
+        Token lv_value_4_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalBilang.g:295:2: ( (otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'value' ( (lv_value_3_0= RULE_ID ) ) ) )
-            // InternalBilang.g:296:2: (otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'value' ( (lv_value_3_0= RULE_ID ) ) )
+            // InternalBilang.g:357:2: ( (otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'and' otherlv_3= 'value' ( (lv_value_4_0= RULE_ID ) ) ) )
+            // InternalBilang.g:358:2: (otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'and' otherlv_3= 'value' ( (lv_value_4_0= RULE_ID ) ) )
             {
-            // InternalBilang.g:296:2: (otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'value' ( (lv_value_3_0= RULE_ID ) ) )
-            // InternalBilang.g:297:3: otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'value' ( (lv_value_3_0= RULE_ID ) )
+            // InternalBilang.g:358:2: (otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'and' otherlv_3= 'value' ( (lv_value_4_0= RULE_ID ) ) )
+            // InternalBilang.g:359:3: otherlv_0= 'parameter' ( (lv_param_1_0= RULE_ID ) ) otherlv_2= 'and' otherlv_3= 'value' ( (lv_value_4_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_9); 
+            otherlv_0=(Token)match(input,23,FOLLOW_9); 
 
             			newLeafNode(otherlv_0, grammarAccess.getParamValueAccess().getParameterKeyword_0());
             		
-            // InternalBilang.g:301:3: ( (lv_param_1_0= RULE_ID ) )
-            // InternalBilang.g:302:4: (lv_param_1_0= RULE_ID )
+            // InternalBilang.g:363:3: ( (lv_param_1_0= RULE_ID ) )
+            // InternalBilang.g:364:4: (lv_param_1_0= RULE_ID )
             {
-            // InternalBilang.g:302:4: (lv_param_1_0= RULE_ID )
-            // InternalBilang.g:303:5: lv_param_1_0= RULE_ID
+            // InternalBilang.g:364:4: (lv_param_1_0= RULE_ID )
+            // InternalBilang.g:365:5: lv_param_1_0= RULE_ID
             {
-            lv_param_1_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+            lv_param_1_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
             					newLeafNode(lv_param_1_0, grammarAccess.getParamValueAccess().getParamIDTerminalRuleCall_1_0());
             				
@@ -855,19 +993,23 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,23,FOLLOW_9); 
+            otherlv_2=(Token)match(input,22,FOLLOW_13); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getParamValueAccess().getValueKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getParamValueAccess().getAndKeyword_2());
             		
-            // InternalBilang.g:323:3: ( (lv_value_3_0= RULE_ID ) )
-            // InternalBilang.g:324:4: (lv_value_3_0= RULE_ID )
-            {
-            // InternalBilang.g:324:4: (lv_value_3_0= RULE_ID )
-            // InternalBilang.g:325:5: lv_value_3_0= RULE_ID
-            {
-            lv_value_3_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            otherlv_3=(Token)match(input,24,FOLLOW_9); 
 
-            					newLeafNode(lv_value_3_0, grammarAccess.getParamValueAccess().getValueIDTerminalRuleCall_3_0());
+            			newLeafNode(otherlv_3, grammarAccess.getParamValueAccess().getValueKeyword_3());
+            		
+            // InternalBilang.g:389:3: ( (lv_value_4_0= RULE_ID ) )
+            // InternalBilang.g:390:4: (lv_value_4_0= RULE_ID )
+            {
+            // InternalBilang.g:390:4: (lv_value_4_0= RULE_ID )
+            // InternalBilang.g:391:5: lv_value_4_0= RULE_ID
+            {
+            lv_value_4_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+            					newLeafNode(lv_value_4_0, grammarAccess.getParamValueAccess().getValueIDTerminalRuleCall_4_0());
             				
 
             					if (current==null) {
@@ -876,7 +1018,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"value",
-            						lv_value_3_0,
+            						lv_value_4_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -908,7 +1050,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRetrieveTask"
-    // InternalBilang.g:345:1: entryRuleRetrieveTask returns [EObject current=null] : iv_ruleRetrieveTask= ruleRetrieveTask EOF ;
+    // InternalBilang.g:411:1: entryRuleRetrieveTask returns [EObject current=null] : iv_ruleRetrieveTask= ruleRetrieveTask EOF ;
     public final EObject entryRuleRetrieveTask() throws RecognitionException {
         EObject current = null;
 
@@ -916,8 +1058,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:345:53: (iv_ruleRetrieveTask= ruleRetrieveTask EOF )
-            // InternalBilang.g:346:2: iv_ruleRetrieveTask= ruleRetrieveTask EOF
+            // InternalBilang.g:411:53: (iv_ruleRetrieveTask= ruleRetrieveTask EOF )
+            // InternalBilang.g:412:2: iv_ruleRetrieveTask= ruleRetrieveTask EOF
             {
              newCompositeNode(grammarAccess.getRetrieveTaskRule()); 
             pushFollow(FOLLOW_1);
@@ -944,7 +1086,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRetrieveTask"
-    // InternalBilang.g:352:1: ruleRetrieveTask returns [EObject current=null] : (this_RetrieveDocument_0= ruleRetrieveDocument | this_RetrieveFullAddress_1= ruleRetrieveFullAddress | this_RetrievePersons_2= ruleRetrievePersons ) ;
+    // InternalBilang.g:418:1: ruleRetrieveTask returns [EObject current=null] : (this_RetrieveDocument_0= ruleRetrieveDocument | this_RetrieveFullAddress_1= ruleRetrieveFullAddress | this_RetrievePersons_2= ruleRetrievePersons ) ;
     public final EObject ruleRetrieveTask() throws RecognitionException {
         EObject current = null;
 
@@ -959,26 +1101,26 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:358:2: ( (this_RetrieveDocument_0= ruleRetrieveDocument | this_RetrieveFullAddress_1= ruleRetrieveFullAddress | this_RetrievePersons_2= ruleRetrievePersons ) )
-            // InternalBilang.g:359:2: (this_RetrieveDocument_0= ruleRetrieveDocument | this_RetrieveFullAddress_1= ruleRetrieveFullAddress | this_RetrievePersons_2= ruleRetrievePersons )
+            // InternalBilang.g:424:2: ( (this_RetrieveDocument_0= ruleRetrieveDocument | this_RetrieveFullAddress_1= ruleRetrieveFullAddress | this_RetrievePersons_2= ruleRetrievePersons ) )
+            // InternalBilang.g:425:2: (this_RetrieveDocument_0= ruleRetrieveDocument | this_RetrieveFullAddress_1= ruleRetrieveFullAddress | this_RetrievePersons_2= ruleRetrievePersons )
             {
-            // InternalBilang.g:359:2: (this_RetrieveDocument_0= ruleRetrieveDocument | this_RetrieveFullAddress_1= ruleRetrieveFullAddress | this_RetrievePersons_2= ruleRetrievePersons )
+            // InternalBilang.g:425:2: (this_RetrieveDocument_0= ruleRetrieveDocument | this_RetrieveFullAddress_1= ruleRetrieveFullAddress | this_RetrievePersons_2= ruleRetrievePersons )
             int alt5=3;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==33) ) {
+            if ( (LA5_0==34) ) {
                 switch ( input.LA(2) ) {
-                case 38:
+                case 39:
                     {
                     alt5=3;
                     }
                     break;
-                case 34:
+                case 35:
                     {
                     alt5=1;
                     }
                     break;
-                case 35:
+                case 36:
                     {
                     alt5=2;
                     }
@@ -999,7 +1141,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalBilang.g:360:3: this_RetrieveDocument_0= ruleRetrieveDocument
+                    // InternalBilang.g:426:3: this_RetrieveDocument_0= ruleRetrieveDocument
                     {
 
                     			newCompositeNode(grammarAccess.getRetrieveTaskAccess().getRetrieveDocumentParserRuleCall_0());
@@ -1017,7 +1159,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBilang.g:369:3: this_RetrieveFullAddress_1= ruleRetrieveFullAddress
+                    // InternalBilang.g:435:3: this_RetrieveFullAddress_1= ruleRetrieveFullAddress
                     {
 
                     			newCompositeNode(grammarAccess.getRetrieveTaskAccess().getRetrieveFullAddressParserRuleCall_1());
@@ -1035,7 +1177,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBilang.g:378:3: this_RetrievePersons_2= ruleRetrievePersons
+                    // InternalBilang.g:444:3: this_RetrievePersons_2= ruleRetrievePersons
                     {
 
                     			newCompositeNode(grammarAccess.getRetrieveTaskAccess().getRetrievePersonsParserRuleCall_2());
@@ -1075,7 +1217,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSendTask"
-    // InternalBilang.g:390:1: entryRuleSendTask returns [EObject current=null] : iv_ruleSendTask= ruleSendTask EOF ;
+    // InternalBilang.g:456:1: entryRuleSendTask returns [EObject current=null] : iv_ruleSendTask= ruleSendTask EOF ;
     public final EObject entryRuleSendTask() throws RecognitionException {
         EObject current = null;
 
@@ -1083,8 +1225,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:390:49: (iv_ruleSendTask= ruleSendTask EOF )
-            // InternalBilang.g:391:2: iv_ruleSendTask= ruleSendTask EOF
+            // InternalBilang.g:456:49: (iv_ruleSendTask= ruleSendTask EOF )
+            // InternalBilang.g:457:2: iv_ruleSendTask= ruleSendTask EOF
             {
              newCompositeNode(grammarAccess.getSendTaskRule()); 
             pushFollow(FOLLOW_1);
@@ -1111,7 +1253,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSendTask"
-    // InternalBilang.g:397:1: ruleSendTask returns [EObject current=null] : (this_SendEmail_0= ruleSendEmail | this_SendSMS_1= ruleSendSMS | this_SendSnailMail_2= ruleSendSnailMail ) ;
+    // InternalBilang.g:463:1: ruleSendTask returns [EObject current=null] : (this_SendEmail_0= ruleSendEmail | this_SendSMS_1= ruleSendSMS | this_SendSnailMail_2= ruleSendSnailMail ) ;
     public final EObject ruleSendTask() throws RecognitionException {
         EObject current = null;
 
@@ -1126,26 +1268,26 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:403:2: ( (this_SendEmail_0= ruleSendEmail | this_SendSMS_1= ruleSendSMS | this_SendSnailMail_2= ruleSendSnailMail ) )
-            // InternalBilang.g:404:2: (this_SendEmail_0= ruleSendEmail | this_SendSMS_1= ruleSendSMS | this_SendSnailMail_2= ruleSendSnailMail )
+            // InternalBilang.g:469:2: ( (this_SendEmail_0= ruleSendEmail | this_SendSMS_1= ruleSendSMS | this_SendSnailMail_2= ruleSendSnailMail ) )
+            // InternalBilang.g:470:2: (this_SendEmail_0= ruleSendEmail | this_SendSMS_1= ruleSendSMS | this_SendSnailMail_2= ruleSendSnailMail )
             {
-            // InternalBilang.g:404:2: (this_SendEmail_0= ruleSendEmail | this_SendSMS_1= ruleSendSMS | this_SendSnailMail_2= ruleSendSnailMail )
+            // InternalBilang.g:470:2: (this_SendEmail_0= ruleSendEmail | this_SendSMS_1= ruleSendSMS | this_SendSnailMail_2= ruleSendSnailMail )
             int alt6=3;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==24) ) {
+            if ( (LA6_0==25) ) {
                 int LA6_1 = input.LA(2);
 
-                if ( (LA6_1==30) ) {
+                if ( (LA6_1==31) ) {
                     alt6=3;
                 }
-                else if ( (LA6_1==25) ) {
+                else if ( (LA6_1==26) ) {
                     int LA6_3 = input.LA(3);
 
-                    if ( (LA6_3==29) ) {
+                    if ( (LA6_3==30) ) {
                         alt6=2;
                     }
-                    else if ( (LA6_3==26) ) {
+                    else if ( (LA6_3==27) ) {
                         alt6=1;
                     }
                     else {
@@ -1170,7 +1312,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalBilang.g:405:3: this_SendEmail_0= ruleSendEmail
+                    // InternalBilang.g:471:3: this_SendEmail_0= ruleSendEmail
                     {
 
                     			newCompositeNode(grammarAccess.getSendTaskAccess().getSendEmailParserRuleCall_0());
@@ -1188,7 +1330,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBilang.g:414:3: this_SendSMS_1= ruleSendSMS
+                    // InternalBilang.g:480:3: this_SendSMS_1= ruleSendSMS
                     {
 
                     			newCompositeNode(grammarAccess.getSendTaskAccess().getSendSMSParserRuleCall_1());
@@ -1206,7 +1348,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBilang.g:423:3: this_SendSnailMail_2= ruleSendSnailMail
+                    // InternalBilang.g:489:3: this_SendSnailMail_2= ruleSendSnailMail
                     {
 
                     			newCompositeNode(grammarAccess.getSendTaskAccess().getSendSnailMailParserRuleCall_2());
@@ -1246,7 +1388,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePersonTask"
-    // InternalBilang.g:435:1: entryRulePersonTask returns [EObject current=null] : iv_rulePersonTask= rulePersonTask EOF ;
+    // InternalBilang.g:501:1: entryRulePersonTask returns [EObject current=null] : iv_rulePersonTask= rulePersonTask EOF ;
     public final EObject entryRulePersonTask() throws RecognitionException {
         EObject current = null;
 
@@ -1254,8 +1396,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:435:51: (iv_rulePersonTask= rulePersonTask EOF )
-            // InternalBilang.g:436:2: iv_rulePersonTask= rulePersonTask EOF
+            // InternalBilang.g:501:51: (iv_rulePersonTask= rulePersonTask EOF )
+            // InternalBilang.g:502:2: iv_rulePersonTask= rulePersonTask EOF
             {
              newCompositeNode(grammarAccess.getPersonTaskRule()); 
             pushFollow(FOLLOW_1);
@@ -1282,7 +1424,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePersonTask"
-    // InternalBilang.g:442:1: rulePersonTask returns [EObject current=null] : (this_CallPerson_0= ruleCallPerson | this_AddPerson_1= ruleAddPerson | this_DeletePerson_2= ruleDeletePerson ) ;
+    // InternalBilang.g:508:1: rulePersonTask returns [EObject current=null] : (this_CallPerson_0= ruleCallPerson | this_AddPerson_1= ruleAddPerson | this_DeletePerson_2= ruleDeletePerson ) ;
     public final EObject rulePersonTask() throws RecognitionException {
         EObject current = null;
 
@@ -1297,23 +1439,23 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:448:2: ( (this_CallPerson_0= ruleCallPerson | this_AddPerson_1= ruleAddPerson | this_DeletePerson_2= ruleDeletePerson ) )
-            // InternalBilang.g:449:2: (this_CallPerson_0= ruleCallPerson | this_AddPerson_1= ruleAddPerson | this_DeletePerson_2= ruleDeletePerson )
+            // InternalBilang.g:514:2: ( (this_CallPerson_0= ruleCallPerson | this_AddPerson_1= ruleAddPerson | this_DeletePerson_2= ruleDeletePerson ) )
+            // InternalBilang.g:515:2: (this_CallPerson_0= ruleCallPerson | this_AddPerson_1= ruleAddPerson | this_DeletePerson_2= ruleDeletePerson )
             {
-            // InternalBilang.g:449:2: (this_CallPerson_0= ruleCallPerson | this_AddPerson_1= ruleAddPerson | this_DeletePerson_2= ruleDeletePerson )
+            // InternalBilang.g:515:2: (this_CallPerson_0= ruleCallPerson | this_AddPerson_1= ruleAddPerson | this_DeletePerson_2= ruleDeletePerson )
             int alt7=3;
             switch ( input.LA(1) ) {
-            case 40:
+            case 41:
                 {
                 alt7=1;
                 }
                 break;
-            case 42:
+            case 43:
                 {
                 alt7=2;
                 }
                 break;
-            case 43:
+            case 44:
                 {
                 alt7=3;
                 }
@@ -1327,7 +1469,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             switch (alt7) {
                 case 1 :
-                    // InternalBilang.g:450:3: this_CallPerson_0= ruleCallPerson
+                    // InternalBilang.g:516:3: this_CallPerson_0= ruleCallPerson
                     {
 
                     			newCompositeNode(grammarAccess.getPersonTaskAccess().getCallPersonParserRuleCall_0());
@@ -1345,7 +1487,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBilang.g:459:3: this_AddPerson_1= ruleAddPerson
+                    // InternalBilang.g:525:3: this_AddPerson_1= ruleAddPerson
                     {
 
                     			newCompositeNode(grammarAccess.getPersonTaskAccess().getAddPersonParserRuleCall_1());
@@ -1363,7 +1505,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBilang.g:468:3: this_DeletePerson_2= ruleDeletePerson
+                    // InternalBilang.g:534:3: this_DeletePerson_2= ruleDeletePerson
                     {
 
                     			newCompositeNode(grammarAccess.getPersonTaskAccess().getDeletePersonParserRuleCall_2());
@@ -1403,7 +1545,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSendEmail"
-    // InternalBilang.g:480:1: entryRuleSendEmail returns [EObject current=null] : iv_ruleSendEmail= ruleSendEmail EOF ;
+    // InternalBilang.g:546:1: entryRuleSendEmail returns [EObject current=null] : iv_ruleSendEmail= ruleSendEmail EOF ;
     public final EObject entryRuleSendEmail() throws RecognitionException {
         EObject current = null;
 
@@ -1411,8 +1553,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:480:50: (iv_ruleSendEmail= ruleSendEmail EOF )
-            // InternalBilang.g:481:2: iv_ruleSendEmail= ruleSendEmail EOF
+            // InternalBilang.g:546:50: (iv_ruleSendEmail= ruleSendEmail EOF )
+            // InternalBilang.g:547:2: iv_ruleSendEmail= ruleSendEmail EOF
             {
              newCompositeNode(grammarAccess.getSendEmailRule()); 
             pushFollow(FOLLOW_1);
@@ -1439,7 +1581,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSendEmail"
-    // InternalBilang.g:487:1: ruleSendEmail returns [EObject current=null] : (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) ) ;
+    // InternalBilang.g:553:1: ruleSendEmail returns [EObject current=null] : (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) ) ;
     public final EObject ruleSendEmail() throws RecognitionException {
         EObject current = null;
 
@@ -1458,46 +1600,46 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:493:2: ( (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) ) )
-            // InternalBilang.g:494:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
+            // InternalBilang.g:559:2: ( (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) ) )
+            // InternalBilang.g:560:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
             {
-            // InternalBilang.g:494:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
-            // InternalBilang.g:495:3: otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) )
+            // InternalBilang.g:560:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
+            // InternalBilang.g:561:3: otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) )
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_14); 
+            otherlv_0=(Token)match(input,25,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSendEmailAccess().getSendKeyword_0());
             		
-            otherlv_1=(Token)match(input,25,FOLLOW_15); 
+            otherlv_1=(Token)match(input,26,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSendEmailAccess().getAnKeyword_1());
             		
-            otherlv_2=(Token)match(input,26,FOLLOW_16); 
+            otherlv_2=(Token)match(input,27,FOLLOW_16); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSendEmailAccess().getEmailKeyword_2());
             		
-            otherlv_3=(Token)match(input,27,FOLLOW_17); 
+            otherlv_3=(Token)match(input,28,FOLLOW_17); 
 
             			newLeafNode(otherlv_3, grammarAccess.getSendEmailAccess().getToKeyword_3());
             		
-            // InternalBilang.g:511:3: ( (lv_person_4_0= rulePerson ) )+
+            // InternalBilang.g:577:3: ( (lv_person_4_0= rulePerson ) )+
             int cnt8=0;
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==44) ) {
+                if ( (LA8_0==45) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalBilang.g:512:4: (lv_person_4_0= rulePerson )
+            	    // InternalBilang.g:578:4: (lv_person_4_0= rulePerson )
             	    {
-            	    // InternalBilang.g:512:4: (lv_person_4_0= rulePerson )
-            	    // InternalBilang.g:513:5: lv_person_4_0= rulePerson
+            	    // InternalBilang.g:578:4: (lv_person_4_0= rulePerson )
+            	    // InternalBilang.g:579:5: lv_person_4_0= rulePerson
             	    {
 
             	    					newCompositeNode(grammarAccess.getSendEmailAccess().getPersonPersonParserRuleCall_4_0());
@@ -1534,19 +1676,19 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                 cnt8++;
             } while (true);
 
-            otherlv_5=(Token)match(input,19,FOLLOW_19); 
+            otherlv_5=(Token)match(input,20,FOLLOW_19); 
 
             			newLeafNode(otherlv_5, grammarAccess.getSendEmailAccess().getWithKeyword_5());
             		
-            otherlv_6=(Token)match(input,28,FOLLOW_20); 
+            otherlv_6=(Token)match(input,29,FOLLOW_20); 
 
             			newLeafNode(otherlv_6, grammarAccess.getSendEmailAccess().getContentKeyword_6());
             		
-            // InternalBilang.g:538:3: ( (lv_content_7_0= ruleContent ) )
-            // InternalBilang.g:539:4: (lv_content_7_0= ruleContent )
+            // InternalBilang.g:604:3: ( (lv_content_7_0= ruleContent ) )
+            // InternalBilang.g:605:4: (lv_content_7_0= ruleContent )
             {
-            // InternalBilang.g:539:4: (lv_content_7_0= ruleContent )
-            // InternalBilang.g:540:5: lv_content_7_0= ruleContent
+            // InternalBilang.g:605:4: (lv_content_7_0= ruleContent )
+            // InternalBilang.g:606:5: lv_content_7_0= ruleContent
             {
 
             					newCompositeNode(grammarAccess.getSendEmailAccess().getContentContentParserRuleCall_7_0());
@@ -1596,7 +1738,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSendSMS"
-    // InternalBilang.g:561:1: entryRuleSendSMS returns [EObject current=null] : iv_ruleSendSMS= ruleSendSMS EOF ;
+    // InternalBilang.g:627:1: entryRuleSendSMS returns [EObject current=null] : iv_ruleSendSMS= ruleSendSMS EOF ;
     public final EObject entryRuleSendSMS() throws RecognitionException {
         EObject current = null;
 
@@ -1604,8 +1746,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:561:48: (iv_ruleSendSMS= ruleSendSMS EOF )
-            // InternalBilang.g:562:2: iv_ruleSendSMS= ruleSendSMS EOF
+            // InternalBilang.g:627:48: (iv_ruleSendSMS= ruleSendSMS EOF )
+            // InternalBilang.g:628:2: iv_ruleSendSMS= ruleSendSMS EOF
             {
              newCompositeNode(grammarAccess.getSendSMSRule()); 
             pushFollow(FOLLOW_1);
@@ -1632,7 +1774,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSendSMS"
-    // InternalBilang.g:568:1: ruleSendSMS returns [EObject current=null] : (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) ) ;
+    // InternalBilang.g:634:1: ruleSendSMS returns [EObject current=null] : (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) ) ;
     public final EObject ruleSendSMS() throws RecognitionException {
         EObject current = null;
 
@@ -1651,46 +1793,46 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:574:2: ( (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) ) )
-            // InternalBilang.g:575:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
+            // InternalBilang.g:640:2: ( (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) ) )
+            // InternalBilang.g:641:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
             {
-            // InternalBilang.g:575:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
-            // InternalBilang.g:576:3: otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) )
+            // InternalBilang.g:641:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
+            // InternalBilang.g:642:3: otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) )
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_14); 
+            otherlv_0=(Token)match(input,25,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSendSMSAccess().getSendKeyword_0());
             		
-            otherlv_1=(Token)match(input,25,FOLLOW_21); 
+            otherlv_1=(Token)match(input,26,FOLLOW_21); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSendSMSAccess().getAnKeyword_1());
             		
-            otherlv_2=(Token)match(input,29,FOLLOW_16); 
+            otherlv_2=(Token)match(input,30,FOLLOW_16); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSendSMSAccess().getSmsKeyword_2());
             		
-            otherlv_3=(Token)match(input,27,FOLLOW_17); 
+            otherlv_3=(Token)match(input,28,FOLLOW_17); 
 
             			newLeafNode(otherlv_3, grammarAccess.getSendSMSAccess().getToKeyword_3());
             		
-            // InternalBilang.g:592:3: ( (lv_person_4_0= rulePerson ) )+
+            // InternalBilang.g:658:3: ( (lv_person_4_0= rulePerson ) )+
             int cnt9=0;
             loop9:
             do {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==44) ) {
+                if ( (LA9_0==45) ) {
                     alt9=1;
                 }
 
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalBilang.g:593:4: (lv_person_4_0= rulePerson )
+            	    // InternalBilang.g:659:4: (lv_person_4_0= rulePerson )
             	    {
-            	    // InternalBilang.g:593:4: (lv_person_4_0= rulePerson )
-            	    // InternalBilang.g:594:5: lv_person_4_0= rulePerson
+            	    // InternalBilang.g:659:4: (lv_person_4_0= rulePerson )
+            	    // InternalBilang.g:660:5: lv_person_4_0= rulePerson
             	    {
 
             	    					newCompositeNode(grammarAccess.getSendSMSAccess().getPersonPersonParserRuleCall_4_0());
@@ -1727,19 +1869,19 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                 cnt9++;
             } while (true);
 
-            otherlv_5=(Token)match(input,19,FOLLOW_19); 
+            otherlv_5=(Token)match(input,20,FOLLOW_19); 
 
             			newLeafNode(otherlv_5, grammarAccess.getSendSMSAccess().getWithKeyword_5());
             		
-            otherlv_6=(Token)match(input,28,FOLLOW_20); 
+            otherlv_6=(Token)match(input,29,FOLLOW_20); 
 
             			newLeafNode(otherlv_6, grammarAccess.getSendSMSAccess().getContentKeyword_6());
             		
-            // InternalBilang.g:619:3: ( (lv_content_7_0= ruleContent ) )
-            // InternalBilang.g:620:4: (lv_content_7_0= ruleContent )
+            // InternalBilang.g:685:3: ( (lv_content_7_0= ruleContent ) )
+            // InternalBilang.g:686:4: (lv_content_7_0= ruleContent )
             {
-            // InternalBilang.g:620:4: (lv_content_7_0= ruleContent )
-            // InternalBilang.g:621:5: lv_content_7_0= ruleContent
+            // InternalBilang.g:686:4: (lv_content_7_0= ruleContent )
+            // InternalBilang.g:687:5: lv_content_7_0= ruleContent
             {
 
             					newCompositeNode(grammarAccess.getSendSMSAccess().getContentContentParserRuleCall_7_0());
@@ -1789,7 +1931,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSendSnailMail"
-    // InternalBilang.g:642:1: entryRuleSendSnailMail returns [EObject current=null] : iv_ruleSendSnailMail= ruleSendSnailMail EOF ;
+    // InternalBilang.g:708:1: entryRuleSendSnailMail returns [EObject current=null] : iv_ruleSendSnailMail= ruleSendSnailMail EOF ;
     public final EObject entryRuleSendSnailMail() throws RecognitionException {
         EObject current = null;
 
@@ -1797,8 +1939,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:642:54: (iv_ruleSendSnailMail= ruleSendSnailMail EOF )
-            // InternalBilang.g:643:2: iv_ruleSendSnailMail= ruleSendSnailMail EOF
+            // InternalBilang.g:708:54: (iv_ruleSendSnailMail= ruleSendSnailMail EOF )
+            // InternalBilang.g:709:2: iv_ruleSendSnailMail= ruleSendSnailMail EOF
             {
              newCompositeNode(grammarAccess.getSendSnailMailRule()); 
             pushFollow(FOLLOW_1);
@@ -1825,7 +1967,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSendSnailMail"
-    // InternalBilang.g:649:1: ruleSendSnailMail returns [EObject current=null] : (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) ) ;
+    // InternalBilang.g:715:1: ruleSendSnailMail returns [EObject current=null] : (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) ) ;
     public final EObject ruleSendSnailMail() throws RecognitionException {
         EObject current = null;
 
@@ -1845,50 +1987,50 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:655:2: ( (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) ) )
-            // InternalBilang.g:656:2: (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) )
+            // InternalBilang.g:721:2: ( (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) ) )
+            // InternalBilang.g:722:2: (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) )
             {
-            // InternalBilang.g:656:2: (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) )
-            // InternalBilang.g:657:3: otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) )
+            // InternalBilang.g:722:2: (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) )
+            // InternalBilang.g:723:3: otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) )
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_22); 
+            otherlv_0=(Token)match(input,25,FOLLOW_22); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSendSnailMailAccess().getSendKeyword_0());
             		
-            otherlv_1=(Token)match(input,30,FOLLOW_23); 
+            otherlv_1=(Token)match(input,31,FOLLOW_23); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSendSnailMailAccess().getAKeyword_1());
             		
-            otherlv_2=(Token)match(input,31,FOLLOW_24); 
+            otherlv_2=(Token)match(input,32,FOLLOW_24); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSendSnailMailAccess().getSnailKeyword_2());
             		
-            otherlv_3=(Token)match(input,32,FOLLOW_16); 
+            otherlv_3=(Token)match(input,33,FOLLOW_16); 
 
             			newLeafNode(otherlv_3, grammarAccess.getSendSnailMailAccess().getMailKeyword_3());
             		
-            otherlv_4=(Token)match(input,27,FOLLOW_17); 
+            otherlv_4=(Token)match(input,28,FOLLOW_17); 
 
             			newLeafNode(otherlv_4, grammarAccess.getSendSnailMailAccess().getToKeyword_4());
             		
-            // InternalBilang.g:677:3: ( (lv_person_5_0= rulePerson ) )+
+            // InternalBilang.g:743:3: ( (lv_person_5_0= rulePerson ) )+
             int cnt10=0;
             loop10:
             do {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==44) ) {
+                if ( (LA10_0==45) ) {
                     alt10=1;
                 }
 
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalBilang.g:678:4: (lv_person_5_0= rulePerson )
+            	    // InternalBilang.g:744:4: (lv_person_5_0= rulePerson )
             	    {
-            	    // InternalBilang.g:678:4: (lv_person_5_0= rulePerson )
-            	    // InternalBilang.g:679:5: lv_person_5_0= rulePerson
+            	    // InternalBilang.g:744:4: (lv_person_5_0= rulePerson )
+            	    // InternalBilang.g:745:5: lv_person_5_0= rulePerson
             	    {
 
             	    					newCompositeNode(grammarAccess.getSendSnailMailAccess().getPersonPersonParserRuleCall_5_0());
@@ -1925,19 +2067,19 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                 cnt10++;
             } while (true);
 
-            otherlv_6=(Token)match(input,19,FOLLOW_19); 
+            otherlv_6=(Token)match(input,20,FOLLOW_19); 
 
             			newLeafNode(otherlv_6, grammarAccess.getSendSnailMailAccess().getWithKeyword_6());
             		
-            otherlv_7=(Token)match(input,28,FOLLOW_20); 
+            otherlv_7=(Token)match(input,29,FOLLOW_20); 
 
             			newLeafNode(otherlv_7, grammarAccess.getSendSnailMailAccess().getContentKeyword_7());
             		
-            // InternalBilang.g:704:3: ( (lv_content_8_0= ruleContent ) )
-            // InternalBilang.g:705:4: (lv_content_8_0= ruleContent )
+            // InternalBilang.g:770:3: ( (lv_content_8_0= ruleContent ) )
+            // InternalBilang.g:771:4: (lv_content_8_0= ruleContent )
             {
-            // InternalBilang.g:705:4: (lv_content_8_0= ruleContent )
-            // InternalBilang.g:706:5: lv_content_8_0= ruleContent
+            // InternalBilang.g:771:4: (lv_content_8_0= ruleContent )
+            // InternalBilang.g:772:5: lv_content_8_0= ruleContent
             {
 
             					newCompositeNode(grammarAccess.getSendSnailMailAccess().getContentContentParserRuleCall_8_0());
@@ -1987,7 +2129,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRetrieveDocument"
-    // InternalBilang.g:727:1: entryRuleRetrieveDocument returns [EObject current=null] : iv_ruleRetrieveDocument= ruleRetrieveDocument EOF ;
+    // InternalBilang.g:793:1: entryRuleRetrieveDocument returns [EObject current=null] : iv_ruleRetrieveDocument= ruleRetrieveDocument EOF ;
     public final EObject entryRuleRetrieveDocument() throws RecognitionException {
         EObject current = null;
 
@@ -1995,8 +2137,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:727:57: (iv_ruleRetrieveDocument= ruleRetrieveDocument EOF )
-            // InternalBilang.g:728:2: iv_ruleRetrieveDocument= ruleRetrieveDocument EOF
+            // InternalBilang.g:793:57: (iv_ruleRetrieveDocument= ruleRetrieveDocument EOF )
+            // InternalBilang.g:794:2: iv_ruleRetrieveDocument= ruleRetrieveDocument EOF
             {
              newCompositeNode(grammarAccess.getRetrieveDocumentRule()); 
             pushFollow(FOLLOW_1);
@@ -2023,7 +2165,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRetrieveDocument"
-    // InternalBilang.g:734:1: ruleRetrieveDocument returns [EObject current=null] : (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) ) ;
+    // InternalBilang.g:800:1: ruleRetrieveDocument returns [EObject current=null] : (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) ) ;
     public final EObject ruleRetrieveDocument() throws RecognitionException {
         EObject current = null;
 
@@ -2036,25 +2178,25 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:740:2: ( (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) ) )
-            // InternalBilang.g:741:2: (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) )
+            // InternalBilang.g:806:2: ( (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) ) )
+            // InternalBilang.g:807:2: (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) )
             {
-            // InternalBilang.g:741:2: (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) )
-            // InternalBilang.g:742:3: otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) )
+            // InternalBilang.g:807:2: (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) )
+            // InternalBilang.g:808:3: otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) )
             {
-            otherlv_0=(Token)match(input,33,FOLLOW_25); 
+            otherlv_0=(Token)match(input,34,FOLLOW_25); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRetrieveDocumentAccess().getRetrieveKeyword_0());
             		
-            otherlv_1=(Token)match(input,34,FOLLOW_20); 
+            otherlv_1=(Token)match(input,35,FOLLOW_20); 
 
             			newLeafNode(otherlv_1, grammarAccess.getRetrieveDocumentAccess().getDocumentKeyword_1());
             		
-            // InternalBilang.g:750:3: ( (lv_document_2_0= ruleDocument ) )
-            // InternalBilang.g:751:4: (lv_document_2_0= ruleDocument )
+            // InternalBilang.g:816:3: ( (lv_document_2_0= ruleDocument ) )
+            // InternalBilang.g:817:4: (lv_document_2_0= ruleDocument )
             {
-            // InternalBilang.g:751:4: (lv_document_2_0= ruleDocument )
-            // InternalBilang.g:752:5: lv_document_2_0= ruleDocument
+            // InternalBilang.g:817:4: (lv_document_2_0= ruleDocument )
+            // InternalBilang.g:818:5: lv_document_2_0= ruleDocument
             {
 
             					newCompositeNode(grammarAccess.getRetrieveDocumentAccess().getDocumentDocumentParserRuleCall_2_0());
@@ -2104,7 +2246,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRetrieveFullAddress"
-    // InternalBilang.g:773:1: entryRuleRetrieveFullAddress returns [EObject current=null] : iv_ruleRetrieveFullAddress= ruleRetrieveFullAddress EOF ;
+    // InternalBilang.g:839:1: entryRuleRetrieveFullAddress returns [EObject current=null] : iv_ruleRetrieveFullAddress= ruleRetrieveFullAddress EOF ;
     public final EObject entryRuleRetrieveFullAddress() throws RecognitionException {
         EObject current = null;
 
@@ -2112,8 +2254,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:773:60: (iv_ruleRetrieveFullAddress= ruleRetrieveFullAddress EOF )
-            // InternalBilang.g:774:2: iv_ruleRetrieveFullAddress= ruleRetrieveFullAddress EOF
+            // InternalBilang.g:839:60: (iv_ruleRetrieveFullAddress= ruleRetrieveFullAddress EOF )
+            // InternalBilang.g:840:2: iv_ruleRetrieveFullAddress= ruleRetrieveFullAddress EOF
             {
              newCompositeNode(grammarAccess.getRetrieveFullAddressRule()); 
             pushFollow(FOLLOW_1);
@@ -2140,7 +2282,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRetrieveFullAddress"
-    // InternalBilang.g:780:1: ruleRetrieveFullAddress returns [EObject current=null] : (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) ) ;
+    // InternalBilang.g:846:1: ruleRetrieveFullAddress returns [EObject current=null] : (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) ) ;
     public final EObject ruleRetrieveFullAddress() throws RecognitionException {
         EObject current = null;
 
@@ -2155,33 +2297,33 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:786:2: ( (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) ) )
-            // InternalBilang.g:787:2: (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) )
+            // InternalBilang.g:852:2: ( (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) ) )
+            // InternalBilang.g:853:2: (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) )
             {
-            // InternalBilang.g:787:2: (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) )
-            // InternalBilang.g:788:3: otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) )
+            // InternalBilang.g:853:2: (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) )
+            // InternalBilang.g:854:3: otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) )
             {
-            otherlv_0=(Token)match(input,33,FOLLOW_26); 
+            otherlv_0=(Token)match(input,34,FOLLOW_26); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRetrieveFullAddressAccess().getRetrieveKeyword_0());
             		
-            otherlv_1=(Token)match(input,35,FOLLOW_27); 
+            otherlv_1=(Token)match(input,36,FOLLOW_27); 
 
             			newLeafNode(otherlv_1, grammarAccess.getRetrieveFullAddressAccess().getFullKeyword_1());
             		
-            otherlv_2=(Token)match(input,36,FOLLOW_28); 
+            otherlv_2=(Token)match(input,37,FOLLOW_28); 
 
             			newLeafNode(otherlv_2, grammarAccess.getRetrieveFullAddressAccess().getAddressKeyword_2());
             		
-            otherlv_3=(Token)match(input,37,FOLLOW_17); 
+            otherlv_3=(Token)match(input,38,FOLLOW_17); 
 
             			newLeafNode(otherlv_3, grammarAccess.getRetrieveFullAddressAccess().getOfKeyword_3());
             		
-            // InternalBilang.g:804:3: ( (lv_personAdress_4_0= rulePersonByAddress ) )
-            // InternalBilang.g:805:4: (lv_personAdress_4_0= rulePersonByAddress )
+            // InternalBilang.g:870:3: ( (lv_personAdress_4_0= rulePersonByAddress ) )
+            // InternalBilang.g:871:4: (lv_personAdress_4_0= rulePersonByAddress )
             {
-            // InternalBilang.g:805:4: (lv_personAdress_4_0= rulePersonByAddress )
-            // InternalBilang.g:806:5: lv_personAdress_4_0= rulePersonByAddress
+            // InternalBilang.g:871:4: (lv_personAdress_4_0= rulePersonByAddress )
+            // InternalBilang.g:872:5: lv_personAdress_4_0= rulePersonByAddress
             {
 
             					newCompositeNode(grammarAccess.getRetrieveFullAddressAccess().getPersonAdressPersonByAddressParserRuleCall_4_0());
@@ -2231,7 +2373,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRetrievePersons"
-    // InternalBilang.g:827:1: entryRuleRetrievePersons returns [EObject current=null] : iv_ruleRetrievePersons= ruleRetrievePersons EOF ;
+    // InternalBilang.g:893:1: entryRuleRetrievePersons returns [EObject current=null] : iv_ruleRetrievePersons= ruleRetrievePersons EOF ;
     public final EObject entryRuleRetrievePersons() throws RecognitionException {
         EObject current = null;
 
@@ -2239,8 +2381,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:827:56: (iv_ruleRetrievePersons= ruleRetrievePersons EOF )
-            // InternalBilang.g:828:2: iv_ruleRetrievePersons= ruleRetrievePersons EOF
+            // InternalBilang.g:893:56: (iv_ruleRetrievePersons= ruleRetrievePersons EOF )
+            // InternalBilang.g:894:2: iv_ruleRetrievePersons= ruleRetrievePersons EOF
             {
              newCompositeNode(grammarAccess.getRetrievePersonsRule()); 
             pushFollow(FOLLOW_1);
@@ -2267,7 +2409,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRetrievePersons"
-    // InternalBilang.g:834:1: ruleRetrievePersons returns [EObject current=null] : (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) ) ;
+    // InternalBilang.g:900:1: ruleRetrievePersons returns [EObject current=null] : (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) ) ;
     public final EObject ruleRetrievePersons() throws RecognitionException {
         EObject current = null;
 
@@ -2281,33 +2423,33 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:840:2: ( (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) ) )
-            // InternalBilang.g:841:2: (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) )
+            // InternalBilang.g:906:2: ( (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) ) )
+            // InternalBilang.g:907:2: (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) )
             {
-            // InternalBilang.g:841:2: (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) )
-            // InternalBilang.g:842:3: otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) )
+            // InternalBilang.g:907:2: (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) )
+            // InternalBilang.g:908:3: otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,33,FOLLOW_29); 
+            otherlv_0=(Token)match(input,34,FOLLOW_29); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRetrievePersonsAccess().getRetrieveKeyword_0());
             		
-            otherlv_1=(Token)match(input,38,FOLLOW_7); 
+            otherlv_1=(Token)match(input,39,FOLLOW_7); 
 
             			newLeafNode(otherlv_1, grammarAccess.getRetrievePersonsAccess().getPersonsKeyword_1());
             		
-            otherlv_2=(Token)match(input,19,FOLLOW_30); 
+            otherlv_2=(Token)match(input,20,FOLLOW_30); 
 
             			newLeafNode(otherlv_2, grammarAccess.getRetrievePersonsAccess().getWithKeyword_2());
             		
-            otherlv_3=(Token)match(input,39,FOLLOW_9); 
+            otherlv_3=(Token)match(input,40,FOLLOW_9); 
 
             			newLeafNode(otherlv_3, grammarAccess.getRetrievePersonsAccess().getSearchKeyword_3());
             		
-            // InternalBilang.g:858:3: ( (lv_personSearch_4_0= RULE_ID ) )
-            // InternalBilang.g:859:4: (lv_personSearch_4_0= RULE_ID )
+            // InternalBilang.g:924:3: ( (lv_personSearch_4_0= RULE_ID ) )
+            // InternalBilang.g:925:4: (lv_personSearch_4_0= RULE_ID )
             {
-            // InternalBilang.g:859:4: (lv_personSearch_4_0= RULE_ID )
-            // InternalBilang.g:860:5: lv_personSearch_4_0= RULE_ID
+            // InternalBilang.g:925:4: (lv_personSearch_4_0= RULE_ID )
+            // InternalBilang.g:926:5: lv_personSearch_4_0= RULE_ID
             {
             lv_personSearch_4_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -2352,7 +2494,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCallPerson"
-    // InternalBilang.g:880:1: entryRuleCallPerson returns [EObject current=null] : iv_ruleCallPerson= ruleCallPerson EOF ;
+    // InternalBilang.g:946:1: entryRuleCallPerson returns [EObject current=null] : iv_ruleCallPerson= ruleCallPerson EOF ;
     public final EObject entryRuleCallPerson() throws RecognitionException {
         EObject current = null;
 
@@ -2360,8 +2502,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:880:51: (iv_ruleCallPerson= ruleCallPerson EOF )
-            // InternalBilang.g:881:2: iv_ruleCallPerson= ruleCallPerson EOF
+            // InternalBilang.g:946:51: (iv_ruleCallPerson= ruleCallPerson EOF )
+            // InternalBilang.g:947:2: iv_ruleCallPerson= ruleCallPerson EOF
             {
              newCompositeNode(grammarAccess.getCallPersonRule()); 
             pushFollow(FOLLOW_1);
@@ -2388,7 +2530,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCallPerson"
-    // InternalBilang.g:887:1: ruleCallPerson returns [EObject current=null] : (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) ) ;
+    // InternalBilang.g:953:1: ruleCallPerson returns [EObject current=null] : (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) ) ;
     public final EObject ruleCallPerson() throws RecognitionException {
         EObject current = null;
 
@@ -2401,25 +2543,25 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:893:2: ( (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) ) )
-            // InternalBilang.g:894:2: (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) )
+            // InternalBilang.g:959:2: ( (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) ) )
+            // InternalBilang.g:960:2: (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) )
             {
-            // InternalBilang.g:894:2: (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) )
-            // InternalBilang.g:895:3: otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) )
+            // InternalBilang.g:960:2: (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) )
+            // InternalBilang.g:961:3: otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) )
             {
-            otherlv_0=(Token)match(input,40,FOLLOW_31); 
+            otherlv_0=(Token)match(input,41,FOLLOW_31); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCallPersonAccess().getPhoneKeyword_0());
             		
-            otherlv_1=(Token)match(input,41,FOLLOW_17); 
+            otherlv_1=(Token)match(input,42,FOLLOW_17); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCallPersonAccess().getCallKeyword_1());
             		
-            // InternalBilang.g:903:3: ( (lv_person_2_0= rulePerson ) )
-            // InternalBilang.g:904:4: (lv_person_2_0= rulePerson )
+            // InternalBilang.g:969:3: ( (lv_person_2_0= rulePerson ) )
+            // InternalBilang.g:970:4: (lv_person_2_0= rulePerson )
             {
-            // InternalBilang.g:904:4: (lv_person_2_0= rulePerson )
-            // InternalBilang.g:905:5: lv_person_2_0= rulePerson
+            // InternalBilang.g:970:4: (lv_person_2_0= rulePerson )
+            // InternalBilang.g:971:5: lv_person_2_0= rulePerson
             {
 
             					newCompositeNode(grammarAccess.getCallPersonAccess().getPersonPersonParserRuleCall_2_0());
@@ -2469,7 +2611,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAddPerson"
-    // InternalBilang.g:926:1: entryRuleAddPerson returns [EObject current=null] : iv_ruleAddPerson= ruleAddPerson EOF ;
+    // InternalBilang.g:992:1: entryRuleAddPerson returns [EObject current=null] : iv_ruleAddPerson= ruleAddPerson EOF ;
     public final EObject entryRuleAddPerson() throws RecognitionException {
         EObject current = null;
 
@@ -2477,8 +2619,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:926:50: (iv_ruleAddPerson= ruleAddPerson EOF )
-            // InternalBilang.g:927:2: iv_ruleAddPerson= ruleAddPerson EOF
+            // InternalBilang.g:992:50: (iv_ruleAddPerson= ruleAddPerson EOF )
+            // InternalBilang.g:993:2: iv_ruleAddPerson= ruleAddPerson EOF
             {
              newCompositeNode(grammarAccess.getAddPersonRule()); 
             pushFollow(FOLLOW_1);
@@ -2505,7 +2647,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAddPerson"
-    // InternalBilang.g:933:1: ruleAddPerson returns [EObject current=null] : (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ ) ;
+    // InternalBilang.g:999:1: ruleAddPerson returns [EObject current=null] : (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ ) ;
     public final EObject ruleAddPerson() throws RecognitionException {
         EObject current = null;
 
@@ -2520,21 +2662,21 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:939:2: ( (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ ) )
-            // InternalBilang.g:940:2: (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ )
+            // InternalBilang.g:1005:2: ( (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ ) )
+            // InternalBilang.g:1006:2: (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ )
             {
-            // InternalBilang.g:940:2: (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ )
-            // InternalBilang.g:941:3: otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+
+            // InternalBilang.g:1006:2: (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ )
+            // InternalBilang.g:1007:3: otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+
             {
-            otherlv_0=(Token)match(input,42,FOLLOW_17); 
+            otherlv_0=(Token)match(input,43,FOLLOW_17); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAddPersonAccess().getAddKeyword_0());
             		
-            // InternalBilang.g:945:3: ( (lv_alias_1_0= rulePersonByAlias ) )
-            // InternalBilang.g:946:4: (lv_alias_1_0= rulePersonByAlias )
+            // InternalBilang.g:1011:3: ( (lv_alias_1_0= rulePersonByAlias ) )
+            // InternalBilang.g:1012:4: (lv_alias_1_0= rulePersonByAlias )
             {
-            // InternalBilang.g:946:4: (lv_alias_1_0= rulePersonByAlias )
-            // InternalBilang.g:947:5: lv_alias_1_0= rulePersonByAlias
+            // InternalBilang.g:1012:4: (lv_alias_1_0= rulePersonByAlias )
+            // InternalBilang.g:1013:5: lv_alias_1_0= rulePersonByAlias
             {
 
             					newCompositeNode(grammarAccess.getAddPersonAccess().getAliasPersonByAliasParserRuleCall_1_0());
@@ -2561,31 +2703,31 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBilang.g:964:3: (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+
+            // InternalBilang.g:1030:3: (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+
             int cnt11=0;
             loop11:
             do {
                 int alt11=2;
                 int LA11_0 = input.LA(1);
 
-                if ( (LA11_0==21) ) {
+                if ( (LA11_0==22) ) {
                     alt11=1;
                 }
 
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalBilang.g:965:4: otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) )
+            	    // InternalBilang.g:1031:4: otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) )
             	    {
-            	    otherlv_2=(Token)match(input,21,FOLLOW_17); 
+            	    otherlv_2=(Token)match(input,22,FOLLOW_17); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getAddPersonAccess().getAndKeyword_2_0());
             	    			
-            	    // InternalBilang.g:969:4: ( (lv_person_3_0= rulePerson ) )
-            	    // InternalBilang.g:970:5: (lv_person_3_0= rulePerson )
+            	    // InternalBilang.g:1035:4: ( (lv_person_3_0= rulePerson ) )
+            	    // InternalBilang.g:1036:5: (lv_person_3_0= rulePerson )
             	    {
-            	    // InternalBilang.g:970:5: (lv_person_3_0= rulePerson )
-            	    // InternalBilang.g:971:6: lv_person_3_0= rulePerson
+            	    // InternalBilang.g:1036:5: (lv_person_3_0= rulePerson )
+            	    // InternalBilang.g:1037:6: lv_person_3_0= rulePerson
             	    {
 
             	    						newCompositeNode(grammarAccess.getAddPersonAccess().getPersonPersonParserRuleCall_2_1_0());
@@ -2648,7 +2790,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDeletePerson"
-    // InternalBilang.g:993:1: entryRuleDeletePerson returns [EObject current=null] : iv_ruleDeletePerson= ruleDeletePerson EOF ;
+    // InternalBilang.g:1059:1: entryRuleDeletePerson returns [EObject current=null] : iv_ruleDeletePerson= ruleDeletePerson EOF ;
     public final EObject entryRuleDeletePerson() throws RecognitionException {
         EObject current = null;
 
@@ -2656,8 +2798,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:993:53: (iv_ruleDeletePerson= ruleDeletePerson EOF )
-            // InternalBilang.g:994:2: iv_ruleDeletePerson= ruleDeletePerson EOF
+            // InternalBilang.g:1059:53: (iv_ruleDeletePerson= ruleDeletePerson EOF )
+            // InternalBilang.g:1060:2: iv_ruleDeletePerson= ruleDeletePerson EOF
             {
              newCompositeNode(grammarAccess.getDeletePersonRule()); 
             pushFollow(FOLLOW_1);
@@ -2684,7 +2826,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDeletePerson"
-    // InternalBilang.g:1000:1: ruleDeletePerson returns [EObject current=null] : (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) ) ;
+    // InternalBilang.g:1066:1: ruleDeletePerson returns [EObject current=null] : (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) ) ;
     public final EObject ruleDeletePerson() throws RecognitionException {
         EObject current = null;
 
@@ -2696,21 +2838,21 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1006:2: ( (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) ) )
-            // InternalBilang.g:1007:2: (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) )
+            // InternalBilang.g:1072:2: ( (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) ) )
+            // InternalBilang.g:1073:2: (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) )
             {
-            // InternalBilang.g:1007:2: (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) )
-            // InternalBilang.g:1008:3: otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) )
+            // InternalBilang.g:1073:2: (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) )
+            // InternalBilang.g:1074:3: otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) )
             {
-            otherlv_0=(Token)match(input,43,FOLLOW_17); 
+            otherlv_0=(Token)match(input,44,FOLLOW_17); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDeletePersonAccess().getDeleteKeyword_0());
             		
-            // InternalBilang.g:1012:3: ( (lv_alias_1_0= rulePersonByAlias ) )
-            // InternalBilang.g:1013:4: (lv_alias_1_0= rulePersonByAlias )
+            // InternalBilang.g:1078:3: ( (lv_alias_1_0= rulePersonByAlias ) )
+            // InternalBilang.g:1079:4: (lv_alias_1_0= rulePersonByAlias )
             {
-            // InternalBilang.g:1013:4: (lv_alias_1_0= rulePersonByAlias )
-            // InternalBilang.g:1014:5: lv_alias_1_0= rulePersonByAlias
+            // InternalBilang.g:1079:4: (lv_alias_1_0= rulePersonByAlias )
+            // InternalBilang.g:1080:5: lv_alias_1_0= rulePersonByAlias
             {
 
             					newCompositeNode(grammarAccess.getDeletePersonAccess().getAliasPersonByAliasParserRuleCall_1_0());
@@ -2760,7 +2902,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePerson"
-    // InternalBilang.g:1035:1: entryRulePerson returns [EObject current=null] : iv_rulePerson= rulePerson EOF ;
+    // InternalBilang.g:1101:1: entryRulePerson returns [EObject current=null] : iv_rulePerson= rulePerson EOF ;
     public final EObject entryRulePerson() throws RecognitionException {
         EObject current = null;
 
@@ -2768,8 +2910,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1035:47: (iv_rulePerson= rulePerson EOF )
-            // InternalBilang.g:1036:2: iv_rulePerson= rulePerson EOF
+            // InternalBilang.g:1101:47: (iv_rulePerson= rulePerson EOF )
+            // InternalBilang.g:1102:2: iv_rulePerson= rulePerson EOF
             {
              newCompositeNode(grammarAccess.getPersonRule()); 
             pushFollow(FOLLOW_1);
@@ -2796,7 +2938,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePerson"
-    // InternalBilang.g:1042:1: rulePerson returns [EObject current=null] : (this_PersonByEmail_0= rulePersonByEmail | this_PersonByAlias_1= rulePersonByAlias | this_PersonByName_2= rulePersonByName | this_PersonByPhone_3= rulePersonByPhone | this_PersonByAddress_4= rulePersonByAddress ) ;
+    // InternalBilang.g:1108:1: rulePerson returns [EObject current=null] : (this_PersonByEmail_0= rulePersonByEmail | this_PersonByAlias_1= rulePersonByAlias | this_PersonByName_2= rulePersonByName | this_PersonByPhone_3= rulePersonByPhone | this_PersonByAddress_4= rulePersonByAddress ) ;
     public final EObject rulePerson() throws RecognitionException {
         EObject current = null;
 
@@ -2815,41 +2957,41 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1048:2: ( (this_PersonByEmail_0= rulePersonByEmail | this_PersonByAlias_1= rulePersonByAlias | this_PersonByName_2= rulePersonByName | this_PersonByPhone_3= rulePersonByPhone | this_PersonByAddress_4= rulePersonByAddress ) )
-            // InternalBilang.g:1049:2: (this_PersonByEmail_0= rulePersonByEmail | this_PersonByAlias_1= rulePersonByAlias | this_PersonByName_2= rulePersonByName | this_PersonByPhone_3= rulePersonByPhone | this_PersonByAddress_4= rulePersonByAddress )
+            // InternalBilang.g:1114:2: ( (this_PersonByEmail_0= rulePersonByEmail | this_PersonByAlias_1= rulePersonByAlias | this_PersonByName_2= rulePersonByName | this_PersonByPhone_3= rulePersonByPhone | this_PersonByAddress_4= rulePersonByAddress ) )
+            // InternalBilang.g:1115:2: (this_PersonByEmail_0= rulePersonByEmail | this_PersonByAlias_1= rulePersonByAlias | this_PersonByName_2= rulePersonByName | this_PersonByPhone_3= rulePersonByPhone | this_PersonByAddress_4= rulePersonByAddress )
             {
-            // InternalBilang.g:1049:2: (this_PersonByEmail_0= rulePersonByEmail | this_PersonByAlias_1= rulePersonByAlias | this_PersonByName_2= rulePersonByName | this_PersonByPhone_3= rulePersonByPhone | this_PersonByAddress_4= rulePersonByAddress )
+            // InternalBilang.g:1115:2: (this_PersonByEmail_0= rulePersonByEmail | this_PersonByAlias_1= rulePersonByAlias | this_PersonByName_2= rulePersonByName | this_PersonByPhone_3= rulePersonByPhone | this_PersonByAddress_4= rulePersonByAddress )
             int alt12=5;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==44) ) {
+            if ( (LA12_0==45) ) {
                 int LA12_1 = input.LA(2);
 
-                if ( (LA12_1==19) ) {
+                if ( (LA12_1==20) ) {
                     switch ( input.LA(3) ) {
-                    case 49:
+                    case 46:
+                        {
+                        alt12=2;
+                        }
+                        break;
+                    case 50:
                         {
                         alt12=5;
                         }
                         break;
-                    case 40:
+                    case 41:
                         {
                         alt12=4;
                         }
                         break;
-                    case 46:
+                    case 47:
                         {
                         alt12=3;
                         }
                         break;
-                    case 26:
+                    case 27:
                         {
                         alt12=1;
-                        }
-                        break;
-                    case 45:
-                        {
-                        alt12=2;
                         }
                         break;
                     default:
@@ -2875,7 +3017,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalBilang.g:1050:3: this_PersonByEmail_0= rulePersonByEmail
+                    // InternalBilang.g:1116:3: this_PersonByEmail_0= rulePersonByEmail
                     {
 
                     			newCompositeNode(grammarAccess.getPersonAccess().getPersonByEmailParserRuleCall_0());
@@ -2893,7 +3035,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBilang.g:1059:3: this_PersonByAlias_1= rulePersonByAlias
+                    // InternalBilang.g:1125:3: this_PersonByAlias_1= rulePersonByAlias
                     {
 
                     			newCompositeNode(grammarAccess.getPersonAccess().getPersonByAliasParserRuleCall_1());
@@ -2911,7 +3053,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBilang.g:1068:3: this_PersonByName_2= rulePersonByName
+                    // InternalBilang.g:1134:3: this_PersonByName_2= rulePersonByName
                     {
 
                     			newCompositeNode(grammarAccess.getPersonAccess().getPersonByNameParserRuleCall_2());
@@ -2929,7 +3071,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalBilang.g:1077:3: this_PersonByPhone_3= rulePersonByPhone
+                    // InternalBilang.g:1143:3: this_PersonByPhone_3= rulePersonByPhone
                     {
 
                     			newCompositeNode(grammarAccess.getPersonAccess().getPersonByPhoneParserRuleCall_3());
@@ -2947,7 +3089,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalBilang.g:1086:3: this_PersonByAddress_4= rulePersonByAddress
+                    // InternalBilang.g:1152:3: this_PersonByAddress_4= rulePersonByAddress
                     {
 
                     			newCompositeNode(grammarAccess.getPersonAccess().getPersonByAddressParserRuleCall_4());
@@ -2987,7 +3129,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePersonByEmail"
-    // InternalBilang.g:1098:1: entryRulePersonByEmail returns [EObject current=null] : iv_rulePersonByEmail= rulePersonByEmail EOF ;
+    // InternalBilang.g:1164:1: entryRulePersonByEmail returns [EObject current=null] : iv_rulePersonByEmail= rulePersonByEmail EOF ;
     public final EObject entryRulePersonByEmail() throws RecognitionException {
         EObject current = null;
 
@@ -2995,8 +3137,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1098:54: (iv_rulePersonByEmail= rulePersonByEmail EOF )
-            // InternalBilang.g:1099:2: iv_rulePersonByEmail= rulePersonByEmail EOF
+            // InternalBilang.g:1164:54: (iv_rulePersonByEmail= rulePersonByEmail EOF )
+            // InternalBilang.g:1165:2: iv_rulePersonByEmail= rulePersonByEmail EOF
             {
              newCompositeNode(grammarAccess.getPersonByEmailRule()); 
             pushFollow(FOLLOW_1);
@@ -3023,7 +3165,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePersonByEmail"
-    // InternalBilang.g:1105:1: rulePersonByEmail returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) ) ) ;
+    // InternalBilang.g:1171:1: rulePersonByEmail returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) ) ) ;
     public final EObject rulePersonByEmail() throws RecognitionException {
         EObject current = null;
 
@@ -3036,29 +3178,29 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1111:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) ) ) )
-            // InternalBilang.g:1112:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) ) )
+            // InternalBilang.g:1177:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) ) ) )
+            // InternalBilang.g:1178:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) ) )
             {
-            // InternalBilang.g:1112:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) ) )
-            // InternalBilang.g:1113:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) )
+            // InternalBilang.g:1178:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) ) )
+            // InternalBilang.g:1179:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'email' ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_7); 
+            otherlv_0=(Token)match(input,45,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByEmailAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,19,FOLLOW_15); 
+            otherlv_1=(Token)match(input,20,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByEmailAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,26,FOLLOW_33); 
+            otherlv_2=(Token)match(input,27,FOLLOW_33); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonByEmailAccess().getEmailKeyword_2());
             		
-            // InternalBilang.g:1125:3: ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) )
-            // InternalBilang.g:1126:4: (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS )
+            // InternalBilang.g:1191:3: ( (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS ) )
+            // InternalBilang.g:1192:4: (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS )
             {
-            // InternalBilang.g:1126:4: (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS )
-            // InternalBilang.g:1127:5: lv_emailaddress_3_0= RULE_EMAIL_ADDRESS
+            // InternalBilang.g:1192:4: (lv_emailaddress_3_0= RULE_EMAIL_ADDRESS )
+            // InternalBilang.g:1193:5: lv_emailaddress_3_0= RULE_EMAIL_ADDRESS
             {
             lv_emailaddress_3_0=(Token)match(input,RULE_EMAIL_ADDRESS,FOLLOW_2); 
 
@@ -3103,7 +3245,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePersonByAlias"
-    // InternalBilang.g:1147:1: entryRulePersonByAlias returns [EObject current=null] : iv_rulePersonByAlias= rulePersonByAlias EOF ;
+    // InternalBilang.g:1213:1: entryRulePersonByAlias returns [EObject current=null] : iv_rulePersonByAlias= rulePersonByAlias EOF ;
     public final EObject entryRulePersonByAlias() throws RecognitionException {
         EObject current = null;
 
@@ -3111,8 +3253,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1147:54: (iv_rulePersonByAlias= rulePersonByAlias EOF )
-            // InternalBilang.g:1148:2: iv_rulePersonByAlias= rulePersonByAlias EOF
+            // InternalBilang.g:1213:54: (iv_rulePersonByAlias= rulePersonByAlias EOF )
+            // InternalBilang.g:1214:2: iv_rulePersonByAlias= rulePersonByAlias EOF
             {
              newCompositeNode(grammarAccess.getPersonByAliasRule()); 
             pushFollow(FOLLOW_1);
@@ -3139,7 +3281,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePersonByAlias"
-    // InternalBilang.g:1154:1: rulePersonByAlias returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) ) ) ;
+    // InternalBilang.g:1220:1: rulePersonByAlias returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) ) ) ;
     public final EObject rulePersonByAlias() throws RecognitionException {
         EObject current = null;
 
@@ -3152,29 +3294,29 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1160:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) ) ) )
-            // InternalBilang.g:1161:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) ) )
+            // InternalBilang.g:1226:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) ) ) )
+            // InternalBilang.g:1227:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) ) )
             {
-            // InternalBilang.g:1161:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) ) )
-            // InternalBilang.g:1162:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) )
+            // InternalBilang.g:1227:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) ) )
+            // InternalBilang.g:1228:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'alias' ( (lv_alias_3_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_7); 
+            otherlv_0=(Token)match(input,45,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByAliasAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,19,FOLLOW_34); 
+            otherlv_1=(Token)match(input,20,FOLLOW_34); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByAliasAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,45,FOLLOW_9); 
+            otherlv_2=(Token)match(input,46,FOLLOW_9); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonByAliasAccess().getAliasKeyword_2());
             		
-            // InternalBilang.g:1174:3: ( (lv_alias_3_0= RULE_ID ) )
-            // InternalBilang.g:1175:4: (lv_alias_3_0= RULE_ID )
+            // InternalBilang.g:1240:3: ( (lv_alias_3_0= RULE_ID ) )
+            // InternalBilang.g:1241:4: (lv_alias_3_0= RULE_ID )
             {
-            // InternalBilang.g:1175:4: (lv_alias_3_0= RULE_ID )
-            // InternalBilang.g:1176:5: lv_alias_3_0= RULE_ID
+            // InternalBilang.g:1241:4: (lv_alias_3_0= RULE_ID )
+            // InternalBilang.g:1242:5: lv_alias_3_0= RULE_ID
             {
             lv_alias_3_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -3219,7 +3361,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePersonByName"
-    // InternalBilang.g:1196:1: entryRulePersonByName returns [EObject current=null] : iv_rulePersonByName= rulePersonByName EOF ;
+    // InternalBilang.g:1262:1: entryRulePersonByName returns [EObject current=null] : iv_rulePersonByName= rulePersonByName EOF ;
     public final EObject entryRulePersonByName() throws RecognitionException {
         EObject current = null;
 
@@ -3227,8 +3369,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1196:53: (iv_rulePersonByName= rulePersonByName EOF )
-            // InternalBilang.g:1197:2: iv_rulePersonByName= rulePersonByName EOF
+            // InternalBilang.g:1262:53: (iv_rulePersonByName= rulePersonByName EOF )
+            // InternalBilang.g:1263:2: iv_rulePersonByName= rulePersonByName EOF
             {
              newCompositeNode(grammarAccess.getPersonByNameRule()); 
             pushFollow(FOLLOW_1);
@@ -3255,7 +3397,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePersonByName"
-    // InternalBilang.g:1203:1: rulePersonByName returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= ruleTextWithSpaces ) ) ) ;
+    // InternalBilang.g:1269:1: rulePersonByName returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= RULE_STRING ) ) ) ;
     public final EObject rulePersonByName() throws RecognitionException {
         EObject current = null;
 
@@ -3267,40 +3409,39 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         Token otherlv_5=null;
         Token otherlv_6=null;
         Token otherlv_7=null;
-        EObject lv_lastName_8_0 = null;
-
+        Token lv_lastName_8_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalBilang.g:1209:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= ruleTextWithSpaces ) ) ) )
-            // InternalBilang.g:1210:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= ruleTextWithSpaces ) ) )
+            // InternalBilang.g:1275:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= RULE_STRING ) ) ) )
+            // InternalBilang.g:1276:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= RULE_STRING ) ) )
             {
-            // InternalBilang.g:1210:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= ruleTextWithSpaces ) ) )
-            // InternalBilang.g:1211:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= ruleTextWithSpaces ) )
+            // InternalBilang.g:1276:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= RULE_STRING ) ) )
+            // InternalBilang.g:1277:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'first' otherlv_3= 'name' ( (lv_firstName_4_0= RULE_ID ) ) otherlv_5= 'and' otherlv_6= 'last' otherlv_7= 'name' ( (lv_lastName_8_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_7); 
+            otherlv_0=(Token)match(input,45,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByNameAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,19,FOLLOW_35); 
+            otherlv_1=(Token)match(input,20,FOLLOW_35); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByNameAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,46,FOLLOW_8); 
+            otherlv_2=(Token)match(input,47,FOLLOW_8); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonByNameAccess().getFirstKeyword_2());
             		
-            otherlv_3=(Token)match(input,20,FOLLOW_9); 
+            otherlv_3=(Token)match(input,21,FOLLOW_9); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPersonByNameAccess().getNameKeyword_3());
             		
-            // InternalBilang.g:1227:3: ( (lv_firstName_4_0= RULE_ID ) )
-            // InternalBilang.g:1228:4: (lv_firstName_4_0= RULE_ID )
+            // InternalBilang.g:1293:3: ( (lv_firstName_4_0= RULE_ID ) )
+            // InternalBilang.g:1294:4: (lv_firstName_4_0= RULE_ID )
             {
-            // InternalBilang.g:1228:4: (lv_firstName_4_0= RULE_ID )
-            // InternalBilang.g:1229:5: lv_firstName_4_0= RULE_ID
+            // InternalBilang.g:1294:4: (lv_firstName_4_0= RULE_ID )
+            // InternalBilang.g:1295:5: lv_firstName_4_0= RULE_ID
             {
             lv_firstName_4_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
@@ -3322,42 +3463,37 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,21,FOLLOW_36); 
+            otherlv_5=(Token)match(input,22,FOLLOW_36); 
 
             			newLeafNode(otherlv_5, grammarAccess.getPersonByNameAccess().getAndKeyword_5());
             		
-            otherlv_6=(Token)match(input,47,FOLLOW_8); 
+            otherlv_6=(Token)match(input,48,FOLLOW_8); 
 
             			newLeafNode(otherlv_6, grammarAccess.getPersonByNameAccess().getLastKeyword_6());
             		
-            otherlv_7=(Token)match(input,20,FOLLOW_9); 
+            otherlv_7=(Token)match(input,21,FOLLOW_37); 
 
             			newLeafNode(otherlv_7, grammarAccess.getPersonByNameAccess().getNameKeyword_7());
             		
-            // InternalBilang.g:1257:3: ( (lv_lastName_8_0= ruleTextWithSpaces ) )
-            // InternalBilang.g:1258:4: (lv_lastName_8_0= ruleTextWithSpaces )
+            // InternalBilang.g:1323:3: ( (lv_lastName_8_0= RULE_STRING ) )
+            // InternalBilang.g:1324:4: (lv_lastName_8_0= RULE_STRING )
             {
-            // InternalBilang.g:1258:4: (lv_lastName_8_0= ruleTextWithSpaces )
-            // InternalBilang.g:1259:5: lv_lastName_8_0= ruleTextWithSpaces
+            // InternalBilang.g:1324:4: (lv_lastName_8_0= RULE_STRING )
+            // InternalBilang.g:1325:5: lv_lastName_8_0= RULE_STRING
             {
+            lv_lastName_8_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            					newCompositeNode(grammarAccess.getPersonByNameAccess().getLastNameTextWithSpacesParserRuleCall_8_0());
+            					newLeafNode(lv_lastName_8_0, grammarAccess.getPersonByNameAccess().getLastNameSTRINGTerminalRuleCall_8_0());
             				
-            pushFollow(FOLLOW_2);
-            lv_lastName_8_0=ruleTextWithSpaces();
-
-            state._fsp--;
-
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getPersonByNameRule());
+            						current = createModelElement(grammarAccess.getPersonByNameRule());
             					}
-            					set(
+            					setWithLastConsumed(
             						current,
             						"lastName",
             						lv_lastName_8_0,
-            						"org.xtext.example.bilang.Bilang.TextWithSpaces");
-            					afterParserOrEnumRuleCall();
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -3388,7 +3524,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePersonByPhone"
-    // InternalBilang.g:1280:1: entryRulePersonByPhone returns [EObject current=null] : iv_rulePersonByPhone= rulePersonByPhone EOF ;
+    // InternalBilang.g:1345:1: entryRulePersonByPhone returns [EObject current=null] : iv_rulePersonByPhone= rulePersonByPhone EOF ;
     public final EObject entryRulePersonByPhone() throws RecognitionException {
         EObject current = null;
 
@@ -3396,8 +3532,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1280:54: (iv_rulePersonByPhone= rulePersonByPhone EOF )
-            // InternalBilang.g:1281:2: iv_rulePersonByPhone= rulePersonByPhone EOF
+            // InternalBilang.g:1345:54: (iv_rulePersonByPhone= rulePersonByPhone EOF )
+            // InternalBilang.g:1346:2: iv_rulePersonByPhone= rulePersonByPhone EOF
             {
              newCompositeNode(grammarAccess.getPersonByPhoneRule()); 
             pushFollow(FOLLOW_1);
@@ -3424,7 +3560,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePersonByPhone"
-    // InternalBilang.g:1287:1: rulePersonByPhone returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) ) ) ;
+    // InternalBilang.g:1352:1: rulePersonByPhone returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) ) ) ;
     public final EObject rulePersonByPhone() throws RecognitionException {
         EObject current = null;
 
@@ -3438,33 +3574,33 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1293:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) ) ) )
-            // InternalBilang.g:1294:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) ) )
+            // InternalBilang.g:1358:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) ) ) )
+            // InternalBilang.g:1359:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) ) )
             {
-            // InternalBilang.g:1294:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) ) )
-            // InternalBilang.g:1295:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) )
+            // InternalBilang.g:1359:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) ) )
+            // InternalBilang.g:1360:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'phone' otherlv_3= 'number' ( (lv_phone_4_0= RULE_PHONE_NUMBER ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_7); 
+            otherlv_0=(Token)match(input,45,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByPhoneAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,19,FOLLOW_37); 
+            otherlv_1=(Token)match(input,20,FOLLOW_38); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByPhoneAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,40,FOLLOW_38); 
+            otherlv_2=(Token)match(input,41,FOLLOW_39); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonByPhoneAccess().getPhoneKeyword_2());
             		
-            otherlv_3=(Token)match(input,48,FOLLOW_39); 
+            otherlv_3=(Token)match(input,49,FOLLOW_40); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPersonByPhoneAccess().getNumberKeyword_3());
             		
-            // InternalBilang.g:1311:3: ( (lv_phone_4_0= RULE_PHONE_NUMBER ) )
-            // InternalBilang.g:1312:4: (lv_phone_4_0= RULE_PHONE_NUMBER )
+            // InternalBilang.g:1376:3: ( (lv_phone_4_0= RULE_PHONE_NUMBER ) )
+            // InternalBilang.g:1377:4: (lv_phone_4_0= RULE_PHONE_NUMBER )
             {
-            // InternalBilang.g:1312:4: (lv_phone_4_0= RULE_PHONE_NUMBER )
-            // InternalBilang.g:1313:5: lv_phone_4_0= RULE_PHONE_NUMBER
+            // InternalBilang.g:1377:4: (lv_phone_4_0= RULE_PHONE_NUMBER )
+            // InternalBilang.g:1378:5: lv_phone_4_0= RULE_PHONE_NUMBER
             {
             lv_phone_4_0=(Token)match(input,RULE_PHONE_NUMBER,FOLLOW_2); 
 
@@ -3509,7 +3645,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePersonByAddress"
-    // InternalBilang.g:1333:1: entryRulePersonByAddress returns [EObject current=null] : iv_rulePersonByAddress= rulePersonByAddress EOF ;
+    // InternalBilang.g:1398:1: entryRulePersonByAddress returns [EObject current=null] : iv_rulePersonByAddress= rulePersonByAddress EOF ;
     public final EObject entryRulePersonByAddress() throws RecognitionException {
         EObject current = null;
 
@@ -3517,8 +3653,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1333:56: (iv_rulePersonByAddress= rulePersonByAddress EOF )
-            // InternalBilang.g:1334:2: iv_rulePersonByAddress= rulePersonByAddress EOF
+            // InternalBilang.g:1398:56: (iv_rulePersonByAddress= rulePersonByAddress EOF )
+            // InternalBilang.g:1399:2: iv_rulePersonByAddress= rulePersonByAddress EOF
             {
              newCompositeNode(grammarAccess.getPersonByAddressRule()); 
             pushFollow(FOLLOW_1);
@@ -3545,7 +3681,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePersonByAddress"
-    // InternalBilang.g:1340:1: rulePersonByAddress returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) ) ) ;
+    // InternalBilang.g:1405:1: rulePersonByAddress returns [EObject current=null] : (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) ) ) ;
     public final EObject rulePersonByAddress() throws RecognitionException {
         EObject current = null;
 
@@ -3563,33 +3699,33 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1346:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) ) ) )
-            // InternalBilang.g:1347:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) ) )
+            // InternalBilang.g:1411:2: ( (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) ) ) )
+            // InternalBilang.g:1412:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) ) )
             {
-            // InternalBilang.g:1347:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) ) )
-            // InternalBilang.g:1348:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) )
+            // InternalBilang.g:1412:2: (otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) ) )
+            // InternalBilang.g:1413:3: otherlv_0= 'person' otherlv_1= 'with' otherlv_2= 'zip' otherlv_3= 'code' ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) ) otherlv_5= 'and' otherlv_6= 'house' otherlv_7= 'number' ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_7); 
+            otherlv_0=(Token)match(input,45,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByAddressAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,19,FOLLOW_40); 
+            otherlv_1=(Token)match(input,20,FOLLOW_41); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByAddressAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,49,FOLLOW_41); 
+            otherlv_2=(Token)match(input,50,FOLLOW_42); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonByAddressAccess().getZipKeyword_2());
             		
-            otherlv_3=(Token)match(input,50,FOLLOW_42); 
+            otherlv_3=(Token)match(input,51,FOLLOW_43); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPersonByAddressAccess().getCodeKeyword_3());
             		
-            // InternalBilang.g:1364:3: ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) )
-            // InternalBilang.g:1365:4: (lv_zipcode_4_0= RULE_DUTCH_POSTCODE )
+            // InternalBilang.g:1429:3: ( (lv_zipcode_4_0= RULE_DUTCH_POSTCODE ) )
+            // InternalBilang.g:1430:4: (lv_zipcode_4_0= RULE_DUTCH_POSTCODE )
             {
-            // InternalBilang.g:1365:4: (lv_zipcode_4_0= RULE_DUTCH_POSTCODE )
-            // InternalBilang.g:1366:5: lv_zipcode_4_0= RULE_DUTCH_POSTCODE
+            // InternalBilang.g:1430:4: (lv_zipcode_4_0= RULE_DUTCH_POSTCODE )
+            // InternalBilang.g:1431:5: lv_zipcode_4_0= RULE_DUTCH_POSTCODE
             {
             lv_zipcode_4_0=(Token)match(input,RULE_DUTCH_POSTCODE,FOLLOW_10); 
 
@@ -3611,23 +3747,23 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,21,FOLLOW_43); 
+            otherlv_5=(Token)match(input,22,FOLLOW_44); 
 
             			newLeafNode(otherlv_5, grammarAccess.getPersonByAddressAccess().getAndKeyword_5());
             		
-            otherlv_6=(Token)match(input,51,FOLLOW_38); 
+            otherlv_6=(Token)match(input,52,FOLLOW_39); 
 
             			newLeafNode(otherlv_6, grammarAccess.getPersonByAddressAccess().getHouseKeyword_6());
             		
-            otherlv_7=(Token)match(input,48,FOLLOW_44); 
+            otherlv_7=(Token)match(input,49,FOLLOW_45); 
 
             			newLeafNode(otherlv_7, grammarAccess.getPersonByAddressAccess().getNumberKeyword_7());
             		
-            // InternalBilang.g:1394:3: ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) )
-            // InternalBilang.g:1395:4: (lv_housenumber_8_0= RULE_HOUSENUMBER )
+            // InternalBilang.g:1459:3: ( (lv_housenumber_8_0= RULE_HOUSENUMBER ) )
+            // InternalBilang.g:1460:4: (lv_housenumber_8_0= RULE_HOUSENUMBER )
             {
-            // InternalBilang.g:1395:4: (lv_housenumber_8_0= RULE_HOUSENUMBER )
-            // InternalBilang.g:1396:5: lv_housenumber_8_0= RULE_HOUSENUMBER
+            // InternalBilang.g:1460:4: (lv_housenumber_8_0= RULE_HOUSENUMBER )
+            // InternalBilang.g:1461:5: lv_housenumber_8_0= RULE_HOUSENUMBER
             {
             lv_housenumber_8_0=(Token)match(input,RULE_HOUSENUMBER,FOLLOW_2); 
 
@@ -3672,7 +3808,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleContent"
-    // InternalBilang.g:1416:1: entryRuleContent returns [EObject current=null] : iv_ruleContent= ruleContent EOF ;
+    // InternalBilang.g:1481:1: entryRuleContent returns [EObject current=null] : iv_ruleContent= ruleContent EOF ;
     public final EObject entryRuleContent() throws RecognitionException {
         EObject current = null;
 
@@ -3680,8 +3816,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1416:48: (iv_ruleContent= ruleContent EOF )
-            // InternalBilang.g:1417:2: iv_ruleContent= ruleContent EOF
+            // InternalBilang.g:1481:48: (iv_ruleContent= ruleContent EOF )
+            // InternalBilang.g:1482:2: iv_ruleContent= ruleContent EOF
             {
              newCompositeNode(grammarAccess.getContentRule()); 
             pushFollow(FOLLOW_1);
@@ -3708,7 +3844,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleContent"
-    // InternalBilang.g:1423:1: ruleContent returns [EObject current=null] : (this_Message_0= ruleMessage | this_Document_1= ruleDocument ) ;
+    // InternalBilang.g:1488:1: ruleContent returns [EObject current=null] : (this_Message_0= ruleMessage | this_Document_1= ruleDocument ) ;
     public final EObject ruleContent() throws RecognitionException {
         EObject current = null;
 
@@ -3721,17 +3857,17 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1429:2: ( (this_Message_0= ruleMessage | this_Document_1= ruleDocument ) )
-            // InternalBilang.g:1430:2: (this_Message_0= ruleMessage | this_Document_1= ruleDocument )
+            // InternalBilang.g:1494:2: ( (this_Message_0= ruleMessage | this_Document_1= ruleDocument ) )
+            // InternalBilang.g:1495:2: (this_Message_0= ruleMessage | this_Document_1= ruleDocument )
             {
-            // InternalBilang.g:1430:2: (this_Message_0= ruleMessage | this_Document_1= ruleDocument )
+            // InternalBilang.g:1495:2: (this_Message_0= ruleMessage | this_Document_1= ruleDocument )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==52) ) {
+            if ( (LA13_0==53) ) {
                 alt13=1;
             }
-            else if ( ((LA13_0>=53 && LA13_0<=54)) ) {
+            else if ( ((LA13_0>=54 && LA13_0<=55)) ) {
                 alt13=2;
             }
             else {
@@ -3742,7 +3878,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalBilang.g:1431:3: this_Message_0= ruleMessage
+                    // InternalBilang.g:1496:3: this_Message_0= ruleMessage
                     {
 
                     			newCompositeNode(grammarAccess.getContentAccess().getMessageParserRuleCall_0());
@@ -3760,7 +3896,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBilang.g:1440:3: this_Document_1= ruleDocument
+                    // InternalBilang.g:1505:3: this_Document_1= ruleDocument
                     {
 
                     			newCompositeNode(grammarAccess.getContentAccess().getDocumentParserRuleCall_1());
@@ -3800,7 +3936,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMessage"
-    // InternalBilang.g:1452:1: entryRuleMessage returns [EObject current=null] : iv_ruleMessage= ruleMessage EOF ;
+    // InternalBilang.g:1517:1: entryRuleMessage returns [EObject current=null] : iv_ruleMessage= ruleMessage EOF ;
     public final EObject entryRuleMessage() throws RecognitionException {
         EObject current = null;
 
@@ -3808,8 +3944,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1452:48: (iv_ruleMessage= ruleMessage EOF )
-            // InternalBilang.g:1453:2: iv_ruleMessage= ruleMessage EOF
+            // InternalBilang.g:1517:48: (iv_ruleMessage= ruleMessage EOF )
+            // InternalBilang.g:1518:2: iv_ruleMessage= ruleMessage EOF
             {
              newCompositeNode(grammarAccess.getMessageRule()); 
             pushFollow(FOLLOW_1);
@@ -3836,52 +3972,46 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMessage"
-    // InternalBilang.g:1459:1: ruleMessage returns [EObject current=null] : (otherlv_0= 'message' ( (lv_message_1_0= ruleTextWithSpaces ) ) ) ;
+    // InternalBilang.g:1524:1: ruleMessage returns [EObject current=null] : (otherlv_0= 'message' ( (lv_message_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleMessage() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        EObject lv_message_1_0 = null;
-
+        Token lv_message_1_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalBilang.g:1465:2: ( (otherlv_0= 'message' ( (lv_message_1_0= ruleTextWithSpaces ) ) ) )
-            // InternalBilang.g:1466:2: (otherlv_0= 'message' ( (lv_message_1_0= ruleTextWithSpaces ) ) )
+            // InternalBilang.g:1530:2: ( (otherlv_0= 'message' ( (lv_message_1_0= RULE_STRING ) ) ) )
+            // InternalBilang.g:1531:2: (otherlv_0= 'message' ( (lv_message_1_0= RULE_STRING ) ) )
             {
-            // InternalBilang.g:1466:2: (otherlv_0= 'message' ( (lv_message_1_0= ruleTextWithSpaces ) ) )
-            // InternalBilang.g:1467:3: otherlv_0= 'message' ( (lv_message_1_0= ruleTextWithSpaces ) )
+            // InternalBilang.g:1531:2: (otherlv_0= 'message' ( (lv_message_1_0= RULE_STRING ) ) )
+            // InternalBilang.g:1532:3: otherlv_0= 'message' ( (lv_message_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,52,FOLLOW_9); 
+            otherlv_0=(Token)match(input,53,FOLLOW_37); 
 
             			newLeafNode(otherlv_0, grammarAccess.getMessageAccess().getMessageKeyword_0());
             		
-            // InternalBilang.g:1471:3: ( (lv_message_1_0= ruleTextWithSpaces ) )
-            // InternalBilang.g:1472:4: (lv_message_1_0= ruleTextWithSpaces )
+            // InternalBilang.g:1536:3: ( (lv_message_1_0= RULE_STRING ) )
+            // InternalBilang.g:1537:4: (lv_message_1_0= RULE_STRING )
             {
-            // InternalBilang.g:1472:4: (lv_message_1_0= ruleTextWithSpaces )
-            // InternalBilang.g:1473:5: lv_message_1_0= ruleTextWithSpaces
+            // InternalBilang.g:1537:4: (lv_message_1_0= RULE_STRING )
+            // InternalBilang.g:1538:5: lv_message_1_0= RULE_STRING
             {
+            lv_message_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            					newCompositeNode(grammarAccess.getMessageAccess().getMessageTextWithSpacesParserRuleCall_1_0());
+            					newLeafNode(lv_message_1_0, grammarAccess.getMessageAccess().getMessageSTRINGTerminalRuleCall_1_0());
             				
-            pushFollow(FOLLOW_2);
-            lv_message_1_0=ruleTextWithSpaces();
-
-            state._fsp--;
-
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getMessageRule());
+            						current = createModelElement(grammarAccess.getMessageRule());
             					}
-            					set(
+            					setWithLastConsumed(
             						current,
             						"message",
             						lv_message_1_0,
-            						"org.xtext.example.bilang.Bilang.TextWithSpaces");
-            					afterParserOrEnumRuleCall();
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -3912,7 +4042,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDocument"
-    // InternalBilang.g:1494:1: entryRuleDocument returns [EObject current=null] : iv_ruleDocument= ruleDocument EOF ;
+    // InternalBilang.g:1558:1: entryRuleDocument returns [EObject current=null] : iv_ruleDocument= ruleDocument EOF ;
     public final EObject entryRuleDocument() throws RecognitionException {
         EObject current = null;
 
@@ -3920,8 +4050,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1494:49: (iv_ruleDocument= ruleDocument EOF )
-            // InternalBilang.g:1495:2: iv_ruleDocument= ruleDocument EOF
+            // InternalBilang.g:1558:49: (iv_ruleDocument= ruleDocument EOF )
+            // InternalBilang.g:1559:2: iv_ruleDocument= ruleDocument EOF
             {
              newCompositeNode(grammarAccess.getDocumentRule()); 
             pushFollow(FOLLOW_1);
@@ -3948,7 +4078,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDocument"
-    // InternalBilang.g:1501:1: ruleDocument returns [EObject current=null] : (this_Invoice_0= ruleInvoice | this_DocumentPerson_1= ruleDocumentPerson ) ;
+    // InternalBilang.g:1565:1: ruleDocument returns [EObject current=null] : (this_Invoice_0= ruleInvoice | this_DocumentPerson_1= ruleDocumentPerson ) ;
     public final EObject ruleDocument() throws RecognitionException {
         EObject current = null;
 
@@ -3961,17 +4091,17 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1507:2: ( (this_Invoice_0= ruleInvoice | this_DocumentPerson_1= ruleDocumentPerson ) )
-            // InternalBilang.g:1508:2: (this_Invoice_0= ruleInvoice | this_DocumentPerson_1= ruleDocumentPerson )
+            // InternalBilang.g:1571:2: ( (this_Invoice_0= ruleInvoice | this_DocumentPerson_1= ruleDocumentPerson ) )
+            // InternalBilang.g:1572:2: (this_Invoice_0= ruleInvoice | this_DocumentPerson_1= ruleDocumentPerson )
             {
-            // InternalBilang.g:1508:2: (this_Invoice_0= ruleInvoice | this_DocumentPerson_1= ruleDocumentPerson )
+            // InternalBilang.g:1572:2: (this_Invoice_0= ruleInvoice | this_DocumentPerson_1= ruleDocumentPerson )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==53) ) {
+            if ( (LA14_0==54) ) {
                 alt14=1;
             }
-            else if ( (LA14_0==54) ) {
+            else if ( (LA14_0==55) ) {
                 alt14=2;
             }
             else {
@@ -3982,7 +4112,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalBilang.g:1509:3: this_Invoice_0= ruleInvoice
+                    // InternalBilang.g:1573:3: this_Invoice_0= ruleInvoice
                     {
 
                     			newCompositeNode(grammarAccess.getDocumentAccess().getInvoiceParserRuleCall_0());
@@ -4000,7 +4130,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBilang.g:1518:3: this_DocumentPerson_1= ruleDocumentPerson
+                    // InternalBilang.g:1582:3: this_DocumentPerson_1= ruleDocumentPerson
                     {
 
                     			newCompositeNode(grammarAccess.getDocumentAccess().getDocumentPersonParserRuleCall_1());
@@ -4040,7 +4170,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInvoice"
-    // InternalBilang.g:1530:1: entryRuleInvoice returns [EObject current=null] : iv_ruleInvoice= ruleInvoice EOF ;
+    // InternalBilang.g:1594:1: entryRuleInvoice returns [EObject current=null] : iv_ruleInvoice= ruleInvoice EOF ;
     public final EObject entryRuleInvoice() throws RecognitionException {
         EObject current = null;
 
@@ -4048,8 +4178,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1530:48: (iv_ruleInvoice= ruleInvoice EOF )
-            // InternalBilang.g:1531:2: iv_ruleInvoice= ruleInvoice EOF
+            // InternalBilang.g:1594:48: (iv_ruleInvoice= ruleInvoice EOF )
+            // InternalBilang.g:1595:2: iv_ruleInvoice= ruleInvoice EOF
             {
              newCompositeNode(grammarAccess.getInvoiceRule()); 
             pushFollow(FOLLOW_1);
@@ -4076,7 +4206,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInvoice"
-    // InternalBilang.g:1537:1: ruleInvoice returns [EObject current=null] : (otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) ) ) ;
+    // InternalBilang.g:1601:1: ruleInvoice returns [EObject current=null] : (otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) ) ) ;
     public final EObject ruleInvoice() throws RecognitionException {
         EObject current = null;
 
@@ -4089,29 +4219,29 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1543:2: ( (otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) ) ) )
-            // InternalBilang.g:1544:2: (otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) ) )
+            // InternalBilang.g:1607:2: ( (otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) ) ) )
+            // InternalBilang.g:1608:2: (otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) ) )
             {
-            // InternalBilang.g:1544:2: (otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) ) )
-            // InternalBilang.g:1545:3: otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) )
+            // InternalBilang.g:1608:2: (otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) ) )
+            // InternalBilang.g:1609:3: otherlv_0= 'invoice' otherlv_1= 'with' otherlv_2= 'code' ( (lv_code_3_0= RULE_INT ) )
             {
-            otherlv_0=(Token)match(input,53,FOLLOW_7); 
+            otherlv_0=(Token)match(input,54,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getInvoiceAccess().getInvoiceKeyword_0());
             		
-            otherlv_1=(Token)match(input,19,FOLLOW_41); 
+            otherlv_1=(Token)match(input,20,FOLLOW_42); 
 
             			newLeafNode(otherlv_1, grammarAccess.getInvoiceAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,50,FOLLOW_45); 
+            otherlv_2=(Token)match(input,51,FOLLOW_46); 
 
             			newLeafNode(otherlv_2, grammarAccess.getInvoiceAccess().getCodeKeyword_2());
             		
-            // InternalBilang.g:1557:3: ( (lv_code_3_0= RULE_INT ) )
-            // InternalBilang.g:1558:4: (lv_code_3_0= RULE_INT )
+            // InternalBilang.g:1621:3: ( (lv_code_3_0= RULE_INT ) )
+            // InternalBilang.g:1622:4: (lv_code_3_0= RULE_INT )
             {
-            // InternalBilang.g:1558:4: (lv_code_3_0= RULE_INT )
-            // InternalBilang.g:1559:5: lv_code_3_0= RULE_INT
+            // InternalBilang.g:1622:4: (lv_code_3_0= RULE_INT )
+            // InternalBilang.g:1623:5: lv_code_3_0= RULE_INT
             {
             lv_code_3_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -4156,7 +4286,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDocumentPerson"
-    // InternalBilang.g:1579:1: entryRuleDocumentPerson returns [EObject current=null] : iv_ruleDocumentPerson= ruleDocumentPerson EOF ;
+    // InternalBilang.g:1643:1: entryRuleDocumentPerson returns [EObject current=null] : iv_ruleDocumentPerson= ruleDocumentPerson EOF ;
     public final EObject entryRuleDocumentPerson() throws RecognitionException {
         EObject current = null;
 
@@ -4164,8 +4294,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBilang.g:1579:55: (iv_ruleDocumentPerson= ruleDocumentPerson EOF )
-            // InternalBilang.g:1580:2: iv_ruleDocumentPerson= ruleDocumentPerson EOF
+            // InternalBilang.g:1643:55: (iv_ruleDocumentPerson= ruleDocumentPerson EOF )
+            // InternalBilang.g:1644:2: iv_ruleDocumentPerson= ruleDocumentPerson EOF
             {
              newCompositeNode(grammarAccess.getDocumentPersonRule()); 
             pushFollow(FOLLOW_1);
@@ -4192,7 +4322,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDocumentPerson"
-    // InternalBilang.g:1586:1: ruleDocumentPerson returns [EObject current=null] : (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) ) ;
+    // InternalBilang.g:1650:1: ruleDocumentPerson returns [EObject current=null] : (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) ) ;
     public final EObject ruleDocumentPerson() throws RecognitionException {
         EObject current = null;
 
@@ -4205,25 +4335,25 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:1592:2: ( (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) ) )
-            // InternalBilang.g:1593:2: (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) )
+            // InternalBilang.g:1656:2: ( (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) ) )
+            // InternalBilang.g:1657:2: (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) )
             {
-            // InternalBilang.g:1593:2: (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) )
-            // InternalBilang.g:1594:3: otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) )
+            // InternalBilang.g:1657:2: (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) )
+            // InternalBilang.g:1658:3: otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) )
             {
-            otherlv_0=(Token)match(input,54,FOLLOW_46); 
+            otherlv_0=(Token)match(input,55,FOLLOW_47); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDocumentPersonAccess().getInformationKeyword_0());
             		
-            otherlv_1=(Token)match(input,55,FOLLOW_17); 
+            otherlv_1=(Token)match(input,56,FOLLOW_17); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDocumentPersonAccess().getAboutKeyword_1());
             		
-            // InternalBilang.g:1602:3: ( (lv_person_2_0= rulePerson ) )
-            // InternalBilang.g:1603:4: (lv_person_2_0= rulePerson )
+            // InternalBilang.g:1666:3: ( (lv_person_2_0= rulePerson ) )
+            // InternalBilang.g:1667:4: (lv_person_2_0= rulePerson )
             {
-            // InternalBilang.g:1603:4: (lv_person_2_0= rulePerson )
-            // InternalBilang.g:1604:5: lv_person_2_0= rulePerson
+            // InternalBilang.g:1667:4: (lv_person_2_0= rulePerson )
+            // InternalBilang.g:1668:5: lv_person_2_0= rulePerson
             {
 
             					newCompositeNode(grammarAccess.getDocumentPersonAccess().getPersonPersonParserRuleCall_2_0());
@@ -4271,157 +4401,6 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleDocumentPerson"
 
-
-    // $ANTLR start "entryRuleTextWithSpaces"
-    // InternalBilang.g:1625:1: entryRuleTextWithSpaces returns [EObject current=null] : iv_ruleTextWithSpaces= ruleTextWithSpaces EOF ;
-    public final EObject entryRuleTextWithSpaces() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleTextWithSpaces = null;
-
-
-        try {
-            // InternalBilang.g:1625:55: (iv_ruleTextWithSpaces= ruleTextWithSpaces EOF )
-            // InternalBilang.g:1626:2: iv_ruleTextWithSpaces= ruleTextWithSpaces EOF
-            {
-             newCompositeNode(grammarAccess.getTextWithSpacesRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleTextWithSpaces=ruleTextWithSpaces();
-
-            state._fsp--;
-
-             current =iv_ruleTextWithSpaces; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleTextWithSpaces"
-
-
-    // $ANTLR start "ruleTextWithSpaces"
-    // InternalBilang.g:1632:1: ruleTextWithSpaces returns [EObject current=null] : ( ( (lv_parts_0_0= RULE_ID ) ) ( (lv_parts_1_0= RULE_ID ) )+ ) ;
-    public final EObject ruleTextWithSpaces() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_parts_0_0=null;
-        Token lv_parts_1_0=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalBilang.g:1638:2: ( ( ( (lv_parts_0_0= RULE_ID ) ) ( (lv_parts_1_0= RULE_ID ) )+ ) )
-            // InternalBilang.g:1639:2: ( ( (lv_parts_0_0= RULE_ID ) ) ( (lv_parts_1_0= RULE_ID ) )+ )
-            {
-            // InternalBilang.g:1639:2: ( ( (lv_parts_0_0= RULE_ID ) ) ( (lv_parts_1_0= RULE_ID ) )+ )
-            // InternalBilang.g:1640:3: ( (lv_parts_0_0= RULE_ID ) ) ( (lv_parts_1_0= RULE_ID ) )+
-            {
-            // InternalBilang.g:1640:3: ( (lv_parts_0_0= RULE_ID ) )
-            // InternalBilang.g:1641:4: (lv_parts_0_0= RULE_ID )
-            {
-            // InternalBilang.g:1641:4: (lv_parts_0_0= RULE_ID )
-            // InternalBilang.g:1642:5: lv_parts_0_0= RULE_ID
-            {
-            lv_parts_0_0=(Token)match(input,RULE_ID,FOLLOW_9); 
-
-            					newLeafNode(lv_parts_0_0, grammarAccess.getTextWithSpacesAccess().getPartsIDTerminalRuleCall_0_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getTextWithSpacesRule());
-            					}
-            					addWithLastConsumed(
-            						current,
-            						"parts",
-            						lv_parts_0_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
-            				
-
-            }
-
-
-            }
-
-            // InternalBilang.g:1658:3: ( (lv_parts_1_0= RULE_ID ) )+
-            int cnt15=0;
-            loop15:
-            do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
-
-                if ( (LA15_0==RULE_ID) ) {
-                    alt15=1;
-                }
-
-
-                switch (alt15) {
-            	case 1 :
-            	    // InternalBilang.g:1659:4: (lv_parts_1_0= RULE_ID )
-            	    {
-            	    // InternalBilang.g:1659:4: (lv_parts_1_0= RULE_ID )
-            	    // InternalBilang.g:1660:5: lv_parts_1_0= RULE_ID
-            	    {
-            	    lv_parts_1_0=(Token)match(input,RULE_ID,FOLLOW_47); 
-
-            	    					newLeafNode(lv_parts_1_0, grammarAccess.getTextWithSpacesAccess().getPartsIDTerminalRuleCall_1_0());
-            	    				
-
-            	    					if (current==null) {
-            	    						current = createModelElement(grammarAccess.getTextWithSpacesRule());
-            	    					}
-            	    					addWithLastConsumed(
-            	    						current,
-            	    						"parts",
-            	    						lv_parts_1_0,
-            	    						"org.eclipse.xtext.common.Terminals.ID");
-            	    				
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt15 >= 1 ) break loop15;
-                        EarlyExitException eee =
-                            new EarlyExitException(15, input);
-                        throw eee;
-                }
-                cnt15++;
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleTextWithSpaces"
-
     // Delegated rules
 
 
@@ -4429,50 +4408,50 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00001A0402000000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000D0201000000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000100000080000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0070000000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000200000100000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x00E0000000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000400002L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0010000000000000L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0100000000000000L});
 
 }

@@ -93,7 +93,6 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
       case BilangPackage.DOCUMENT: return createDocument();
       case BilangPackage.INVOICE: return createInvoice();
       case BilangPackage.DOCUMENT_PERSON: return createDocumentPerson();
-      case BilangPackage.TEXT_WITH_SPACES: return createTextWithSpaces();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -433,18 +432,6 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
   {
     DocumentPersonImpl documentPerson = new DocumentPersonImpl();
     return documentPerson;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public TextWithSpaces createTextWithSpaces()
-  {
-    TextWithSpacesImpl textWithSpaces = new TextWithSpacesImpl();
-    return textWithSpaces;
   }
 
   /**

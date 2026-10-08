@@ -26,9 +26,19 @@ public class BilangSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getEmptyProcessRule())
+			return getEmptyProcessToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * EmptyProcess: 'empty' 'process';
+	 */
+	protected String getEmptyProcessToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "empty process";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

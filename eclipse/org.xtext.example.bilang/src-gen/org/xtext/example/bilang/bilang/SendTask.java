@@ -5,6 +5,8 @@ package org.xtext.example.bilang.bilang;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Send Task</b></em>'.
@@ -22,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SendTask extends Task
+public interface SendTask extends EObject
 {
   /**
    * Returns the value of the '<em><b>Person</b></em>' containment reference list.

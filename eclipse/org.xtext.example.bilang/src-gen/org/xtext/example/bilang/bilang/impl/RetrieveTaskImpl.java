@@ -5,6 +5,8 @@ package org.xtext.example.bilang.bilang.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.RetrieveTask;
 
@@ -15,7 +17,7 @@ import org.xtext.example.bilang.bilang.RetrieveTask;
  *
  * @generated
  */
-public class RetrieveTaskImpl extends TaskImpl implements RetrieveTask
+public class RetrieveTaskImpl extends MinimalEObjectImpl.Container implements RetrieveTask
 {
   /**
    * <!-- begin-user-doc -->

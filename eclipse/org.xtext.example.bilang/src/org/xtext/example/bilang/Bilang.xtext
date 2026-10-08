@@ -2,13 +2,14 @@ grammar org.xtext.example.bilang.Bilang with org.eclipse.xtext.common.Terminals
 
 generate bilang "http://www.xtext.org/example/bilang/Bilang"
 
-Model: Task | CompoundProcess | AbstractProcess;
+Model: Task | CompoundProcess | AbstractProcess | EmptyProcess;
 
-Task: SendTask | RetrieveTask | PersonTask;
-CompoundProcess: 'compound' 'process' ('task' task+=Task)+;
+Task: 'task' kind+=(SendTask | RetrieveTask | PersonTask);
+EmptyProcess: 'empty' 'process';
+CompoundProcess: 'compound' 'process' task+=Task+;
 AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue+;
 
-ParamValue: 'parameter' param=ID 'value' value=ID;
+ParamValue: 'parameter' param=ID 'and' 'value' value=ID;
 
 RetrieveTask: RetrieveDocument | RetrieveFullAddress | RetrievePersons;
 SendTask: SendEmail | SendSMS | SendSnailMail;

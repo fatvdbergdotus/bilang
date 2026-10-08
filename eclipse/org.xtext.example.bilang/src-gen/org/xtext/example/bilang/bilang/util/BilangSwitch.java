@@ -115,8 +115,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         RetrieveTask retrieveTask = (RetrieveTask)theEObject;
         T result = caseRetrieveTask(retrieveTask);
-        if (result == null) result = caseTask(retrieveTask);
-        if (result == null) result = caseModel(retrieveTask);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -124,8 +122,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         SendTask sendTask = (SendTask)theEObject;
         T result = caseSendTask(sendTask);
-        if (result == null) result = caseTask(sendTask);
-        if (result == null) result = caseModel(sendTask);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -133,8 +129,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         PersonTask personTask = (PersonTask)theEObject;
         T result = casePersonTask(personTask);
-        if (result == null) result = caseTask(personTask);
-        if (result == null) result = caseModel(personTask);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -143,8 +137,6 @@ public class BilangSwitch<T> extends Switch<T>
         SendEmail sendEmail = (SendEmail)theEObject;
         T result = caseSendEmail(sendEmail);
         if (result == null) result = caseSendTask(sendEmail);
-        if (result == null) result = caseTask(sendEmail);
-        if (result == null) result = caseModel(sendEmail);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -153,8 +145,6 @@ public class BilangSwitch<T> extends Switch<T>
         SendSMS sendSMS = (SendSMS)theEObject;
         T result = caseSendSMS(sendSMS);
         if (result == null) result = caseSendTask(sendSMS);
-        if (result == null) result = caseTask(sendSMS);
-        if (result == null) result = caseModel(sendSMS);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -163,8 +153,6 @@ public class BilangSwitch<T> extends Switch<T>
         SendSnailMail sendSnailMail = (SendSnailMail)theEObject;
         T result = caseSendSnailMail(sendSnailMail);
         if (result == null) result = caseSendTask(sendSnailMail);
-        if (result == null) result = caseTask(sendSnailMail);
-        if (result == null) result = caseModel(sendSnailMail);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -173,8 +161,6 @@ public class BilangSwitch<T> extends Switch<T>
         RetrieveDocument retrieveDocument = (RetrieveDocument)theEObject;
         T result = caseRetrieveDocument(retrieveDocument);
         if (result == null) result = caseRetrieveTask(retrieveDocument);
-        if (result == null) result = caseTask(retrieveDocument);
-        if (result == null) result = caseModel(retrieveDocument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -183,8 +169,6 @@ public class BilangSwitch<T> extends Switch<T>
         RetrieveFullAddress retrieveFullAddress = (RetrieveFullAddress)theEObject;
         T result = caseRetrieveFullAddress(retrieveFullAddress);
         if (result == null) result = caseRetrieveTask(retrieveFullAddress);
-        if (result == null) result = caseTask(retrieveFullAddress);
-        if (result == null) result = caseModel(retrieveFullAddress);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -193,8 +177,6 @@ public class BilangSwitch<T> extends Switch<T>
         RetrievePersons retrievePersons = (RetrievePersons)theEObject;
         T result = caseRetrievePersons(retrievePersons);
         if (result == null) result = caseRetrieveTask(retrievePersons);
-        if (result == null) result = caseTask(retrievePersons);
-        if (result == null) result = caseModel(retrievePersons);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -203,8 +185,6 @@ public class BilangSwitch<T> extends Switch<T>
         CallPerson callPerson = (CallPerson)theEObject;
         T result = caseCallPerson(callPerson);
         if (result == null) result = casePersonTask(callPerson);
-        if (result == null) result = caseTask(callPerson);
-        if (result == null) result = caseModel(callPerson);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -213,8 +193,6 @@ public class BilangSwitch<T> extends Switch<T>
         AddPerson addPerson = (AddPerson)theEObject;
         T result = caseAddPerson(addPerson);
         if (result == null) result = casePersonTask(addPerson);
-        if (result == null) result = caseTask(addPerson);
-        if (result == null) result = caseModel(addPerson);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -223,8 +201,6 @@ public class BilangSwitch<T> extends Switch<T>
         DeletePerson deletePerson = (DeletePerson)theEObject;
         T result = caseDeletePerson(deletePerson);
         if (result == null) result = casePersonTask(deletePerson);
-        if (result == null) result = caseTask(deletePerson);
-        if (result == null) result = caseModel(deletePerson);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -313,13 +289,6 @@ public class BilangSwitch<T> extends Switch<T>
         T result = caseDocumentPerson(documentPerson);
         if (result == null) result = caseDocument(documentPerson);
         if (result == null) result = caseContent(documentPerson);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BilangPackage.TEXT_WITH_SPACES:
-      {
-        TextWithSpaces textWithSpaces = (TextWithSpaces)theEObject;
-        T result = caseTextWithSpaces(textWithSpaces);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -771,22 +740,6 @@ public class BilangSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDocumentPerson(DocumentPerson object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Text With Spaces</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Text With Spaces</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTextWithSpaces(TextWithSpaces object)
   {
     return null;
   }

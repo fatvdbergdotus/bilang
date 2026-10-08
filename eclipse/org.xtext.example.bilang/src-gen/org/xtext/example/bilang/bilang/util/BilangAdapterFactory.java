@@ -216,11 +216,6 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
         return createDocumentPersonAdapter();
       }
       @Override
-      public Adapter caseTextWithSpaces(TextWithSpaces object)
-      {
-        return createTextWithSpacesAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -658,21 +653,6 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDocumentPersonAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.TextWithSpaces <em>Text With Spaces</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.TextWithSpaces
-   * @generated
-   */
-  public Adapter createTextWithSpacesAdapter()
   {
     return null;
   }

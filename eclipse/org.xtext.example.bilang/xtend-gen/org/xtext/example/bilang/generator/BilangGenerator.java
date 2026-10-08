@@ -17,11 +17,6 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.example.bilang.bilang.AbstractProcess;
 import org.xtext.example.bilang.bilang.CompoundProcess;
-import org.xtext.example.bilang.bilang.Content;
-import org.xtext.example.bilang.bilang.Message;
-import org.xtext.example.bilang.bilang.Person;
-import org.xtext.example.bilang.bilang.PersonByEmail;
-import org.xtext.example.bilang.bilang.SendEmail;
 import org.xtext.example.bilang.bilang.Task;
 
 /**
@@ -96,40 +91,8 @@ public class BilangGenerator extends AbstractGenerator {
   }
 
   public static void generate(final Task task, final IFileSystemAccess2 fsa) {
-    boolean _matched = false;
-    if (task instanceof SendEmail) {
-      _matched=true;
-      StringConcatenation _builder = new StringConcatenation();
-      String _generateStaticContent = BilangGenerator.generateStaticContent("sendemail");
-      _builder.append(_generateStaticContent);
-      _builder.newLineIfNotEmpty();
-      _builder.newLine();
-      _builder.append("# dynamically added");
-      _builder.newLine();
-      {
-        EList<Person> _person = ((SendEmail)task).getPerson();
-        for(final Person person : _person) {
-          {
-            if ((person instanceof PersonByEmail)) {
-              final Content content = ((SendEmail)task).getContent();
-              {
-                if ((content instanceof Message)) {
-                  _builder.newLineIfNotEmpty();
-                  _builder.append("sendemail(\"");
-                  String _emailaddress = ((PersonByEmail)person).getEmailaddress();
-                  _builder.append(_emailaddress);
-                  _builder.append("\", \"");
-                  String _join = IterableExtensions.join(((Message)content).getMessage().getParts(), " ");
-                  _builder.append(_join);
-                  _builder.append("\")");
-                  _builder.newLineIfNotEmpty();
-                }
-              }
-            }
-          }
-        }
-      }
-      fsa.generateFile("execute.py", _builder);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field parts is undefined for the type String"
+      + "\njoin cannot be resolved");
   }
 }

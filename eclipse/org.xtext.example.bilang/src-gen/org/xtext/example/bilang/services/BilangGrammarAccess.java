@@ -28,11 +28,12 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cTaskParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cCompoundProcessParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cAbstractProcessParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEmptyProcessParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//Model: Task | CompoundProcess | AbstractProcess;
+		//Model: Task | CompoundProcess | AbstractProcess | EmptyProcess;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Task | CompoundProcess | AbstractProcess
+		//Task | CompoundProcess | AbstractProcess | EmptyProcess
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Task
@@ -43,43 +44,74 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//AbstractProcess
 		public RuleCall getAbstractProcessParserRuleCall_2() { return cAbstractProcessParserRuleCall_2; }
+		
+		//EmptyProcess
+		public RuleCall getEmptyProcessParserRuleCall_3() { return cEmptyProcessParserRuleCall_3; }
 	}
 	public class TaskElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.Task");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSendTaskParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cRetrieveTaskParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cPersonTaskParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTaskKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cKindAlternatives_1_0 = (Alternatives)cKindAssignment_1.eContents().get(0);
+		private final RuleCall cKindSendTaskParserRuleCall_1_0_0 = (RuleCall)cKindAlternatives_1_0.eContents().get(0);
+		private final RuleCall cKindRetrieveTaskParserRuleCall_1_0_1 = (RuleCall)cKindAlternatives_1_0.eContents().get(1);
+		private final RuleCall cKindPersonTaskParserRuleCall_1_0_2 = (RuleCall)cKindAlternatives_1_0.eContents().get(2);
 		
-		//Task: SendTask | RetrieveTask | PersonTask;
+		//Task: 'task' kind+=(SendTask | RetrieveTask | PersonTask);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SendTask | RetrieveTask | PersonTask
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//'task' kind+=(SendTask | RetrieveTask | PersonTask)
+		public Group getGroup() { return cGroup; }
+		
+		//'task'
+		public Keyword getTaskKeyword_0() { return cTaskKeyword_0; }
+		
+		//kind+=(SendTask | RetrieveTask | PersonTask)
+		public Assignment getKindAssignment_1() { return cKindAssignment_1; }
+		
+		//(SendTask | RetrieveTask | PersonTask)
+		public Alternatives getKindAlternatives_1_0() { return cKindAlternatives_1_0; }
 		
 		//SendTask
-		public RuleCall getSendTaskParserRuleCall_0() { return cSendTaskParserRuleCall_0; }
+		public RuleCall getKindSendTaskParserRuleCall_1_0_0() { return cKindSendTaskParserRuleCall_1_0_0; }
 		
 		//RetrieveTask
-		public RuleCall getRetrieveTaskParserRuleCall_1() { return cRetrieveTaskParserRuleCall_1; }
+		public RuleCall getKindRetrieveTaskParserRuleCall_1_0_1() { return cKindRetrieveTaskParserRuleCall_1_0_1; }
 		
 		//PersonTask
-		public RuleCall getPersonTaskParserRuleCall_2() { return cPersonTaskParserRuleCall_2; }
+		public RuleCall getKindPersonTaskParserRuleCall_1_0_2() { return cKindPersonTaskParserRuleCall_1_0_2; }
+	}
+	public class EmptyProcessElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.EmptyProcess");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEmptyKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cProcessKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//EmptyProcess: 'empty' 'process';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'empty' 'process'
+		public Group getGroup() { return cGroup; }
+		
+		//'empty'
+		public Keyword getEmptyKeyword_0() { return cEmptyKeyword_0; }
+		
+		//'process'
+		public Keyword getProcessKeyword_1() { return cProcessKeyword_1; }
 	}
 	public class CompoundProcessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.CompoundProcess");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCompoundKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cProcessKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cTaskKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cTaskAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cTaskTaskParserRuleCall_2_1_0 = (RuleCall)cTaskAssignment_2_1.eContents().get(0);
+		private final Assignment cTaskAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTaskTaskParserRuleCall_2_0 = (RuleCall)cTaskAssignment_2.eContents().get(0);
 		
-		//CompoundProcess: 'compound' 'process' ('task' task+=Task)+;
+		//CompoundProcess: 'compound' 'process' task+=Task+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'compound' 'process' ('task' task+=Task)+
+		//'compound' 'process' task+=Task+
 		public Group getGroup() { return cGroup; }
 		
 		//'compound'
@@ -88,17 +120,11 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'process'
 		public Keyword getProcessKeyword_1() { return cProcessKeyword_1; }
 		
-		//('task' task+=Task)+
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'task'
-		public Keyword getTaskKeyword_2_0() { return cTaskKeyword_2_0; }
-		
-		//task+=Task
-		public Assignment getTaskAssignment_2_1() { return cTaskAssignment_2_1; }
+		//task+=Task+
+		public Assignment getTaskAssignment_2() { return cTaskAssignment_2; }
 		
 		//Task
-		public RuleCall getTaskTaskParserRuleCall_2_1_0() { return cTaskTaskParserRuleCall_2_1_0; }
+		public RuleCall getTaskTaskParserRuleCall_2_0() { return cTaskTaskParserRuleCall_2_0; }
 	}
 	public class AbstractProcessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.AbstractProcess");
@@ -152,14 +178,15 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cParameterKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cParamAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cParamIDTerminalRuleCall_1_0 = (RuleCall)cParamAssignment_1.eContents().get(0);
-		private final Keyword cValueKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueIDTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final Keyword cAndKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cValueKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cValueIDTerminalRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
 		
-		//ParamValue: 'parameter' param=ID 'value' value=ID;
+		//ParamValue: 'parameter' param=ID 'and' 'value' value=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'parameter' param=ID 'value' value=ID
+		//'parameter' param=ID 'and' 'value' value=ID
 		public Group getGroup() { return cGroup; }
 		
 		//'parameter'
@@ -171,14 +198,17 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//ID
 		public RuleCall getParamIDTerminalRuleCall_1_0() { return cParamIDTerminalRuleCall_1_0; }
 		
+		//'and'
+		public Keyword getAndKeyword_2() { return cAndKeyword_2; }
+		
 		//'value'
-		public Keyword getValueKeyword_2() { return cValueKeyword_2; }
+		public Keyword getValueKeyword_3() { return cValueKeyword_3; }
 		
 		//value=ID
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
 		
 		//ID
-		public RuleCall getValueIDTerminalRuleCall_3_0() { return cValueIDTerminalRuleCall_3_0; }
+		public RuleCall getValueIDTerminalRuleCall_4_0() { return cValueIDTerminalRuleCall_4_0; }
 	}
 	public class RetrieveTaskElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.RetrieveTask");
@@ -683,12 +713,12 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cLastKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cNameKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cLastNameAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cLastNameTextWithSpacesParserRuleCall_8_0 = (RuleCall)cLastNameAssignment_8.eContents().get(0);
+		private final RuleCall cLastNameSTRINGTerminalRuleCall_8_0 = (RuleCall)cLastNameAssignment_8.eContents().get(0);
 		
-		//PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=TextWithSpaces;
+		//PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=TextWithSpaces
+		//'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'person'
@@ -718,11 +748,11 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'name'
 		public Keyword getNameKeyword_7() { return cNameKeyword_7; }
 		
-		//lastName=TextWithSpaces
+		//lastName=STRING
 		public Assignment getLastNameAssignment_8() { return cLastNameAssignment_8; }
 		
-		//TextWithSpaces
-		public RuleCall getLastNameTextWithSpacesParserRuleCall_8_0() { return cLastNameTextWithSpacesParserRuleCall_8_0; }
+		//STRING
+		public RuleCall getLastNameSTRINGTerminalRuleCall_8_0() { return cLastNameSTRINGTerminalRuleCall_8_0; }
 	}
 	public class PersonByPhoneElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.PersonByPhone");
@@ -835,22 +865,22 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cMessageKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cMessageAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cMessageTextWithSpacesParserRuleCall_1_0 = (RuleCall)cMessageAssignment_1.eContents().get(0);
+		private final RuleCall cMessageSTRINGTerminalRuleCall_1_0 = (RuleCall)cMessageAssignment_1.eContents().get(0);
 		
-		//Message: 'message' message=TextWithSpaces;
+		//Message: 'message' message=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'message' message=TextWithSpaces
+		//'message' message=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'message'
 		public Keyword getMessageKeyword_0() { return cMessageKeyword_0; }
 		
-		//message=TextWithSpaces
+		//message=STRING
 		public Assignment getMessageAssignment_1() { return cMessageAssignment_1; }
 		
-		//TextWithSpaces
-		public RuleCall getMessageTextWithSpacesParserRuleCall_1_0() { return cMessageTextWithSpacesParserRuleCall_1_0; }
+		//STRING
+		public RuleCall getMessageSTRINGTerminalRuleCall_1_0() { return cMessageSTRINGTerminalRuleCall_1_0; }
 	}
 	public class DocumentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.Document");
@@ -926,36 +956,11 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//Person
 		public RuleCall getPersonPersonParserRuleCall_2_0() { return cPersonPersonParserRuleCall_2_0; }
 	}
-	public class TextWithSpacesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.TextWithSpaces");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cPartsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cPartsIDTerminalRuleCall_0_0 = (RuleCall)cPartsAssignment_0.eContents().get(0);
-		private final Assignment cPartsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPartsIDTerminalRuleCall_1_0 = (RuleCall)cPartsAssignment_1.eContents().get(0);
-		
-		//TextWithSpaces: parts+=ID parts+=ID+;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//parts+=ID parts+=ID+
-		public Group getGroup() { return cGroup; }
-		
-		//parts+=ID
-		public Assignment getPartsAssignment_0() { return cPartsAssignment_0; }
-		
-		//ID
-		public RuleCall getPartsIDTerminalRuleCall_0_0() { return cPartsIDTerminalRuleCall_0_0; }
-		
-		//parts+=ID+
-		public Assignment getPartsAssignment_1() { return cPartsAssignment_1; }
-		
-		//ID
-		public RuleCall getPartsIDTerminalRuleCall_1_0() { return cPartsIDTerminalRuleCall_1_0; }
-	}
 	
 	
 	private final ModelElements pModel;
 	private final TaskElements pTask;
+	private final EmptyProcessElements pEmptyProcess;
 	private final CompoundProcessElements pCompoundProcess;
 	private final AbstractProcessElements pAbstractProcess;
 	private final ParamValueElements pParamValue;
@@ -985,7 +990,6 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final TerminalRule tEMAIL_ADDRESS;
 	private final TerminalRule tPHONE_NUMBER;
 	private final TerminalRule tHOUSENUMBER;
-	private final TextWithSpacesElements pTextWithSpaces;
 	private final TerminalRule tDUTCH_POSTCODE;
 	
 	private final Grammar grammar;
@@ -999,6 +1003,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pTask = new TaskElements();
+		this.pEmptyProcess = new EmptyProcessElements();
 		this.pCompoundProcess = new CompoundProcessElements();
 		this.pAbstractProcess = new AbstractProcessElements();
 		this.pParamValue = new ParamValueElements();
@@ -1028,7 +1033,6 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.tEMAIL_ADDRESS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.EMAIL_ADDRESS");
 		this.tPHONE_NUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.PHONE_NUMBER");
 		this.tHOUSENUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.HOUSENUMBER");
-		this.pTextWithSpaces = new TextWithSpacesElements();
 		this.tDUTCH_POSTCODE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.DUTCH_POSTCODE");
 	}
 	
@@ -1059,7 +1063,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 
 	
-	//Model: Task | CompoundProcess | AbstractProcess;
+	//Model: Task | CompoundProcess | AbstractProcess | EmptyProcess;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -1068,7 +1072,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getModelAccess().getRule();
 	}
 	
-	//Task: SendTask | RetrieveTask | PersonTask;
+	//Task: 'task' kind+=(SendTask | RetrieveTask | PersonTask);
 	public TaskElements getTaskAccess() {
 		return pTask;
 	}
@@ -1077,7 +1081,16 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getTaskAccess().getRule();
 	}
 	
-	//CompoundProcess: 'compound' 'process' ('task' task+=Task)+;
+	//EmptyProcess: 'empty' 'process';
+	public EmptyProcessElements getEmptyProcessAccess() {
+		return pEmptyProcess;
+	}
+	
+	public ParserRule getEmptyProcessRule() {
+		return getEmptyProcessAccess().getRule();
+	}
+	
+	//CompoundProcess: 'compound' 'process' task+=Task+;
 	public CompoundProcessElements getCompoundProcessAccess() {
 		return pCompoundProcess;
 	}
@@ -1095,7 +1108,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getAbstractProcessAccess().getRule();
 	}
 	
-	//ParamValue: 'parameter' param=ID 'value' value=ID;
+	//ParamValue: 'parameter' param=ID 'and' 'value' value=ID;
 	public ParamValueElements getParamValueAccess() {
 		return pParamValue;
 	}
@@ -1239,7 +1252,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getPersonByAliasAccess().getRule();
 	}
 	
-	//PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=TextWithSpaces;
+	//PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=STRING;
 	public PersonByNameElements getPersonByNameAccess() {
 		return pPersonByName;
 	}
@@ -1275,7 +1288,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getContentAccess().getRule();
 	}
 	
-	//Message: 'message' message=TextWithSpaces;
+	//Message: 'message' message=STRING;
 	public MessageElements getMessageAccess() {
 		return pMessage;
 	}
@@ -1328,15 +1341,6 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	//    ('0'..'9')+ ('a'..'z' | 'A'..'Z')?;
 	public TerminalRule getHOUSENUMBERRule() {
 		return tHOUSENUMBER;
-	}
-	
-	//TextWithSpaces: parts+=ID parts+=ID+;
-	public TextWithSpacesElements getTextWithSpacesAccess() {
-		return pTextWithSpaces;
-	}
-	
-	public ParserRule getTextWithSpacesRule() {
-		return getTextWithSpacesAccess().getRule();
 	}
 	
 	//terminal DUTCH_POSTCODE: ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9') ' '? ('A'..'Z') ('A'..'Z');

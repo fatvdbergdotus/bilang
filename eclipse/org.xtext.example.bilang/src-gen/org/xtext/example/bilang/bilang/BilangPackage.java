@@ -87,13 +87,22 @@ public interface BilangPackage extends EPackage
   int TASK = 1;
 
   /**
+   * The feature id for the '<em><b>Kind</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK__KIND = MODEL_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Task</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TASK_FEATURE_COUNT = MODEL_FEATURE_COUNT + 0;
+  int TASK_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.CompoundProcessImpl <em>Compound Process</em>}' class.
@@ -214,7 +223,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RETRIEVE_TASK_FEATURE_COUNT = TASK_FEATURE_COUNT + 0;
+  int RETRIEVE_TASK_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendTaskImpl <em>Send Task</em>}' class.
@@ -233,7 +242,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_TASK__PERSON = TASK_FEATURE_COUNT + 0;
+  int SEND_TASK__PERSON = 0;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference.
@@ -242,7 +251,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_TASK__CONTENT = TASK_FEATURE_COUNT + 1;
+  int SEND_TASK__CONTENT = 1;
 
   /**
    * The number of structural features of the '<em>Send Task</em>' class.
@@ -251,7 +260,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_TASK_FEATURE_COUNT = TASK_FEATURE_COUNT + 2;
+  int SEND_TASK_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonTaskImpl <em>Person Task</em>}' class.
@@ -270,7 +279,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PERSON_TASK_FEATURE_COUNT = TASK_FEATURE_COUNT + 0;
+  int PERSON_TASK_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendEmailImpl <em>Send Email</em>}' class.
@@ -655,7 +664,7 @@ public interface BilangPackage extends EPackage
   int PERSON_BY_NAME__FIRST_NAME = PERSON_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Last Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Last Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -767,7 +776,7 @@ public interface BilangPackage extends EPackage
   int MESSAGE = 24;
 
   /**
-   * The feature id for the '<em><b>Message</b></em>' containment reference.
+   * The feature id for the '<em><b>Message</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -859,34 +868,6 @@ public interface BilangPackage extends EPackage
    */
   int DOCUMENT_PERSON_FEATURE_COUNT = DOCUMENT_FEATURE_COUNT + 1;
 
-  /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.TextWithSpacesImpl <em>Text With Spaces</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.TextWithSpacesImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTextWithSpaces()
-   * @generated
-   */
-  int TEXT_WITH_SPACES = 28;
-
-  /**
-   * The feature id for the '<em><b>Parts</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEXT_WITH_SPACES__PARTS = 0;
-
-  /**
-   * The number of structural features of the '<em>Text With Spaces</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEXT_WITH_SPACES_FEATURE_COUNT = 1;
-
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Model <em>Model</em>}'.
@@ -907,6 +888,17 @@ public interface BilangPackage extends EPackage
    * @generated
    */
   EClass getTask();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.Task#getKind <em>Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Kind</em>'.
+   * @see org.xtext.example.bilang.bilang.Task#getKind()
+   * @see #getTask()
+   * @generated
+   */
+  EReference getTask_Kind();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.CompoundProcess <em>Compound Process</em>}'.
@@ -1286,15 +1278,15 @@ public interface BilangPackage extends EPackage
   EAttribute getPersonByName_FirstName();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.PersonByName#getLastName <em>Last Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.PersonByName#getLastName <em>Last Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Last Name</em>'.
+   * @return the meta object for the attribute '<em>Last Name</em>'.
    * @see org.xtext.example.bilang.bilang.PersonByName#getLastName()
    * @see #getPersonByName()
    * @generated
    */
-  EReference getPersonByName_LastName();
+  EAttribute getPersonByName_LastName();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.PersonByPhone <em>Person By Phone</em>}'.
@@ -1370,15 +1362,15 @@ public interface BilangPackage extends EPackage
   EClass getMessage();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.Message#getMessage <em>Message</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.Message#getMessage <em>Message</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Message</em>'.
+   * @return the meta object for the attribute '<em>Message</em>'.
    * @see org.xtext.example.bilang.bilang.Message#getMessage()
    * @see #getMessage()
    * @generated
    */
-  EReference getMessage_Message();
+  EAttribute getMessage_Message();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Document <em>Document</em>}'.
@@ -1433,27 +1425,6 @@ public interface BilangPackage extends EPackage
   EReference getDocumentPerson_Person();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.TextWithSpaces <em>Text With Spaces</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Text With Spaces</em>'.
-   * @see org.xtext.example.bilang.bilang.TextWithSpaces
-   * @generated
-   */
-  EClass getTextWithSpaces();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.bilang.bilang.TextWithSpaces#getParts <em>Parts</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Parts</em>'.
-   * @see org.xtext.example.bilang.bilang.TextWithSpaces#getParts()
-   * @see #getTextWithSpaces()
-   * @generated
-   */
-  EAttribute getTextWithSpaces_Parts();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1495,6 +1466,14 @@ public interface BilangPackage extends EPackage
      * @generated
      */
     EClass TASK = eINSTANCE.getTask();
+
+    /**
+     * The meta object literal for the '<em><b>Kind</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TASK__KIND = eINSTANCE.getTask_Kind();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.CompoundProcessImpl <em>Compound Process</em>}' class.
@@ -1823,12 +1802,12 @@ public interface BilangPackage extends EPackage
     EAttribute PERSON_BY_NAME__FIRST_NAME = eINSTANCE.getPersonByName_FirstName();
 
     /**
-     * The meta object literal for the '<em><b>Last Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Last Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PERSON_BY_NAME__LAST_NAME = eINSTANCE.getPersonByName_LastName();
+    EAttribute PERSON_BY_NAME__LAST_NAME = eINSTANCE.getPersonByName_LastName();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.PersonByPhoneImpl <em>Person By Phone</em>}' class.
@@ -1895,12 +1874,12 @@ public interface BilangPackage extends EPackage
     EClass MESSAGE = eINSTANCE.getMessage();
 
     /**
-     * The meta object literal for the '<em><b>Message</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MESSAGE__MESSAGE = eINSTANCE.getMessage_Message();
+    EAttribute MESSAGE__MESSAGE = eINSTANCE.getMessage_Message();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.DocumentImpl <em>Document</em>}' class.
@@ -1947,24 +1926,6 @@ public interface BilangPackage extends EPackage
      * @generated
      */
     EReference DOCUMENT_PERSON__PERSON = eINSTANCE.getDocumentPerson_Person();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.TextWithSpacesImpl <em>Text With Spaces</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.TextWithSpacesImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTextWithSpaces()
-     * @generated
-     */
-    EClass TEXT_WITH_SPACES = eINSTANCE.getTextWithSpaces();
-
-    /**
-     * The meta object literal for the '<em><b>Parts</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TEXT_WITH_SPACES__PARTS = eINSTANCE.getTextWithSpaces_Parts();
 
   }
 

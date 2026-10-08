@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,7 +38,7 @@ import org.xtext.example.bilang.bilang.SendTask;
  *
  * @generated
  */
-public class SendTaskImpl extends TaskImpl implements SendTask
+public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTask
 {
   /**
    * The cached value of the '{@link #getPerson() <em>Person</em>}' containment reference list.

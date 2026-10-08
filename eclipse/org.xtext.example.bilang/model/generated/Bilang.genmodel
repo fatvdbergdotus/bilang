@@ -7,7 +7,9 @@
   <genPackages prefix="Bilang" basePackage="org.xtext.example.bilang" disposableProviderFactory="true"
       fileExtensions="bilang" ecorePackage="Bilang.ecore#/">
     <genClasses ecoreClass="Bilang.ecore#//Model"/>
-    <genClasses ecoreClass="Bilang.ecore#//Task"/>
+    <genClasses ecoreClass="Bilang.ecore#//Task">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Task/kind"/>
+    </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//CompoundProcess">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//CompoundProcess/task"/>
     </genClasses>
@@ -56,7 +58,7 @@
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//PersonByName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByName/firstName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//PersonByName/lastName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByName/lastName"/>
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//PersonByPhone">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByPhone/phone"/>
@@ -67,7 +69,7 @@
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//Content"/>
     <genClasses ecoreClass="Bilang.ecore#//Message">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Message/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Message/message"/>
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//Document"/>
     <genClasses ecoreClass="Bilang.ecore#//Invoice">
@@ -75,9 +77,6 @@
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//DocumentPerson">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//DocumentPerson/person"/>
-    </genClasses>
-    <genClasses ecoreClass="Bilang.ecore#//TextWithSpaces">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//TextWithSpaces/parts"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

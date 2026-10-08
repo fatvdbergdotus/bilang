@@ -2,7 +2,10 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bilang" nsURI="http://www.xtext.org/example/bilang/Bilang" nsPrefix="bilang">
   <eClassifiers xsi:type="ecore:EClass" name="Model"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Model"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kind" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundProcess" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" upperBound="-1" eType="#//Task"
         containment="true"/>
@@ -16,14 +19,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="param" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RetrieveTask" eSuperTypes="#//Task"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SendTask" eSuperTypes="#//Task">
+  <eClassifiers xsi:type="ecore:EClass" name="RetrieveTask"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SendTask">
     <eStructuralFeatures xsi:type="ecore:EReference" name="person" upperBound="-1"
         eType="#//Person" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//Content"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PersonTask" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PersonTask"/>
   <eClassifiers xsi:type="ecore:EClass" name="SendEmail" eSuperTypes="#//SendTask"/>
   <eClassifiers xsi:type="ecore:EClass" name="SendSMS" eSuperTypes="#//SendTask"/>
   <eClassifiers xsi:type="ecore:EClass" name="SendSnailMail" eSuperTypes="#//SendTask"/>
@@ -61,8 +64,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PersonByName" eSuperTypes="#//Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lastName" eType="#//TextWithSpaces"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PersonByPhone" eSuperTypes="#//Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="phone" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -73,8 +75,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Content"/>
   <eClassifiers xsi:type="ecore:EClass" name="Message" eSuperTypes="#//Content">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//TextWithSpaces"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//Content"/>
   <eClassifiers xsi:type="ecore:EClass" name="Invoice" eSuperTypes="#//Document">
@@ -83,9 +84,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="DocumentPerson" eSuperTypes="#//Document">
     <eStructuralFeatures xsi:type="ecore:EReference" name="person" eType="#//Person"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TextWithSpaces">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parts" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

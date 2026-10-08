@@ -40,7 +40,6 @@ import org.xtext.example.bilang.bilang.SendSMS;
 import org.xtext.example.bilang.bilang.SendSnailMail;
 import org.xtext.example.bilang.bilang.SendTask;
 import org.xtext.example.bilang.bilang.Task;
-import org.xtext.example.bilang.bilang.TextWithSpaces;
 
 /**
  * <!-- begin-user-doc -->
@@ -247,13 +246,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
   private EClass documentPersonEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass textWithSpacesEClass = null;
-
-  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -335,6 +327,17 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
   public EClass getTask()
   {
     return taskEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTask_Kind()
+  {
+    return (EReference)taskEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -739,9 +742,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getPersonByName_LastName()
+  public EAttribute getPersonByName_LastName()
   {
-    return (EReference)personByNameEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)personByNameEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -827,9 +830,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getMessage_Message()
+  public EAttribute getMessage_Message()
   {
-    return (EReference)messageEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)messageEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -893,28 +896,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getTextWithSpaces()
-  {
-    return textWithSpacesEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getTextWithSpaces_Parts()
-  {
-    return (EAttribute)textWithSpacesEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public BilangFactory getBilangFactory()
   {
     return (BilangFactory)getEFactoryInstance();
@@ -943,6 +924,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     modelEClass = createEClass(MODEL);
 
     taskEClass = createEClass(TASK);
+    createEReference(taskEClass, TASK__KIND);
 
     compoundProcessEClass = createEClass(COMPOUND_PROCESS);
     createEReference(compoundProcessEClass, COMPOUND_PROCESS__TASK);
@@ -998,7 +980,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     personByNameEClass = createEClass(PERSON_BY_NAME);
     createEAttribute(personByNameEClass, PERSON_BY_NAME__FIRST_NAME);
-    createEReference(personByNameEClass, PERSON_BY_NAME__LAST_NAME);
+    createEAttribute(personByNameEClass, PERSON_BY_NAME__LAST_NAME);
 
     personByPhoneEClass = createEClass(PERSON_BY_PHONE);
     createEAttribute(personByPhoneEClass, PERSON_BY_PHONE__PHONE);
@@ -1010,7 +992,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     contentEClass = createEClass(CONTENT);
 
     messageEClass = createEClass(MESSAGE);
-    createEReference(messageEClass, MESSAGE__MESSAGE);
+    createEAttribute(messageEClass, MESSAGE__MESSAGE);
 
     documentEClass = createEClass(DOCUMENT);
 
@@ -1019,9 +1001,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     documentPersonEClass = createEClass(DOCUMENT_PERSON);
     createEReference(documentPersonEClass, DOCUMENT_PERSON__PERSON);
-
-    textWithSpacesEClass = createEClass(TEXT_WITH_SPACES);
-    createEAttribute(textWithSpacesEClass, TEXT_WITH_SPACES__PARTS);
   }
 
   /**
@@ -1056,9 +1035,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     taskEClass.getESuperTypes().add(this.getModel());
     compoundProcessEClass.getESuperTypes().add(this.getModel());
     abstractProcessEClass.getESuperTypes().add(this.getModel());
-    retrieveTaskEClass.getESuperTypes().add(this.getTask());
-    sendTaskEClass.getESuperTypes().add(this.getTask());
-    personTaskEClass.getESuperTypes().add(this.getTask());
     sendEmailEClass.getESuperTypes().add(this.getSendTask());
     sendSMSEClass.getESuperTypes().add(this.getSendTask());
     sendSnailMailEClass.getESuperTypes().add(this.getSendTask());
@@ -1082,6 +1058,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTask_Kind(), ecorePackage.getEObject(), null, "kind", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(compoundProcessEClass, CompoundProcess.class, "CompoundProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCompoundProcess_Task(), this.getTask(), null, "task", null, 0, -1, CompoundProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1137,7 +1114,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     initEClass(personByNameEClass, PersonByName.class, "PersonByName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPersonByName_FirstName(), ecorePackage.getEString(), "firstName", null, 0, 1, PersonByName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPersonByName_LastName(), this.getTextWithSpaces(), null, "lastName", null, 0, 1, PersonByName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPersonByName_LastName(), ecorePackage.getEString(), "lastName", null, 0, 1, PersonByName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(personByPhoneEClass, PersonByPhone.class, "PersonByPhone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPersonByPhone_Phone(), ecorePackage.getEString(), "phone", null, 0, 1, PersonByPhone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1149,7 +1126,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     initEClass(contentEClass, Content.class, "Content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMessage_Message(), this.getTextWithSpaces(), null, "message", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMessage_Message(), ecorePackage.getEString(), "message", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1158,9 +1135,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     initEClass(documentPersonEClass, DocumentPerson.class, "DocumentPerson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDocumentPerson_Person(), this.getPerson(), null, "person", null, 0, 1, DocumentPerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(textWithSpacesEClass, TextWithSpaces.class, "TextWithSpaces", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTextWithSpaces_Parts(), ecorePackage.getEString(), "parts", null, 0, -1, TextWithSpaces.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -4,16 +4,13 @@
 package org.xtext.example.bilang.bilang.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.PersonByName;
-import org.xtext.example.bilang.bilang.TextWithSpaces;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,14 +49,24 @@ public class PersonByNameImpl extends PersonImpl implements PersonByName
   protected String firstName = FIRST_NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getLastName() <em>Last Name</em>}' containment reference.
+   * The default value of the '{@link #getLastName() <em>Last Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLastName()
    * @generated
    * @ordered
    */
-  protected TextWithSpaces lastName;
+  protected static final String LAST_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLastName() <em>Last Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLastName()
+   * @generated
+   * @ordered
+   */
+  protected String lastName = LAST_NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,7 +120,7 @@ public class PersonByNameImpl extends PersonImpl implements PersonByName
    * @generated
    */
   @Override
-  public TextWithSpaces getLastName()
+  public String getLastName()
   {
     return lastName;
   }
@@ -123,54 +130,13 @@ public class PersonByNameImpl extends PersonImpl implements PersonByName
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLastName(TextWithSpaces newLastName, NotificationChain msgs)
+  @Override
+  public void setLastName(String newLastName)
   {
-    TextWithSpaces oldLastName = lastName;
+    String oldLastName = lastName;
     lastName = newLastName;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BilangPackage.PERSON_BY_NAME__LAST_NAME, oldLastName, newLastName);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setLastName(TextWithSpaces newLastName)
-  {
-    if (newLastName != lastName)
-    {
-      NotificationChain msgs = null;
-      if (lastName != null)
-        msgs = ((InternalEObject)lastName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BilangPackage.PERSON_BY_NAME__LAST_NAME, null, msgs);
-      if (newLastName != null)
-        msgs = ((InternalEObject)newLastName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BilangPackage.PERSON_BY_NAME__LAST_NAME, null, msgs);
-      msgs = basicSetLastName(newLastName, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.PERSON_BY_NAME__LAST_NAME, newLastName, newLastName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case BilangPackage.PERSON_BY_NAME__LAST_NAME:
-        return basicSetLastName(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.PERSON_BY_NAME__LAST_NAME, oldLastName, lastName));
   }
 
   /**
@@ -205,7 +171,7 @@ public class PersonByNameImpl extends PersonImpl implements PersonByName
         setFirstName((String)newValue);
         return;
       case BilangPackage.PERSON_BY_NAME__LAST_NAME:
-        setLastName((TextWithSpaces)newValue);
+        setLastName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,7 +191,7 @@ public class PersonByNameImpl extends PersonImpl implements PersonByName
         setFirstName(FIRST_NAME_EDEFAULT);
         return;
       case BilangPackage.PERSON_BY_NAME__LAST_NAME:
-        setLastName((TextWithSpaces)null);
+        setLastName(LAST_NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -244,7 +210,7 @@ public class PersonByNameImpl extends PersonImpl implements PersonByName
       case BilangPackage.PERSON_BY_NAME__FIRST_NAME:
         return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
       case BilangPackage.PERSON_BY_NAME__LAST_NAME:
-        return lastName != null;
+        return LAST_NAME_EDEFAULT == null ? lastName != null : !LAST_NAME_EDEFAULT.equals(lastName);
     }
     return super.eIsSet(featureID);
   }
@@ -262,6 +228,8 @@ public class PersonByNameImpl extends PersonImpl implements PersonByName
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (firstName: ");
     result.append(firstName);
+    result.append(", lastName: ");
+    result.append(lastName);
     result.append(')');
     return result.toString();
   }

@@ -46,25 +46,25 @@ public interface PersonByName extends Person
   void setFirstName(String value);
 
   /**
-   * Returns the value of the '<em><b>Last Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Last Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Last Name</em>' containment reference.
-   * @see #setLastName(TextWithSpaces)
+   * @return the value of the '<em>Last Name</em>' attribute.
+   * @see #setLastName(String)
    * @see org.xtext.example.bilang.bilang.BilangPackage#getPersonByName_LastName()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  TextWithSpaces getLastName();
+  String getLastName();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.bilang.bilang.PersonByName#getLastName <em>Last Name</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.bilang.bilang.PersonByName#getLastName <em>Last Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Last Name</em>' containment reference.
+   * @param value the new value of the '<em>Last Name</em>' attribute.
    * @see #getLastName()
    * @generated
    */
-  void setLastName(TextWithSpaces value);
+  void setLastName(String value);
 
 } // PersonByName

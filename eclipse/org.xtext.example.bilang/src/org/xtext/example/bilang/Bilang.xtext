@@ -7,7 +7,7 @@ Model: Task | CompoundProcess | AbstractProcess | EmptyProcess;
 Task: 'task' kind+=(SendTask | RetrieveTask | PersonTask);
 EmptyProcess: 'empty' 'process';
 CompoundProcess: 'compound' 'process' task+=Task+;
-AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue+;
+AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue*;
 
 ParamValue: 'parameter' param=ID 'and' 'value' value=ID;
 

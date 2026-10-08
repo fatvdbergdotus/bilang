@@ -1371,16 +1371,9 @@ rule__AbstractProcess__Group__6__Impl
 	}
 :
 (
-	(
-		{ before(grammarAccess.getAbstractProcessAccess().getParamValuesAssignment_6()); }
-		(rule__AbstractProcess__ParamValuesAssignment_6)
-		{ after(grammarAccess.getAbstractProcessAccess().getParamValuesAssignment_6()); }
-	)
-	(
-		{ before(grammarAccess.getAbstractProcessAccess().getParamValuesAssignment_6()); }
-		(rule__AbstractProcess__ParamValuesAssignment_6)*
-		{ after(grammarAccess.getAbstractProcessAccess().getParamValuesAssignment_6()); }
-	)
+	{ before(grammarAccess.getAbstractProcessAccess().getParamValuesAssignment_6()); }
+	(rule__AbstractProcess__ParamValuesAssignment_6)*
+	{ after(grammarAccess.getAbstractProcessAccess().getParamValuesAssignment_6()); }
 )
 ;
 finally {

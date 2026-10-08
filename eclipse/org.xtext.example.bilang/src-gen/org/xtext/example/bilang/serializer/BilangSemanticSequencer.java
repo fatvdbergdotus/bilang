@@ -127,7 +127,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     AbstractProcess returns AbstractProcess
 	 *
 	 * Constraint:
-	 *     (name=ID paramValues+=ParamValue+)
+	 *     (name=ID paramValues+=ParamValue*)
 	 * </pre>
 	 */
 	protected void sequence_AbstractProcess(ISerializationContext context, AbstractProcess semanticObject) {

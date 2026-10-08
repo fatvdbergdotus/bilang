@@ -761,7 +761,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAbstractProcess"
-    // InternalBilang.g:275:1: ruleAbstractProcess returns [EObject current=null] : (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ ) ;
+    // InternalBilang.g:275:1: ruleAbstractProcess returns [EObject current=null] : (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )* ) ;
     public final EObject ruleAbstractProcess() throws RecognitionException {
         EObject current = null;
 
@@ -778,11 +778,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBilang.g:281:2: ( (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ ) )
-            // InternalBilang.g:282:2: (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ )
+            // InternalBilang.g:281:2: ( (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )* ) )
+            // InternalBilang.g:282:2: (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )* )
             {
-            // InternalBilang.g:282:2: (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+ )
-            // InternalBilang.g:283:3: otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )+
+            // InternalBilang.g:282:2: (otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )* )
+            // InternalBilang.g:283:3: otherlv_0= 'abstract' otherlv_1= 'process' otherlv_2= 'with' otherlv_3= 'name' ( (lv_name_4_0= RULE_ID ) ) otherlv_5= 'and' ( (lv_paramValues_6_0= ruleParamValue ) )*
             {
             otherlv_0=(Token)match(input,19,FOLLOW_4); 
 
@@ -830,8 +830,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_5, grammarAccess.getAbstractProcessAccess().getAndKeyword_5());
             		
-            // InternalBilang.g:321:3: ( (lv_paramValues_6_0= ruleParamValue ) )+
-            int cnt4=0;
+            // InternalBilang.g:321:3: ( (lv_paramValues_6_0= ruleParamValue ) )*
             loop4:
             do {
                 int alt4=2;
@@ -852,7 +851,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getAbstractProcessAccess().getParamValuesParamValueParserRuleCall_6_0());
             	    				
-            	    pushFollow(FOLLOW_12);
+            	    pushFollow(FOLLOW_11);
             	    lv_paramValues_6_0=ruleParamValue();
 
             	    state._fsp--;
@@ -876,12 +875,8 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt4 >= 1 ) break loop4;
-                        EarlyExitException eee =
-                            new EarlyExitException(4, input);
-                        throw eee;
+            	    break loop4;
                 }
-                cnt4++;
             } while (true);
 
 
@@ -993,7 +988,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,22,FOLLOW_13); 
+            otherlv_2=(Token)match(input,22,FOLLOW_12); 
 
             			newLeafNode(otherlv_2, grammarAccess.getParamValueAccess().getAndKeyword_2());
             		
@@ -1284,11 +1279,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                 else if ( (LA6_1==26) ) {
                     int LA6_3 = input.LA(3);
 
-                    if ( (LA6_3==30) ) {
-                        alt6=2;
-                    }
-                    else if ( (LA6_3==27) ) {
+                    if ( (LA6_3==27) ) {
                         alt6=1;
+                    }
+                    else if ( (LA6_3==30) ) {
+                        alt6=2;
                     }
                     else {
                         NoViableAltException nvae =
@@ -1606,19 +1601,19 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:560:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
             // InternalBilang.g:561:3: otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'email' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) )
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_14); 
+            otherlv_0=(Token)match(input,25,FOLLOW_13); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSendEmailAccess().getSendKeyword_0());
             		
-            otherlv_1=(Token)match(input,26,FOLLOW_15); 
+            otherlv_1=(Token)match(input,26,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSendEmailAccess().getAnKeyword_1());
             		
-            otherlv_2=(Token)match(input,27,FOLLOW_16); 
+            otherlv_2=(Token)match(input,27,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSendEmailAccess().getEmailKeyword_2());
             		
-            otherlv_3=(Token)match(input,28,FOLLOW_17); 
+            otherlv_3=(Token)match(input,28,FOLLOW_16); 
 
             			newLeafNode(otherlv_3, grammarAccess.getSendEmailAccess().getToKeyword_3());
             		
@@ -1644,7 +1639,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getSendEmailAccess().getPersonPersonParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_18);
+            	    pushFollow(FOLLOW_17);
             	    lv_person_4_0=rulePerson();
 
             	    state._fsp--;
@@ -1676,11 +1671,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                 cnt8++;
             } while (true);
 
-            otherlv_5=(Token)match(input,20,FOLLOW_19); 
+            otherlv_5=(Token)match(input,20,FOLLOW_18); 
 
             			newLeafNode(otherlv_5, grammarAccess.getSendEmailAccess().getWithKeyword_5());
             		
-            otherlv_6=(Token)match(input,29,FOLLOW_20); 
+            otherlv_6=(Token)match(input,29,FOLLOW_19); 
 
             			newLeafNode(otherlv_6, grammarAccess.getSendEmailAccess().getContentKeyword_6());
             		
@@ -1799,19 +1794,19 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:641:2: (otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) ) )
             // InternalBilang.g:642:3: otherlv_0= 'send' otherlv_1= 'an' otherlv_2= 'sms' otherlv_3= 'to' ( (lv_person_4_0= rulePerson ) )+ otherlv_5= 'with' otherlv_6= 'content' ( (lv_content_7_0= ruleContent ) )
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_14); 
+            otherlv_0=(Token)match(input,25,FOLLOW_13); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSendSMSAccess().getSendKeyword_0());
             		
-            otherlv_1=(Token)match(input,26,FOLLOW_21); 
+            otherlv_1=(Token)match(input,26,FOLLOW_20); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSendSMSAccess().getAnKeyword_1());
             		
-            otherlv_2=(Token)match(input,30,FOLLOW_16); 
+            otherlv_2=(Token)match(input,30,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSendSMSAccess().getSmsKeyword_2());
             		
-            otherlv_3=(Token)match(input,28,FOLLOW_17); 
+            otherlv_3=(Token)match(input,28,FOLLOW_16); 
 
             			newLeafNode(otherlv_3, grammarAccess.getSendSMSAccess().getToKeyword_3());
             		
@@ -1837,7 +1832,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getSendSMSAccess().getPersonPersonParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_18);
+            	    pushFollow(FOLLOW_17);
             	    lv_person_4_0=rulePerson();
 
             	    state._fsp--;
@@ -1869,11 +1864,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                 cnt9++;
             } while (true);
 
-            otherlv_5=(Token)match(input,20,FOLLOW_19); 
+            otherlv_5=(Token)match(input,20,FOLLOW_18); 
 
             			newLeafNode(otherlv_5, grammarAccess.getSendSMSAccess().getWithKeyword_5());
             		
-            otherlv_6=(Token)match(input,29,FOLLOW_20); 
+            otherlv_6=(Token)match(input,29,FOLLOW_19); 
 
             			newLeafNode(otherlv_6, grammarAccess.getSendSMSAccess().getContentKeyword_6());
             		
@@ -1993,23 +1988,23 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:722:2: (otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) ) )
             // InternalBilang.g:723:3: otherlv_0= 'send' otherlv_1= 'a' otherlv_2= 'snail' otherlv_3= 'mail' otherlv_4= 'to' ( (lv_person_5_0= rulePerson ) )+ otherlv_6= 'with' otherlv_7= 'content' ( (lv_content_8_0= ruleContent ) )
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_22); 
+            otherlv_0=(Token)match(input,25,FOLLOW_21); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSendSnailMailAccess().getSendKeyword_0());
             		
-            otherlv_1=(Token)match(input,31,FOLLOW_23); 
+            otherlv_1=(Token)match(input,31,FOLLOW_22); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSendSnailMailAccess().getAKeyword_1());
             		
-            otherlv_2=(Token)match(input,32,FOLLOW_24); 
+            otherlv_2=(Token)match(input,32,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSendSnailMailAccess().getSnailKeyword_2());
             		
-            otherlv_3=(Token)match(input,33,FOLLOW_16); 
+            otherlv_3=(Token)match(input,33,FOLLOW_15); 
 
             			newLeafNode(otherlv_3, grammarAccess.getSendSnailMailAccess().getMailKeyword_3());
             		
-            otherlv_4=(Token)match(input,28,FOLLOW_17); 
+            otherlv_4=(Token)match(input,28,FOLLOW_16); 
 
             			newLeafNode(otherlv_4, grammarAccess.getSendSnailMailAccess().getToKeyword_4());
             		
@@ -2035,7 +2030,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getSendSnailMailAccess().getPersonPersonParserRuleCall_5_0());
             	    				
-            	    pushFollow(FOLLOW_18);
+            	    pushFollow(FOLLOW_17);
             	    lv_person_5_0=rulePerson();
 
             	    state._fsp--;
@@ -2067,11 +2062,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
                 cnt10++;
             } while (true);
 
-            otherlv_6=(Token)match(input,20,FOLLOW_19); 
+            otherlv_6=(Token)match(input,20,FOLLOW_18); 
 
             			newLeafNode(otherlv_6, grammarAccess.getSendSnailMailAccess().getWithKeyword_6());
             		
-            otherlv_7=(Token)match(input,29,FOLLOW_20); 
+            otherlv_7=(Token)match(input,29,FOLLOW_19); 
 
             			newLeafNode(otherlv_7, grammarAccess.getSendSnailMailAccess().getContentKeyword_7());
             		
@@ -2184,11 +2179,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:807:2: (otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) ) )
             // InternalBilang.g:808:3: otherlv_0= 'retrieve' otherlv_1= 'document' ( (lv_document_2_0= ruleDocument ) )
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_25); 
+            otherlv_0=(Token)match(input,34,FOLLOW_24); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRetrieveDocumentAccess().getRetrieveKeyword_0());
             		
-            otherlv_1=(Token)match(input,35,FOLLOW_20); 
+            otherlv_1=(Token)match(input,35,FOLLOW_19); 
 
             			newLeafNode(otherlv_1, grammarAccess.getRetrieveDocumentAccess().getDocumentKeyword_1());
             		
@@ -2303,19 +2298,19 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:853:2: (otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) ) )
             // InternalBilang.g:854:3: otherlv_0= 'retrieve' otherlv_1= 'full' otherlv_2= 'address' otherlv_3= 'of' ( (lv_personAdress_4_0= rulePersonByAddress ) )
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_26); 
+            otherlv_0=(Token)match(input,34,FOLLOW_25); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRetrieveFullAddressAccess().getRetrieveKeyword_0());
             		
-            otherlv_1=(Token)match(input,36,FOLLOW_27); 
+            otherlv_1=(Token)match(input,36,FOLLOW_26); 
 
             			newLeafNode(otherlv_1, grammarAccess.getRetrieveFullAddressAccess().getFullKeyword_1());
             		
-            otherlv_2=(Token)match(input,37,FOLLOW_28); 
+            otherlv_2=(Token)match(input,37,FOLLOW_27); 
 
             			newLeafNode(otherlv_2, grammarAccess.getRetrieveFullAddressAccess().getAddressKeyword_2());
             		
-            otherlv_3=(Token)match(input,38,FOLLOW_17); 
+            otherlv_3=(Token)match(input,38,FOLLOW_16); 
 
             			newLeafNode(otherlv_3, grammarAccess.getRetrieveFullAddressAccess().getOfKeyword_3());
             		
@@ -2429,7 +2424,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:907:2: (otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) ) )
             // InternalBilang.g:908:3: otherlv_0= 'retrieve' otherlv_1= 'persons' otherlv_2= 'with' otherlv_3= 'search' ( (lv_personSearch_4_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_29); 
+            otherlv_0=(Token)match(input,34,FOLLOW_28); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRetrievePersonsAccess().getRetrieveKeyword_0());
             		
@@ -2437,7 +2432,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getRetrievePersonsAccess().getPersonsKeyword_1());
             		
-            otherlv_2=(Token)match(input,20,FOLLOW_30); 
+            otherlv_2=(Token)match(input,20,FOLLOW_29); 
 
             			newLeafNode(otherlv_2, grammarAccess.getRetrievePersonsAccess().getWithKeyword_2());
             		
@@ -2549,11 +2544,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:960:2: (otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) ) )
             // InternalBilang.g:961:3: otherlv_0= 'phone' otherlv_1= 'call' ( (lv_person_2_0= rulePerson ) )
             {
-            otherlv_0=(Token)match(input,41,FOLLOW_31); 
+            otherlv_0=(Token)match(input,41,FOLLOW_30); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCallPersonAccess().getPhoneKeyword_0());
             		
-            otherlv_1=(Token)match(input,42,FOLLOW_17); 
+            otherlv_1=(Token)match(input,42,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCallPersonAccess().getCallKeyword_1());
             		
@@ -2668,7 +2663,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:1006:2: (otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+ )
             // InternalBilang.g:1007:3: otherlv_0= 'add' ( (lv_alias_1_0= rulePersonByAlias ) ) (otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) ) )+
             {
-            otherlv_0=(Token)match(input,43,FOLLOW_17); 
+            otherlv_0=(Token)match(input,43,FOLLOW_16); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAddPersonAccess().getAddKeyword_0());
             		
@@ -2719,7 +2714,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalBilang.g:1031:4: otherlv_2= 'and' ( (lv_person_3_0= rulePerson ) )
             	    {
-            	    otherlv_2=(Token)match(input,22,FOLLOW_17); 
+            	    otherlv_2=(Token)match(input,22,FOLLOW_16); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getAddPersonAccess().getAndKeyword_2_0());
             	    			
@@ -2732,7 +2727,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             	    						newCompositeNode(grammarAccess.getAddPersonAccess().getPersonPersonParserRuleCall_2_1_0());
             	    					
-            	    pushFollow(FOLLOW_32);
+            	    pushFollow(FOLLOW_31);
             	    lv_person_3_0=rulePerson();
 
             	    state._fsp--;
@@ -2844,7 +2839,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:1073:2: (otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) ) )
             // InternalBilang.g:1074:3: otherlv_0= 'delete' ( (lv_alias_1_0= rulePersonByAlias ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_17); 
+            otherlv_0=(Token)match(input,44,FOLLOW_16); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDeletePersonAccess().getDeleteKeyword_0());
             		
@@ -3188,11 +3183,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByEmailAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,20,FOLLOW_15); 
+            otherlv_1=(Token)match(input,20,FOLLOW_14); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByEmailAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,27,FOLLOW_33); 
+            otherlv_2=(Token)match(input,27,FOLLOW_32); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonByEmailAccess().getEmailKeyword_2());
             		
@@ -3304,7 +3299,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByAliasAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,20,FOLLOW_34); 
+            otherlv_1=(Token)match(input,20,FOLLOW_33); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByAliasAccess().getWithKeyword_1());
             		
@@ -3425,7 +3420,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByNameAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,20,FOLLOW_35); 
+            otherlv_1=(Token)match(input,20,FOLLOW_34); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByNameAccess().getWithKeyword_1());
             		
@@ -3463,7 +3458,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,22,FOLLOW_36); 
+            otherlv_5=(Token)match(input,22,FOLLOW_35); 
 
             			newLeafNode(otherlv_5, grammarAccess.getPersonByNameAccess().getAndKeyword_5());
             		
@@ -3471,7 +3466,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_6, grammarAccess.getPersonByNameAccess().getLastKeyword_6());
             		
-            otherlv_7=(Token)match(input,21,FOLLOW_37); 
+            otherlv_7=(Token)match(input,21,FOLLOW_36); 
 
             			newLeafNode(otherlv_7, grammarAccess.getPersonByNameAccess().getNameKeyword_7());
             		
@@ -3584,15 +3579,15 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByPhoneAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,20,FOLLOW_38); 
+            otherlv_1=(Token)match(input,20,FOLLOW_37); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByPhoneAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,41,FOLLOW_39); 
+            otherlv_2=(Token)match(input,41,FOLLOW_38); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonByPhoneAccess().getPhoneKeyword_2());
             		
-            otherlv_3=(Token)match(input,49,FOLLOW_40); 
+            otherlv_3=(Token)match(input,49,FOLLOW_39); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPersonByPhoneAccess().getNumberKeyword_3());
             		
@@ -3709,15 +3704,15 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getPersonByAddressAccess().getPersonKeyword_0());
             		
-            otherlv_1=(Token)match(input,20,FOLLOW_41); 
+            otherlv_1=(Token)match(input,20,FOLLOW_40); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPersonByAddressAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,50,FOLLOW_42); 
+            otherlv_2=(Token)match(input,50,FOLLOW_41); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPersonByAddressAccess().getZipKeyword_2());
             		
-            otherlv_3=(Token)match(input,51,FOLLOW_43); 
+            otherlv_3=(Token)match(input,51,FOLLOW_42); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPersonByAddressAccess().getCodeKeyword_3());
             		
@@ -3747,15 +3742,15 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,22,FOLLOW_44); 
+            otherlv_5=(Token)match(input,22,FOLLOW_43); 
 
             			newLeafNode(otherlv_5, grammarAccess.getPersonByAddressAccess().getAndKeyword_5());
             		
-            otherlv_6=(Token)match(input,52,FOLLOW_39); 
+            otherlv_6=(Token)match(input,52,FOLLOW_38); 
 
             			newLeafNode(otherlv_6, grammarAccess.getPersonByAddressAccess().getHouseKeyword_6());
             		
-            otherlv_7=(Token)match(input,49,FOLLOW_45); 
+            otherlv_7=(Token)match(input,49,FOLLOW_44); 
 
             			newLeafNode(otherlv_7, grammarAccess.getPersonByAddressAccess().getNumberKeyword_7());
             		
@@ -3989,7 +3984,7 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:1531:2: (otherlv_0= 'message' ( (lv_message_1_0= RULE_STRING ) ) )
             // InternalBilang.g:1532:3: otherlv_0= 'message' ( (lv_message_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,53,FOLLOW_37); 
+            otherlv_0=(Token)match(input,53,FOLLOW_36); 
 
             			newLeafNode(otherlv_0, grammarAccess.getMessageAccess().getMessageKeyword_0());
             		
@@ -4229,11 +4224,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getInvoiceAccess().getInvoiceKeyword_0());
             		
-            otherlv_1=(Token)match(input,20,FOLLOW_42); 
+            otherlv_1=(Token)match(input,20,FOLLOW_41); 
 
             			newLeafNode(otherlv_1, grammarAccess.getInvoiceAccess().getWithKeyword_1());
             		
-            otherlv_2=(Token)match(input,51,FOLLOW_46); 
+            otherlv_2=(Token)match(input,51,FOLLOW_45); 
 
             			newLeafNode(otherlv_2, grammarAccess.getInvoiceAccess().getCodeKeyword_2());
             		
@@ -4341,11 +4336,11 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
             // InternalBilang.g:1657:2: (otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) ) )
             // InternalBilang.g:1658:3: otherlv_0= 'information' otherlv_1= 'about' ( (lv_person_2_0= rulePerson ) )
             {
-            otherlv_0=(Token)match(input,55,FOLLOW_47); 
+            otherlv_0=(Token)match(input,55,FOLLOW_46); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDocumentPersonAccess().getInformationKeyword_0());
             		
-            otherlv_1=(Token)match(input,56,FOLLOW_17); 
+            otherlv_1=(Token)match(input,56,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDocumentPersonAccess().getAboutKeyword_1());
             		
@@ -4416,42 +4411,41 @@ public class InternalBilangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000200000100000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x00E0000000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000200000100000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x00E0000000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0100000000000000L});
 
 }

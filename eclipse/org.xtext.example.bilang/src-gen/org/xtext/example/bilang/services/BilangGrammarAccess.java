@@ -139,10 +139,10 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Assignment cParamValuesAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cParamValuesParamValueParserRuleCall_6_0 = (RuleCall)cParamValuesAssignment_6.eContents().get(0);
 		
-		//AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue+;
+		//AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue+
+		//'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue*
 		public Group getGroup() { return cGroup; }
 		
 		//'abstract'
@@ -166,7 +166,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'and'
 		public Keyword getAndKeyword_5() { return cAndKeyword_5; }
 		
-		//paramValues+=ParamValue+
+		//paramValues+=ParamValue*
 		public Assignment getParamValuesAssignment_6() { return cParamValuesAssignment_6; }
 		
 		//ParamValue
@@ -1099,7 +1099,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getCompoundProcessAccess().getRule();
 	}
 	
-	//AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue+;
+	//AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue*;
 	public AbstractProcessElements getAbstractProcessAccess() {
 		return pAbstractProcess;
 	}

@@ -18,11 +18,29 @@ print(output.content)
 
 '''
 > CHATGPT prompt:
-return only the exact matching bilang instance that adheres to the bilang grammar
-bilang grammar:
-https://raw.githubusercontent.com/fatvdbergdotus/bilang/refs/heads/main/eclipse/org.xtext.example.bilang/src/org/xtext/example/bilang/Bilang.xtext
-prompt:
-stuur een email aan f@vdberg.us en freek@vdberg.us met Welkom, haal factuur 1234 en 5678 op, en stuur deze ook naar beide personen
+TASK:
+Translate the user's natural-language request into Bilang.
+
+GRAMMAR:
+https://raw.githubusercontent.com/fatvdbergdotus/bilang/d5794c40e137b89d79754efb13b0d83ec80322f7/eclipse/org.xtext.example.bilang/src/org/xtext/example/bilang/Bilang.xtext
+
+SEMANTICS:
+Preserve the user's intended actions, recipients and parameters.
+
+CONSTRAINTS:
+
+- Return exactly one Bilang instance.
+- It must exactly conform to the grammar, parseable word by word.
+- Do not explain the result.
+- Do not add Markdown.
+- Do not invent information.
+
+OUTPUT:
+Return only the Bilang instance.
+
+USER'S NATURAL LANGUAGE:
+Voeg persoon met telefoonnummer +3112345678 en naam Freek van den Berg toe en persoon met telefoonummer +31987654321 en naam Jan Jansen, 
+bel beide personen, download factuur 123 and 657 en email deze naar beide personen
 
 > CHATGPT response:
 compound process 

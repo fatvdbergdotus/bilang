@@ -191,11 +191,6 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
         return createPersonByAddressAdapter();
       }
       @Override
-      public Adapter caseContent(Content object)
-      {
-        return createContentAdapter();
-      }
-      @Override
       public Adapter caseMessage(Message object)
       {
         return createMessageAdapter();
@@ -214,6 +209,11 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDocumentPerson(DocumentPerson object)
       {
         return createDocumentPersonAdapter();
+      }
+      @Override
+      public Adapter caseDocumentTopic(DocumentTopic object)
+      {
+        return createDocumentTopicAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -583,21 +583,6 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Content <em>Content</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.Content
-   * @generated
-   */
-  public Adapter createContentAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Message <em>Message</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -653,6 +638,21 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDocumentPersonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.DocumentTopic <em>Document Topic</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.DocumentTopic
+   * @generated
+   */
+  public Adapter createDocumentTopicAdapter()
   {
     return null;
   }

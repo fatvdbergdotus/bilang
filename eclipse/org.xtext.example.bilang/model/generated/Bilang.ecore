@@ -23,8 +23,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SendTask">
     <eStructuralFeatures xsi:type="ecore:EReference" name="person" upperBound="-1"
         eType="#//Person" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//Content"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//Message"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attachment" upperBound="-1"
+        eType="#//Document" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PersonTask"/>
   <eClassifiers xsi:type="ecore:EClass" name="SendEmail" eSuperTypes="#//SendTask"/>
@@ -71,18 +73,24 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PersonByAddress" eSuperTypes="#//Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="zipcode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="housenumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="housenumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Content"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Message" eSuperTypes="#//Content">
+  <eClassifiers xsi:type="ecore:EClass" name="Message">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//Content"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Invoice" eSuperTypes="#//Document">
+  <eClassifiers xsi:type="ecore:EClass" name="Document">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kind" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Invoice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocumentPerson" eSuperTypes="#//Document">
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentPerson">
     <eStructuralFeatures xsi:type="ecore:EReference" name="person" eType="#//Person"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentTopic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

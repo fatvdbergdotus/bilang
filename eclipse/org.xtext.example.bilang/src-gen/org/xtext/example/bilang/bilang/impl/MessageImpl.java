@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.Message;
@@ -25,7 +26,7 @@ import org.xtext.example.bilang.bilang.Message;
  *
  * @generated
  */
-public class MessageImpl extends ContentImpl implements Message
+public class MessageImpl extends MinimalEObjectImpl.Container implements Message
 {
   /**
    * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.

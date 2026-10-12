@@ -245,13 +245,22 @@ public interface BilangPackage extends EPackage
   int SEND_TASK__PERSON = 0;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' containment reference.
+   * The feature id for the '<em><b>Message</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_TASK__CONTENT = 1;
+  int SEND_TASK__MESSAGE = 1;
+
+  /**
+   * The feature id for the '<em><b>Attachment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEND_TASK__ATTACHMENT = 2;
 
   /**
    * The number of structural features of the '<em>Send Task</em>' class.
@@ -260,7 +269,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_TASK_FEATURE_COUNT = 2;
+  int SEND_TASK_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonTaskImpl <em>Person Task</em>}' class.
@@ -301,13 +310,22 @@ public interface BilangPackage extends EPackage
   int SEND_EMAIL__PERSON = SEND_TASK__PERSON;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' containment reference.
+   * The feature id for the '<em><b>Message</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_EMAIL__CONTENT = SEND_TASK__CONTENT;
+  int SEND_EMAIL__MESSAGE = SEND_TASK__MESSAGE;
+
+  /**
+   * The feature id for the '<em><b>Attachment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEND_EMAIL__ATTACHMENT = SEND_TASK__ATTACHMENT;
 
   /**
    * The number of structural features of the '<em>Send Email</em>' class.
@@ -338,13 +356,22 @@ public interface BilangPackage extends EPackage
   int SEND_SMS__PERSON = SEND_TASK__PERSON;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' containment reference.
+   * The feature id for the '<em><b>Message</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SMS__CONTENT = SEND_TASK__CONTENT;
+  int SEND_SMS__MESSAGE = SEND_TASK__MESSAGE;
+
+  /**
+   * The feature id for the '<em><b>Attachment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEND_SMS__ATTACHMENT = SEND_TASK__ATTACHMENT;
 
   /**
    * The number of structural features of the '<em>Send SMS</em>' class.
@@ -375,13 +402,22 @@ public interface BilangPackage extends EPackage
   int SEND_SNAIL_MAIL__PERSON = SEND_TASK__PERSON;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' containment reference.
+   * The feature id for the '<em><b>Message</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SNAIL_MAIL__CONTENT = SEND_TASK__CONTENT;
+  int SEND_SNAIL_MAIL__MESSAGE = SEND_TASK__MESSAGE;
+
+  /**
+   * The feature id for the '<em><b>Attachment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEND_SNAIL_MAIL__ATTACHMENT = SEND_TASK__ATTACHMENT;
 
   /**
    * The number of structural features of the '<em>Send Snail Mail</em>' class.
@@ -738,32 +774,22 @@ public interface BilangPackage extends EPackage
   int PERSON_BY_ADDRESS__HOUSENUMBER = PERSON_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Suffix</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_ADDRESS__SUFFIX = PERSON_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Person By Address</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_BY_ADDRESS_FEATURE_COUNT = PERSON_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ContentImpl <em>Content</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.ContentImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getContent()
-   * @generated
-   */
-  int CONTENT = 23;
-
-  /**
-   * The number of structural features of the '<em>Content</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTENT_FEATURE_COUNT = 0;
+  int PERSON_BY_ADDRESS_FEATURE_COUNT = PERSON_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.MessageImpl <em>Message</em>}' class.
@@ -773,7 +799,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getMessage()
    * @generated
    */
-  int MESSAGE = 24;
+  int MESSAGE = 23;
 
   /**
    * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -782,7 +808,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MESSAGE__MESSAGE = CONTENT_FEATURE_COUNT + 0;
+  int MESSAGE__MESSAGE = 0;
 
   /**
    * The number of structural features of the '<em>Message</em>' class.
@@ -791,7 +817,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MESSAGE_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 1;
+  int MESSAGE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.DocumentImpl <em>Document</em>}' class.
@@ -801,7 +827,16 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocument()
    * @generated
    */
-  int DOCUMENT = 25;
+  int DOCUMENT = 24;
+
+  /**
+   * The feature id for the '<em><b>Kind</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCUMENT__KIND = 0;
 
   /**
    * The number of structural features of the '<em>Document</em>' class.
@@ -810,7 +845,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOCUMENT_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 0;
+  int DOCUMENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.InvoiceImpl <em>Invoice</em>}' class.
@@ -820,7 +855,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getInvoice()
    * @generated
    */
-  int INVOICE = 26;
+  int INVOICE = 25;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -829,7 +864,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INVOICE__CODE = DOCUMENT_FEATURE_COUNT + 0;
+  int INVOICE__CODE = 0;
 
   /**
    * The number of structural features of the '<em>Invoice</em>' class.
@@ -838,7 +873,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INVOICE_FEATURE_COUNT = DOCUMENT_FEATURE_COUNT + 1;
+  int INVOICE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.DocumentPersonImpl <em>Document Person</em>}' class.
@@ -848,7 +883,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocumentPerson()
    * @generated
    */
-  int DOCUMENT_PERSON = 27;
+  int DOCUMENT_PERSON = 26;
 
   /**
    * The feature id for the '<em><b>Person</b></em>' containment reference.
@@ -857,7 +892,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOCUMENT_PERSON__PERSON = DOCUMENT_FEATURE_COUNT + 0;
+  int DOCUMENT_PERSON__PERSON = 0;
 
   /**
    * The number of structural features of the '<em>Document Person</em>' class.
@@ -866,7 +901,35 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOCUMENT_PERSON_FEATURE_COUNT = DOCUMENT_FEATURE_COUNT + 1;
+  int DOCUMENT_PERSON_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.DocumentTopicImpl <em>Document Topic</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.DocumentTopicImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocumentTopic()
+   * @generated
+   */
+  int DOCUMENT_TOPIC = 27;
+
+  /**
+   * The feature id for the '<em><b>Topic</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCUMENT_TOPIC__TOPIC = 0;
+
+  /**
+   * The number of structural features of the '<em>Document Topic</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCUMENT_TOPIC_FEATURE_COUNT = 1;
 
 
   /**
@@ -1017,15 +1080,26 @@ public interface BilangPackage extends EPackage
   EReference getSendTask_Person();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.SendTask#getContent <em>Content</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.SendTask#getMessage <em>Message</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Content</em>'.
-   * @see org.xtext.example.bilang.bilang.SendTask#getContent()
+   * @return the meta object for the containment reference '<em>Message</em>'.
+   * @see org.xtext.example.bilang.bilang.SendTask#getMessage()
    * @see #getSendTask()
    * @generated
    */
-  EReference getSendTask_Content();
+  EReference getSendTask_Message();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendTask#getAttachment <em>Attachment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attachment</em>'.
+   * @see org.xtext.example.bilang.bilang.SendTask#getAttachment()
+   * @see #getSendTask()
+   * @generated
+   */
+  EReference getSendTask_Attachment();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.PersonTask <em>Person Task</em>}'.
@@ -1342,14 +1416,15 @@ public interface BilangPackage extends EPackage
   EAttribute getPersonByAddress_Housenumber();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Content <em>Content</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.PersonByAddress#getSuffix <em>Suffix</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Content</em>'.
-   * @see org.xtext.example.bilang.bilang.Content
+   * @return the meta object for the attribute '<em>Suffix</em>'.
+   * @see org.xtext.example.bilang.bilang.PersonByAddress#getSuffix()
+   * @see #getPersonByAddress()
    * @generated
    */
-  EClass getContent();
+  EAttribute getPersonByAddress_Suffix();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Message <em>Message</em>}'.
@@ -1381,6 +1456,17 @@ public interface BilangPackage extends EPackage
    * @generated
    */
   EClass getDocument();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.Document#getKind <em>Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Kind</em>'.
+   * @see org.xtext.example.bilang.bilang.Document#getKind()
+   * @see #getDocument()
+   * @generated
+   */
+  EReference getDocument_Kind();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Invoice <em>Invoice</em>}'.
@@ -1423,6 +1509,27 @@ public interface BilangPackage extends EPackage
    * @generated
    */
   EReference getDocumentPerson_Person();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.DocumentTopic <em>Document Topic</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Document Topic</em>'.
+   * @see org.xtext.example.bilang.bilang.DocumentTopic
+   * @generated
+   */
+  EClass getDocumentTopic();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.DocumentTopic#getTopic <em>Topic</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Topic</em>'.
+   * @see org.xtext.example.bilang.bilang.DocumentTopic#getTopic()
+   * @see #getDocumentTopic()
+   * @generated
+   */
+  EAttribute getDocumentTopic_Topic();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1574,12 +1681,20 @@ public interface BilangPackage extends EPackage
     EReference SEND_TASK__PERSON = eINSTANCE.getSendTask_Person();
 
     /**
-     * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Message</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SEND_TASK__CONTENT = eINSTANCE.getSendTask_Content();
+    EReference SEND_TASK__MESSAGE = eINSTANCE.getSendTask_Message();
+
+    /**
+     * The meta object literal for the '<em><b>Attachment</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_TASK__ATTACHMENT = eINSTANCE.getSendTask_Attachment();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.PersonTaskImpl <em>Person Task</em>}' class.
@@ -1854,14 +1969,12 @@ public interface BilangPackage extends EPackage
     EAttribute PERSON_BY_ADDRESS__HOUSENUMBER = eINSTANCE.getPersonByAddress_Housenumber();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ContentImpl <em>Content</em>}' class.
+     * The meta object literal for the '<em><b>Suffix</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.ContentImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getContent()
      * @generated
      */
-    EClass CONTENT = eINSTANCE.getContent();
+    EAttribute PERSON_BY_ADDRESS__SUFFIX = eINSTANCE.getPersonByAddress_Suffix();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.MessageImpl <em>Message</em>}' class.
@@ -1890,6 +2003,14 @@ public interface BilangPackage extends EPackage
      * @generated
      */
     EClass DOCUMENT = eINSTANCE.getDocument();
+
+    /**
+     * The meta object literal for the '<em><b>Kind</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DOCUMENT__KIND = eINSTANCE.getDocument_Kind();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.InvoiceImpl <em>Invoice</em>}' class.
@@ -1926,6 +2047,24 @@ public interface BilangPackage extends EPackage
      * @generated
      */
     EReference DOCUMENT_PERSON__PERSON = eINSTANCE.getDocumentPerson_Person();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.DocumentTopicImpl <em>Document Topic</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.DocumentTopicImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocumentTopic()
+     * @generated
+     */
+    EClass DOCUMENT_TOPIC = eINSTANCE.getDocumentTopic();
+
+    /**
+     * The meta object literal for the '<em><b>Topic</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOCUMENT_TOPIC__TOPIC = eINSTANCE.getDocumentTopic_Topic();
 
   }
 

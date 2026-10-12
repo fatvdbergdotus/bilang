@@ -3,6 +3,7 @@
  */
 package org.xtext.example.bilang.bilang;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.example.bilang.bilang;
  * @model
  * @generated
  */
-public interface Message extends Content
+public interface Message extends EObject
 {
   /**
    * Returns the value of the '<em><b>Message</b></em>' attribute.

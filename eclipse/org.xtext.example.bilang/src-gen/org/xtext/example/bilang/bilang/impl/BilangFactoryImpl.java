@@ -88,11 +88,11 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
       case BilangPackage.PERSON_BY_NAME: return createPersonByName();
       case BilangPackage.PERSON_BY_PHONE: return createPersonByPhone();
       case BilangPackage.PERSON_BY_ADDRESS: return createPersonByAddress();
-      case BilangPackage.CONTENT: return createContent();
       case BilangPackage.MESSAGE: return createMessage();
       case BilangPackage.DOCUMENT: return createDocument();
       case BilangPackage.INVOICE: return createInvoice();
       case BilangPackage.DOCUMENT_PERSON: return createDocumentPerson();
+      case BilangPackage.DOCUMENT_TOPIC: return createDocumentTopic();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -380,18 +380,6 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
    * @generated
    */
   @Override
-  public Content createContent()
-  {
-    ContentImpl content = new ContentImpl();
-    return content;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Message createMessage()
   {
     MessageImpl message = new MessageImpl();
@@ -432,6 +420,18 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
   {
     DocumentPersonImpl documentPerson = new DocumentPersonImpl();
     return documentPerson;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DocumentTopic createDocumentTopic()
+  {
+    DocumentTopicImpl documentTopic = new DocumentTopicImpl();
+    return documentTopic;
   }
 
   /**

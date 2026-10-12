@@ -597,29 +597,50 @@ ruleSendEmail returns [EObject current=null]
 		{
 			newLeafNode(otherlv_5, grammarAccess.getSendEmailAccess().getWithKeyword_5());
 		}
-		otherlv_6='content'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getSendEmailAccess().getContentKeyword_6());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSendEmailAccess().getContentContentParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getSendEmailAccess().getMessageMessageParserRuleCall_6_0());
 				}
-				lv_content_7_0=ruleContent
+				lv_message_6_0=ruleMessage
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSendEmailRule());
 					}
 					set(
 						$current,
-						"content",
-						lv_content_7_0,
-						"org.xtext.example.bilang.Bilang.Content");
+						"message",
+						lv_message_6_0,
+						"org.xtext.example.bilang.Bilang.Message");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		(
+			otherlv_7='and'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getSendEmailAccess().getAndKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSendEmailAccess().getAttachmentDocumentParserRuleCall_7_1_0());
+					}
+					lv_attachment_8_0=ruleDocument
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSendEmailRule());
+						}
+						add(
+							$current,
+							"attachment",
+							lv_attachment_8_0,
+							"org.xtext.example.bilang.Bilang.Document");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)+
+		)?
 	)
 ;
 
@@ -678,29 +699,50 @@ ruleSendSMS returns [EObject current=null]
 		{
 			newLeafNode(otherlv_5, grammarAccess.getSendSMSAccess().getWithKeyword_5());
 		}
-		otherlv_6='content'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getSendSMSAccess().getContentKeyword_6());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSendSMSAccess().getContentContentParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getSendSMSAccess().getMessageMessageParserRuleCall_6_0());
 				}
-				lv_content_7_0=ruleContent
+				lv_message_6_0=ruleMessage
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSendSMSRule());
 					}
 					set(
 						$current,
-						"content",
-						lv_content_7_0,
-						"org.xtext.example.bilang.Bilang.Content");
+						"message",
+						lv_message_6_0,
+						"org.xtext.example.bilang.Bilang.Message");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		(
+			otherlv_7='and'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getSendSMSAccess().getAndKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSendSMSAccess().getAttachmentDocumentParserRuleCall_7_1_0());
+					}
+					lv_attachment_8_0=ruleDocument
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSendSMSRule());
+						}
+						add(
+							$current,
+							"attachment",
+							lv_attachment_8_0,
+							"org.xtext.example.bilang.Bilang.Document");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)+
+		)?
 	)
 ;
 
@@ -763,29 +805,50 @@ ruleSendSnailMail returns [EObject current=null]
 		{
 			newLeafNode(otherlv_6, grammarAccess.getSendSnailMailAccess().getWithKeyword_6());
 		}
-		otherlv_7='content'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getSendSnailMailAccess().getContentKeyword_7());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSendSnailMailAccess().getContentContentParserRuleCall_8_0());
+					newCompositeNode(grammarAccess.getSendSnailMailAccess().getMessageMessageParserRuleCall_7_0());
 				}
-				lv_content_8_0=ruleContent
+				lv_message_7_0=ruleMessage
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSendSnailMailRule());
 					}
 					set(
 						$current,
-						"content",
-						lv_content_8_0,
-						"org.xtext.example.bilang.Bilang.Content");
+						"message",
+						lv_message_7_0,
+						"org.xtext.example.bilang.Bilang.Message");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		(
+			otherlv_8='and'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getSendSnailMailAccess().getAndKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSendSnailMailAccess().getAttachmentDocumentParserRuleCall_8_1_0());
+					}
+					lv_attachment_9_0=ruleDocument
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSendSnailMailRule());
+						}
+						add(
+							$current,
+							"attachment",
+							lv_attachment_9_0,
+							"org.xtext.example.bilang.Bilang.Document");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)+
+		)?
 	)
 ;
 
@@ -809,16 +872,12 @@ ruleRetrieveDocument returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getRetrieveDocumentAccess().getRetrieveKeyword_0());
 		}
-		otherlv_1='document'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getRetrieveDocumentAccess().getDocumentKeyword_1());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRetrieveDocumentAccess().getDocumentDocumentParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getRetrieveDocumentAccess().getDocumentDocumentParserRuleCall_1_0());
 				}
-				lv_document_2_0=ruleDocument
+				lv_document_1_0=ruleDocument
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRetrieveDocumentRule());
@@ -826,7 +885,7 @@ ruleRetrieveDocument returns [EObject current=null]
 					set(
 						$current,
 						"document",
-						lv_document_2_0,
+						lv_document_1_0,
 						"org.xtext.example.bilang.Bilang.Document");
 					afterParserOrEnumRuleCall();
 				}
@@ -1458,9 +1517,9 @@ rulePersonByAddress returns [EObject current=null]
 		}
 		(
 			(
-				lv_housenumber_8_0=RULE_HOUSENUMBER
+				lv_housenumber_8_0=RULE_INT
 				{
-					newLeafNode(lv_housenumber_8_0, grammarAccess.getPersonByAddressAccess().getHousenumberHOUSENUMBERTerminalRuleCall_8_0());
+					newLeafNode(lv_housenumber_8_0, grammarAccess.getPersonByAddressAccess().getHousenumberINTTerminalRuleCall_8_0());
 				}
 				{
 					if ($current==null) {
@@ -1470,46 +1529,38 @@ rulePersonByAddress returns [EObject current=null]
 						$current,
 						"housenumber",
 						lv_housenumber_8_0,
-						"org.xtext.example.bilang.Bilang.HOUSENUMBER");
+						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleContent
-entryRuleContent returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getContentRule()); }
-	iv_ruleContent=ruleContent
-	{ $current=$iv_ruleContent.current; }
-	EOF;
-
-// Rule Content
-ruleContent returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getContentAccess().getMessageParserRuleCall_0());
-		}
-		this_Message_0=ruleMessage
-		{
-			$current = $this_Message_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getContentAccess().getDocumentParserRuleCall_1());
-		}
-		this_Document_1=ruleDocument
-		{
-			$current = $this_Document_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			otherlv_9='and'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getPersonByAddressAccess().getAndKeyword_9_0());
+			}
+			otherlv_10='suffix'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getPersonByAddressAccess().getSuffixKeyword_9_1());
+			}
+			(
+				(
+					lv_suffix_11_0=RULE_STRING
+					{
+						newLeafNode(lv_suffix_11_0, grammarAccess.getPersonByAddressAccess().getSuffixSTRINGTerminalRuleCall_9_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPersonByAddressRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"suffix",
+							lv_suffix_11_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -1570,23 +1621,63 @@ ruleDocument returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='document'
 		{
-			newCompositeNode(grammarAccess.getDocumentAccess().getInvoiceParserRuleCall_0());
+			newLeafNode(otherlv_0, grammarAccess.getDocumentAccess().getDocumentKeyword_0());
 		}
-		this_Invoice_0=ruleInvoice
-		{
-			$current = $this_Invoice_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getDocumentAccess().getDocumentPersonParserRuleCall_1());
-		}
-		this_DocumentPerson_1=ruleDocumentPerson
-		{
-			$current = $this_DocumentPerson_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDocumentAccess().getKindInvoiceParserRuleCall_1_0_0());
+					}
+					lv_kind_1_1=ruleInvoice
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDocumentRule());
+						}
+						add(
+							$current,
+							"kind",
+							lv_kind_1_1,
+							"org.xtext.example.bilang.Bilang.Invoice");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getDocumentAccess().getKindDocumentPersonParserRuleCall_1_0_1());
+					}
+					lv_kind_1_2=ruleDocumentPerson
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDocumentRule());
+						}
+						add(
+							$current,
+							"kind",
+							lv_kind_1_2,
+							"org.xtext.example.bilang.Bilang.DocumentPerson");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getDocumentAccess().getKindDocumentTopicParserRuleCall_1_0_2());
+					}
+					lv_kind_1_3=ruleDocumentTopic
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDocumentRule());
+						}
+						add(
+							$current,
+							"kind",
+							lv_kind_1_3,
+							"org.xtext.example.bilang.Bilang.DocumentTopic");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
 	)
 ;
 
@@ -1685,11 +1776,58 @@ ruleDocumentPerson returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleDocumentTopic
+entryRuleDocumentTopic returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDocumentTopicRule()); }
+	iv_ruleDocumentTopic=ruleDocumentTopic
+	{ $current=$iv_ruleDocumentTopic.current; }
+	EOF;
+
+// Rule DocumentTopic
+ruleDocumentTopic returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='information'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDocumentTopicAccess().getInformationKeyword_0());
+		}
+		otherlv_1='about'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDocumentTopicAccess().getAboutKeyword_1());
+		}
+		otherlv_2='topic'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDocumentTopicAccess().getTopicKeyword_2());
+		}
+		(
+			(
+				lv_topic_3_0=RULE_STRING
+				{
+					newLeafNode(lv_topic_3_0, grammarAccess.getDocumentTopicAccess().getTopicSTRINGTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDocumentTopicRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"topic",
+						lv_topic_3_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
+;
+
 RULE_EMAIL_ADDRESS : ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'-'|'.')+ '@' ('a'..'z'|'A'..'Z'|'0'..'9'|'-'|'.')+;
 
 RULE_PHONE_NUMBER : '+' ('0'..'9')+;
-
-RULE_HOUSENUMBER : ('0'..'9')+ ('a'..'z'|'A'..'Z')?;
 
 RULE_DUTCH_POSTCODE : '0'..'9' '0'..'9' '0'..'9' '0'..'9' ' '? 'A'..'Z' 'A'..'Z';
 

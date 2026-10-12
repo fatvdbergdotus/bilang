@@ -68,7 +68,7 @@ class BilangGenerator extends AbstractGenerator {
 	                
 	                # dynamically added
 	                «FOR person : task.person»«IF person instanceof PersonByEmail»«val content = task.content»«IF content instanceof Message»
-	                			sendemail("«person.emailaddress»", "«content.message.parts.join(" ")»")
+	                			sendemail("«person.emailaddress»", "«content.message»")
 	                «ENDIF»«ENDIF»«ENDFOR»
 	            ''')
 	       }

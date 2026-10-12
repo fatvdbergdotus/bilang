@@ -20,7 +20,9 @@ import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.CallPerson;
 import org.xtext.example.bilang.bilang.CompoundProcess;
 import org.xtext.example.bilang.bilang.DeletePerson;
+import org.xtext.example.bilang.bilang.Document;
 import org.xtext.example.bilang.bilang.DocumentPerson;
+import org.xtext.example.bilang.bilang.DocumentTopic;
 import org.xtext.example.bilang.bilang.Invoice;
 import org.xtext.example.bilang.bilang.Message;
 import org.xtext.example.bilang.bilang.ParamValue;
@@ -67,8 +69,14 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case BilangPackage.DELETE_PERSON:
 				sequence_DeletePerson(context, (DeletePerson) semanticObject); 
 				return; 
+			case BilangPackage.DOCUMENT:
+				sequence_Document(context, (Document) semanticObject); 
+				return; 
 			case BilangPackage.DOCUMENT_PERSON:
 				sequence_DocumentPerson(context, (DocumentPerson) semanticObject); 
+				return; 
+			case BilangPackage.DOCUMENT_TOPIC:
+				sequence_DocumentTopic(context, (DocumentTopic) semanticObject); 
 				return; 
 			case BilangPackage.INVOICE:
 				sequence_Invoice(context, (Invoice) semanticObject); 
@@ -210,8 +218,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Content returns DocumentPerson
-	 *     Document returns DocumentPerson
 	 *     DocumentPerson returns DocumentPerson
 	 *
 	 * Constraint:
@@ -232,8 +238,40 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Content returns Invoice
-	 *     Document returns Invoice
+	 *     DocumentTopic returns DocumentTopic
+	 *
+	 * Constraint:
+	 *     topic=STRING
+	 * </pre>
+	 */
+	protected void sequence_DocumentTopic(ISerializationContext context, DocumentTopic semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.DOCUMENT_TOPIC__TOPIC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.DOCUMENT_TOPIC__TOPIC));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDocumentTopicAccess().getTopicSTRINGTerminalRuleCall_3_0(), semanticObject.getTopic());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Document returns Document
+	 *
+	 * Constraint:
+	 *     (kind+=Invoice | kind+=DocumentPerson | kind+=DocumentTopic)
+	 * </pre>
+	 */
+	protected void sequence_Document(ISerializationContext context, Document semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Invoice returns Invoice
 	 *
 	 * Constraint:
@@ -254,7 +292,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Content returns Message
 	 *     Message returns Message
 	 *
 	 * Constraint:
@@ -302,20 +339,11 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     PersonByAddress returns PersonByAddress
 	 *
 	 * Constraint:
-	 *     (zipcode=DUTCH_POSTCODE housenumber=HOUSENUMBER)
+	 *     (zipcode=DUTCH_POSTCODE housenumber=INT suffix=STRING?)
 	 * </pre>
 	 */
 	protected void sequence_PersonByAddress(ISerializationContext context, PersonByAddress semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.PERSON_BY_ADDRESS__ZIPCODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.PERSON_BY_ADDRESS__ZIPCODE));
-			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.PERSON_BY_ADDRESS__HOUSENUMBER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.PERSON_BY_ADDRESS__HOUSENUMBER));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPersonByAddressAccess().getZipcodeDUTCH_POSTCODETerminalRuleCall_4_0(), semanticObject.getZipcode());
-		feeder.accept(grammarAccess.getPersonByAddressAccess().getHousenumberHOUSENUMBERTerminalRuleCall_8_0(), semanticObject.getHousenumber());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -422,7 +450,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.RETRIEVE_DOCUMENT__DOCUMENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRetrieveDocumentAccess().getDocumentDocumentParserRuleCall_2_0(), semanticObject.getDocument());
+		feeder.accept(grammarAccess.getRetrieveDocumentAccess().getDocumentDocumentParserRuleCall_1_0(), semanticObject.getDocument());
 		feeder.finish();
 	}
 	
@@ -476,7 +504,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     SendEmail returns SendEmail
 	 *
 	 * Constraint:
-	 *     (person+=Person+ content=Content)
+	 *     (person+=Person+ message=Message attachment+=Document*)
 	 * </pre>
 	 */
 	protected void sequence_SendEmail(ISerializationContext context, SendEmail semanticObject) {
@@ -491,7 +519,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     SendSMS returns SendSMS
 	 *
 	 * Constraint:
-	 *     (person+=Person+ content=Content)
+	 *     (person+=Person+ message=Message attachment+=Document*)
 	 * </pre>
 	 */
 	protected void sequence_SendSMS(ISerializationContext context, SendSMS semanticObject) {
@@ -506,7 +534,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     SendSnailMail returns SendSnailMail
 	 *
 	 * Constraint:
-	 *     (person+=Person+ content=Content)
+	 *     (person+=Person+ message=Message attachment+=Document*)
 	 * </pre>
 	 */
 	protected void sequence_SendSnailMail(ISerializationContext context, SendSnailMail semanticObject) {

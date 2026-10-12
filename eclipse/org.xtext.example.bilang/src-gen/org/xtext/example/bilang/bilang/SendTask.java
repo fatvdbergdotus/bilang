@@ -17,7 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.bilang.bilang.SendTask#getPerson <em>Person</em>}</li>
- *   <li>{@link org.xtext.example.bilang.bilang.SendTask#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.SendTask#getMessage <em>Message</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.SendTask#getAttachment <em>Attachment</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.bilang.bilang.BilangPackage#getSendTask()
@@ -39,25 +40,37 @@ public interface SendTask extends EObject
   EList<Person> getPerson();
 
   /**
-   * Returns the value of the '<em><b>Content</b></em>' containment reference.
+   * Returns the value of the '<em><b>Message</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Content</em>' containment reference.
-   * @see #setContent(Content)
-   * @see org.xtext.example.bilang.bilang.BilangPackage#getSendTask_Content()
+   * @return the value of the '<em>Message</em>' containment reference.
+   * @see #setMessage(Message)
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getSendTask_Message()
    * @model containment="true"
    * @generated
    */
-  Content getContent();
+  Message getMessage();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.bilang.bilang.SendTask#getContent <em>Content</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.bilang.bilang.SendTask#getMessage <em>Message</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Content</em>' containment reference.
-   * @see #getContent()
+   * @param value the new value of the '<em>Message</em>' containment reference.
+   * @see #getMessage()
    * @generated
    */
-  void setContent(Content value);
+  void setMessage(Message value);
+
+  /**
+   * Returns the value of the '<em><b>Attachment</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.bilang.bilang.Document}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Attachment</em>' containment reference list.
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getSendTask_Attachment()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Document> getAttachment();
 
 } // SendTask

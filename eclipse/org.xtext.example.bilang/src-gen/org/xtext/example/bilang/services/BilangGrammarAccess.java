@@ -286,14 +286,17 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Assignment cPersonAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cPersonPersonParserRuleCall_4_0 = (RuleCall)cPersonAssignment_4.eContents().get(0);
 		private final Keyword cWithKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cContentKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cContentAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cContentContentParserRuleCall_7_0 = (RuleCall)cContentAssignment_7.eContents().get(0);
+		private final Assignment cMessageAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cMessageMessageParserRuleCall_6_0 = (RuleCall)cMessageAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cAndKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cAttachmentAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cAttachmentDocumentParserRuleCall_7_1_0 = (RuleCall)cAttachmentAssignment_7_1.eContents().get(0);
 		
-		//SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
+		//SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content
+		//'send' 'an' 'email' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?
 		public Group getGroup() { return cGroup; }
 		
 		//'send'
@@ -317,14 +320,23 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'with'
 		public Keyword getWithKeyword_5() { return cWithKeyword_5; }
 		
-		//'content'
-		public Keyword getContentKeyword_6() { return cContentKeyword_6; }
+		//message=Message
+		public Assignment getMessageAssignment_6() { return cMessageAssignment_6; }
 		
-		//content=Content
-		public Assignment getContentAssignment_7() { return cContentAssignment_7; }
+		//Message
+		public RuleCall getMessageMessageParserRuleCall_6_0() { return cMessageMessageParserRuleCall_6_0; }
 		
-		//Content
-		public RuleCall getContentContentParserRuleCall_7_0() { return cContentContentParserRuleCall_7_0; }
+		//('and' attachment+=Document+)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'and'
+		public Keyword getAndKeyword_7_0() { return cAndKeyword_7_0; }
+		
+		//attachment+=Document+
+		public Assignment getAttachmentAssignment_7_1() { return cAttachmentAssignment_7_1; }
+		
+		//Document
+		public RuleCall getAttachmentDocumentParserRuleCall_7_1_0() { return cAttachmentDocumentParserRuleCall_7_1_0; }
 	}
 	public class SendSMSElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.SendSMS");
@@ -336,14 +348,17 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Assignment cPersonAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cPersonPersonParserRuleCall_4_0 = (RuleCall)cPersonAssignment_4.eContents().get(0);
 		private final Keyword cWithKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cContentKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cContentAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cContentContentParserRuleCall_7_0 = (RuleCall)cContentAssignment_7.eContents().get(0);
+		private final Assignment cMessageAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cMessageMessageParserRuleCall_6_0 = (RuleCall)cMessageAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cAndKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cAttachmentAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cAttachmentDocumentParserRuleCall_7_1_0 = (RuleCall)cAttachmentAssignment_7_1.eContents().get(0);
 		
-		//SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;
+		//SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content
+		//'send' 'an' 'sms' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?
 		public Group getGroup() { return cGroup; }
 		
 		//'send'
@@ -367,14 +382,23 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'with'
 		public Keyword getWithKeyword_5() { return cWithKeyword_5; }
 		
-		//'content'
-		public Keyword getContentKeyword_6() { return cContentKeyword_6; }
+		//message=Message
+		public Assignment getMessageAssignment_6() { return cMessageAssignment_6; }
 		
-		//content=Content
-		public Assignment getContentAssignment_7() { return cContentAssignment_7; }
+		//Message
+		public RuleCall getMessageMessageParserRuleCall_6_0() { return cMessageMessageParserRuleCall_6_0; }
 		
-		//Content
-		public RuleCall getContentContentParserRuleCall_7_0() { return cContentContentParserRuleCall_7_0; }
+		//('and' attachment+=Document+)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'and'
+		public Keyword getAndKeyword_7_0() { return cAndKeyword_7_0; }
+		
+		//attachment+=Document+
+		public Assignment getAttachmentAssignment_7_1() { return cAttachmentAssignment_7_1; }
+		
+		//Document
+		public RuleCall getAttachmentDocumentParserRuleCall_7_1_0() { return cAttachmentDocumentParserRuleCall_7_1_0; }
 	}
 	public class SendSnailMailElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.SendSnailMail");
@@ -387,14 +411,17 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Assignment cPersonAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cPersonPersonParserRuleCall_5_0 = (RuleCall)cPersonAssignment_5.eContents().get(0);
 		private final Keyword cWithKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cContentKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cContentAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cContentContentParserRuleCall_8_0 = (RuleCall)cContentAssignment_8.eContents().get(0);
+		private final Assignment cMessageAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMessageMessageParserRuleCall_7_0 = (RuleCall)cMessageAssignment_7.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cAndKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cAttachmentAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cAttachmentDocumentParserRuleCall_8_1_0 = (RuleCall)cAttachmentAssignment_8_1.eContents().get(0);
 		
-		//SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' 'content' content=Content;
+		//SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' 'content' content=Content
+		//'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?
 		public Group getGroup() { return cGroup; }
 		
 		//'send'
@@ -421,40 +448,45 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'with'
 		public Keyword getWithKeyword_6() { return cWithKeyword_6; }
 		
-		//'content'
-		public Keyword getContentKeyword_7() { return cContentKeyword_7; }
+		//message=Message
+		public Assignment getMessageAssignment_7() { return cMessageAssignment_7; }
 		
-		//content=Content
-		public Assignment getContentAssignment_8() { return cContentAssignment_8; }
+		//Message
+		public RuleCall getMessageMessageParserRuleCall_7_0() { return cMessageMessageParserRuleCall_7_0; }
 		
-		//Content
-		public RuleCall getContentContentParserRuleCall_8_0() { return cContentContentParserRuleCall_8_0; }
+		//('and' attachment+=Document+)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'and'
+		public Keyword getAndKeyword_8_0() { return cAndKeyword_8_0; }
+		
+		//attachment+=Document+
+		public Assignment getAttachmentAssignment_8_1() { return cAttachmentAssignment_8_1; }
+		
+		//Document
+		public RuleCall getAttachmentDocumentParserRuleCall_8_1_0() { return cAttachmentDocumentParserRuleCall_8_1_0; }
 	}
 	public class RetrieveDocumentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.RetrieveDocument");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRetrieveKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cDocumentKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDocumentAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDocumentDocumentParserRuleCall_2_0 = (RuleCall)cDocumentAssignment_2.eContents().get(0);
+		private final Assignment cDocumentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDocumentDocumentParserRuleCall_1_0 = (RuleCall)cDocumentAssignment_1.eContents().get(0);
 		
-		//RetrieveDocument: 'retrieve' 'document' document=Document;
+		//RetrieveDocument: 'retrieve' document=Document;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'retrieve' 'document' document=Document
+		//'retrieve' document=Document
 		public Group getGroup() { return cGroup; }
 		
 		//'retrieve'
 		public Keyword getRetrieveKeyword_0() { return cRetrieveKeyword_0; }
 		
-		//'document'
-		public Keyword getDocumentKeyword_1() { return cDocumentKeyword_1; }
-		
 		//document=Document
-		public Assignment getDocumentAssignment_2() { return cDocumentAssignment_2; }
+		public Assignment getDocumentAssignment_1() { return cDocumentAssignment_1; }
 		
 		//Document
-		public RuleCall getDocumentDocumentParserRuleCall_2_0() { return cDocumentDocumentParserRuleCall_2_0; }
+		public RuleCall getDocumentDocumentParserRuleCall_1_0() { return cDocumentDocumentParserRuleCall_1_0; }
 	}
 	public class RetrieveFullAddressElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.RetrieveFullAddress");
@@ -801,12 +833,17 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cHouseKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cNumberKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cHousenumberAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cHousenumberHOUSENUMBERTerminalRuleCall_8_0 = (RuleCall)cHousenumberAssignment_8.eContents().get(0);
+		private final RuleCall cHousenumberINTTerminalRuleCall_8_0 = (RuleCall)cHousenumberAssignment_8.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cAndKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cSuffixKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cSuffixAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cSuffixSTRINGTerminalRuleCall_9_2_0 = (RuleCall)cSuffixAssignment_9_2.eContents().get(0);
 		
-		//PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=HOUSENUMBER;
+		//PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=INT ('and' 'suffix' suffix=STRING)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=HOUSENUMBER
+		//'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=INT ('and' 'suffix' suffix=STRING)?
 		public Group getGroup() { return cGroup; }
 		
 		//'person'
@@ -836,29 +873,26 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'number'
 		public Keyword getNumberKeyword_7() { return cNumberKeyword_7; }
 		
-		//housenumber=HOUSENUMBER
+		//housenumber=INT
 		public Assignment getHousenumberAssignment_8() { return cHousenumberAssignment_8; }
 		
-		//HOUSENUMBER
-		public RuleCall getHousenumberHOUSENUMBERTerminalRuleCall_8_0() { return cHousenumberHOUSENUMBERTerminalRuleCall_8_0; }
-	}
-	public class ContentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.Content");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cMessageParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDocumentParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		//INT
+		public RuleCall getHousenumberINTTerminalRuleCall_8_0() { return cHousenumberINTTerminalRuleCall_8_0; }
 		
-		//Content: Message | Document;
-		@Override public ParserRule getRule() { return rule; }
+		//('and' 'suffix' suffix=STRING)?
+		public Group getGroup_9() { return cGroup_9; }
 		
-		//Message | Document
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//'and'
+		public Keyword getAndKeyword_9_0() { return cAndKeyword_9_0; }
 		
-		//Message
-		public RuleCall getMessageParserRuleCall_0() { return cMessageParserRuleCall_0; }
+		//'suffix'
+		public Keyword getSuffixKeyword_9_1() { return cSuffixKeyword_9_1; }
 		
-		//Document
-		public RuleCall getDocumentParserRuleCall_1() { return cDocumentParserRuleCall_1; }
+		//suffix=STRING
+		public Assignment getSuffixAssignment_9_2() { return cSuffixAssignment_9_2; }
+		
+		//STRING
+		public RuleCall getSuffixSTRINGTerminalRuleCall_9_2_0() { return cSuffixSTRINGTerminalRuleCall_9_2_0; }
 	}
 	public class MessageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.Message");
@@ -884,21 +918,37 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	public class DocumentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.Document");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cInvoiceParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDocumentPersonParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDocumentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cKindAlternatives_1_0 = (Alternatives)cKindAssignment_1.eContents().get(0);
+		private final RuleCall cKindInvoiceParserRuleCall_1_0_0 = (RuleCall)cKindAlternatives_1_0.eContents().get(0);
+		private final RuleCall cKindDocumentPersonParserRuleCall_1_0_1 = (RuleCall)cKindAlternatives_1_0.eContents().get(1);
+		private final RuleCall cKindDocumentTopicParserRuleCall_1_0_2 = (RuleCall)cKindAlternatives_1_0.eContents().get(2);
 		
-		//Document: Invoice | DocumentPerson;
+		//Document: 'document' kind+=(Invoice | DocumentPerson | DocumentTopic);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Invoice | DocumentPerson
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//'document' kind+=(Invoice | DocumentPerson | DocumentTopic)
+		public Group getGroup() { return cGroup; }
+		
+		//'document'
+		public Keyword getDocumentKeyword_0() { return cDocumentKeyword_0; }
+		
+		//kind+=(Invoice | DocumentPerson | DocumentTopic)
+		public Assignment getKindAssignment_1() { return cKindAssignment_1; }
+		
+		//(Invoice | DocumentPerson | DocumentTopic)
+		public Alternatives getKindAlternatives_1_0() { return cKindAlternatives_1_0; }
 		
 		//Invoice
-		public RuleCall getInvoiceParserRuleCall_0() { return cInvoiceParserRuleCall_0; }
+		public RuleCall getKindInvoiceParserRuleCall_1_0_0() { return cKindInvoiceParserRuleCall_1_0_0; }
 		
 		//DocumentPerson
-		public RuleCall getDocumentPersonParserRuleCall_1() { return cDocumentPersonParserRuleCall_1; }
+		public RuleCall getKindDocumentPersonParserRuleCall_1_0_1() { return cKindDocumentPersonParserRuleCall_1_0_1; }
+		
+		//DocumentTopic
+		public RuleCall getKindDocumentTopicParserRuleCall_1_0_2() { return cKindDocumentTopicParserRuleCall_1_0_2; }
 	}
 	public class InvoiceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.Invoice");
@@ -956,6 +1006,36 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//Person
 		public RuleCall getPersonPersonParserRuleCall_2_0() { return cPersonPersonParserRuleCall_2_0; }
 	}
+	public class DocumentTopicElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.DocumentTopic");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInformationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cAboutKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cTopicKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTopicAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTopicSTRINGTerminalRuleCall_3_0 = (RuleCall)cTopicAssignment_3.eContents().get(0);
+		
+		//DocumentTopic: 'information' 'about' 'topic' topic=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'information' 'about' 'topic' topic=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'information'
+		public Keyword getInformationKeyword_0() { return cInformationKeyword_0; }
+		
+		//'about'
+		public Keyword getAboutKeyword_1() { return cAboutKeyword_1; }
+		
+		//'topic'
+		public Keyword getTopicKeyword_2() { return cTopicKeyword_2; }
+		
+		//topic=STRING
+		public Assignment getTopicAssignment_3() { return cTopicAssignment_3; }
+		
+		//STRING
+		public RuleCall getTopicSTRINGTerminalRuleCall_3_0() { return cTopicSTRINGTerminalRuleCall_3_0; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -982,14 +1062,13 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final PersonByNameElements pPersonByName;
 	private final PersonByPhoneElements pPersonByPhone;
 	private final PersonByAddressElements pPersonByAddress;
-	private final ContentElements pContent;
 	private final MessageElements pMessage;
 	private final DocumentElements pDocument;
 	private final InvoiceElements pInvoice;
 	private final DocumentPersonElements pDocumentPerson;
+	private final DocumentTopicElements pDocumentTopic;
 	private final TerminalRule tEMAIL_ADDRESS;
 	private final TerminalRule tPHONE_NUMBER;
-	private final TerminalRule tHOUSENUMBER;
 	private final TerminalRule tDUTCH_POSTCODE;
 	
 	private final Grammar grammar;
@@ -1025,14 +1104,13 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.pPersonByName = new PersonByNameElements();
 		this.pPersonByPhone = new PersonByPhoneElements();
 		this.pPersonByAddress = new PersonByAddressElements();
-		this.pContent = new ContentElements();
 		this.pMessage = new MessageElements();
 		this.pDocument = new DocumentElements();
 		this.pInvoice = new InvoiceElements();
 		this.pDocumentPerson = new DocumentPersonElements();
+		this.pDocumentTopic = new DocumentTopicElements();
 		this.tEMAIL_ADDRESS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.EMAIL_ADDRESS");
 		this.tPHONE_NUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.PHONE_NUMBER");
-		this.tHOUSENUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.HOUSENUMBER");
 		this.tDUTCH_POSTCODE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.bilang.Bilang.DUTCH_POSTCODE");
 	}
 	
@@ -1144,7 +1222,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getPersonTaskAccess().getRule();
 	}
 	
-	//SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
+	//SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
 	public SendEmailElements getSendEmailAccess() {
 		return pSendEmail;
 	}
@@ -1153,7 +1231,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getSendEmailAccess().getRule();
 	}
 	
-	//SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;
+	//SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
 	public SendSMSElements getSendSMSAccess() {
 		return pSendSMS;
 	}
@@ -1162,7 +1240,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getSendSMSAccess().getRule();
 	}
 	
-	//SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' 'content' content=Content;
+	//SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
 	public SendSnailMailElements getSendSnailMailAccess() {
 		return pSendSnailMail;
 	}
@@ -1171,7 +1249,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getSendSnailMailAccess().getRule();
 	}
 	
-	//RetrieveDocument: 'retrieve' 'document' document=Document;
+	//RetrieveDocument: 'retrieve' document=Document;
 	public RetrieveDocumentElements getRetrieveDocumentAccess() {
 		return pRetrieveDocument;
 	}
@@ -1270,22 +1348,13 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getPersonByPhoneAccess().getRule();
 	}
 	
-	//PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=HOUSENUMBER;
+	//PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=INT ('and' 'suffix' suffix=STRING)?;
 	public PersonByAddressElements getPersonByAddressAccess() {
 		return pPersonByAddress;
 	}
 	
 	public ParserRule getPersonByAddressRule() {
 		return getPersonByAddressAccess().getRule();
-	}
-	
-	//Content: Message | Document;
-	public ContentElements getContentAccess() {
-		return pContent;
-	}
-	
-	public ParserRule getContentRule() {
-		return getContentAccess().getRule();
 	}
 	
 	//Message: 'message' message=STRING;
@@ -1297,7 +1366,7 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getMessageAccess().getRule();
 	}
 	
-	//Document: Invoice | DocumentPerson;
+	//Document: 'document' kind+=(Invoice | DocumentPerson | DocumentTopic);
 	public DocumentElements getDocumentAccess() {
 		return pDocument;
 	}
@@ -1324,6 +1393,15 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getDocumentPersonAccess().getRule();
 	}
 	
+	//DocumentTopic: 'information' 'about' 'topic' topic=STRING;
+	public DocumentTopicElements getDocumentTopicAccess() {
+		return pDocumentTopic;
+	}
+	
+	public ParserRule getDocumentTopicRule() {
+		return getDocumentTopicAccess().getRule();
+	}
+	
 	//terminal EMAIL_ADDRESS:
 	//    ('a'..'z' | 'A'..'Z' | '0'..'9' | '_' | '-' | '.')+
 	//    '@'
@@ -1332,15 +1410,10 @@ public class BilangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return tEMAIL_ADDRESS;
 	}
 	
-	//terminal PHONE_NUMBER: '+' ('0'..'9')+;
+	//terminal PHONE_NUMBER:
+	//    '+' ('0'..'9')+;
 	public TerminalRule getPHONE_NUMBERRule() {
 		return tPHONE_NUMBER;
-	}
-	
-	//terminal HOUSENUMBER:
-	//    ('0'..'9')+ ('a'..'z' | 'A'..'Z')?;
-	public TerminalRule getHOUSENUMBERRule() {
-		return tHOUSENUMBER;
 	}
 	
 	//terminal DUTCH_POSTCODE: ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9') ' '? ('A'..'Z') ('A'..'Z');

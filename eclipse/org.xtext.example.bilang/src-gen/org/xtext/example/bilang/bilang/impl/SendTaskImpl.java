@@ -20,7 +20,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
-import org.xtext.example.bilang.bilang.Content;
+import org.xtext.example.bilang.bilang.Document;
+import org.xtext.example.bilang.bilang.Message;
 import org.xtext.example.bilang.bilang.Person;
 import org.xtext.example.bilang.bilang.SendTask;
 
@@ -33,7 +34,8 @@ import org.xtext.example.bilang.bilang.SendTask;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.bilang.bilang.impl.SendTaskImpl#getPerson <em>Person</em>}</li>
- *   <li>{@link org.xtext.example.bilang.bilang.impl.SendTaskImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.SendTaskImpl#getMessage <em>Message</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.SendTaskImpl#getAttachment <em>Attachment</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +53,24 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
   protected EList<Person> person;
 
   /**
-   * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
+   * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContent()
+   * @see #getMessage()
    * @generated
    * @ordered
    */
-  protected Content content;
+  protected Message message;
+
+  /**
+   * The cached value of the '{@link #getAttachment() <em>Attachment</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttachment()
+   * @generated
+   * @ordered
+   */
+  protected EList<Document> attachment;
 
   /**
    * <!-- begin-user-doc -->
@@ -102,9 +114,9 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
    * @generated
    */
   @Override
-  public Content getContent()
+  public Message getMessage()
   {
-    return content;
+    return message;
   }
 
   /**
@@ -112,13 +124,13 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetContent(Content newContent, NotificationChain msgs)
+  public NotificationChain basicSetMessage(Message newMessage, NotificationChain msgs)
   {
-    Content oldContent = content;
-    content = newContent;
+    Message oldMessage = message;
+    message = newMessage;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BilangPackage.SEND_TASK__CONTENT, oldContent, newContent);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BilangPackage.SEND_TASK__MESSAGE, oldMessage, newMessage);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -130,20 +142,35 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
    * @generated
    */
   @Override
-  public void setContent(Content newContent)
+  public void setMessage(Message newMessage)
   {
-    if (newContent != content)
+    if (newMessage != message)
     {
       NotificationChain msgs = null;
-      if (content != null)
-        msgs = ((InternalEObject)content).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BilangPackage.SEND_TASK__CONTENT, null, msgs);
-      if (newContent != null)
-        msgs = ((InternalEObject)newContent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BilangPackage.SEND_TASK__CONTENT, null, msgs);
-      msgs = basicSetContent(newContent, msgs);
+      if (message != null)
+        msgs = ((InternalEObject)message).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BilangPackage.SEND_TASK__MESSAGE, null, msgs);
+      if (newMessage != null)
+        msgs = ((InternalEObject)newMessage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BilangPackage.SEND_TASK__MESSAGE, null, msgs);
+      msgs = basicSetMessage(newMessage, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.SEND_TASK__CONTENT, newContent, newContent));
+      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.SEND_TASK__MESSAGE, newMessage, newMessage));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Document> getAttachment()
+  {
+    if (attachment == null)
+    {
+      attachment = new EObjectContainmentEList<Document>(Document.class, this, BilangPackage.SEND_TASK__ATTACHMENT);
+    }
+    return attachment;
   }
 
   /**
@@ -158,8 +185,10 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
     {
       case BilangPackage.SEND_TASK__PERSON:
         return ((InternalEList<?>)getPerson()).basicRemove(otherEnd, msgs);
-      case BilangPackage.SEND_TASK__CONTENT:
-        return basicSetContent(null, msgs);
+      case BilangPackage.SEND_TASK__MESSAGE:
+        return basicSetMessage(null, msgs);
+      case BilangPackage.SEND_TASK__ATTACHMENT:
+        return ((InternalEList<?>)getAttachment()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -176,8 +205,10 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
     {
       case BilangPackage.SEND_TASK__PERSON:
         return getPerson();
-      case BilangPackage.SEND_TASK__CONTENT:
-        return getContent();
+      case BilangPackage.SEND_TASK__MESSAGE:
+        return getMessage();
+      case BilangPackage.SEND_TASK__ATTACHMENT:
+        return getAttachment();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,8 +228,12 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
         getPerson().clear();
         getPerson().addAll((Collection<? extends Person>)newValue);
         return;
-      case BilangPackage.SEND_TASK__CONTENT:
-        setContent((Content)newValue);
+      case BilangPackage.SEND_TASK__MESSAGE:
+        setMessage((Message)newValue);
+        return;
+      case BilangPackage.SEND_TASK__ATTACHMENT:
+        getAttachment().clear();
+        getAttachment().addAll((Collection<? extends Document>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -217,8 +252,11 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
       case BilangPackage.SEND_TASK__PERSON:
         getPerson().clear();
         return;
-      case BilangPackage.SEND_TASK__CONTENT:
-        setContent((Content)null);
+      case BilangPackage.SEND_TASK__MESSAGE:
+        setMessage((Message)null);
+        return;
+      case BilangPackage.SEND_TASK__ATTACHMENT:
+        getAttachment().clear();
         return;
     }
     super.eUnset(featureID);
@@ -236,8 +274,10 @@ public class SendTaskImpl extends MinimalEObjectImpl.Container implements SendTa
     {
       case BilangPackage.SEND_TASK__PERSON:
         return person != null && !person.isEmpty();
-      case BilangPackage.SEND_TASK__CONTENT:
-        return content != null;
+      case BilangPackage.SEND_TASK__MESSAGE:
+        return message != null;
+      case BilangPackage.SEND_TASK__ATTACHMENT:
+        return attachment != null && !attachment.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -15,6 +15,7 @@ package org.xtext.example.bilang.bilang;
  * <ul>
  *   <li>{@link org.xtext.example.bilang.bilang.PersonByAddress#getZipcode <em>Zipcode</em>}</li>
  *   <li>{@link org.xtext.example.bilang.bilang.PersonByAddress#getHousenumber <em>Housenumber</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.PersonByAddress#getSuffix <em>Suffix</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.bilang.bilang.BilangPackage#getPersonByAddress()
@@ -50,12 +51,12 @@ public interface PersonByAddress extends Person
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Housenumber</em>' attribute.
-   * @see #setHousenumber(String)
+   * @see #setHousenumber(int)
    * @see org.xtext.example.bilang.bilang.BilangPackage#getPersonByAddress_Housenumber()
    * @model
    * @generated
    */
-  String getHousenumber();
+  int getHousenumber();
 
   /**
    * Sets the value of the '{@link org.xtext.example.bilang.bilang.PersonByAddress#getHousenumber <em>Housenumber</em>}' attribute.
@@ -65,6 +66,28 @@ public interface PersonByAddress extends Person
    * @see #getHousenumber()
    * @generated
    */
-  void setHousenumber(String value);
+  void setHousenumber(int value);
+
+  /**
+   * Returns the value of the '<em><b>Suffix</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Suffix</em>' attribute.
+   * @see #setSuffix(String)
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getPersonByAddress_Suffix()
+   * @model
+   * @generated
+   */
+  String getSuffix();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.bilang.bilang.PersonByAddress#getSuffix <em>Suffix</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Suffix</em>' attribute.
+   * @see #getSuffix()
+   * @generated
+   */
+  void setSuffix(String value);
 
 } // PersonByAddress

@@ -24,7 +24,8 @@
     <genClasses ecoreClass="Bilang.ecore#//RetrieveTask"/>
     <genClasses ecoreClass="Bilang.ecore#//SendTask">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendTask/person"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendTask/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendTask/message"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendTask/attachment"/>
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//PersonTask"/>
     <genClasses ecoreClass="Bilang.ecore#//SendEmail"/>
@@ -66,17 +67,22 @@
     <genClasses ecoreClass="Bilang.ecore#//PersonByAddress">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByAddress/zipcode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByAddress/housenumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByAddress/suffix"/>
     </genClasses>
-    <genClasses ecoreClass="Bilang.ecore#//Content"/>
     <genClasses ecoreClass="Bilang.ecore#//Message">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Message/message"/>
     </genClasses>
-    <genClasses ecoreClass="Bilang.ecore#//Document"/>
+    <genClasses ecoreClass="Bilang.ecore#//Document">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Document/kind"/>
+    </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//Invoice">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Invoice/code"/>
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//DocumentPerson">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//DocumentPerson/person"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//DocumentTopic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//DocumentTopic/topic"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

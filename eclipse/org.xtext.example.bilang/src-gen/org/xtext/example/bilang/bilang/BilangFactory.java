@@ -231,15 +231,6 @@ public interface BilangFactory extends EFactory
   PersonByAddress createPersonByAddress();
 
   /**
-   * Returns a new object of class '<em>Content</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Content</em>'.
-   * @generated
-   */
-  Content createContent();
-
-  /**
    * Returns a new object of class '<em>Message</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -274,6 +265,15 @@ public interface BilangFactory extends EFactory
    * @generated
    */
   DocumentPerson createDocumentPerson();
+
+  /**
+   * Returns a new object of class '<em>Document Topic</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Document Topic</em>'.
+   * @generated
+   */
+  DocumentTopic createDocumentTopic();
 
   /**
    * Returns the package supported by this factory.

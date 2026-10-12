@@ -3,6 +3,7 @@
  */
 package org.xtext.example.bilang.bilang;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.example.bilang.bilang;
  * @model
  * @generated
  */
-public interface Invoice extends Document
+public interface Invoice extends EObject
 {
   /**
    * Returns the value of the '<em><b>Code</b></em>' attribute.

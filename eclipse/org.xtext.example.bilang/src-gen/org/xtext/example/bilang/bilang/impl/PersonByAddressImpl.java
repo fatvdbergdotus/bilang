@@ -22,6 +22,7 @@ import org.xtext.example.bilang.bilang.PersonByAddress;
  * <ul>
  *   <li>{@link org.xtext.example.bilang.bilang.impl.PersonByAddressImpl#getZipcode <em>Zipcode</em>}</li>
  *   <li>{@link org.xtext.example.bilang.bilang.impl.PersonByAddressImpl#getHousenumber <em>Housenumber</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.PersonByAddressImpl#getSuffix <em>Suffix</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,7 +57,7 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
    * @generated
    * @ordered
    */
-  protected static final String HOUSENUMBER_EDEFAULT = null;
+  protected static final int HOUSENUMBER_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getHousenumber() <em>Housenumber</em>}' attribute.
@@ -66,7 +67,27 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
    * @generated
    * @ordered
    */
-  protected String housenumber = HOUSENUMBER_EDEFAULT;
+  protected int housenumber = HOUSENUMBER_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSuffix() <em>Suffix</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSuffix()
+   * @generated
+   * @ordered
+   */
+  protected static final String SUFFIX_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSuffix() <em>Suffix</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSuffix()
+   * @generated
+   * @ordered
+   */
+  protected String suffix = SUFFIX_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,7 +141,7 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
    * @generated
    */
   @Override
-  public String getHousenumber()
+  public int getHousenumber()
   {
     return housenumber;
   }
@@ -131,12 +152,37 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
    * @generated
    */
   @Override
-  public void setHousenumber(String newHousenumber)
+  public void setHousenumber(int newHousenumber)
   {
-    String oldHousenumber = housenumber;
+    int oldHousenumber = housenumber;
     housenumber = newHousenumber;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.PERSON_BY_ADDRESS__HOUSENUMBER, oldHousenumber, housenumber));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getSuffix()
+  {
+    return suffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSuffix(String newSuffix)
+  {
+    String oldSuffix = suffix;
+    suffix = newSuffix;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.PERSON_BY_ADDRESS__SUFFIX, oldSuffix, suffix));
   }
 
   /**
@@ -153,6 +199,8 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
         return getZipcode();
       case BilangPackage.PERSON_BY_ADDRESS__HOUSENUMBER:
         return getHousenumber();
+      case BilangPackage.PERSON_BY_ADDRESS__SUFFIX:
+        return getSuffix();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -171,7 +219,10 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
         setZipcode((String)newValue);
         return;
       case BilangPackage.PERSON_BY_ADDRESS__HOUSENUMBER:
-        setHousenumber((String)newValue);
+        setHousenumber((Integer)newValue);
+        return;
+      case BilangPackage.PERSON_BY_ADDRESS__SUFFIX:
+        setSuffix((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,6 +244,9 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
       case BilangPackage.PERSON_BY_ADDRESS__HOUSENUMBER:
         setHousenumber(HOUSENUMBER_EDEFAULT);
         return;
+      case BilangPackage.PERSON_BY_ADDRESS__SUFFIX:
+        setSuffix(SUFFIX_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -210,7 +264,9 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
       case BilangPackage.PERSON_BY_ADDRESS__ZIPCODE:
         return ZIPCODE_EDEFAULT == null ? zipcode != null : !ZIPCODE_EDEFAULT.equals(zipcode);
       case BilangPackage.PERSON_BY_ADDRESS__HOUSENUMBER:
-        return HOUSENUMBER_EDEFAULT == null ? housenumber != null : !HOUSENUMBER_EDEFAULT.equals(housenumber);
+        return housenumber != HOUSENUMBER_EDEFAULT;
+      case BilangPackage.PERSON_BY_ADDRESS__SUFFIX:
+        return SUFFIX_EDEFAULT == null ? suffix != null : !SUFFIX_EDEFAULT.equals(suffix);
     }
     return super.eIsSet(featureID);
   }
@@ -230,6 +286,8 @@ public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
     result.append(zipcode);
     result.append(", housenumber: ");
     result.append(housenumber);
+    result.append(", suffix: ");
+    result.append(suffix);
     result.append(')');
     return result.toString();
   }

@@ -251,18 +251,10 @@ public class BilangSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BilangPackage.CONTENT:
-      {
-        Content content = (Content)theEObject;
-        T result = caseContent(content);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case BilangPackage.MESSAGE:
       {
         Message message = (Message)theEObject;
         T result = caseMessage(message);
-        if (result == null) result = caseContent(message);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -270,7 +262,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         Document document = (Document)theEObject;
         T result = caseDocument(document);
-        if (result == null) result = caseContent(document);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -278,8 +269,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         Invoice invoice = (Invoice)theEObject;
         T result = caseInvoice(invoice);
-        if (result == null) result = caseDocument(invoice);
-        if (result == null) result = caseContent(invoice);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -287,8 +276,13 @@ public class BilangSwitch<T> extends Switch<T>
       {
         DocumentPerson documentPerson = (DocumentPerson)theEObject;
         T result = caseDocumentPerson(documentPerson);
-        if (result == null) result = caseDocument(documentPerson);
-        if (result == null) result = caseContent(documentPerson);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.DOCUMENT_TOPIC:
+      {
+        DocumentTopic documentTopic = (DocumentTopic)theEObject;
+        T result = caseDocumentTopic(documentTopic);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -665,22 +659,6 @@ public class BilangSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Content</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Content</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseContent(Content object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -740,6 +718,22 @@ public class BilangSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDocumentPerson(DocumentPerson object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Document Topic</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Document Topic</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDocumentTopic(DocumentTopic object)
   {
     return null;
   }

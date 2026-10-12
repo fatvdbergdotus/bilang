@@ -3,17 +3,38 @@
  */
 package org.xtext.example.bilang.bilang;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Document</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.bilang.bilang.Document#getKind <em>Kind</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.bilang.bilang.BilangPackage#getDocument()
  * @model
  * @generated
  */
-public interface Document extends Content
+public interface Document extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Kind</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Kind</em>' containment reference list.
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getDocument_Kind()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EObject> getKind();
+
 } // Document

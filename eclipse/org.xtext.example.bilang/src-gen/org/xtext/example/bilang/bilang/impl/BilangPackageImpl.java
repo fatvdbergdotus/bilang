@@ -16,10 +16,10 @@ import org.xtext.example.bilang.bilang.BilangFactory;
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.CallPerson;
 import org.xtext.example.bilang.bilang.CompoundProcess;
-import org.xtext.example.bilang.bilang.Content;
 import org.xtext.example.bilang.bilang.DeletePerson;
 import org.xtext.example.bilang.bilang.Document;
 import org.xtext.example.bilang.bilang.DocumentPerson;
+import org.xtext.example.bilang.bilang.DocumentTopic;
 import org.xtext.example.bilang.bilang.Invoice;
 import org.xtext.example.bilang.bilang.Message;
 import org.xtext.example.bilang.bilang.Model;
@@ -215,13 +215,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass contentEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass messageEClass = null;
 
   /**
@@ -244,6 +237,13 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   private EClass documentPersonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass documentTopicEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -467,9 +467,20 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getSendTask_Content()
+  public EReference getSendTask_Message()
   {
     return (EReference)sendTaskEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendTask_Attachment()
+  {
+    return (EReference)sendTaskEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -808,9 +819,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getContent()
+  public EAttribute getPersonByAddress_Suffix()
   {
-    return contentEClass;
+    return (EAttribute)personByAddressEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -844,6 +855,17 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
   public EClass getDocument()
   {
     return documentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDocument_Kind()
+  {
+    return (EReference)documentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -888,6 +910,28 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
   public EReference getDocumentPerson_Person()
   {
     return (EReference)documentPersonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDocumentTopic()
+  {
+    return documentTopicEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDocumentTopic_Topic()
+  {
+    return (EAttribute)documentTopicEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -941,7 +985,8 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     sendTaskEClass = createEClass(SEND_TASK);
     createEReference(sendTaskEClass, SEND_TASK__PERSON);
-    createEReference(sendTaskEClass, SEND_TASK__CONTENT);
+    createEReference(sendTaskEClass, SEND_TASK__MESSAGE);
+    createEReference(sendTaskEClass, SEND_TASK__ATTACHMENT);
 
     personTaskEClass = createEClass(PERSON_TASK);
 
@@ -988,19 +1033,22 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     personByAddressEClass = createEClass(PERSON_BY_ADDRESS);
     createEAttribute(personByAddressEClass, PERSON_BY_ADDRESS__ZIPCODE);
     createEAttribute(personByAddressEClass, PERSON_BY_ADDRESS__HOUSENUMBER);
-
-    contentEClass = createEClass(CONTENT);
+    createEAttribute(personByAddressEClass, PERSON_BY_ADDRESS__SUFFIX);
 
     messageEClass = createEClass(MESSAGE);
     createEAttribute(messageEClass, MESSAGE__MESSAGE);
 
     documentEClass = createEClass(DOCUMENT);
+    createEReference(documentEClass, DOCUMENT__KIND);
 
     invoiceEClass = createEClass(INVOICE);
     createEAttribute(invoiceEClass, INVOICE__CODE);
 
     documentPersonEClass = createEClass(DOCUMENT_PERSON);
     createEReference(documentPersonEClass, DOCUMENT_PERSON__PERSON);
+
+    documentTopicEClass = createEClass(DOCUMENT_TOPIC);
+    createEAttribute(documentTopicEClass, DOCUMENT_TOPIC__TOPIC);
   }
 
   /**
@@ -1049,10 +1097,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     personByNameEClass.getESuperTypes().add(this.getPerson());
     personByPhoneEClass.getESuperTypes().add(this.getPerson());
     personByAddressEClass.getESuperTypes().add(this.getPerson());
-    messageEClass.getESuperTypes().add(this.getContent());
-    documentEClass.getESuperTypes().add(this.getContent());
-    invoiceEClass.getESuperTypes().add(this.getDocument());
-    documentPersonEClass.getESuperTypes().add(this.getDocument());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1075,7 +1119,8 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     initEClass(sendTaskEClass, SendTask.class, "SendTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSendTask_Person(), this.getPerson(), null, "person", null, 0, -1, SendTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSendTask_Content(), this.getContent(), null, "content", null, 0, 1, SendTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendTask_Message(), this.getMessage(), null, "message", null, 0, 1, SendTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendTask_Attachment(), this.getDocument(), null, "attachment", null, 0, -1, SendTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(personTaskEClass, PersonTask.class, "PersonTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1121,20 +1166,23 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     initEClass(personByAddressEClass, PersonByAddress.class, "PersonByAddress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPersonByAddress_Zipcode(), ecorePackage.getEString(), "zipcode", null, 0, 1, PersonByAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPersonByAddress_Housenumber(), ecorePackage.getEString(), "housenumber", null, 0, 1, PersonByAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(contentEClass, Content.class, "Content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPersonByAddress_Housenumber(), ecorePackage.getEInt(), "housenumber", null, 0, 1, PersonByAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPersonByAddress_Suffix(), ecorePackage.getEString(), "suffix", null, 0, 1, PersonByAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMessage_Message(), ecorePackage.getEString(), "message", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDocument_Kind(), ecorePackage.getEObject(), null, "kind", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(invoiceEClass, Invoice.class, "Invoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInvoice_Code(), ecorePackage.getEInt(), "code", null, 0, 1, Invoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(documentPersonEClass, DocumentPerson.class, "DocumentPerson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDocumentPerson_Person(), this.getPerson(), null, "person", null, 0, 1, DocumentPerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(documentTopicEClass, DocumentTopic.class, "DocumentTopic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDocumentTopic_Topic(), ecorePackage.getEString(), "topic", null, 0, 1, DocumentTopic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

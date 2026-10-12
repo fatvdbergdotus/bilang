@@ -37,16 +37,18 @@ public class BilangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSendTaskAccess().getAlternatives(), "rule__SendTask__Alternatives");
 			builder.put(grammarAccess.getPersonTaskAccess().getAlternatives(), "rule__PersonTask__Alternatives");
 			builder.put(grammarAccess.getPersonAccess().getAlternatives(), "rule__Person__Alternatives");
-			builder.put(grammarAccess.getContentAccess().getAlternatives(), "rule__Content__Alternatives");
-			builder.put(grammarAccess.getDocumentAccess().getAlternatives(), "rule__Document__Alternatives");
+			builder.put(grammarAccess.getDocumentAccess().getKindAlternatives_1_0(), "rule__Document__KindAlternatives_1_0");
 			builder.put(grammarAccess.getTaskAccess().getGroup(), "rule__Task__Group__0");
 			builder.put(grammarAccess.getEmptyProcessAccess().getGroup(), "rule__EmptyProcess__Group__0");
 			builder.put(grammarAccess.getCompoundProcessAccess().getGroup(), "rule__CompoundProcess__Group__0");
 			builder.put(grammarAccess.getAbstractProcessAccess().getGroup(), "rule__AbstractProcess__Group__0");
 			builder.put(grammarAccess.getParamValueAccess().getGroup(), "rule__ParamValue__Group__0");
 			builder.put(grammarAccess.getSendEmailAccess().getGroup(), "rule__SendEmail__Group__0");
+			builder.put(grammarAccess.getSendEmailAccess().getGroup_7(), "rule__SendEmail__Group_7__0");
 			builder.put(grammarAccess.getSendSMSAccess().getGroup(), "rule__SendSMS__Group__0");
+			builder.put(grammarAccess.getSendSMSAccess().getGroup_7(), "rule__SendSMS__Group_7__0");
 			builder.put(grammarAccess.getSendSnailMailAccess().getGroup(), "rule__SendSnailMail__Group__0");
+			builder.put(grammarAccess.getSendSnailMailAccess().getGroup_8(), "rule__SendSnailMail__Group_8__0");
 			builder.put(grammarAccess.getRetrieveDocumentAccess().getGroup(), "rule__RetrieveDocument__Group__0");
 			builder.put(grammarAccess.getRetrieveFullAddressAccess().getGroup(), "rule__RetrieveFullAddress__Group__0");
 			builder.put(grammarAccess.getRetrievePersonsAccess().getGroup(), "rule__RetrievePersons__Group__0");
@@ -59,9 +61,12 @@ public class BilangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPersonByNameAccess().getGroup(), "rule__PersonByName__Group__0");
 			builder.put(grammarAccess.getPersonByPhoneAccess().getGroup(), "rule__PersonByPhone__Group__0");
 			builder.put(grammarAccess.getPersonByAddressAccess().getGroup(), "rule__PersonByAddress__Group__0");
+			builder.put(grammarAccess.getPersonByAddressAccess().getGroup_9(), "rule__PersonByAddress__Group_9__0");
 			builder.put(grammarAccess.getMessageAccess().getGroup(), "rule__Message__Group__0");
+			builder.put(grammarAccess.getDocumentAccess().getGroup(), "rule__Document__Group__0");
 			builder.put(grammarAccess.getInvoiceAccess().getGroup(), "rule__Invoice__Group__0");
 			builder.put(grammarAccess.getDocumentPersonAccess().getGroup(), "rule__DocumentPerson__Group__0");
+			builder.put(grammarAccess.getDocumentTopicAccess().getGroup(), "rule__DocumentTopic__Group__0");
 			builder.put(grammarAccess.getTaskAccess().getKindAssignment_1(), "rule__Task__KindAssignment_1");
 			builder.put(grammarAccess.getCompoundProcessAccess().getTaskAssignment_2(), "rule__CompoundProcess__TaskAssignment_2");
 			builder.put(grammarAccess.getAbstractProcessAccess().getNameAssignment_4(), "rule__AbstractProcess__NameAssignment_4");
@@ -69,12 +74,15 @@ public class BilangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getParamValueAccess().getParamAssignment_1(), "rule__ParamValue__ParamAssignment_1");
 			builder.put(grammarAccess.getParamValueAccess().getValueAssignment_4(), "rule__ParamValue__ValueAssignment_4");
 			builder.put(grammarAccess.getSendEmailAccess().getPersonAssignment_4(), "rule__SendEmail__PersonAssignment_4");
-			builder.put(grammarAccess.getSendEmailAccess().getContentAssignment_7(), "rule__SendEmail__ContentAssignment_7");
+			builder.put(grammarAccess.getSendEmailAccess().getMessageAssignment_6(), "rule__SendEmail__MessageAssignment_6");
+			builder.put(grammarAccess.getSendEmailAccess().getAttachmentAssignment_7_1(), "rule__SendEmail__AttachmentAssignment_7_1");
 			builder.put(grammarAccess.getSendSMSAccess().getPersonAssignment_4(), "rule__SendSMS__PersonAssignment_4");
-			builder.put(grammarAccess.getSendSMSAccess().getContentAssignment_7(), "rule__SendSMS__ContentAssignment_7");
+			builder.put(grammarAccess.getSendSMSAccess().getMessageAssignment_6(), "rule__SendSMS__MessageAssignment_6");
+			builder.put(grammarAccess.getSendSMSAccess().getAttachmentAssignment_7_1(), "rule__SendSMS__AttachmentAssignment_7_1");
 			builder.put(grammarAccess.getSendSnailMailAccess().getPersonAssignment_5(), "rule__SendSnailMail__PersonAssignment_5");
-			builder.put(grammarAccess.getSendSnailMailAccess().getContentAssignment_8(), "rule__SendSnailMail__ContentAssignment_8");
-			builder.put(grammarAccess.getRetrieveDocumentAccess().getDocumentAssignment_2(), "rule__RetrieveDocument__DocumentAssignment_2");
+			builder.put(grammarAccess.getSendSnailMailAccess().getMessageAssignment_7(), "rule__SendSnailMail__MessageAssignment_7");
+			builder.put(grammarAccess.getSendSnailMailAccess().getAttachmentAssignment_8_1(), "rule__SendSnailMail__AttachmentAssignment_8_1");
+			builder.put(grammarAccess.getRetrieveDocumentAccess().getDocumentAssignment_1(), "rule__RetrieveDocument__DocumentAssignment_1");
 			builder.put(grammarAccess.getRetrieveFullAddressAccess().getPersonAdressAssignment_4(), "rule__RetrieveFullAddress__PersonAdressAssignment_4");
 			builder.put(grammarAccess.getRetrievePersonsAccess().getPersonSearchAssignment_4(), "rule__RetrievePersons__PersonSearchAssignment_4");
 			builder.put(grammarAccess.getCallPersonAccess().getPersonAssignment_2(), "rule__CallPerson__PersonAssignment_2");
@@ -88,9 +96,12 @@ public class BilangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPersonByPhoneAccess().getPhoneAssignment_4(), "rule__PersonByPhone__PhoneAssignment_4");
 			builder.put(grammarAccess.getPersonByAddressAccess().getZipcodeAssignment_4(), "rule__PersonByAddress__ZipcodeAssignment_4");
 			builder.put(grammarAccess.getPersonByAddressAccess().getHousenumberAssignment_8(), "rule__PersonByAddress__HousenumberAssignment_8");
+			builder.put(grammarAccess.getPersonByAddressAccess().getSuffixAssignment_9_2(), "rule__PersonByAddress__SuffixAssignment_9_2");
 			builder.put(grammarAccess.getMessageAccess().getMessageAssignment_1(), "rule__Message__MessageAssignment_1");
+			builder.put(grammarAccess.getDocumentAccess().getKindAssignment_1(), "rule__Document__KindAssignment_1");
 			builder.put(grammarAccess.getInvoiceAccess().getCodeAssignment_3(), "rule__Invoice__CodeAssignment_3");
 			builder.put(grammarAccess.getDocumentPersonAccess().getPersonAssignment_2(), "rule__DocumentPerson__PersonAssignment_2");
+			builder.put(grammarAccess.getDocumentTopicAccess().getTopicAssignment_3(), "rule__DocumentTopic__TopicAssignment_3");
 		}
 	}
 	

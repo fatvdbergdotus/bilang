@@ -15,10 +15,10 @@ RetrieveTask: RetrieveDocument | RetrieveFullAddress | RetrievePersons;
 SendTask: SendEmail | SendSMS | SendSnailMail;
 PersonTask: CallPerson | AddPerson | DeletePerson;
 
-SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' 'content' content=Content;
-SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' 'content' content=Content;
-SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' 'content' content=Content;
-RetrieveDocument: 'retrieve' 'document' document=Document;
+SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
+SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
+SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
+RetrieveDocument: 'retrieve' document=Document;
 RetrieveFullAddress: 'retrieve' 'full' 'address' 'of' personAdress=PersonByAddress;
 RetrievePersons: 'retrieve' 'persons' 'with' 'search' personSearch=ID;
 CallPerson: 'phone' 'call' person=Person;
@@ -30,14 +30,14 @@ PersonByEmail: 'person' 'with' 'email' emailaddress=EMAIL_ADDRESS;
 PersonByAlias: 'person' 'with' 'alias' alias=ID;
 PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=STRING;
 PersonByPhone: 'person' 'with' 'phone' 'number' phone=PHONE_NUMBER;
-PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=HOUSENUMBER;
+PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=INT ('and' 'suffix' suffix=STRING)?;
 
-Content: Message | Document;
 Message: 'message' message=STRING;
 
-Document: Invoice | DocumentPerson;
+Document: 'document' kind+=(Invoice | DocumentPerson | DocumentTopic);
 Invoice: 'invoice' 'with' 'code' code=INT;
 DocumentPerson: 'information' 'about' person=Person;
+DocumentTopic: 'information' 'about' 'topic' topic=STRING;
 
 
 terminal EMAIL_ADDRESS:
@@ -45,9 +45,7 @@ terminal EMAIL_ADDRESS:
     '@'
     ('a'..'z' | 'A'..'Z' | '0'..'9' | '-' | '.')+;
 
-terminal PHONE_NUMBER: '+' ('0'..'9')+;
-
-terminal HOUSENUMBER:
-    ('0'..'9')+ ('a'..'z' | 'A'..'Z')?;
+terminal PHONE_NUMBER: 
+	'+' ('0'..'9')+;
 
 terminal DUTCH_POSTCODE: ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9') ' '? ('A'..'Z') ('A'..'Z');

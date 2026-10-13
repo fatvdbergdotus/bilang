@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.PersonByPhone;
@@ -25,7 +26,7 @@ import org.xtext.example.bilang.bilang.PersonByPhone;
  *
  * @generated
  */
-public class PersonByPhoneImpl extends PersonImpl implements PersonByPhone
+public class PersonByPhoneImpl extends MinimalEObjectImpl.Container implements PersonByPhone
 {
   /**
    * The default value of the '{@link #getPhone() <em>Phone</em>}' attribute.

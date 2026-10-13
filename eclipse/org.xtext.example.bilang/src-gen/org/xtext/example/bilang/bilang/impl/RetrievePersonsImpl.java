@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.RetrievePersons;
@@ -25,7 +26,7 @@ import org.xtext.example.bilang.bilang.RetrievePersons;
  *
  * @generated
  */
-public class RetrievePersonsImpl extends RetrieveTaskImpl implements RetrievePersons
+public class RetrievePersonsImpl extends MinimalEObjectImpl.Container implements RetrievePersons
 {
   /**
    * The default value of the '{@link #getPersonSearch() <em>Person Search</em>}' attribute.

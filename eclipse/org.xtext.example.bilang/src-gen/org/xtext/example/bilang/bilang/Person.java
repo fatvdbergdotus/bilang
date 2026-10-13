@@ -3,6 +3,8 @@
  */
 package org.xtext.example.bilang.bilang;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -10,6 +12,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Person</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.bilang.bilang.Person#getKind <em>Kind</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.bilang.bilang.BilangPackage#getPerson()
  * @model
@@ -17,4 +25,16 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Person extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Kind</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Kind</em>' containment reference list.
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getPerson_Kind()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EObject> getKind();
+
 } // Person

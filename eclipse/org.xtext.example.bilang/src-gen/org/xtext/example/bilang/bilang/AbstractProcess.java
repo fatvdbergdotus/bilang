@@ -5,6 +5,8 @@ package org.xtext.example.bilang.bilang;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Abstract Process</b></em>'.
@@ -15,14 +17,14 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.bilang.bilang.AbstractProcess#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.bilang.bilang.AbstractProcess#getParamValues <em>Param Values</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.AbstractProcess#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.bilang.bilang.BilangPackage#getAbstractProcess()
  * @model
  * @generated
  */
-public interface AbstractProcess extends Model
+public interface AbstractProcess extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -47,15 +49,15 @@ public interface AbstractProcess extends Model
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Param Values</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.bilang.bilang.ParamValue}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Param Values</em>' containment reference list.
-   * @see org.xtext.example.bilang.bilang.BilangPackage#getAbstractProcess_ParamValues()
+   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getAbstractProcess_Parameters()
    * @model containment="true"
    * @generated
    */
-  EList<ParamValue> getParamValues();
+  EList<ParamValue> getParameters();
 
 } // AbstractProcess

@@ -66,33 +66,74 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
     switch (eClass.getClassifierID())
     {
       case BilangPackage.MODEL: return createModel();
-      case BilangPackage.TASK: return createTask();
+      case BilangPackage.EMPTY_PROCESS: return createEmptyProcess();
       case BilangPackage.COMPOUND_PROCESS: return createCompoundProcess();
       case BilangPackage.ABSTRACT_PROCESS: return createAbstractProcess();
       case BilangPackage.PARAM_VALUE: return createParamValue();
-      case BilangPackage.RETRIEVE_TASK: return createRetrieveTask();
-      case BilangPackage.SEND_TASK: return createSendTask();
-      case BilangPackage.PERSON_TASK: return createPersonTask();
+      case BilangPackage.WORKFLOW: return createWorkflow();
+      case BilangPackage.WORKFLOW_DEFINITION: return createWorkflowDefinition();
+      case BilangPackage.PARAMETER: return createParameter();
+      case BilangPackage.STATEMENT: return createStatement();
+      case BilangPackage.TASK: return createTask();
+      case BilangPackage.LET_STATEMENT: return createLetStatement();
+      case BilangPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
+      case BilangPackage.EXPRESSION: return createExpression();
+      case BilangPackage.IF_STATEMENT: return createIfStatement();
+      case BilangPackage.FOR_EACH_STATEMENT: return createForEachStatement();
+      case BilangPackage.WHILE_STATEMENT: return createWhileStatement();
+      case BilangPackage.PARALLEL_PROCESS: return createParallelProcess();
+      case BilangPackage.PARALLEL_BRANCH: return createParallelBranch();
+      case BilangPackage.TRY_CATCH_STATEMENT: return createTryCatchStatement();
+      case BilangPackage.RETRY_STATEMENT: return createRetryStatement();
+      case BilangPackage.TIMEOUT_STATEMENT: return createTimeoutStatement();
+      case BilangPackage.COMPENSATE_STATEMENT: return createCompensateStatement();
+      case BilangPackage.REQUIRE_STATEMENT: return createRequireStatement();
+      case BilangPackage.WAIT_STATEMENT: return createWaitStatement();
+      case BilangPackage.ASSERT_STATEMENT: return createAssertStatement();
+      case BilangPackage.LOG_STATEMENT: return createLogStatement();
+      case BilangPackage.WORKFLOW_CALL: return createWorkflowCall();
+      case BilangPackage.ARGUMENT: return createArgument();
+      case BilangPackage.RETRIEVE_DOCUMENT: return createRetrieveDocument();
+      case BilangPackage.RETRIEVE_INVOICES: return createRetrieveInvoices();
+      case BilangPackage.RETRIEVE_FULL_ADDRESS: return createRetrieveFullAddress();
+      case BilangPackage.RETRIEVE_PERSONS: return createRetrievePersons();
       case BilangPackage.SEND_EMAIL: return createSendEmail();
       case BilangPackage.SEND_SMS: return createSendSMS();
       case BilangPackage.SEND_SNAIL_MAIL: return createSendSnailMail();
-      case BilangPackage.RETRIEVE_DOCUMENT: return createRetrieveDocument();
-      case BilangPackage.RETRIEVE_FULL_ADDRESS: return createRetrieveFullAddress();
-      case BilangPackage.RETRIEVE_PERSONS: return createRetrievePersons();
+      case BilangPackage.MESSAGE: return createMessage();
       case BilangPackage.CALL_PERSON: return createCallPerson();
       case BilangPackage.ADD_PERSON: return createAddPerson();
       case BilangPackage.DELETE_PERSON: return createDeletePerson();
+      case BilangPackage.UPDATE_PERSON: return createUpdatePerson();
+      case BilangPackage.PERSON_CHANGE: return createPersonChange();
+      case BilangPackage.SEARCH_PERSON: return createSearchPerson();
       case BilangPackage.PERSON: return createPerson();
       case BilangPackage.PERSON_BY_EMAIL: return createPersonByEmail();
       case BilangPackage.PERSON_BY_ALIAS: return createPersonByAlias();
       case BilangPackage.PERSON_BY_NAME: return createPersonByName();
       case BilangPackage.PERSON_BY_PHONE: return createPersonByPhone();
       case BilangPackage.PERSON_BY_ADDRESS: return createPersonByAddress();
-      case BilangPackage.MESSAGE: return createMessage();
       case BilangPackage.DOCUMENT: return createDocument();
       case BilangPackage.INVOICE: return createInvoice();
       case BilangPackage.DOCUMENT_PERSON: return createDocumentPerson();
       case BilangPackage.DOCUMENT_TOPIC: return createDocumentTopic();
+      case BilangPackage.DOCUMENT_OPERATION: return createDocumentOperation();
+      case BilangPackage.FILTER_DOCUMENTS: return createFilterDocuments();
+      case BilangPackage.SORT_DOCUMENTS: return createSortDocuments();
+      case BilangPackage.ARCHIVE_DOCUMENT: return createArchiveDocument();
+      case BilangPackage.DELETE_DOCUMENT: return createDeleteDocument();
+      case BilangPackage.CREATE_INVOICE_WITH_PRODUCTS: return createCreateInvoiceWithProducts();
+      case BilangPackage.PRODUCT_REFERENCE: return createProductReference();
+      case BilangPackage.CREATE_PRODUCT: return createCreateProduct();
+      case BilangPackage.RETRIEVE_PRODUCT_INFORMATION: return createRetrieveProductInformation();
+      case BilangPackage.RETRIEVE_ORDER_STATUS_BY_INVOICE: return createRetrieveOrderStatusByInvoice();
+      case BilangPackage.BINARY_EXPRESSION: return createBinaryExpression();
+      case BilangPackage.PARENTHESIZED_EXPRESSION: return createParenthesizedExpression();
+      case BilangPackage.STRING_LITERAL: return createStringLiteral();
+      case BilangPackage.NUMBER_LITERAL: return createNumberLiteral();
+      case BilangPackage.BOOLEAN_LITERAL: return createBooleanLiteral();
+      case BilangPackage.VARIABLE_REFERENCE: return createVariableReference();
+      case BilangPackage.LIST_LITERAL: return createListLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -116,10 +157,10 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
    * @generated
    */
   @Override
-  public Task createTask()
+  public EmptyProcess createEmptyProcess()
   {
-    TaskImpl task = new TaskImpl();
-    return task;
+    EmptyProcessImpl emptyProcess = new EmptyProcessImpl();
+    return emptyProcess;
   }
 
   /**
@@ -164,10 +205,10 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
    * @generated
    */
   @Override
-  public RetrieveTask createRetrieveTask()
+  public Workflow createWorkflow()
   {
-    RetrieveTaskImpl retrieveTask = new RetrieveTaskImpl();
-    return retrieveTask;
+    WorkflowImpl workflow = new WorkflowImpl();
+    return workflow;
   }
 
   /**
@@ -176,10 +217,10 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
    * @generated
    */
   @Override
-  public SendTask createSendTask()
+  public WorkflowDefinition createWorkflowDefinition()
   {
-    SendTaskImpl sendTask = new SendTaskImpl();
-    return sendTask;
+    WorkflowDefinitionImpl workflowDefinition = new WorkflowDefinitionImpl();
+    return workflowDefinition;
   }
 
   /**
@@ -188,10 +229,298 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
    * @generated
    */
   @Override
-  public PersonTask createPersonTask()
+  public Parameter createParameter()
   {
-    PersonTaskImpl personTask = new PersonTaskImpl();
-    return personTask;
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Statement createStatement()
+  {
+    StatementImpl statement = new StatementImpl();
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Task createTask()
+  {
+    TaskImpl task = new TaskImpl();
+    return task;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LetStatement createLetStatement()
+  {
+    LetStatementImpl letStatement = new LetStatementImpl();
+    return letStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VariableDeclaration createVariableDeclaration()
+  {
+    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
+    return variableDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IfStatement createIfStatement()
+  {
+    IfStatementImpl ifStatement = new IfStatementImpl();
+    return ifStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ForEachStatement createForEachStatement()
+  {
+    ForEachStatementImpl forEachStatement = new ForEachStatementImpl();
+    return forEachStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public WhileStatement createWhileStatement()
+  {
+    WhileStatementImpl whileStatement = new WhileStatementImpl();
+    return whileStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ParallelProcess createParallelProcess()
+  {
+    ParallelProcessImpl parallelProcess = new ParallelProcessImpl();
+    return parallelProcess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ParallelBranch createParallelBranch()
+  {
+    ParallelBranchImpl parallelBranch = new ParallelBranchImpl();
+    return parallelBranch;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TryCatchStatement createTryCatchStatement()
+  {
+    TryCatchStatementImpl tryCatchStatement = new TryCatchStatementImpl();
+    return tryCatchStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RetryStatement createRetryStatement()
+  {
+    RetryStatementImpl retryStatement = new RetryStatementImpl();
+    return retryStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TimeoutStatement createTimeoutStatement()
+  {
+    TimeoutStatementImpl timeoutStatement = new TimeoutStatementImpl();
+    return timeoutStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CompensateStatement createCompensateStatement()
+  {
+    CompensateStatementImpl compensateStatement = new CompensateStatementImpl();
+    return compensateStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RequireStatement createRequireStatement()
+  {
+    RequireStatementImpl requireStatement = new RequireStatementImpl();
+    return requireStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public WaitStatement createWaitStatement()
+  {
+    WaitStatementImpl waitStatement = new WaitStatementImpl();
+    return waitStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AssertStatement createAssertStatement()
+  {
+    AssertStatementImpl assertStatement = new AssertStatementImpl();
+    return assertStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogStatement createLogStatement()
+  {
+    LogStatementImpl logStatement = new LogStatementImpl();
+    return logStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public WorkflowCall createWorkflowCall()
+  {
+    WorkflowCallImpl workflowCall = new WorkflowCallImpl();
+    return workflowCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Argument createArgument()
+  {
+    ArgumentImpl argument = new ArgumentImpl();
+    return argument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RetrieveDocument createRetrieveDocument()
+  {
+    RetrieveDocumentImpl retrieveDocument = new RetrieveDocumentImpl();
+    return retrieveDocument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RetrieveInvoices createRetrieveInvoices()
+  {
+    RetrieveInvoicesImpl retrieveInvoices = new RetrieveInvoicesImpl();
+    return retrieveInvoices;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RetrieveFullAddress createRetrieveFullAddress()
+  {
+    RetrieveFullAddressImpl retrieveFullAddress = new RetrieveFullAddressImpl();
+    return retrieveFullAddress;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RetrievePersons createRetrievePersons()
+  {
+    RetrievePersonsImpl retrievePersons = new RetrievePersonsImpl();
+    return retrievePersons;
   }
 
   /**
@@ -236,34 +565,10 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
    * @generated
    */
   @Override
-  public RetrieveDocument createRetrieveDocument()
+  public Message createMessage()
   {
-    RetrieveDocumentImpl retrieveDocument = new RetrieveDocumentImpl();
-    return retrieveDocument;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public RetrieveFullAddress createRetrieveFullAddress()
-  {
-    RetrieveFullAddressImpl retrieveFullAddress = new RetrieveFullAddressImpl();
-    return retrieveFullAddress;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public RetrievePersons createRetrievePersons()
-  {
-    RetrievePersonsImpl retrievePersons = new RetrievePersonsImpl();
-    return retrievePersons;
+    MessageImpl message = new MessageImpl();
+    return message;
   }
 
   /**
@@ -300,6 +605,42 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
   {
     DeletePersonImpl deletePerson = new DeletePersonImpl();
     return deletePerson;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UpdatePerson createUpdatePerson()
+  {
+    UpdatePersonImpl updatePerson = new UpdatePersonImpl();
+    return updatePerson;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PersonChange createPersonChange()
+  {
+    PersonChangeImpl personChange = new PersonChangeImpl();
+    return personChange;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SearchPerson createSearchPerson()
+  {
+    SearchPersonImpl searchPerson = new SearchPersonImpl();
+    return searchPerson;
   }
 
   /**
@@ -380,18 +721,6 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
    * @generated
    */
   @Override
-  public Message createMessage()
-  {
-    MessageImpl message = new MessageImpl();
-    return message;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Document createDocument()
   {
     DocumentImpl document = new DocumentImpl();
@@ -432,6 +761,210 @@ public class BilangFactoryImpl extends EFactoryImpl implements BilangFactory
   {
     DocumentTopicImpl documentTopic = new DocumentTopicImpl();
     return documentTopic;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DocumentOperation createDocumentOperation()
+  {
+    DocumentOperationImpl documentOperation = new DocumentOperationImpl();
+    return documentOperation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FilterDocuments createFilterDocuments()
+  {
+    FilterDocumentsImpl filterDocuments = new FilterDocumentsImpl();
+    return filterDocuments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SortDocuments createSortDocuments()
+  {
+    SortDocumentsImpl sortDocuments = new SortDocumentsImpl();
+    return sortDocuments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ArchiveDocument createArchiveDocument()
+  {
+    ArchiveDocumentImpl archiveDocument = new ArchiveDocumentImpl();
+    return archiveDocument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DeleteDocument createDeleteDocument()
+  {
+    DeleteDocumentImpl deleteDocument = new DeleteDocumentImpl();
+    return deleteDocument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CreateInvoiceWithProducts createCreateInvoiceWithProducts()
+  {
+    CreateInvoiceWithProductsImpl createInvoiceWithProducts = new CreateInvoiceWithProductsImpl();
+    return createInvoiceWithProducts;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ProductReference createProductReference()
+  {
+    ProductReferenceImpl productReference = new ProductReferenceImpl();
+    return productReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CreateProduct createCreateProduct()
+  {
+    CreateProductImpl createProduct = new CreateProductImpl();
+    return createProduct;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RetrieveProductInformation createRetrieveProductInformation()
+  {
+    RetrieveProductInformationImpl retrieveProductInformation = new RetrieveProductInformationImpl();
+    return retrieveProductInformation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RetrieveOrderStatusByInvoice createRetrieveOrderStatusByInvoice()
+  {
+    RetrieveOrderStatusByInvoiceImpl retrieveOrderStatusByInvoice = new RetrieveOrderStatusByInvoiceImpl();
+    return retrieveOrderStatusByInvoice;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BinaryExpression createBinaryExpression()
+  {
+    BinaryExpressionImpl binaryExpression = new BinaryExpressionImpl();
+    return binaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ParenthesizedExpression createParenthesizedExpression()
+  {
+    ParenthesizedExpressionImpl parenthesizedExpression = new ParenthesizedExpressionImpl();
+    return parenthesizedExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public StringLiteral createStringLiteral()
+  {
+    StringLiteralImpl stringLiteral = new StringLiteralImpl();
+    return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NumberLiteral createNumberLiteral()
+  {
+    NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
+    return numberLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BooleanLiteral createBooleanLiteral()
+  {
+    BooleanLiteralImpl booleanLiteral = new BooleanLiteralImpl();
+    return booleanLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VariableReference createVariableReference()
+  {
+    VariableReferenceImpl variableReference = new VariableReferenceImpl();
+    return variableReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ListLiteral createListLiteral()
+  {
+    ListLiteralImpl listLiteral = new ListLiteralImpl();
+    return listLiteral;
   }
 
   /**

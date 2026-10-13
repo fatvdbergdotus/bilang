@@ -33,13 +33,13 @@ public interface BilangFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Task</em>'.
+   * Returns a new object of class '<em>Empty Process</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Task</em>'.
+   * @return a new object of class '<em>Empty Process</em>'.
    * @generated
    */
-  Task createTask();
+  EmptyProcess createEmptyProcess();
 
   /**
    * Returns a new object of class '<em>Compound Process</em>'.
@@ -69,31 +69,247 @@ public interface BilangFactory extends EFactory
   ParamValue createParamValue();
 
   /**
-   * Returns a new object of class '<em>Retrieve Task</em>'.
+   * Returns a new object of class '<em>Workflow</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Retrieve Task</em>'.
+   * @return a new object of class '<em>Workflow</em>'.
    * @generated
    */
-  RetrieveTask createRetrieveTask();
+  Workflow createWorkflow();
 
   /**
-   * Returns a new object of class '<em>Send Task</em>'.
+   * Returns a new object of class '<em>Workflow Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Send Task</em>'.
+   * @return a new object of class '<em>Workflow Definition</em>'.
    * @generated
    */
-  SendTask createSendTask();
+  WorkflowDefinition createWorkflowDefinition();
 
   /**
-   * Returns a new object of class '<em>Person Task</em>'.
+   * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Person Task</em>'.
+   * @return a new object of class '<em>Parameter</em>'.
    * @generated
    */
-  PersonTask createPersonTask();
+  Parameter createParameter();
+
+  /**
+   * Returns a new object of class '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement</em>'.
+   * @generated
+   */
+  Statement createStatement();
+
+  /**
+   * Returns a new object of class '<em>Task</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Task</em>'.
+   * @generated
+   */
+  Task createTask();
+
+  /**
+   * Returns a new object of class '<em>Let Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let Statement</em>'.
+   * @generated
+   */
+  LetStatement createLetStatement();
+
+  /**
+   * Returns a new object of class '<em>Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Declaration</em>'.
+   * @generated
+   */
+  VariableDeclaration createVariableDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Statement</em>'.
+   * @generated
+   */
+  IfStatement createIfStatement();
+
+  /**
+   * Returns a new object of class '<em>For Each Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For Each Statement</em>'.
+   * @generated
+   */
+  ForEachStatement createForEachStatement();
+
+  /**
+   * Returns a new object of class '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>While Statement</em>'.
+   * @generated
+   */
+  WhileStatement createWhileStatement();
+
+  /**
+   * Returns a new object of class '<em>Parallel Process</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parallel Process</em>'.
+   * @generated
+   */
+  ParallelProcess createParallelProcess();
+
+  /**
+   * Returns a new object of class '<em>Parallel Branch</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parallel Branch</em>'.
+   * @generated
+   */
+  ParallelBranch createParallelBranch();
+
+  /**
+   * Returns a new object of class '<em>Try Catch Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Try Catch Statement</em>'.
+   * @generated
+   */
+  TryCatchStatement createTryCatchStatement();
+
+  /**
+   * Returns a new object of class '<em>Retry Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Retry Statement</em>'.
+   * @generated
+   */
+  RetryStatement createRetryStatement();
+
+  /**
+   * Returns a new object of class '<em>Timeout Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Timeout Statement</em>'.
+   * @generated
+   */
+  TimeoutStatement createTimeoutStatement();
+
+  /**
+   * Returns a new object of class '<em>Compensate Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Compensate Statement</em>'.
+   * @generated
+   */
+  CompensateStatement createCompensateStatement();
+
+  /**
+   * Returns a new object of class '<em>Require Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Require Statement</em>'.
+   * @generated
+   */
+  RequireStatement createRequireStatement();
+
+  /**
+   * Returns a new object of class '<em>Wait Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Wait Statement</em>'.
+   * @generated
+   */
+  WaitStatement createWaitStatement();
+
+  /**
+   * Returns a new object of class '<em>Assert Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assert Statement</em>'.
+   * @generated
+   */
+  AssertStatement createAssertStatement();
+
+  /**
+   * Returns a new object of class '<em>Log Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Log Statement</em>'.
+   * @generated
+   */
+  LogStatement createLogStatement();
+
+  /**
+   * Returns a new object of class '<em>Workflow Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Workflow Call</em>'.
+   * @generated
+   */
+  WorkflowCall createWorkflowCall();
+
+  /**
+   * Returns a new object of class '<em>Argument</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Argument</em>'.
+   * @generated
+   */
+  Argument createArgument();
+
+  /**
+   * Returns a new object of class '<em>Retrieve Document</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Retrieve Document</em>'.
+   * @generated
+   */
+  RetrieveDocument createRetrieveDocument();
+
+  /**
+   * Returns a new object of class '<em>Retrieve Invoices</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Retrieve Invoices</em>'.
+   * @generated
+   */
+  RetrieveInvoices createRetrieveInvoices();
+
+  /**
+   * Returns a new object of class '<em>Retrieve Full Address</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Retrieve Full Address</em>'.
+   * @generated
+   */
+  RetrieveFullAddress createRetrieveFullAddress();
+
+  /**
+   * Returns a new object of class '<em>Retrieve Persons</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Retrieve Persons</em>'.
+   * @generated
+   */
+  RetrievePersons createRetrievePersons();
 
   /**
    * Returns a new object of class '<em>Send Email</em>'.
@@ -123,31 +339,13 @@ public interface BilangFactory extends EFactory
   SendSnailMail createSendSnailMail();
 
   /**
-   * Returns a new object of class '<em>Retrieve Document</em>'.
+   * Returns a new object of class '<em>Message</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Retrieve Document</em>'.
+   * @return a new object of class '<em>Message</em>'.
    * @generated
    */
-  RetrieveDocument createRetrieveDocument();
-
-  /**
-   * Returns a new object of class '<em>Retrieve Full Address</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Retrieve Full Address</em>'.
-   * @generated
-   */
-  RetrieveFullAddress createRetrieveFullAddress();
-
-  /**
-   * Returns a new object of class '<em>Retrieve Persons</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Retrieve Persons</em>'.
-   * @generated
-   */
-  RetrievePersons createRetrievePersons();
+  Message createMessage();
 
   /**
    * Returns a new object of class '<em>Call Person</em>'.
@@ -175,6 +373,33 @@ public interface BilangFactory extends EFactory
    * @generated
    */
   DeletePerson createDeletePerson();
+
+  /**
+   * Returns a new object of class '<em>Update Person</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Update Person</em>'.
+   * @generated
+   */
+  UpdatePerson createUpdatePerson();
+
+  /**
+   * Returns a new object of class '<em>Person Change</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Person Change</em>'.
+   * @generated
+   */
+  PersonChange createPersonChange();
+
+  /**
+   * Returns a new object of class '<em>Search Person</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Search Person</em>'.
+   * @generated
+   */
+  SearchPerson createSearchPerson();
 
   /**
    * Returns a new object of class '<em>Person</em>'.
@@ -231,15 +456,6 @@ public interface BilangFactory extends EFactory
   PersonByAddress createPersonByAddress();
 
   /**
-   * Returns a new object of class '<em>Message</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Message</em>'.
-   * @generated
-   */
-  Message createMessage();
-
-  /**
    * Returns a new object of class '<em>Document</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -274,6 +490,159 @@ public interface BilangFactory extends EFactory
    * @generated
    */
   DocumentTopic createDocumentTopic();
+
+  /**
+   * Returns a new object of class '<em>Document Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Document Operation</em>'.
+   * @generated
+   */
+  DocumentOperation createDocumentOperation();
+
+  /**
+   * Returns a new object of class '<em>Filter Documents</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Filter Documents</em>'.
+   * @generated
+   */
+  FilterDocuments createFilterDocuments();
+
+  /**
+   * Returns a new object of class '<em>Sort Documents</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sort Documents</em>'.
+   * @generated
+   */
+  SortDocuments createSortDocuments();
+
+  /**
+   * Returns a new object of class '<em>Archive Document</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Archive Document</em>'.
+   * @generated
+   */
+  ArchiveDocument createArchiveDocument();
+
+  /**
+   * Returns a new object of class '<em>Delete Document</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Delete Document</em>'.
+   * @generated
+   */
+  DeleteDocument createDeleteDocument();
+
+  /**
+   * Returns a new object of class '<em>Create Invoice With Products</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Create Invoice With Products</em>'.
+   * @generated
+   */
+  CreateInvoiceWithProducts createCreateInvoiceWithProducts();
+
+  /**
+   * Returns a new object of class '<em>Product Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Product Reference</em>'.
+   * @generated
+   */
+  ProductReference createProductReference();
+
+  /**
+   * Returns a new object of class '<em>Create Product</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Create Product</em>'.
+   * @generated
+   */
+  CreateProduct createCreateProduct();
+
+  /**
+   * Returns a new object of class '<em>Retrieve Product Information</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Retrieve Product Information</em>'.
+   * @generated
+   */
+  RetrieveProductInformation createRetrieveProductInformation();
+
+  /**
+   * Returns a new object of class '<em>Retrieve Order Status By Invoice</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Retrieve Order Status By Invoice</em>'.
+   * @generated
+   */
+  RetrieveOrderStatusByInvoice createRetrieveOrderStatusByInvoice();
+
+  /**
+   * Returns a new object of class '<em>Binary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binary Expression</em>'.
+   * @generated
+   */
+  BinaryExpression createBinaryExpression();
+
+  /**
+   * Returns a new object of class '<em>Parenthesized Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parenthesized Expression</em>'.
+   * @generated
+   */
+  ParenthesizedExpression createParenthesizedExpression();
+
+  /**
+   * Returns a new object of class '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Literal</em>'.
+   * @generated
+   */
+  StringLiteral createStringLiteral();
+
+  /**
+   * Returns a new object of class '<em>Number Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number Literal</em>'.
+   * @generated
+   */
+  NumberLiteral createNumberLiteral();
+
+  /**
+   * Returns a new object of class '<em>Boolean Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Literal</em>'.
+   * @generated
+   */
+  BooleanLiteral createBooleanLiteral();
+
+  /**
+   * Returns a new object of class '<em>Variable Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Reference</em>'.
+   * @generated
+   */
+  VariableReference createVariableReference();
+
+  /**
+   * Returns a new object of class '<em>List Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>List Literal</em>'.
+   * @generated
+   */
+  ListLiteral createListLiteral();
 
   /**
    * Returns the package supported by this factory.

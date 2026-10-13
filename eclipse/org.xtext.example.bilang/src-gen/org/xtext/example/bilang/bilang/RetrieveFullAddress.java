@@ -3,6 +3,7 @@
  */
 package org.xtext.example.bilang.bilang;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,35 +14,35 @@ package org.xtext.example.bilang.bilang;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.bilang.bilang.RetrieveFullAddress#getPersonAdress <em>Person Adress</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.RetrieveFullAddress#getPersonAddress <em>Person Address</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.bilang.bilang.BilangPackage#getRetrieveFullAddress()
  * @model
  * @generated
  */
-public interface RetrieveFullAddress extends RetrieveTask
+public interface RetrieveFullAddress extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Person Adress</b></em>' containment reference.
+   * Returns the value of the '<em><b>Person Address</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Person Adress</em>' containment reference.
-   * @see #setPersonAdress(PersonByAddress)
-   * @see org.xtext.example.bilang.bilang.BilangPackage#getRetrieveFullAddress_PersonAdress()
+   * @return the value of the '<em>Person Address</em>' containment reference.
+   * @see #setPersonAddress(PersonByAddress)
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getRetrieveFullAddress_PersonAddress()
    * @model containment="true"
    * @generated
    */
-  PersonByAddress getPersonAdress();
+  PersonByAddress getPersonAddress();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.bilang.bilang.RetrieveFullAddress#getPersonAdress <em>Person Adress</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.bilang.bilang.RetrieveFullAddress#getPersonAddress <em>Person Address</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Person Adress</em>' containment reference.
-   * @see #getPersonAdress()
+   * @param value the new value of the '<em>Person Address</em>' containment reference.
+   * @see #getPersonAddress()
    * @generated
    */
-  void setPersonAdress(PersonByAddress value);
+  void setPersonAddress(PersonByAddress value);
 
 } // RetrieveFullAddress

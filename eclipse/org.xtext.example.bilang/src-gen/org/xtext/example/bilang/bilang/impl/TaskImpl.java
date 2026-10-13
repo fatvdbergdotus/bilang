@@ -3,18 +3,14 @@
  */
 package org.xtext.example.bilang.bilang.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.Task;
@@ -28,21 +24,42 @@ import org.xtext.example.bilang.bilang.Task;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.bilang.bilang.impl.TaskImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.TaskImpl#getResult <em>Result</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TaskImpl extends ModelImpl implements Task
+public class TaskImpl extends StatementImpl implements Task
 {
   /**
-   * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference list.
+   * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getKind()
    * @generated
    * @ordered
    */
-  protected EList<EObject> kind;
+  protected EObject kind;
+
+  /**
+   * The default value of the '{@link #getResult() <em>Result</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResult()
+   * @generated
+   * @ordered
+   */
+  protected static final String RESULT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getResult() <em>Result</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResult()
+   * @generated
+   * @ordered
+   */
+  protected String result = RESULT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,13 +88,73 @@ public class TaskImpl extends ModelImpl implements Task
    * @generated
    */
   @Override
-  public EList<EObject> getKind()
+  public EObject getKind()
   {
-    if (kind == null)
-    {
-      kind = new EObjectContainmentEList<EObject>(EObject.class, this, BilangPackage.TASK__KIND);
-    }
     return kind;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetKind(EObject newKind, NotificationChain msgs)
+  {
+    EObject oldKind = kind;
+    kind = newKind;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BilangPackage.TASK__KIND, oldKind, newKind);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setKind(EObject newKind)
+  {
+    if (newKind != kind)
+    {
+      NotificationChain msgs = null;
+      if (kind != null)
+        msgs = ((InternalEObject)kind).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BilangPackage.TASK__KIND, null, msgs);
+      if (newKind != null)
+        msgs = ((InternalEObject)newKind).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BilangPackage.TASK__KIND, null, msgs);
+      msgs = basicSetKind(newKind, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.TASK__KIND, newKind, newKind));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getResult()
+  {
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setResult(String newResult)
+  {
+    String oldResult = result;
+    result = newResult;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.TASK__RESULT, oldResult, result));
   }
 
   /**
@@ -91,7 +168,7 @@ public class TaskImpl extends ModelImpl implements Task
     switch (featureID)
     {
       case BilangPackage.TASK__KIND:
-        return ((InternalEList<?>)getKind()).basicRemove(otherEnd, msgs);
+        return basicSetKind(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,6 +185,8 @@ public class TaskImpl extends ModelImpl implements Task
     {
       case BilangPackage.TASK__KIND:
         return getKind();
+      case BilangPackage.TASK__RESULT:
+        return getResult();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,15 +196,16 @@ public class TaskImpl extends ModelImpl implements Task
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case BilangPackage.TASK__KIND:
-        getKind().clear();
-        getKind().addAll((Collection<? extends EObject>)newValue);
+        setKind((EObject)newValue);
+        return;
+      case BilangPackage.TASK__RESULT:
+        setResult((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,7 +222,10 @@ public class TaskImpl extends ModelImpl implements Task
     switch (featureID)
     {
       case BilangPackage.TASK__KIND:
-        getKind().clear();
+        setKind((EObject)null);
+        return;
+      case BilangPackage.TASK__RESULT:
+        setResult(RESULT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -159,9 +242,28 @@ public class TaskImpl extends ModelImpl implements Task
     switch (featureID)
     {
       case BilangPackage.TASK__KIND:
-        return kind != null && !kind.isEmpty();
+        return kind != null;
+      case BilangPackage.TASK__RESULT:
+        return RESULT_EDEFAULT == null ? result != null : !RESULT_EDEFAULT.equals(result);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (result: ");
+    result.append(result);
+    result.append(')');
+    return result.toString();
   }
 
 } //TaskImpl

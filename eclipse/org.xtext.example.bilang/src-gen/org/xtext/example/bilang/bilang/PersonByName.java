@@ -3,6 +3,7 @@
  */
 package org.xtext.example.bilang.bilang;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package org.xtext.example.bilang.bilang;
  * @model
  * @generated
  */
-public interface PersonByName extends Person
+public interface PersonByName extends EObject
 {
   /**
    * Returns the value of the '<em><b>First Name</b></em>' attribute.

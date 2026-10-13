@@ -92,7 +92,7 @@ public class BilangGenerator extends AbstractGenerator {
 
   public static void generate(final Task task, final IFileSystemAccess2 fsa) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field content is undefined for the type Task & SendEmail"
-      + "\nmessage cannot be resolved");
+      + "\nThe method or field person is undefined for the type Task & SendEmail"
+      + "\nemailaddress cannot be resolved");
   }
 }

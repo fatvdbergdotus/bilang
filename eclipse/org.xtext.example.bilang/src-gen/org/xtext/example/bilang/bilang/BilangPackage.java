@@ -68,41 +68,41 @@ public interface BilangPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__ELEMENTS = 0;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 0;
+  int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.TaskImpl <em>Task</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.EmptyProcessImpl <em>Empty Process</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.TaskImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTask()
+   * @see org.xtext.example.bilang.bilang.impl.EmptyProcessImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getEmptyProcess()
    * @generated
    */
-  int TASK = 1;
+  int EMPTY_PROCESS = 1;
 
   /**
-   * The feature id for the '<em><b>Kind</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TASK__KIND = MODEL_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Task</em>' class.
+   * The number of structural features of the '<em>Empty Process</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TASK_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
+  int EMPTY_PROCESS_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.CompoundProcessImpl <em>Compound Process</em>}' class.
@@ -115,13 +115,13 @@ public interface BilangPackage extends EPackage
   int COMPOUND_PROCESS = 2;
 
   /**
-   * The feature id for the '<em><b>Task</b></em>' containment reference list.
+   * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPOUND_PROCESS__TASK = MODEL_FEATURE_COUNT + 0;
+  int COMPOUND_PROCESS__TASKS = 0;
 
   /**
    * The number of structural features of the '<em>Compound Process</em>' class.
@@ -130,7 +130,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPOUND_PROCESS_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
+  int COMPOUND_PROCESS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.AbstractProcessImpl <em>Abstract Process</em>}' class.
@@ -149,16 +149,16 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ABSTRACT_PROCESS__NAME = MODEL_FEATURE_COUNT + 0;
+  int ABSTRACT_PROCESS__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Param Values</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ABSTRACT_PROCESS__PARAM_VALUES = MODEL_FEATURE_COUNT + 1;
+  int ABSTRACT_PROCESS__PARAMETERS = 1;
 
   /**
    * The number of structural features of the '<em>Abstract Process</em>' class.
@@ -167,7 +167,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ABSTRACT_PROCESS_FEATURE_COUNT = MODEL_FEATURE_COUNT + 2;
+  int ABSTRACT_PROCESS_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ParamValueImpl <em>Param Value</em>}' class.
@@ -207,226 +207,828 @@ public interface BilangPackage extends EPackage
   int PARAM_VALUE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveTaskImpl <em>Retrieve Task</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.WorkflowImpl <em>Workflow</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.RetrieveTaskImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveTask()
+   * @see org.xtext.example.bilang.bilang.impl.WorkflowImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWorkflow()
    * @generated
    */
-  int RETRIEVE_TASK = 5;
+  int WORKFLOW = 5;
 
   /**
-   * The number of structural features of the '<em>Retrieve Task</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RETRIEVE_TASK_FEATURE_COUNT = 0;
+  int WORKFLOW__NAME = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendTaskImpl <em>Send Task</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.SendTaskImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendTask()
-   * @generated
-   */
-  int SEND_TASK = 6;
-
-  /**
-   * The feature id for the '<em><b>Person</b></em>' containment reference list.
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_TASK__PERSON = 0;
+  int WORKFLOW__STATEMENTS = 1;
 
   /**
-   * The feature id for the '<em><b>Message</b></em>' containment reference.
+   * The number of structural features of the '<em>Workflow</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_TASK__MESSAGE = 1;
+  int WORKFLOW_FEATURE_COUNT = 2;
 
   /**
-   * The feature id for the '<em><b>Attachment</b></em>' containment reference list.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.WorkflowDefinitionImpl <em>Workflow Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.WorkflowDefinitionImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWorkflowDefinition()
+   * @generated
+   */
+  int WORKFLOW_DEFINITION = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_TASK__ATTACHMENT = 2;
+  int WORKFLOW_DEFINITION__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Send Task</em>' class.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_TASK_FEATURE_COUNT = 3;
+  int WORKFLOW_DEFINITION__PARAMETERS = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonTaskImpl <em>Person Task</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.PersonTaskImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonTask()
-   * @generated
-   */
-  int PERSON_TASK = 7;
-
-  /**
-   * The number of structural features of the '<em>Person Task</em>' class.
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_TASK_FEATURE_COUNT = 0;
+  int WORKFLOW_DEFINITION__STATEMENTS = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendEmailImpl <em>Send Email</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.SendEmailImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendEmail()
-   * @generated
-   */
-  int SEND_EMAIL = 8;
-
-  /**
-   * The feature id for the '<em><b>Person</b></em>' containment reference list.
+   * The number of structural features of the '<em>Workflow Definition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_EMAIL__PERSON = SEND_TASK__PERSON;
+  int WORKFLOW_DEFINITION_FEATURE_COUNT = 3;
 
   /**
-   * The feature id for the '<em><b>Message</b></em>' containment reference.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ParameterImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_EMAIL__MESSAGE = SEND_TASK__MESSAGE;
+  int PARAMETER__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Attachment</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_EMAIL__ATTACHMENT = SEND_TASK__ATTACHMENT;
+  int PARAMETER__TYPE = 1;
 
   /**
-   * The number of structural features of the '<em>Send Email</em>' class.
+   * The number of structural features of the '<em>Parameter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_EMAIL_FEATURE_COUNT = SEND_TASK_FEATURE_COUNT + 0;
+  int PARAMETER_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendSMSImpl <em>Send SMS</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.StatementImpl <em>Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.SendSMSImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendSMS()
+   * @see org.xtext.example.bilang.bilang.impl.StatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getStatement()
    * @generated
    */
-  int SEND_SMS = 9;
+  int STATEMENT = 8;
 
   /**
-   * The feature id for the '<em><b>Person</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_SMS__PERSON = SEND_TASK__PERSON;
-
-  /**
-   * The feature id for the '<em><b>Message</b></em>' containment reference.
+   * The number of structural features of the '<em>Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SMS__MESSAGE = SEND_TASK__MESSAGE;
+  int STATEMENT_FEATURE_COUNT = 0;
 
   /**
-   * The feature id for the '<em><b>Attachment</b></em>' containment reference list.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.TaskImpl <em>Task</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.TaskImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTask()
+   * @generated
+   */
+  int TASK = 9;
+
+  /**
+   * The feature id for the '<em><b>Kind</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SMS__ATTACHMENT = SEND_TASK__ATTACHMENT;
+  int TASK__KIND = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Send SMS</em>' class.
+   * The feature id for the '<em><b>Result</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SMS_FEATURE_COUNT = SEND_TASK_FEATURE_COUNT + 0;
+  int TASK__RESULT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendSnailMailImpl <em>Send Snail Mail</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.SendSnailMailImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendSnailMail()
-   * @generated
-   */
-  int SEND_SNAIL_MAIL = 10;
-
-  /**
-   * The feature id for the '<em><b>Person</b></em>' containment reference list.
+   * The number of structural features of the '<em>Task</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SNAIL_MAIL__PERSON = SEND_TASK__PERSON;
+  int TASK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Message</b></em>' containment reference.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.LetStatementImpl <em>Let Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.LetStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getLetStatement()
+   * @generated
+   */
+  int LET_STATEMENT = 10;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SNAIL_MAIL__MESSAGE = SEND_TASK__MESSAGE;
+  int LET_STATEMENT__VARIABLE = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Attachment</b></em>' containment reference list.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SNAIL_MAIL__ATTACHMENT = SEND_TASK__ATTACHMENT;
+  int LET_STATEMENT__VALUE = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Send Snail Mail</em>' class.
+   * The number of structural features of the '<em>Let Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEND_SNAIL_MAIL_FEATURE_COUNT = SEND_TASK_FEATURE_COUNT + 0;
+  int LET_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.VariableDeclarationImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getVariableDeclaration()
+   * @generated
+   */
+  int VARIABLE_DECLARATION = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Variable Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ExpressionImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 12;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.IfStatementImpl <em>If Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.IfStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getIfStatement()
+   * @generated
+   */
+  int IF_STATEMENT = 13;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Then Branch</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__THEN_BRANCH = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Else Branch</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__ELSE_BRANCH = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>If Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ForEachStatementImpl <em>For Each Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ForEachStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getForEachStatement()
+   * @generated
+   */
+  int FOR_EACH_STATEMENT = 14;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_EACH_STATEMENT__VARIABLE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Collection</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_EACH_STATEMENT__COLLECTION = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_EACH_STATEMENT__BODY = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>For Each Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_EACH_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.WhileStatementImpl <em>While Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.WhileStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWhileStatement()
+   * @generated
+   */
+  int WHILE_STATEMENT = 15;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_STATEMENT__BODY = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>While Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ParallelProcessImpl <em>Parallel Process</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ParallelProcessImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getParallelProcess()
+   * @generated
+   */
+  int PARALLEL_PROCESS = 16;
+
+  /**
+   * The feature id for the '<em><b>Branches</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARALLEL_PROCESS__BRANCHES = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parallel Process</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARALLEL_PROCESS_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ParallelBranchImpl <em>Parallel Branch</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ParallelBranchImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getParallelBranch()
+   * @generated
+   */
+  int PARALLEL_BRANCH = 17;
+
+  /**
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARALLEL_BRANCH__STATEMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Parallel Branch</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARALLEL_BRANCH_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.TryCatchStatementImpl <em>Try Catch Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.TryCatchStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTryCatchStatement()
+   * @generated
+   */
+  int TRY_CATCH_STATEMENT = 18;
+
+  /**
+   * The feature id for the '<em><b>Try Body</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_CATCH_STATEMENT__TRY_BODY = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Error Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_CATCH_STATEMENT__ERROR_VARIABLE = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Catch Body</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_CATCH_STATEMENT__CATCH_BODY = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Finally Body</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_CATCH_STATEMENT__FINALLY_BODY = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Try Catch Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_CATCH_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RetryStatementImpl <em>Retry Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.RetryStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetryStatement()
+   * @generated
+   */
+  int RETRY_STATEMENT = 19;
+
+  /**
+   * The feature id for the '<em><b>Attempts</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRY_STATEMENT__ATTEMPTS = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRY_STATEMENT__BODY = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Retry Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRY_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.TimeoutStatementImpl <em>Timeout Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.TimeoutStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTimeoutStatement()
+   * @generated
+   */
+  int TIMEOUT_STATEMENT = 20;
+
+  /**
+   * The feature id for the '<em><b>Duration</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIMEOUT_STATEMENT__DURATION = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Unit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIMEOUT_STATEMENT__UNIT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIMEOUT_STATEMENT__BODY = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Timeout Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIMEOUT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.CompensateStatementImpl <em>Compensate Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.CompensateStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getCompensateStatement()
+   * @generated
+   */
+  int COMPENSATE_STATEMENT = 21;
+
+  /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPENSATE_STATEMENT__ACTIONS = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Compensate Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPENSATE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RequireStatementImpl <em>Require Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.RequireStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRequireStatement()
+   * @generated
+   */
+  int REQUIRE_STATEMENT = 22;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRE_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRE_STATEMENT__BODY = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Require Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.WaitStatementImpl <em>Wait Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.WaitStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWaitStatement()
+   * @generated
+   */
+  int WAIT_STATEMENT = 23;
+
+  /**
+   * The feature id for the '<em><b>Duration</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WAIT_STATEMENT__DURATION = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Unit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WAIT_STATEMENT__UNIT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Wait Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WAIT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.AssertStatementImpl <em>Assert Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.AssertStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getAssertStatement()
+   * @generated
+   */
+  int ASSERT_STATEMENT = 24;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSERT_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Message</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSERT_STATEMENT__MESSAGE = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Assert Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSERT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.LogStatementImpl <em>Log Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.LogStatementImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getLogStatement()
+   * @generated
+   */
+  int LOG_STATEMENT = 25;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOG_STATEMENT__VALUE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Log Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOG_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.WorkflowCallImpl <em>Workflow Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.WorkflowCallImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWorkflowCall()
+   * @generated
+   */
+  int WORKFLOW_CALL = 26;
+
+  /**
+   * The feature id for the '<em><b>Workflow</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKFLOW_CALL__WORKFLOW = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKFLOW_CALL__ARGUMENTS = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Workflow Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKFLOW_CALL_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ArgumentImpl <em>Argument</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ArgumentImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getArgument()
+   * @generated
+   */
+  int ARGUMENT = 27;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Argument</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveDocumentImpl <em>Retrieve Document</em>}' class.
@@ -436,7 +1038,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveDocument()
    * @generated
    */
-  int RETRIEVE_DOCUMENT = 11;
+  int RETRIEVE_DOCUMENT = 28;
 
   /**
    * The feature id for the '<em><b>Document</b></em>' containment reference.
@@ -445,7 +1047,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RETRIEVE_DOCUMENT__DOCUMENT = RETRIEVE_TASK_FEATURE_COUNT + 0;
+  int RETRIEVE_DOCUMENT__DOCUMENT = 0;
 
   /**
    * The number of structural features of the '<em>Retrieve Document</em>' class.
@@ -454,7 +1056,35 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RETRIEVE_DOCUMENT_FEATURE_COUNT = RETRIEVE_TASK_FEATURE_COUNT + 1;
+  int RETRIEVE_DOCUMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveInvoicesImpl <em>Retrieve Invoices</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.RetrieveInvoicesImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveInvoices()
+   * @generated
+   */
+  int RETRIEVE_INVOICES = 29;
+
+  /**
+   * The feature id for the '<em><b>Invoice Numbers</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRIEVE_INVOICES__INVOICE_NUMBERS = 0;
+
+  /**
+   * The number of structural features of the '<em>Retrieve Invoices</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRIEVE_INVOICES_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveFullAddressImpl <em>Retrieve Full Address</em>}' class.
@@ -464,16 +1094,16 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveFullAddress()
    * @generated
    */
-  int RETRIEVE_FULL_ADDRESS = 12;
+  int RETRIEVE_FULL_ADDRESS = 30;
 
   /**
-   * The feature id for the '<em><b>Person Adress</b></em>' containment reference.
+   * The feature id for the '<em><b>Person Address</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RETRIEVE_FULL_ADDRESS__PERSON_ADRESS = RETRIEVE_TASK_FEATURE_COUNT + 0;
+  int RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS = 0;
 
   /**
    * The number of structural features of the '<em>Retrieve Full Address</em>' class.
@@ -482,7 +1112,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RETRIEVE_FULL_ADDRESS_FEATURE_COUNT = RETRIEVE_TASK_FEATURE_COUNT + 1;
+  int RETRIEVE_FULL_ADDRESS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RetrievePersonsImpl <em>Retrieve Persons</em>}' class.
@@ -492,7 +1122,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrievePersons()
    * @generated
    */
-  int RETRIEVE_PERSONS = 13;
+  int RETRIEVE_PERSONS = 31;
 
   /**
    * The feature id for the '<em><b>Person Search</b></em>' attribute.
@@ -501,7 +1131,7 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RETRIEVE_PERSONS__PERSON_SEARCH = RETRIEVE_TASK_FEATURE_COUNT + 0;
+  int RETRIEVE_PERSONS__PERSON_SEARCH = 0;
 
   /**
    * The number of structural features of the '<em>Retrieve Persons</em>' class.
@@ -510,286 +1140,145 @@ public interface BilangPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RETRIEVE_PERSONS_FEATURE_COUNT = RETRIEVE_TASK_FEATURE_COUNT + 1;
+  int RETRIEVE_PERSONS_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.CallPersonImpl <em>Call Person</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendEmailImpl <em>Send Email</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.CallPersonImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getCallPerson()
+   * @see org.xtext.example.bilang.bilang.impl.SendEmailImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendEmail()
    * @generated
    */
-  int CALL_PERSON = 14;
+  int SEND_EMAIL = 32;
 
   /**
-   * The feature id for the '<em><b>Person</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALL_PERSON__PERSON = PERSON_TASK_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Call Person</em>' class.
+   * The feature id for the '<em><b>Recipients</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CALL_PERSON_FEATURE_COUNT = PERSON_TASK_FEATURE_COUNT + 1;
+  int SEND_EMAIL__RECIPIENTS = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.AddPersonImpl <em>Add Person</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.AddPersonImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getAddPerson()
-   * @generated
-   */
-  int ADD_PERSON = 15;
-
-  /**
-   * The feature id for the '<em><b>Alias</b></em>' containment reference.
+   * The feature id for the '<em><b>Message</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_PERSON__ALIAS = PERSON_TASK_FEATURE_COUNT + 0;
+  int SEND_EMAIL__MESSAGE = 1;
 
   /**
-   * The feature id for the '<em><b>Person</b></em>' containment reference list.
+   * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_PERSON__PERSON = PERSON_TASK_FEATURE_COUNT + 1;
+  int SEND_EMAIL__ATTACHMENTS = 2;
 
   /**
-   * The number of structural features of the '<em>Add Person</em>' class.
+   * The number of structural features of the '<em>Send Email</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_PERSON_FEATURE_COUNT = PERSON_TASK_FEATURE_COUNT + 2;
+  int SEND_EMAIL_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.DeletePersonImpl <em>Delete Person</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendSMSImpl <em>Send SMS</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.DeletePersonImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDeletePerson()
+   * @see org.xtext.example.bilang.bilang.impl.SendSMSImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendSMS()
    * @generated
    */
-  int DELETE_PERSON = 16;
+  int SEND_SMS = 33;
 
   /**
-   * The feature id for the '<em><b>Alias</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELETE_PERSON__ALIAS = PERSON_TASK_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Delete Person</em>' class.
+   * The feature id for the '<em><b>Recipients</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELETE_PERSON_FEATURE_COUNT = PERSON_TASK_FEATURE_COUNT + 1;
+  int SEND_SMS__RECIPIENTS = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonImpl <em>Person</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.PersonImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPerson()
-   * @generated
-   */
-  int PERSON = 17;
-
-  /**
-   * The number of structural features of the '<em>Person</em>' class.
+   * The feature id for the '<em><b>Message</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_FEATURE_COUNT = 0;
+  int SEND_SMS__MESSAGE = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByEmailImpl <em>Person By Email</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.PersonByEmailImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByEmail()
-   * @generated
-   */
-  int PERSON_BY_EMAIL = 18;
-
-  /**
-   * The feature id for the '<em><b>Emailaddress</b></em>' attribute.
+   * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_BY_EMAIL__EMAILADDRESS = PERSON_FEATURE_COUNT + 0;
+  int SEND_SMS__ATTACHMENTS = 2;
 
   /**
-   * The number of structural features of the '<em>Person By Email</em>' class.
+   * The number of structural features of the '<em>Send SMS</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_BY_EMAIL_FEATURE_COUNT = PERSON_FEATURE_COUNT + 1;
+  int SEND_SMS_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByAliasImpl <em>Person By Alias</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SendSnailMailImpl <em>Send Snail Mail</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.PersonByAliasImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByAlias()
+   * @see org.xtext.example.bilang.bilang.impl.SendSnailMailImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendSnailMail()
    * @generated
    */
-  int PERSON_BY_ALIAS = 19;
+  int SEND_SNAIL_MAIL = 34;
 
   /**
-   * The feature id for the '<em><b>Alias</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSON_BY_ALIAS__ALIAS = PERSON_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Person By Alias</em>' class.
+   * The feature id for the '<em><b>Recipients</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_BY_ALIAS_FEATURE_COUNT = PERSON_FEATURE_COUNT + 1;
+  int SEND_SNAIL_MAIL__RECIPIENTS = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByNameImpl <em>Person By Name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.PersonByNameImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByName()
-   * @generated
-   */
-  int PERSON_BY_NAME = 20;
-
-  /**
-   * The feature id for the '<em><b>First Name</b></em>' attribute.
+   * The feature id for the '<em><b>Message</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_BY_NAME__FIRST_NAME = PERSON_FEATURE_COUNT + 0;
+  int SEND_SNAIL_MAIL__MESSAGE = 1;
 
   /**
-   * The feature id for the '<em><b>Last Name</b></em>' attribute.
+   * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_BY_NAME__LAST_NAME = PERSON_FEATURE_COUNT + 1;
+  int SEND_SNAIL_MAIL__ATTACHMENTS = 2;
 
   /**
-   * The number of structural features of the '<em>Person By Name</em>' class.
+   * The number of structural features of the '<em>Send Snail Mail</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSON_BY_NAME_FEATURE_COUNT = PERSON_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByPhoneImpl <em>Person By Phone</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.PersonByPhoneImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByPhone()
-   * @generated
-   */
-  int PERSON_BY_PHONE = 21;
-
-  /**
-   * The feature id for the '<em><b>Phone</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSON_BY_PHONE__PHONE = PERSON_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Person By Phone</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSON_BY_PHONE_FEATURE_COUNT = PERSON_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByAddressImpl <em>Person By Address</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.bilang.bilang.impl.PersonByAddressImpl
-   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByAddress()
-   * @generated
-   */
-  int PERSON_BY_ADDRESS = 22;
-
-  /**
-   * The feature id for the '<em><b>Zipcode</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSON_BY_ADDRESS__ZIPCODE = PERSON_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Housenumber</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSON_BY_ADDRESS__HOUSENUMBER = PERSON_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Suffix</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSON_BY_ADDRESS__SUFFIX = PERSON_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Person By Address</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSON_BY_ADDRESS_FEATURE_COUNT = PERSON_FEATURE_COUNT + 3;
+  int SEND_SNAIL_MAIL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.MessageImpl <em>Message</em>}' class.
@@ -799,7 +1288,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getMessage()
    * @generated
    */
-  int MESSAGE = 23;
+  int MESSAGE = 35;
 
   /**
    * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -820,6 +1309,423 @@ public interface BilangPackage extends EPackage
   int MESSAGE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.CallPersonImpl <em>Call Person</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.CallPersonImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getCallPerson()
+   * @generated
+   */
+  int CALL_PERSON = 36;
+
+  /**
+   * The feature id for the '<em><b>Person</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_PERSON__PERSON = 0;
+
+  /**
+   * The number of structural features of the '<em>Call Person</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_PERSON_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.AddPersonImpl <em>Add Person</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.AddPersonImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getAddPerson()
+   * @generated
+   */
+  int ADD_PERSON = 37;
+
+  /**
+   * The feature id for the '<em><b>Alias</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_PERSON__ALIAS = 0;
+
+  /**
+   * The feature id for the '<em><b>Person</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_PERSON__PERSON = 1;
+
+  /**
+   * The number of structural features of the '<em>Add Person</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_PERSON_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.DeletePersonImpl <em>Delete Person</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.DeletePersonImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDeletePerson()
+   * @generated
+   */
+  int DELETE_PERSON = 38;
+
+  /**
+   * The feature id for the '<em><b>Alias</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_PERSON__ALIAS = 0;
+
+  /**
+   * The number of structural features of the '<em>Delete Person</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_PERSON_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.UpdatePersonImpl <em>Update Person</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.UpdatePersonImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getUpdatePerson()
+   * @generated
+   */
+  int UPDATE_PERSON = 39;
+
+  /**
+   * The feature id for the '<em><b>Person</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_PERSON__PERSON = 0;
+
+  /**
+   * The feature id for the '<em><b>Changes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_PERSON__CHANGES = 1;
+
+  /**
+   * The number of structural features of the '<em>Update Person</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UPDATE_PERSON_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonChangeImpl <em>Person Change</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.PersonChangeImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonChange()
+   * @generated
+   */
+  int PERSON_CHANGE = 40;
+
+  /**
+   * The feature id for the '<em><b>Email</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_CHANGE__EMAIL = 0;
+
+  /**
+   * The feature id for the '<em><b>Phone</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_CHANGE__PHONE = 1;
+
+  /**
+   * The feature id for the '<em><b>Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_CHANGE__ALIAS = 2;
+
+  /**
+   * The number of structural features of the '<em>Person Change</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_CHANGE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SearchPersonImpl <em>Search Person</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.SearchPersonImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSearchPerson()
+   * @generated
+   */
+  int SEARCH_PERSON = 41;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_PERSON__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Email</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_PERSON__EMAIL = 1;
+
+  /**
+   * The feature id for the '<em><b>Phone</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_PERSON__PHONE = 2;
+
+  /**
+   * The number of structural features of the '<em>Search Person</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_PERSON_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonImpl <em>Person</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.PersonImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPerson()
+   * @generated
+   */
+  int PERSON = 42;
+
+  /**
+   * The feature id for the '<em><b>Kind</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON__KIND = 0;
+
+  /**
+   * The number of structural features of the '<em>Person</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByEmailImpl <em>Person By Email</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.PersonByEmailImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByEmail()
+   * @generated
+   */
+  int PERSON_BY_EMAIL = 43;
+
+  /**
+   * The feature id for the '<em><b>Emailaddress</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_EMAIL__EMAILADDRESS = 0;
+
+  /**
+   * The number of structural features of the '<em>Person By Email</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_EMAIL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByAliasImpl <em>Person By Alias</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.PersonByAliasImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByAlias()
+   * @generated
+   */
+  int PERSON_BY_ALIAS = 44;
+
+  /**
+   * The feature id for the '<em><b>Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_ALIAS__ALIAS = 0;
+
+  /**
+   * The number of structural features of the '<em>Person By Alias</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_ALIAS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByNameImpl <em>Person By Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.PersonByNameImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByName()
+   * @generated
+   */
+  int PERSON_BY_NAME = 45;
+
+  /**
+   * The feature id for the '<em><b>First Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_NAME__FIRST_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Last Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_NAME__LAST_NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Person By Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_NAME_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByPhoneImpl <em>Person By Phone</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.PersonByPhoneImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByPhone()
+   * @generated
+   */
+  int PERSON_BY_PHONE = 46;
+
+  /**
+   * The feature id for the '<em><b>Phone</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_PHONE__PHONE = 0;
+
+  /**
+   * The number of structural features of the '<em>Person By Phone</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_PHONE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.PersonByAddressImpl <em>Person By Address</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.PersonByAddressImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonByAddress()
+   * @generated
+   */
+  int PERSON_BY_ADDRESS = 47;
+
+  /**
+   * The feature id for the '<em><b>Zipcode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_ADDRESS__ZIPCODE = 0;
+
+  /**
+   * The feature id for the '<em><b>Housenumber</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_ADDRESS__HOUSENUMBER = 1;
+
+  /**
+   * The feature id for the '<em><b>Suffix</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_ADDRESS__SUFFIX = 2;
+
+  /**
+   * The number of structural features of the '<em>Person By Address</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSON_BY_ADDRESS_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.DocumentImpl <em>Document</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -827,10 +1733,10 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocument()
    * @generated
    */
-  int DOCUMENT = 24;
+  int DOCUMENT = 48;
 
   /**
-   * The feature id for the '<em><b>Kind</b></em>' containment reference list.
+   * The feature id for the '<em><b>Kind</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -855,7 +1761,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getInvoice()
    * @generated
    */
-  int INVOICE = 25;
+  int INVOICE = 49;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -883,7 +1789,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocumentPerson()
    * @generated
    */
-  int DOCUMENT_PERSON = 26;
+  int DOCUMENT_PERSON = 50;
 
   /**
    * The feature id for the '<em><b>Person</b></em>' containment reference.
@@ -911,7 +1817,7 @@ public interface BilangPackage extends EPackage
    * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocumentTopic()
    * @generated
    */
-  int DOCUMENT_TOPIC = 27;
+  int DOCUMENT_TOPIC = 51;
 
   /**
    * The feature id for the '<em><b>Topic</b></em>' attribute.
@@ -931,6 +1837,536 @@ public interface BilangPackage extends EPackage
    */
   int DOCUMENT_TOPIC_FEATURE_COUNT = 1;
 
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.DocumentOperationImpl <em>Document Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.DocumentOperationImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocumentOperation()
+   * @generated
+   */
+  int DOCUMENT_OPERATION = 52;
+
+  /**
+   * The number of structural features of the '<em>Document Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCUMENT_OPERATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.FilterDocumentsImpl <em>Filter Documents</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.FilterDocumentsImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getFilterDocuments()
+   * @generated
+   */
+  int FILTER_DOCUMENTS = 53;
+
+  /**
+   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_DOCUMENTS__FIELD = DOCUMENT_OPERATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_DOCUMENTS__OPERATOR = DOCUMENT_OPERATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_DOCUMENTS__VALUE = DOCUMENT_OPERATION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Filter Documents</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILTER_DOCUMENTS_FEATURE_COUNT = DOCUMENT_OPERATION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.SortDocumentsImpl <em>Sort Documents</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.SortDocumentsImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSortDocuments()
+   * @generated
+   */
+  int SORT_DOCUMENTS = 54;
+
+  /**
+   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SORT_DOCUMENTS__FIELD = DOCUMENT_OPERATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Direction</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SORT_DOCUMENTS__DIRECTION = DOCUMENT_OPERATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Sort Documents</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SORT_DOCUMENTS_FEATURE_COUNT = DOCUMENT_OPERATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ArchiveDocumentImpl <em>Archive Document</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ArchiveDocumentImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getArchiveDocument()
+   * @generated
+   */
+  int ARCHIVE_DOCUMENT = 55;
+
+  /**
+   * The feature id for the '<em><b>Document</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARCHIVE_DOCUMENT__DOCUMENT = DOCUMENT_OPERATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Archive Document</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARCHIVE_DOCUMENT_FEATURE_COUNT = DOCUMENT_OPERATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.DeleteDocumentImpl <em>Delete Document</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.DeleteDocumentImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDeleteDocument()
+   * @generated
+   */
+  int DELETE_DOCUMENT = 56;
+
+  /**
+   * The feature id for the '<em><b>Document</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_DOCUMENT__DOCUMENT = DOCUMENT_OPERATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Delete Document</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELETE_DOCUMENT_FEATURE_COUNT = DOCUMENT_OPERATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.CreateInvoiceWithProductsImpl <em>Create Invoice With Products</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.CreateInvoiceWithProductsImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getCreateInvoiceWithProducts()
+   * @generated
+   */
+  int CREATE_INVOICE_WITH_PRODUCTS = 57;
+
+  /**
+   * The feature id for the '<em><b>Products</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_INVOICE_WITH_PRODUCTS__PRODUCTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Create Invoice With Products</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_INVOICE_WITH_PRODUCTS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ProductReferenceImpl <em>Product Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ProductReferenceImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getProductReference()
+   * @generated
+   */
+  int PRODUCT_REFERENCE = 58;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_REFERENCE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Product Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRODUCT_REFERENCE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.CreateProductImpl <em>Create Product</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.CreateProductImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getCreateProduct()
+   * @generated
+   */
+  int CREATE_PRODUCT = 59;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_PRODUCT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_PRODUCT__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Price</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_PRODUCT__PRICE = 2;
+
+  /**
+   * The number of structural features of the '<em>Create Product</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_PRODUCT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveProductInformationImpl <em>Retrieve Product Information</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.RetrieveProductInformationImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveProductInformation()
+   * @generated
+   */
+  int RETRIEVE_PRODUCT_INFORMATION = 60;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRIEVE_PRODUCT_INFORMATION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Retrieve Product Information</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRIEVE_PRODUCT_INFORMATION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveOrderStatusByInvoiceImpl <em>Retrieve Order Status By Invoice</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.RetrieveOrderStatusByInvoiceImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveOrderStatusByInvoice()
+   * @generated
+   */
+  int RETRIEVE_ORDER_STATUS_BY_INVOICE = 61;
+
+  /**
+   * The feature id for the '<em><b>Invoice Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRIEVE_ORDER_STATUS_BY_INVOICE__INVOICE_CODE = 0;
+
+  /**
+   * The number of structural features of the '<em>Retrieve Order Status By Invoice</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETRIEVE_ORDER_STATUS_BY_INVOICE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.BinaryExpressionImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getBinaryExpression()
+   * @generated
+   */
+  int BINARY_EXPRESSION = 62;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPRESSION__OPERATOR = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPRESSION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Binary Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ParenthesizedExpressionImpl <em>Parenthesized Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ParenthesizedExpressionImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getParenthesizedExpression()
+   * @generated
+   */
+  int PARENTHESIZED_EXPRESSION = 63;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESIZED_EXPRESSION__EXPRESSION = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parenthesized Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESIZED_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.StringLiteralImpl <em>String Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.StringLiteralImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getStringLiteral()
+   * @generated
+   */
+  int STRING_LITERAL = 64;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.NumberLiteralImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getNumberLiteral()
+   * @generated
+   */
+  int NUMBER_LITERAL = 65;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Number Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.BooleanLiteralImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getBooleanLiteral()
+   * @generated
+   */
+  int BOOLEAN_LITERAL = 66;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.VariableReferenceImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getVariableReference()
+   * @generated
+   */
+  int VARIABLE_REFERENCE = 67;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_REFERENCE__VARIABLE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Variable Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_REFERENCE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.bilang.bilang.impl.ListLiteralImpl <em>List Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.bilang.bilang.impl.ListLiteralImpl
+   * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getListLiteral()
+   * @generated
+   */
+  int LIST_LITERAL = 68;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_LITERAL__ELEMENTS = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>List Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Model <em>Model</em>}'.
@@ -943,25 +2379,25 @@ public interface BilangPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Task <em>Task</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.Model#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Task</em>'.
-   * @see org.xtext.example.bilang.bilang.Task
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see org.xtext.example.bilang.bilang.Model#getElements()
+   * @see #getModel()
    * @generated
    */
-  EClass getTask();
+  EReference getModel_Elements();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.Task#getKind <em>Kind</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.EmptyProcess <em>Empty Process</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Kind</em>'.
-   * @see org.xtext.example.bilang.bilang.Task#getKind()
-   * @see #getTask()
+   * @return the meta object for class '<em>Empty Process</em>'.
+   * @see org.xtext.example.bilang.bilang.EmptyProcess
    * @generated
    */
-  EReference getTask_Kind();
+  EClass getEmptyProcess();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.CompoundProcess <em>Compound Process</em>}'.
@@ -974,15 +2410,15 @@ public interface BilangPackage extends EPackage
   EClass getCompoundProcess();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.CompoundProcess#getTask <em>Task</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.CompoundProcess#getTasks <em>Tasks</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Task</em>'.
-   * @see org.xtext.example.bilang.bilang.CompoundProcess#getTask()
+   * @return the meta object for the containment reference list '<em>Tasks</em>'.
+   * @see org.xtext.example.bilang.bilang.CompoundProcess#getTasks()
    * @see #getCompoundProcess()
    * @generated
    */
-  EReference getCompoundProcess_Task();
+  EReference getCompoundProcess_Tasks();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.AbstractProcess <em>Abstract Process</em>}'.
@@ -1006,15 +2442,15 @@ public interface BilangPackage extends EPackage
   EAttribute getAbstractProcess_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.AbstractProcess#getParamValues <em>Param Values</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.AbstractProcess#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Param Values</em>'.
-   * @see org.xtext.example.bilang.bilang.AbstractProcess#getParamValues()
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see org.xtext.example.bilang.bilang.AbstractProcess#getParameters()
    * @see #getAbstractProcess()
    * @generated
    */
-  EReference getAbstractProcess_ParamValues();
+  EReference getAbstractProcess_Parameters();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.ParamValue <em>Param Value</em>}'.
@@ -1049,97 +2485,707 @@ public interface BilangPackage extends EPackage
   EAttribute getParamValue_Value();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RetrieveTask <em>Retrieve Task</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Workflow <em>Workflow</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Retrieve Task</em>'.
-   * @see org.xtext.example.bilang.bilang.RetrieveTask
+   * @return the meta object for class '<em>Workflow</em>'.
+   * @see org.xtext.example.bilang.bilang.Workflow
    * @generated
    */
-  EClass getRetrieveTask();
+  EClass getWorkflow();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SendTask <em>Send Task</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.Workflow#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Send Task</em>'.
-   * @see org.xtext.example.bilang.bilang.SendTask
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.Workflow#getName()
+   * @see #getWorkflow()
    * @generated
    */
-  EClass getSendTask();
+  EAttribute getWorkflow_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendTask#getPerson <em>Person</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.Workflow#getStatements <em>Statements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Person</em>'.
-   * @see org.xtext.example.bilang.bilang.SendTask#getPerson()
-   * @see #getSendTask()
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see org.xtext.example.bilang.bilang.Workflow#getStatements()
+   * @see #getWorkflow()
    * @generated
    */
-  EReference getSendTask_Person();
+  EReference getWorkflow_Statements();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.SendTask#getMessage <em>Message</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.WorkflowDefinition <em>Workflow Definition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Message</em>'.
-   * @see org.xtext.example.bilang.bilang.SendTask#getMessage()
-   * @see #getSendTask()
+   * @return the meta object for class '<em>Workflow Definition</em>'.
+   * @see org.xtext.example.bilang.bilang.WorkflowDefinition
    * @generated
    */
-  EReference getSendTask_Message();
+  EClass getWorkflowDefinition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendTask#getAttachment <em>Attachment</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.WorkflowDefinition#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Attachment</em>'.
-   * @see org.xtext.example.bilang.bilang.SendTask#getAttachment()
-   * @see #getSendTask()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.WorkflowDefinition#getName()
+   * @see #getWorkflowDefinition()
    * @generated
    */
-  EReference getSendTask_Attachment();
+  EAttribute getWorkflowDefinition_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.PersonTask <em>Person Task</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.WorkflowDefinition#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Person Task</em>'.
-   * @see org.xtext.example.bilang.bilang.PersonTask
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see org.xtext.example.bilang.bilang.WorkflowDefinition#getParameters()
+   * @see #getWorkflowDefinition()
    * @generated
    */
-  EClass getPersonTask();
+  EReference getWorkflowDefinition_Parameters();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SendEmail <em>Send Email</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.WorkflowDefinition#getStatements <em>Statements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Send Email</em>'.
-   * @see org.xtext.example.bilang.bilang.SendEmail
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see org.xtext.example.bilang.bilang.WorkflowDefinition#getStatements()
+   * @see #getWorkflowDefinition()
    * @generated
    */
-  EClass getSendEmail();
+  EReference getWorkflowDefinition_Statements();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SendSMS <em>Send SMS</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Send SMS</em>'.
-   * @see org.xtext.example.bilang.bilang.SendSMS
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see org.xtext.example.bilang.bilang.Parameter
    * @generated
    */
-  EClass getSendSMS();
+  EClass getParameter();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SendSnailMail <em>Send Snail Mail</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.Parameter#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Send Snail Mail</em>'.
-   * @see org.xtext.example.bilang.bilang.SendSnailMail
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.Parameter#getName()
+   * @see #getParameter()
    * @generated
    */
-  EClass getSendSnailMail();
+  EAttribute getParameter_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.Parameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.example.bilang.bilang.Parameter#getType()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.Statement
+   * @generated
+   */
+  EClass getStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Task <em>Task</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Task</em>'.
+   * @see org.xtext.example.bilang.bilang.Task
+   * @generated
+   */
+  EClass getTask();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.Task#getKind <em>Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Kind</em>'.
+   * @see org.xtext.example.bilang.bilang.Task#getKind()
+   * @see #getTask()
+   * @generated
+   */
+  EReference getTask_Kind();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.Task#getResult <em>Result</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Result</em>'.
+   * @see org.xtext.example.bilang.bilang.Task#getResult()
+   * @see #getTask()
+   * @generated
+   */
+  EAttribute getTask_Result();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.LetStatement <em>Let Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Let Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.LetStatement
+   * @generated
+   */
+  EClass getLetStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.LetStatement#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.xtext.example.bilang.bilang.LetStatement#getVariable()
+   * @see #getLetStatement()
+   * @generated
+   */
+  EReference getLetStatement_Variable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.LetStatement#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.xtext.example.bilang.bilang.LetStatement#getValue()
+   * @see #getLetStatement()
+   * @generated
+   */
+  EReference getLetStatement_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.VariableDeclaration <em>Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable Declaration</em>'.
+   * @see org.xtext.example.bilang.bilang.VariableDeclaration
+   * @generated
+   */
+  EClass getVariableDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.VariableDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.VariableDeclaration#getName()
+   * @see #getVariableDeclaration()
+   * @generated
+   */
+  EAttribute getVariableDeclaration_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see org.xtext.example.bilang.bilang.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.IfStatement
+   * @generated
+   */
+  EClass getIfStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.IfStatement#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.xtext.example.bilang.bilang.IfStatement#getCondition()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_Condition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.IfStatement#getThenBranch <em>Then Branch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Then Branch</em>'.
+   * @see org.xtext.example.bilang.bilang.IfStatement#getThenBranch()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_ThenBranch();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.IfStatement#getElseBranch <em>Else Branch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Else Branch</em>'.
+   * @see org.xtext.example.bilang.bilang.IfStatement#getElseBranch()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_ElseBranch();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.ForEachStatement <em>For Each Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>For Each Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.ForEachStatement
+   * @generated
+   */
+  EClass getForEachStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.ForEachStatement#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.xtext.example.bilang.bilang.ForEachStatement#getVariable()
+   * @see #getForEachStatement()
+   * @generated
+   */
+  EReference getForEachStatement_Variable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.ForEachStatement#getCollection <em>Collection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Collection</em>'.
+   * @see org.xtext.example.bilang.bilang.ForEachStatement#getCollection()
+   * @see #getForEachStatement()
+   * @generated
+   */
+  EReference getForEachStatement_Collection();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.ForEachStatement#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Body</em>'.
+   * @see org.xtext.example.bilang.bilang.ForEachStatement#getBody()
+   * @see #getForEachStatement()
+   * @generated
+   */
+  EReference getForEachStatement_Body();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.WhileStatement <em>While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>While Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.WhileStatement
+   * @generated
+   */
+  EClass getWhileStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.WhileStatement#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.xtext.example.bilang.bilang.WhileStatement#getCondition()
+   * @see #getWhileStatement()
+   * @generated
+   */
+  EReference getWhileStatement_Condition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.WhileStatement#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Body</em>'.
+   * @see org.xtext.example.bilang.bilang.WhileStatement#getBody()
+   * @see #getWhileStatement()
+   * @generated
+   */
+  EReference getWhileStatement_Body();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.ParallelProcess <em>Parallel Process</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parallel Process</em>'.
+   * @see org.xtext.example.bilang.bilang.ParallelProcess
+   * @generated
+   */
+  EClass getParallelProcess();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.ParallelProcess#getBranches <em>Branches</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Branches</em>'.
+   * @see org.xtext.example.bilang.bilang.ParallelProcess#getBranches()
+   * @see #getParallelProcess()
+   * @generated
+   */
+  EReference getParallelProcess_Branches();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.ParallelBranch <em>Parallel Branch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parallel Branch</em>'.
+   * @see org.xtext.example.bilang.bilang.ParallelBranch
+   * @generated
+   */
+  EClass getParallelBranch();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.ParallelBranch#getStatements <em>Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see org.xtext.example.bilang.bilang.ParallelBranch#getStatements()
+   * @see #getParallelBranch()
+   * @generated
+   */
+  EReference getParallelBranch_Statements();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.TryCatchStatement <em>Try Catch Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Try Catch Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.TryCatchStatement
+   * @generated
+   */
+  EClass getTryCatchStatement();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.TryCatchStatement#getTryBody <em>Try Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Try Body</em>'.
+   * @see org.xtext.example.bilang.bilang.TryCatchStatement#getTryBody()
+   * @see #getTryCatchStatement()
+   * @generated
+   */
+  EReference getTryCatchStatement_TryBody();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.TryCatchStatement#getErrorVariable <em>Error Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Error Variable</em>'.
+   * @see org.xtext.example.bilang.bilang.TryCatchStatement#getErrorVariable()
+   * @see #getTryCatchStatement()
+   * @generated
+   */
+  EAttribute getTryCatchStatement_ErrorVariable();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.TryCatchStatement#getCatchBody <em>Catch Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Catch Body</em>'.
+   * @see org.xtext.example.bilang.bilang.TryCatchStatement#getCatchBody()
+   * @see #getTryCatchStatement()
+   * @generated
+   */
+  EReference getTryCatchStatement_CatchBody();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.TryCatchStatement#getFinallyBody <em>Finally Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Finally Body</em>'.
+   * @see org.xtext.example.bilang.bilang.TryCatchStatement#getFinallyBody()
+   * @see #getTryCatchStatement()
+   * @generated
+   */
+  EReference getTryCatchStatement_FinallyBody();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RetryStatement <em>Retry Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Retry Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.RetryStatement
+   * @generated
+   */
+  EClass getRetryStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.RetryStatement#getAttempts <em>Attempts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Attempts</em>'.
+   * @see org.xtext.example.bilang.bilang.RetryStatement#getAttempts()
+   * @see #getRetryStatement()
+   * @generated
+   */
+  EAttribute getRetryStatement_Attempts();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.RetryStatement#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Body</em>'.
+   * @see org.xtext.example.bilang.bilang.RetryStatement#getBody()
+   * @see #getRetryStatement()
+   * @generated
+   */
+  EReference getRetryStatement_Body();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.TimeoutStatement <em>Timeout Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Timeout Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.TimeoutStatement
+   * @generated
+   */
+  EClass getTimeoutStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.TimeoutStatement#getDuration <em>Duration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Duration</em>'.
+   * @see org.xtext.example.bilang.bilang.TimeoutStatement#getDuration()
+   * @see #getTimeoutStatement()
+   * @generated
+   */
+  EAttribute getTimeoutStatement_Duration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.TimeoutStatement#getUnit <em>Unit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Unit</em>'.
+   * @see org.xtext.example.bilang.bilang.TimeoutStatement#getUnit()
+   * @see #getTimeoutStatement()
+   * @generated
+   */
+  EAttribute getTimeoutStatement_Unit();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.TimeoutStatement#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Body</em>'.
+   * @see org.xtext.example.bilang.bilang.TimeoutStatement#getBody()
+   * @see #getTimeoutStatement()
+   * @generated
+   */
+  EReference getTimeoutStatement_Body();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.CompensateStatement <em>Compensate Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Compensate Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.CompensateStatement
+   * @generated
+   */
+  EClass getCompensateStatement();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.CompensateStatement#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see org.xtext.example.bilang.bilang.CompensateStatement#getActions()
+   * @see #getCompensateStatement()
+   * @generated
+   */
+  EReference getCompensateStatement_Actions();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RequireStatement <em>Require Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Require Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.RequireStatement
+   * @generated
+   */
+  EClass getRequireStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.RequireStatement#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.xtext.example.bilang.bilang.RequireStatement#getCondition()
+   * @see #getRequireStatement()
+   * @generated
+   */
+  EReference getRequireStatement_Condition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.RequireStatement#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Body</em>'.
+   * @see org.xtext.example.bilang.bilang.RequireStatement#getBody()
+   * @see #getRequireStatement()
+   * @generated
+   */
+  EReference getRequireStatement_Body();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.WaitStatement <em>Wait Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Wait Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.WaitStatement
+   * @generated
+   */
+  EClass getWaitStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.WaitStatement#getDuration <em>Duration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Duration</em>'.
+   * @see org.xtext.example.bilang.bilang.WaitStatement#getDuration()
+   * @see #getWaitStatement()
+   * @generated
+   */
+  EAttribute getWaitStatement_Duration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.WaitStatement#getUnit <em>Unit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Unit</em>'.
+   * @see org.xtext.example.bilang.bilang.WaitStatement#getUnit()
+   * @see #getWaitStatement()
+   * @generated
+   */
+  EAttribute getWaitStatement_Unit();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.AssertStatement <em>Assert Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Assert Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.AssertStatement
+   * @generated
+   */
+  EClass getAssertStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.AssertStatement#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.xtext.example.bilang.bilang.AssertStatement#getCondition()
+   * @see #getAssertStatement()
+   * @generated
+   */
+  EReference getAssertStatement_Condition();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.AssertStatement#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Message</em>'.
+   * @see org.xtext.example.bilang.bilang.AssertStatement#getMessage()
+   * @see #getAssertStatement()
+   * @generated
+   */
+  EAttribute getAssertStatement_Message();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.LogStatement <em>Log Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Log Statement</em>'.
+   * @see org.xtext.example.bilang.bilang.LogStatement
+   * @generated
+   */
+  EClass getLogStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.LogStatement#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.xtext.example.bilang.bilang.LogStatement#getValue()
+   * @see #getLogStatement()
+   * @generated
+   */
+  EReference getLogStatement_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.WorkflowCall <em>Workflow Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Workflow Call</em>'.
+   * @see org.xtext.example.bilang.bilang.WorkflowCall
+   * @generated
+   */
+  EClass getWorkflowCall();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.bilang.bilang.WorkflowCall#getWorkflow <em>Workflow</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Workflow</em>'.
+   * @see org.xtext.example.bilang.bilang.WorkflowCall#getWorkflow()
+   * @see #getWorkflowCall()
+   * @generated
+   */
+  EReference getWorkflowCall_Workflow();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.WorkflowCall#getArguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Arguments</em>'.
+   * @see org.xtext.example.bilang.bilang.WorkflowCall#getArguments()
+   * @see #getWorkflowCall()
+   * @generated
+   */
+  EReference getWorkflowCall_Arguments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Argument <em>Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Argument</em>'.
+   * @see org.xtext.example.bilang.bilang.Argument
+   * @generated
+   */
+  EClass getArgument();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.Argument#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.Argument#getName()
+   * @see #getArgument()
+   * @generated
+   */
+  EAttribute getArgument_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.Argument#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.xtext.example.bilang.bilang.Argument#getValue()
+   * @see #getArgument()
+   * @generated
+   */
+  EReference getArgument_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RetrieveDocument <em>Retrieve Document</em>}'.
@@ -1163,6 +3209,27 @@ public interface BilangPackage extends EPackage
   EReference getRetrieveDocument_Document();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RetrieveInvoices <em>Retrieve Invoices</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Retrieve Invoices</em>'.
+   * @see org.xtext.example.bilang.bilang.RetrieveInvoices
+   * @generated
+   */
+  EClass getRetrieveInvoices();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.bilang.bilang.RetrieveInvoices#getInvoiceNumbers <em>Invoice Numbers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Invoice Numbers</em>'.
+   * @see org.xtext.example.bilang.bilang.RetrieveInvoices#getInvoiceNumbers()
+   * @see #getRetrieveInvoices()
+   * @generated
+   */
+  EAttribute getRetrieveInvoices_InvoiceNumbers();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RetrieveFullAddress <em>Retrieve Full Address</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1173,15 +3240,15 @@ public interface BilangPackage extends EPackage
   EClass getRetrieveFullAddress();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.RetrieveFullAddress#getPersonAdress <em>Person Adress</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.RetrieveFullAddress#getPersonAddress <em>Person Address</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Person Adress</em>'.
-   * @see org.xtext.example.bilang.bilang.RetrieveFullAddress#getPersonAdress()
+   * @return the meta object for the containment reference '<em>Person Address</em>'.
+   * @see org.xtext.example.bilang.bilang.RetrieveFullAddress#getPersonAddress()
    * @see #getRetrieveFullAddress()
    * @generated
    */
-  EReference getRetrieveFullAddress_PersonAdress();
+  EReference getRetrieveFullAddress_PersonAddress();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RetrievePersons <em>Retrieve Persons</em>}'.
@@ -1203,6 +3270,156 @@ public interface BilangPackage extends EPackage
    * @generated
    */
   EAttribute getRetrievePersons_PersonSearch();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SendEmail <em>Send Email</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Send Email</em>'.
+   * @see org.xtext.example.bilang.bilang.SendEmail
+   * @generated
+   */
+  EClass getSendEmail();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendEmail#getRecipients <em>Recipients</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Recipients</em>'.
+   * @see org.xtext.example.bilang.bilang.SendEmail#getRecipients()
+   * @see #getSendEmail()
+   * @generated
+   */
+  EReference getSendEmail_Recipients();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.SendEmail#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Message</em>'.
+   * @see org.xtext.example.bilang.bilang.SendEmail#getMessage()
+   * @see #getSendEmail()
+   * @generated
+   */
+  EReference getSendEmail_Message();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendEmail#getAttachments <em>Attachments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attachments</em>'.
+   * @see org.xtext.example.bilang.bilang.SendEmail#getAttachments()
+   * @see #getSendEmail()
+   * @generated
+   */
+  EReference getSendEmail_Attachments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SendSMS <em>Send SMS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Send SMS</em>'.
+   * @see org.xtext.example.bilang.bilang.SendSMS
+   * @generated
+   */
+  EClass getSendSMS();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendSMS#getRecipients <em>Recipients</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Recipients</em>'.
+   * @see org.xtext.example.bilang.bilang.SendSMS#getRecipients()
+   * @see #getSendSMS()
+   * @generated
+   */
+  EReference getSendSMS_Recipients();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.SendSMS#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Message</em>'.
+   * @see org.xtext.example.bilang.bilang.SendSMS#getMessage()
+   * @see #getSendSMS()
+   * @generated
+   */
+  EReference getSendSMS_Message();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendSMS#getAttachments <em>Attachments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attachments</em>'.
+   * @see org.xtext.example.bilang.bilang.SendSMS#getAttachments()
+   * @see #getSendSMS()
+   * @generated
+   */
+  EReference getSendSMS_Attachments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SendSnailMail <em>Send Snail Mail</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Send Snail Mail</em>'.
+   * @see org.xtext.example.bilang.bilang.SendSnailMail
+   * @generated
+   */
+  EClass getSendSnailMail();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendSnailMail#getRecipients <em>Recipients</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Recipients</em>'.
+   * @see org.xtext.example.bilang.bilang.SendSnailMail#getRecipients()
+   * @see #getSendSnailMail()
+   * @generated
+   */
+  EReference getSendSnailMail_Recipients();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.SendSnailMail#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Message</em>'.
+   * @see org.xtext.example.bilang.bilang.SendSnailMail#getMessage()
+   * @see #getSendSnailMail()
+   * @generated
+   */
+  EReference getSendSnailMail_Message();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.SendSnailMail#getAttachments <em>Attachments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attachments</em>'.
+   * @see org.xtext.example.bilang.bilang.SendSnailMail#getAttachments()
+   * @see #getSendSnailMail()
+   * @generated
+   */
+  EReference getSendSnailMail_Attachments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Message <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Message</em>'.
+   * @see org.xtext.example.bilang.bilang.Message
+   * @generated
+   */
+  EClass getMessage();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.Message#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Message</em>'.
+   * @see org.xtext.example.bilang.bilang.Message#getMessage()
+   * @see #getMessage()
+   * @generated
+   */
+  EAttribute getMessage_Message();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.CallPerson <em>Call Person</em>}'.
@@ -1279,6 +3496,124 @@ public interface BilangPackage extends EPackage
   EReference getDeletePerson_Alias();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.UpdatePerson <em>Update Person</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Update Person</em>'.
+   * @see org.xtext.example.bilang.bilang.UpdatePerson
+   * @generated
+   */
+  EClass getUpdatePerson();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.UpdatePerson#getPerson <em>Person</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Person</em>'.
+   * @see org.xtext.example.bilang.bilang.UpdatePerson#getPerson()
+   * @see #getUpdatePerson()
+   * @generated
+   */
+  EReference getUpdatePerson_Person();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.UpdatePerson#getChanges <em>Changes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Changes</em>'.
+   * @see org.xtext.example.bilang.bilang.UpdatePerson#getChanges()
+   * @see #getUpdatePerson()
+   * @generated
+   */
+  EReference getUpdatePerson_Changes();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.PersonChange <em>Person Change</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Person Change</em>'.
+   * @see org.xtext.example.bilang.bilang.PersonChange
+   * @generated
+   */
+  EClass getPersonChange();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.PersonChange#getEmail <em>Email</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Email</em>'.
+   * @see org.xtext.example.bilang.bilang.PersonChange#getEmail()
+   * @see #getPersonChange()
+   * @generated
+   */
+  EAttribute getPersonChange_Email();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.PersonChange#getPhone <em>Phone</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Phone</em>'.
+   * @see org.xtext.example.bilang.bilang.PersonChange#getPhone()
+   * @see #getPersonChange()
+   * @generated
+   */
+  EAttribute getPersonChange_Phone();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.PersonChange#getAlias <em>Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Alias</em>'.
+   * @see org.xtext.example.bilang.bilang.PersonChange#getAlias()
+   * @see #getPersonChange()
+   * @generated
+   */
+  EAttribute getPersonChange_Alias();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SearchPerson <em>Search Person</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Search Person</em>'.
+   * @see org.xtext.example.bilang.bilang.SearchPerson
+   * @generated
+   */
+  EClass getSearchPerson();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.SearchPerson#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.SearchPerson#getName()
+   * @see #getSearchPerson()
+   * @generated
+   */
+  EAttribute getSearchPerson_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.SearchPerson#getEmail <em>Email</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Email</em>'.
+   * @see org.xtext.example.bilang.bilang.SearchPerson#getEmail()
+   * @see #getSearchPerson()
+   * @generated
+   */
+  EAttribute getSearchPerson_Email();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.SearchPerson#getPhone <em>Phone</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Phone</em>'.
+   * @see org.xtext.example.bilang.bilang.SearchPerson#getPhone()
+   * @see #getSearchPerson()
+   * @generated
+   */
+  EAttribute getSearchPerson_Phone();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Person <em>Person</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1287,6 +3622,17 @@ public interface BilangPackage extends EPackage
    * @generated
    */
   EClass getPerson();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.Person#getKind <em>Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Kind</em>'.
+   * @see org.xtext.example.bilang.bilang.Person#getKind()
+   * @see #getPerson()
+   * @generated
+   */
+  EReference getPerson_Kind();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.PersonByEmail <em>Person By Email</em>}'.
@@ -1427,27 +3773,6 @@ public interface BilangPackage extends EPackage
   EAttribute getPersonByAddress_Suffix();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Message <em>Message</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Message</em>'.
-   * @see org.xtext.example.bilang.bilang.Message
-   * @generated
-   */
-  EClass getMessage();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.Message#getMessage <em>Message</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Message</em>'.
-   * @see org.xtext.example.bilang.bilang.Message#getMessage()
-   * @see #getMessage()
-   * @generated
-   */
-  EAttribute getMessage_Message();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.Document <em>Document</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1458,10 +3783,10 @@ public interface BilangPackage extends EPackage
   EClass getDocument();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.Document#getKind <em>Kind</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.Document#getKind <em>Kind</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Kind</em>'.
+   * @return the meta object for the containment reference '<em>Kind</em>'.
    * @see org.xtext.example.bilang.bilang.Document#getKind()
    * @see #getDocument()
    * @generated
@@ -1532,6 +3857,429 @@ public interface BilangPackage extends EPackage
   EAttribute getDocumentTopic_Topic();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.DocumentOperation <em>Document Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Document Operation</em>'.
+   * @see org.xtext.example.bilang.bilang.DocumentOperation
+   * @generated
+   */
+  EClass getDocumentOperation();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.FilterDocuments <em>Filter Documents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Filter Documents</em>'.
+   * @see org.xtext.example.bilang.bilang.FilterDocuments
+   * @generated
+   */
+  EClass getFilterDocuments();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.FilterDocuments#getField <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see org.xtext.example.bilang.bilang.FilterDocuments#getField()
+   * @see #getFilterDocuments()
+   * @generated
+   */
+  EAttribute getFilterDocuments_Field();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.FilterDocuments#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see org.xtext.example.bilang.bilang.FilterDocuments#getOperator()
+   * @see #getFilterDocuments()
+   * @generated
+   */
+  EAttribute getFilterDocuments_Operator();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.FilterDocuments#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.bilang.bilang.FilterDocuments#getValue()
+   * @see #getFilterDocuments()
+   * @generated
+   */
+  EAttribute getFilterDocuments_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.SortDocuments <em>Sort Documents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sort Documents</em>'.
+   * @see org.xtext.example.bilang.bilang.SortDocuments
+   * @generated
+   */
+  EClass getSortDocuments();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.SortDocuments#getField <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see org.xtext.example.bilang.bilang.SortDocuments#getField()
+   * @see #getSortDocuments()
+   * @generated
+   */
+  EAttribute getSortDocuments_Field();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.SortDocuments#getDirection <em>Direction</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Direction</em>'.
+   * @see org.xtext.example.bilang.bilang.SortDocuments#getDirection()
+   * @see #getSortDocuments()
+   * @generated
+   */
+  EAttribute getSortDocuments_Direction();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.ArchiveDocument <em>Archive Document</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Archive Document</em>'.
+   * @see org.xtext.example.bilang.bilang.ArchiveDocument
+   * @generated
+   */
+  EClass getArchiveDocument();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.ArchiveDocument#getDocument <em>Document</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Document</em>'.
+   * @see org.xtext.example.bilang.bilang.ArchiveDocument#getDocument()
+   * @see #getArchiveDocument()
+   * @generated
+   */
+  EReference getArchiveDocument_Document();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.DeleteDocument <em>Delete Document</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Delete Document</em>'.
+   * @see org.xtext.example.bilang.bilang.DeleteDocument
+   * @generated
+   */
+  EClass getDeleteDocument();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.DeleteDocument#getDocument <em>Document</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Document</em>'.
+   * @see org.xtext.example.bilang.bilang.DeleteDocument#getDocument()
+   * @see #getDeleteDocument()
+   * @generated
+   */
+  EReference getDeleteDocument_Document();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.CreateInvoiceWithProducts <em>Create Invoice With Products</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Create Invoice With Products</em>'.
+   * @see org.xtext.example.bilang.bilang.CreateInvoiceWithProducts
+   * @generated
+   */
+  EClass getCreateInvoiceWithProducts();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.CreateInvoiceWithProducts#getProducts <em>Products</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Products</em>'.
+   * @see org.xtext.example.bilang.bilang.CreateInvoiceWithProducts#getProducts()
+   * @see #getCreateInvoiceWithProducts()
+   * @generated
+   */
+  EReference getCreateInvoiceWithProducts_Products();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.ProductReference <em>Product Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Product Reference</em>'.
+   * @see org.xtext.example.bilang.bilang.ProductReference
+   * @generated
+   */
+  EClass getProductReference();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.ProductReference#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.ProductReference#getName()
+   * @see #getProductReference()
+   * @generated
+   */
+  EAttribute getProductReference_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.CreateProduct <em>Create Product</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Create Product</em>'.
+   * @see org.xtext.example.bilang.bilang.CreateProduct
+   * @generated
+   */
+  EClass getCreateProduct();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.CreateProduct#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.CreateProduct#getName()
+   * @see #getCreateProduct()
+   * @generated
+   */
+  EAttribute getCreateProduct_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.CreateProduct#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.xtext.example.bilang.bilang.CreateProduct#getDescription()
+   * @see #getCreateProduct()
+   * @generated
+   */
+  EAttribute getCreateProduct_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.CreateProduct#getPrice <em>Price</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Price</em>'.
+   * @see org.xtext.example.bilang.bilang.CreateProduct#getPrice()
+   * @see #getCreateProduct()
+   * @generated
+   */
+  EAttribute getCreateProduct_Price();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RetrieveProductInformation <em>Retrieve Product Information</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Retrieve Product Information</em>'.
+   * @see org.xtext.example.bilang.bilang.RetrieveProductInformation
+   * @generated
+   */
+  EClass getRetrieveProductInformation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.RetrieveProductInformation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.bilang.bilang.RetrieveProductInformation#getName()
+   * @see #getRetrieveProductInformation()
+   * @generated
+   */
+  EAttribute getRetrieveProductInformation_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.RetrieveOrderStatusByInvoice <em>Retrieve Order Status By Invoice</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Retrieve Order Status By Invoice</em>'.
+   * @see org.xtext.example.bilang.bilang.RetrieveOrderStatusByInvoice
+   * @generated
+   */
+  EClass getRetrieveOrderStatusByInvoice();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.RetrieveOrderStatusByInvoice#getInvoiceCode <em>Invoice Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Invoice Code</em>'.
+   * @see org.xtext.example.bilang.bilang.RetrieveOrderStatusByInvoice#getInvoiceCode()
+   * @see #getRetrieveOrderStatusByInvoice()
+   * @generated
+   */
+  EAttribute getRetrieveOrderStatusByInvoice_InvoiceCode();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.BinaryExpression <em>Binary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Binary Expression</em>'.
+   * @see org.xtext.example.bilang.bilang.BinaryExpression
+   * @generated
+   */
+  EClass getBinaryExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.BinaryExpression#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.bilang.bilang.BinaryExpression#getLeft()
+   * @see #getBinaryExpression()
+   * @generated
+   */
+  EReference getBinaryExpression_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.BinaryExpression#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see org.xtext.example.bilang.bilang.BinaryExpression#getOperator()
+   * @see #getBinaryExpression()
+   * @generated
+   */
+  EAttribute getBinaryExpression_Operator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.BinaryExpression#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.bilang.bilang.BinaryExpression#getRight()
+   * @see #getBinaryExpression()
+   * @generated
+   */
+  EReference getBinaryExpression_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.ParenthesizedExpression <em>Parenthesized Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parenthesized Expression</em>'.
+   * @see org.xtext.example.bilang.bilang.ParenthesizedExpression
+   * @generated
+   */
+  EClass getParenthesizedExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.bilang.bilang.ParenthesizedExpression#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.xtext.example.bilang.bilang.ParenthesizedExpression#getExpression()
+   * @see #getParenthesizedExpression()
+   * @generated
+   */
+  EReference getParenthesizedExpression_Expression();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Literal</em>'.
+   * @see org.xtext.example.bilang.bilang.StringLiteral
+   * @generated
+   */
+  EClass getStringLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.StringLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.bilang.bilang.StringLiteral#getValue()
+   * @see #getStringLiteral()
+   * @generated
+   */
+  EAttribute getStringLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.NumberLiteral <em>Number Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Number Literal</em>'.
+   * @see org.xtext.example.bilang.bilang.NumberLiteral
+   * @generated
+   */
+  EClass getNumberLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.NumberLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.bilang.bilang.NumberLiteral#getValue()
+   * @see #getNumberLiteral()
+   * @generated
+   */
+  EAttribute getNumberLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.BooleanLiteral <em>Boolean Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean Literal</em>'.
+   * @see org.xtext.example.bilang.bilang.BooleanLiteral
+   * @generated
+   */
+  EClass getBooleanLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.bilang.bilang.BooleanLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.bilang.bilang.BooleanLiteral#getValue()
+   * @see #getBooleanLiteral()
+   * @generated
+   */
+  EAttribute getBooleanLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.VariableReference <em>Variable Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable Reference</em>'.
+   * @see org.xtext.example.bilang.bilang.VariableReference
+   * @generated
+   */
+  EClass getVariableReference();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.bilang.bilang.VariableReference#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see org.xtext.example.bilang.bilang.VariableReference#getVariable()
+   * @see #getVariableReference()
+   * @generated
+   */
+  EReference getVariableReference_Variable();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.bilang.bilang.ListLiteral <em>List Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>List Literal</em>'.
+   * @see org.xtext.example.bilang.bilang.ListLiteral
+   * @generated
+   */
+  EClass getListLiteral();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.bilang.bilang.ListLiteral#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see org.xtext.example.bilang.bilang.ListLiteral#getElements()
+   * @see #getListLiteral()
+   * @generated
+   */
+  EReference getListLiteral_Elements();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1565,22 +4313,22 @@ public interface BilangPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.TaskImpl <em>Task</em>}' class.
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.TaskImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTask()
      * @generated
      */
-    EClass TASK = eINSTANCE.getTask();
+    EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
 
     /**
-     * The meta object literal for the '<em><b>Kind</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.EmptyProcessImpl <em>Empty Process</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.EmptyProcessImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getEmptyProcess()
      * @generated
      */
-    EReference TASK__KIND = eINSTANCE.getTask_Kind();
+    EClass EMPTY_PROCESS = eINSTANCE.getEmptyProcess();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.CompoundProcessImpl <em>Compound Process</em>}' class.
@@ -1593,12 +4341,12 @@ public interface BilangPackage extends EPackage
     EClass COMPOUND_PROCESS = eINSTANCE.getCompoundProcess();
 
     /**
-     * The meta object literal for the '<em><b>Task</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPOUND_PROCESS__TASK = eINSTANCE.getCompoundProcess_Task();
+    EReference COMPOUND_PROCESS__TASKS = eINSTANCE.getCompoundProcess_Tasks();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.AbstractProcessImpl <em>Abstract Process</em>}' class.
@@ -1619,12 +4367,12 @@ public interface BilangPackage extends EPackage
     EAttribute ABSTRACT_PROCESS__NAME = eINSTANCE.getAbstractProcess_Name();
 
     /**
-     * The meta object literal for the '<em><b>Param Values</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ABSTRACT_PROCESS__PARAM_VALUES = eINSTANCE.getAbstractProcess_ParamValues();
+    EReference ABSTRACT_PROCESS__PARAMETERS = eINSTANCE.getAbstractProcess_Parameters();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ParamValueImpl <em>Param Value</em>}' class.
@@ -1653,88 +4401,578 @@ public interface BilangPackage extends EPackage
     EAttribute PARAM_VALUE__VALUE = eINSTANCE.getParamValue_Value();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveTaskImpl <em>Retrieve Task</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.WorkflowImpl <em>Workflow</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.RetrieveTaskImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveTask()
+     * @see org.xtext.example.bilang.bilang.impl.WorkflowImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWorkflow()
      * @generated
      */
-    EClass RETRIEVE_TASK = eINSTANCE.getRetrieveTask();
+    EClass WORKFLOW = eINSTANCE.getWorkflow();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SendTaskImpl <em>Send Task</em>}' class.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.SendTaskImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendTask()
      * @generated
      */
-    EClass SEND_TASK = eINSTANCE.getSendTask();
+    EAttribute WORKFLOW__NAME = eINSTANCE.getWorkflow_Name();
 
     /**
-     * The meta object literal for the '<em><b>Person</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SEND_TASK__PERSON = eINSTANCE.getSendTask_Person();
+    EReference WORKFLOW__STATEMENTS = eINSTANCE.getWorkflow_Statements();
 
     /**
-     * The meta object literal for the '<em><b>Message</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.WorkflowDefinitionImpl <em>Workflow Definition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.WorkflowDefinitionImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWorkflowDefinition()
      * @generated
      */
-    EReference SEND_TASK__MESSAGE = eINSTANCE.getSendTask_Message();
+    EClass WORKFLOW_DEFINITION = eINSTANCE.getWorkflowDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Attachment</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SEND_TASK__ATTACHMENT = eINSTANCE.getSendTask_Attachment();
+    EAttribute WORKFLOW_DEFINITION__NAME = eINSTANCE.getWorkflowDefinition_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.PersonTaskImpl <em>Person Task</em>}' class.
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.PersonTaskImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonTask()
      * @generated
      */
-    EClass PERSON_TASK = eINSTANCE.getPersonTask();
+    EReference WORKFLOW_DEFINITION__PARAMETERS = eINSTANCE.getWorkflowDefinition_Parameters();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SendEmailImpl <em>Send Email</em>}' class.
+     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.SendEmailImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendEmail()
      * @generated
      */
-    EClass SEND_EMAIL = eINSTANCE.getSendEmail();
+    EReference WORKFLOW_DEFINITION__STATEMENTS = eINSTANCE.getWorkflowDefinition_Statements();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SendSMSImpl <em>Send SMS</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ParameterImpl <em>Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.SendSMSImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendSMS()
+     * @see org.xtext.example.bilang.bilang.impl.ParameterImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getParameter()
      * @generated
      */
-    EClass SEND_SMS = eINSTANCE.getSendSMS();
+    EClass PARAMETER = eINSTANCE.getParameter();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SendSnailMailImpl <em>Send Snail Mail</em>}' class.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.SendSnailMailImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendSnailMail()
      * @generated
      */
-    EClass SEND_SNAIL_MAIL = eINSTANCE.getSendSnailMail();
+    EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.StatementImpl <em>Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.StatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getStatement()
+     * @generated
+     */
+    EClass STATEMENT = eINSTANCE.getStatement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.TaskImpl <em>Task</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.TaskImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTask()
+     * @generated
+     */
+    EClass TASK = eINSTANCE.getTask();
+
+    /**
+     * The meta object literal for the '<em><b>Kind</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TASK__KIND = eINSTANCE.getTask_Kind();
+
+    /**
+     * The meta object literal for the '<em><b>Result</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TASK__RESULT = eINSTANCE.getTask_Result();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.LetStatementImpl <em>Let Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.LetStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getLetStatement()
+     * @generated
+     */
+    EClass LET_STATEMENT = eINSTANCE.getLetStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_STATEMENT__VARIABLE = eINSTANCE.getLetStatement_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_STATEMENT__VALUE = eINSTANCE.getLetStatement_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.VariableDeclarationImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getVariableDeclaration()
+     * @generated
+     */
+    EClass VARIABLE_DECLARATION = eINSTANCE.getVariableDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE_DECLARATION__NAME = eINSTANCE.getVariableDeclaration_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ExpressionImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.IfStatementImpl <em>If Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.IfStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getIfStatement()
+     * @generated
+     */
+    EClass IF_STATEMENT = eINSTANCE.getIfStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__CONDITION = eINSTANCE.getIfStatement_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Then Branch</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__THEN_BRANCH = eINSTANCE.getIfStatement_ThenBranch();
+
+    /**
+     * The meta object literal for the '<em><b>Else Branch</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__ELSE_BRANCH = eINSTANCE.getIfStatement_ElseBranch();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ForEachStatementImpl <em>For Each Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ForEachStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getForEachStatement()
+     * @generated
+     */
+    EClass FOR_EACH_STATEMENT = eINSTANCE.getForEachStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_EACH_STATEMENT__VARIABLE = eINSTANCE.getForEachStatement_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Collection</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_EACH_STATEMENT__COLLECTION = eINSTANCE.getForEachStatement_Collection();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_EACH_STATEMENT__BODY = eINSTANCE.getForEachStatement_Body();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.WhileStatementImpl <em>While Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.WhileStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWhileStatement()
+     * @generated
+     */
+    EClass WHILE_STATEMENT = eINSTANCE.getWhileStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE_STATEMENT__CONDITION = eINSTANCE.getWhileStatement_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE_STATEMENT__BODY = eINSTANCE.getWhileStatement_Body();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ParallelProcessImpl <em>Parallel Process</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ParallelProcessImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getParallelProcess()
+     * @generated
+     */
+    EClass PARALLEL_PROCESS = eINSTANCE.getParallelProcess();
+
+    /**
+     * The meta object literal for the '<em><b>Branches</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARALLEL_PROCESS__BRANCHES = eINSTANCE.getParallelProcess_Branches();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ParallelBranchImpl <em>Parallel Branch</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ParallelBranchImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getParallelBranch()
+     * @generated
+     */
+    EClass PARALLEL_BRANCH = eINSTANCE.getParallelBranch();
+
+    /**
+     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARALLEL_BRANCH__STATEMENTS = eINSTANCE.getParallelBranch_Statements();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.TryCatchStatementImpl <em>Try Catch Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.TryCatchStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTryCatchStatement()
+     * @generated
+     */
+    EClass TRY_CATCH_STATEMENT = eINSTANCE.getTryCatchStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Try Body</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_CATCH_STATEMENT__TRY_BODY = eINSTANCE.getTryCatchStatement_TryBody();
+
+    /**
+     * The meta object literal for the '<em><b>Error Variable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRY_CATCH_STATEMENT__ERROR_VARIABLE = eINSTANCE.getTryCatchStatement_ErrorVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Catch Body</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_CATCH_STATEMENT__CATCH_BODY = eINSTANCE.getTryCatchStatement_CatchBody();
+
+    /**
+     * The meta object literal for the '<em><b>Finally Body</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_CATCH_STATEMENT__FINALLY_BODY = eINSTANCE.getTryCatchStatement_FinallyBody();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RetryStatementImpl <em>Retry Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.RetryStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetryStatement()
+     * @generated
+     */
+    EClass RETRY_STATEMENT = eINSTANCE.getRetryStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Attempts</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RETRY_STATEMENT__ATTEMPTS = eINSTANCE.getRetryStatement_Attempts();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RETRY_STATEMENT__BODY = eINSTANCE.getRetryStatement_Body();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.TimeoutStatementImpl <em>Timeout Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.TimeoutStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getTimeoutStatement()
+     * @generated
+     */
+    EClass TIMEOUT_STATEMENT = eINSTANCE.getTimeoutStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TIMEOUT_STATEMENT__DURATION = eINSTANCE.getTimeoutStatement_Duration();
+
+    /**
+     * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TIMEOUT_STATEMENT__UNIT = eINSTANCE.getTimeoutStatement_Unit();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TIMEOUT_STATEMENT__BODY = eINSTANCE.getTimeoutStatement_Body();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.CompensateStatementImpl <em>Compensate Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.CompensateStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getCompensateStatement()
+     * @generated
+     */
+    EClass COMPENSATE_STATEMENT = eINSTANCE.getCompensateStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPENSATE_STATEMENT__ACTIONS = eINSTANCE.getCompensateStatement_Actions();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RequireStatementImpl <em>Require Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.RequireStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRequireStatement()
+     * @generated
+     */
+    EClass REQUIRE_STATEMENT = eINSTANCE.getRequireStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIRE_STATEMENT__CONDITION = eINSTANCE.getRequireStatement_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIRE_STATEMENT__BODY = eINSTANCE.getRequireStatement_Body();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.WaitStatementImpl <em>Wait Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.WaitStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWaitStatement()
+     * @generated
+     */
+    EClass WAIT_STATEMENT = eINSTANCE.getWaitStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WAIT_STATEMENT__DURATION = eINSTANCE.getWaitStatement_Duration();
+
+    /**
+     * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WAIT_STATEMENT__UNIT = eINSTANCE.getWaitStatement_Unit();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.AssertStatementImpl <em>Assert Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.AssertStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getAssertStatement()
+     * @generated
+     */
+    EClass ASSERT_STATEMENT = eINSTANCE.getAssertStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSERT_STATEMENT__CONDITION = eINSTANCE.getAssertStatement_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSERT_STATEMENT__MESSAGE = eINSTANCE.getAssertStatement_Message();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.LogStatementImpl <em>Log Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.LogStatementImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getLogStatement()
+     * @generated
+     */
+    EClass LOG_STATEMENT = eINSTANCE.getLogStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOG_STATEMENT__VALUE = eINSTANCE.getLogStatement_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.WorkflowCallImpl <em>Workflow Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.WorkflowCallImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getWorkflowCall()
+     * @generated
+     */
+    EClass WORKFLOW_CALL = eINSTANCE.getWorkflowCall();
+
+    /**
+     * The meta object literal for the '<em><b>Workflow</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORKFLOW_CALL__WORKFLOW = eINSTANCE.getWorkflowCall_Workflow();
+
+    /**
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORKFLOW_CALL__ARGUMENTS = eINSTANCE.getWorkflowCall_Arguments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ArgumentImpl <em>Argument</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ArgumentImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getArgument()
+     * @generated
+     */
+    EClass ARGUMENT = eINSTANCE.getArgument();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARGUMENT__NAME = eINSTANCE.getArgument_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT__VALUE = eINSTANCE.getArgument_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveDocumentImpl <em>Retrieve Document</em>}' class.
@@ -1755,6 +4993,24 @@ public interface BilangPackage extends EPackage
     EReference RETRIEVE_DOCUMENT__DOCUMENT = eINSTANCE.getRetrieveDocument_Document();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveInvoicesImpl <em>Retrieve Invoices</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.RetrieveInvoicesImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveInvoices()
+     * @generated
+     */
+    EClass RETRIEVE_INVOICES = eINSTANCE.getRetrieveInvoices();
+
+    /**
+     * The meta object literal for the '<em><b>Invoice Numbers</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RETRIEVE_INVOICES__INVOICE_NUMBERS = eINSTANCE.getRetrieveInvoices_InvoiceNumbers();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveFullAddressImpl <em>Retrieve Full Address</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1765,12 +5021,12 @@ public interface BilangPackage extends EPackage
     EClass RETRIEVE_FULL_ADDRESS = eINSTANCE.getRetrieveFullAddress();
 
     /**
-     * The meta object literal for the '<em><b>Person Adress</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Person Address</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RETRIEVE_FULL_ADDRESS__PERSON_ADRESS = eINSTANCE.getRetrieveFullAddress_PersonAdress();
+    EReference RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS = eINSTANCE.getRetrieveFullAddress_PersonAddress();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RetrievePersonsImpl <em>Retrieve Persons</em>}' class.
@@ -1789,6 +5045,126 @@ public interface BilangPackage extends EPackage
      * @generated
      */
     EAttribute RETRIEVE_PERSONS__PERSON_SEARCH = eINSTANCE.getRetrievePersons_PersonSearch();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SendEmailImpl <em>Send Email</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.SendEmailImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendEmail()
+     * @generated
+     */
+    EClass SEND_EMAIL = eINSTANCE.getSendEmail();
+
+    /**
+     * The meta object literal for the '<em><b>Recipients</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_EMAIL__RECIPIENTS = eINSTANCE.getSendEmail_Recipients();
+
+    /**
+     * The meta object literal for the '<em><b>Message</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_EMAIL__MESSAGE = eINSTANCE.getSendEmail_Message();
+
+    /**
+     * The meta object literal for the '<em><b>Attachments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_EMAIL__ATTACHMENTS = eINSTANCE.getSendEmail_Attachments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SendSMSImpl <em>Send SMS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.SendSMSImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendSMS()
+     * @generated
+     */
+    EClass SEND_SMS = eINSTANCE.getSendSMS();
+
+    /**
+     * The meta object literal for the '<em><b>Recipients</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_SMS__RECIPIENTS = eINSTANCE.getSendSMS_Recipients();
+
+    /**
+     * The meta object literal for the '<em><b>Message</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_SMS__MESSAGE = eINSTANCE.getSendSMS_Message();
+
+    /**
+     * The meta object literal for the '<em><b>Attachments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_SMS__ATTACHMENTS = eINSTANCE.getSendSMS_Attachments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SendSnailMailImpl <em>Send Snail Mail</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.SendSnailMailImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSendSnailMail()
+     * @generated
+     */
+    EClass SEND_SNAIL_MAIL = eINSTANCE.getSendSnailMail();
+
+    /**
+     * The meta object literal for the '<em><b>Recipients</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_SNAIL_MAIL__RECIPIENTS = eINSTANCE.getSendSnailMail_Recipients();
+
+    /**
+     * The meta object literal for the '<em><b>Message</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_SNAIL_MAIL__MESSAGE = eINSTANCE.getSendSnailMail_Message();
+
+    /**
+     * The meta object literal for the '<em><b>Attachments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_SNAIL_MAIL__ATTACHMENTS = eINSTANCE.getSendSnailMail_Attachments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.MessageImpl <em>Message</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.MessageImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getMessage()
+     * @generated
+     */
+    EClass MESSAGE = eINSTANCE.getMessage();
+
+    /**
+     * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MESSAGE__MESSAGE = eINSTANCE.getMessage_Message();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.CallPersonImpl <em>Call Person</em>}' class.
@@ -1853,6 +5229,100 @@ public interface BilangPackage extends EPackage
     EReference DELETE_PERSON__ALIAS = eINSTANCE.getDeletePerson_Alias();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.UpdatePersonImpl <em>Update Person</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.UpdatePersonImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getUpdatePerson()
+     * @generated
+     */
+    EClass UPDATE_PERSON = eINSTANCE.getUpdatePerson();
+
+    /**
+     * The meta object literal for the '<em><b>Person</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UPDATE_PERSON__PERSON = eINSTANCE.getUpdatePerson_Person();
+
+    /**
+     * The meta object literal for the '<em><b>Changes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UPDATE_PERSON__CHANGES = eINSTANCE.getUpdatePerson_Changes();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.PersonChangeImpl <em>Person Change</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.PersonChangeImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getPersonChange()
+     * @generated
+     */
+    EClass PERSON_CHANGE = eINSTANCE.getPersonChange();
+
+    /**
+     * The meta object literal for the '<em><b>Email</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSON_CHANGE__EMAIL = eINSTANCE.getPersonChange_Email();
+
+    /**
+     * The meta object literal for the '<em><b>Phone</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSON_CHANGE__PHONE = eINSTANCE.getPersonChange_Phone();
+
+    /**
+     * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSON_CHANGE__ALIAS = eINSTANCE.getPersonChange_Alias();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SearchPersonImpl <em>Search Person</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.SearchPersonImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSearchPerson()
+     * @generated
+     */
+    EClass SEARCH_PERSON = eINSTANCE.getSearchPerson();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEARCH_PERSON__NAME = eINSTANCE.getSearchPerson_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Email</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEARCH_PERSON__EMAIL = eINSTANCE.getSearchPerson_Email();
+
+    /**
+     * The meta object literal for the '<em><b>Phone</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEARCH_PERSON__PHONE = eINSTANCE.getSearchPerson_Phone();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.PersonImpl <em>Person</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1861,6 +5331,14 @@ public interface BilangPackage extends EPackage
      * @generated
      */
     EClass PERSON = eINSTANCE.getPerson();
+
+    /**
+     * The meta object literal for the '<em><b>Kind</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSON__KIND = eINSTANCE.getPerson_Kind();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.PersonByEmailImpl <em>Person By Email</em>}' class.
@@ -1977,24 +5455,6 @@ public interface BilangPackage extends EPackage
     EAttribute PERSON_BY_ADDRESS__SUFFIX = eINSTANCE.getPersonByAddress_Suffix();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.MessageImpl <em>Message</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.bilang.bilang.impl.MessageImpl
-     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getMessage()
-     * @generated
-     */
-    EClass MESSAGE = eINSTANCE.getMessage();
-
-    /**
-     * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MESSAGE__MESSAGE = eINSTANCE.getMessage_Message();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.DocumentImpl <em>Document</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2005,7 +5465,7 @@ public interface BilangPackage extends EPackage
     EClass DOCUMENT = eINSTANCE.getDocument();
 
     /**
-     * The meta object literal for the '<em><b>Kind</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Kind</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2065,6 +5525,360 @@ public interface BilangPackage extends EPackage
      * @generated
      */
     EAttribute DOCUMENT_TOPIC__TOPIC = eINSTANCE.getDocumentTopic_Topic();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.DocumentOperationImpl <em>Document Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.DocumentOperationImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDocumentOperation()
+     * @generated
+     */
+    EClass DOCUMENT_OPERATION = eINSTANCE.getDocumentOperation();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.FilterDocumentsImpl <em>Filter Documents</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.FilterDocumentsImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getFilterDocuments()
+     * @generated
+     */
+    EClass FILTER_DOCUMENTS = eINSTANCE.getFilterDocuments();
+
+    /**
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILTER_DOCUMENTS__FIELD = eINSTANCE.getFilterDocuments_Field();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILTER_DOCUMENTS__OPERATOR = eINSTANCE.getFilterDocuments_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILTER_DOCUMENTS__VALUE = eINSTANCE.getFilterDocuments_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.SortDocumentsImpl <em>Sort Documents</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.SortDocumentsImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getSortDocuments()
+     * @generated
+     */
+    EClass SORT_DOCUMENTS = eINSTANCE.getSortDocuments();
+
+    /**
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SORT_DOCUMENTS__FIELD = eINSTANCE.getSortDocuments_Field();
+
+    /**
+     * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SORT_DOCUMENTS__DIRECTION = eINSTANCE.getSortDocuments_Direction();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ArchiveDocumentImpl <em>Archive Document</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ArchiveDocumentImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getArchiveDocument()
+     * @generated
+     */
+    EClass ARCHIVE_DOCUMENT = eINSTANCE.getArchiveDocument();
+
+    /**
+     * The meta object literal for the '<em><b>Document</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARCHIVE_DOCUMENT__DOCUMENT = eINSTANCE.getArchiveDocument_Document();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.DeleteDocumentImpl <em>Delete Document</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.DeleteDocumentImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getDeleteDocument()
+     * @generated
+     */
+    EClass DELETE_DOCUMENT = eINSTANCE.getDeleteDocument();
+
+    /**
+     * The meta object literal for the '<em><b>Document</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELETE_DOCUMENT__DOCUMENT = eINSTANCE.getDeleteDocument_Document();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.CreateInvoiceWithProductsImpl <em>Create Invoice With Products</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.CreateInvoiceWithProductsImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getCreateInvoiceWithProducts()
+     * @generated
+     */
+    EClass CREATE_INVOICE_WITH_PRODUCTS = eINSTANCE.getCreateInvoiceWithProducts();
+
+    /**
+     * The meta object literal for the '<em><b>Products</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CREATE_INVOICE_WITH_PRODUCTS__PRODUCTS = eINSTANCE.getCreateInvoiceWithProducts_Products();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ProductReferenceImpl <em>Product Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ProductReferenceImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getProductReference()
+     * @generated
+     */
+    EClass PRODUCT_REFERENCE = eINSTANCE.getProductReference();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRODUCT_REFERENCE__NAME = eINSTANCE.getProductReference_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.CreateProductImpl <em>Create Product</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.CreateProductImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getCreateProduct()
+     * @generated
+     */
+    EClass CREATE_PRODUCT = eINSTANCE.getCreateProduct();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_PRODUCT__NAME = eINSTANCE.getCreateProduct_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_PRODUCT__DESCRIPTION = eINSTANCE.getCreateProduct_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Price</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_PRODUCT__PRICE = eINSTANCE.getCreateProduct_Price();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveProductInformationImpl <em>Retrieve Product Information</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.RetrieveProductInformationImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveProductInformation()
+     * @generated
+     */
+    EClass RETRIEVE_PRODUCT_INFORMATION = eINSTANCE.getRetrieveProductInformation();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RETRIEVE_PRODUCT_INFORMATION__NAME = eINSTANCE.getRetrieveProductInformation_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.RetrieveOrderStatusByInvoiceImpl <em>Retrieve Order Status By Invoice</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.RetrieveOrderStatusByInvoiceImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getRetrieveOrderStatusByInvoice()
+     * @generated
+     */
+    EClass RETRIEVE_ORDER_STATUS_BY_INVOICE = eINSTANCE.getRetrieveOrderStatusByInvoice();
+
+    /**
+     * The meta object literal for the '<em><b>Invoice Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RETRIEVE_ORDER_STATUS_BY_INVOICE__INVOICE_CODE = eINSTANCE.getRetrieveOrderStatusByInvoice_InvoiceCode();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.BinaryExpressionImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getBinaryExpression()
+     * @generated
+     */
+    EClass BINARY_EXPRESSION = eINSTANCE.getBinaryExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINARY_EXPRESSION__LEFT = eINSTANCE.getBinaryExpression_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_EXPRESSION__OPERATOR = eINSTANCE.getBinaryExpression_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINARY_EXPRESSION__RIGHT = eINSTANCE.getBinaryExpression_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ParenthesizedExpressionImpl <em>Parenthesized Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ParenthesizedExpressionImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getParenthesizedExpression()
+     * @generated
+     */
+    EClass PARENTHESIZED_EXPRESSION = eINSTANCE.getParenthesizedExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARENTHESIZED_EXPRESSION__EXPRESSION = eINSTANCE.getParenthesizedExpression_Expression();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.StringLiteralImpl <em>String Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.StringLiteralImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getStringLiteral()
+     * @generated
+     */
+    EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.NumberLiteralImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getNumberLiteral()
+     * @generated
+     */
+    EClass NUMBER_LITERAL = eINSTANCE.getNumberLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMBER_LITERAL__VALUE = eINSTANCE.getNumberLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.BooleanLiteralImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getBooleanLiteral()
+     * @generated
+     */
+    EClass BOOLEAN_LITERAL = eINSTANCE.getBooleanLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN_LITERAL__VALUE = eINSTANCE.getBooleanLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.VariableReferenceImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getVariableReference()
+     * @generated
+     */
+    EClass VARIABLE_REFERENCE = eINSTANCE.getVariableReference();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VARIABLE_REFERENCE__VARIABLE = eINSTANCE.getVariableReference_Variable();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.bilang.bilang.impl.ListLiteralImpl <em>List Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.bilang.bilang.impl.ListLiteralImpl
+     * @see org.xtext.example.bilang.bilang.impl.BilangPackageImpl#getListLiteral()
+     * @generated
+     */
+    EClass LIST_LITERAL = eINSTANCE.getListLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIST_LITERAL__ELEMENTS = eINSTANCE.getListLiteral_Elements();
 
   }
 

@@ -80,11 +80,10 @@ public class BilangSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BilangPackage.TASK:
+      case BilangPackage.EMPTY_PROCESS:
       {
-        Task task = (Task)theEObject;
-        T result = caseTask(task);
-        if (result == null) result = caseModel(task);
+        EmptyProcess emptyProcess = (EmptyProcess)theEObject;
+        T result = caseEmptyProcess(emptyProcess);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,7 +91,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         CompoundProcess compoundProcess = (CompoundProcess)theEObject;
         T result = caseCompoundProcess(compoundProcess);
-        if (result == null) result = caseModel(compoundProcess);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -100,7 +98,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         AbstractProcess abstractProcess = (AbstractProcess)theEObject;
         T result = caseAbstractProcess(abstractProcess);
-        if (result == null) result = caseModel(abstractProcess);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -111,48 +108,179 @@ public class BilangSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BilangPackage.RETRIEVE_TASK:
+      case BilangPackage.WORKFLOW:
       {
-        RetrieveTask retrieveTask = (RetrieveTask)theEObject;
-        T result = caseRetrieveTask(retrieveTask);
+        Workflow workflow = (Workflow)theEObject;
+        T result = caseWorkflow(workflow);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BilangPackage.SEND_TASK:
+      case BilangPackage.WORKFLOW_DEFINITION:
       {
-        SendTask sendTask = (SendTask)theEObject;
-        T result = caseSendTask(sendTask);
+        WorkflowDefinition workflowDefinition = (WorkflowDefinition)theEObject;
+        T result = caseWorkflowDefinition(workflowDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BilangPackage.PERSON_TASK:
+      case BilangPackage.PARAMETER:
       {
-        PersonTask personTask = (PersonTask)theEObject;
-        T result = casePersonTask(personTask);
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BilangPackage.SEND_EMAIL:
+      case BilangPackage.STATEMENT:
       {
-        SendEmail sendEmail = (SendEmail)theEObject;
-        T result = caseSendEmail(sendEmail);
-        if (result == null) result = caseSendTask(sendEmail);
+        Statement statement = (Statement)theEObject;
+        T result = caseStatement(statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BilangPackage.SEND_SMS:
+      case BilangPackage.TASK:
       {
-        SendSMS sendSMS = (SendSMS)theEObject;
-        T result = caseSendSMS(sendSMS);
-        if (result == null) result = caseSendTask(sendSMS);
+        Task task = (Task)theEObject;
+        T result = caseTask(task);
+        if (result == null) result = caseStatement(task);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BilangPackage.SEND_SNAIL_MAIL:
+      case BilangPackage.LET_STATEMENT:
       {
-        SendSnailMail sendSnailMail = (SendSnailMail)theEObject;
-        T result = caseSendSnailMail(sendSnailMail);
-        if (result == null) result = caseSendTask(sendSnailMail);
+        LetStatement letStatement = (LetStatement)theEObject;
+        T result = caseLetStatement(letStatement);
+        if (result == null) result = caseStatement(letStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.VARIABLE_DECLARATION:
+      {
+        VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
+        T result = caseVariableDeclaration(variableDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.IF_STATEMENT:
+      {
+        IfStatement ifStatement = (IfStatement)theEObject;
+        T result = caseIfStatement(ifStatement);
+        if (result == null) result = caseStatement(ifStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.FOR_EACH_STATEMENT:
+      {
+        ForEachStatement forEachStatement = (ForEachStatement)theEObject;
+        T result = caseForEachStatement(forEachStatement);
+        if (result == null) result = caseStatement(forEachStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.WHILE_STATEMENT:
+      {
+        WhileStatement whileStatement = (WhileStatement)theEObject;
+        T result = caseWhileStatement(whileStatement);
+        if (result == null) result = caseStatement(whileStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.PARALLEL_PROCESS:
+      {
+        ParallelProcess parallelProcess = (ParallelProcess)theEObject;
+        T result = caseParallelProcess(parallelProcess);
+        if (result == null) result = caseStatement(parallelProcess);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.PARALLEL_BRANCH:
+      {
+        ParallelBranch parallelBranch = (ParallelBranch)theEObject;
+        T result = caseParallelBranch(parallelBranch);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.TRY_CATCH_STATEMENT:
+      {
+        TryCatchStatement tryCatchStatement = (TryCatchStatement)theEObject;
+        T result = caseTryCatchStatement(tryCatchStatement);
+        if (result == null) result = caseStatement(tryCatchStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.RETRY_STATEMENT:
+      {
+        RetryStatement retryStatement = (RetryStatement)theEObject;
+        T result = caseRetryStatement(retryStatement);
+        if (result == null) result = caseStatement(retryStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.TIMEOUT_STATEMENT:
+      {
+        TimeoutStatement timeoutStatement = (TimeoutStatement)theEObject;
+        T result = caseTimeoutStatement(timeoutStatement);
+        if (result == null) result = caseStatement(timeoutStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.COMPENSATE_STATEMENT:
+      {
+        CompensateStatement compensateStatement = (CompensateStatement)theEObject;
+        T result = caseCompensateStatement(compensateStatement);
+        if (result == null) result = caseStatement(compensateStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.REQUIRE_STATEMENT:
+      {
+        RequireStatement requireStatement = (RequireStatement)theEObject;
+        T result = caseRequireStatement(requireStatement);
+        if (result == null) result = caseStatement(requireStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.WAIT_STATEMENT:
+      {
+        WaitStatement waitStatement = (WaitStatement)theEObject;
+        T result = caseWaitStatement(waitStatement);
+        if (result == null) result = caseStatement(waitStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.ASSERT_STATEMENT:
+      {
+        AssertStatement assertStatement = (AssertStatement)theEObject;
+        T result = caseAssertStatement(assertStatement);
+        if (result == null) result = caseStatement(assertStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.LOG_STATEMENT:
+      {
+        LogStatement logStatement = (LogStatement)theEObject;
+        T result = caseLogStatement(logStatement);
+        if (result == null) result = caseStatement(logStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.WORKFLOW_CALL:
+      {
+        WorkflowCall workflowCall = (WorkflowCall)theEObject;
+        T result = caseWorkflowCall(workflowCall);
+        if (result == null) result = caseStatement(workflowCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.ARGUMENT:
+      {
+        Argument argument = (Argument)theEObject;
+        T result = caseArgument(argument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -160,7 +288,13 @@ public class BilangSwitch<T> extends Switch<T>
       {
         RetrieveDocument retrieveDocument = (RetrieveDocument)theEObject;
         T result = caseRetrieveDocument(retrieveDocument);
-        if (result == null) result = caseRetrieveTask(retrieveDocument);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.RETRIEVE_INVOICES:
+      {
+        RetrieveInvoices retrieveInvoices = (RetrieveInvoices)theEObject;
+        T result = caseRetrieveInvoices(retrieveInvoices);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -168,7 +302,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         RetrieveFullAddress retrieveFullAddress = (RetrieveFullAddress)theEObject;
         T result = caseRetrieveFullAddress(retrieveFullAddress);
-        if (result == null) result = caseRetrieveTask(retrieveFullAddress);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,7 +309,34 @@ public class BilangSwitch<T> extends Switch<T>
       {
         RetrievePersons retrievePersons = (RetrievePersons)theEObject;
         T result = caseRetrievePersons(retrievePersons);
-        if (result == null) result = caseRetrieveTask(retrievePersons);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.SEND_EMAIL:
+      {
+        SendEmail sendEmail = (SendEmail)theEObject;
+        T result = caseSendEmail(sendEmail);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.SEND_SMS:
+      {
+        SendSMS sendSMS = (SendSMS)theEObject;
+        T result = caseSendSMS(sendSMS);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.SEND_SNAIL_MAIL:
+      {
+        SendSnailMail sendSnailMail = (SendSnailMail)theEObject;
+        T result = caseSendSnailMail(sendSnailMail);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.MESSAGE:
+      {
+        Message message = (Message)theEObject;
+        T result = caseMessage(message);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -184,7 +344,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         CallPerson callPerson = (CallPerson)theEObject;
         T result = caseCallPerson(callPerson);
-        if (result == null) result = casePersonTask(callPerson);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -192,7 +351,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         AddPerson addPerson = (AddPerson)theEObject;
         T result = caseAddPerson(addPerson);
-        if (result == null) result = casePersonTask(addPerson);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -200,7 +358,27 @@ public class BilangSwitch<T> extends Switch<T>
       {
         DeletePerson deletePerson = (DeletePerson)theEObject;
         T result = caseDeletePerson(deletePerson);
-        if (result == null) result = casePersonTask(deletePerson);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.UPDATE_PERSON:
+      {
+        UpdatePerson updatePerson = (UpdatePerson)theEObject;
+        T result = caseUpdatePerson(updatePerson);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.PERSON_CHANGE:
+      {
+        PersonChange personChange = (PersonChange)theEObject;
+        T result = casePersonChange(personChange);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.SEARCH_PERSON:
+      {
+        SearchPerson searchPerson = (SearchPerson)theEObject;
+        T result = caseSearchPerson(searchPerson);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -215,7 +393,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         PersonByEmail personByEmail = (PersonByEmail)theEObject;
         T result = casePersonByEmail(personByEmail);
-        if (result == null) result = casePerson(personByEmail);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -223,7 +400,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         PersonByAlias personByAlias = (PersonByAlias)theEObject;
         T result = casePersonByAlias(personByAlias);
-        if (result == null) result = casePerson(personByAlias);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -231,7 +407,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         PersonByName personByName = (PersonByName)theEObject;
         T result = casePersonByName(personByName);
-        if (result == null) result = casePerson(personByName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -239,7 +414,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         PersonByPhone personByPhone = (PersonByPhone)theEObject;
         T result = casePersonByPhone(personByPhone);
-        if (result == null) result = casePerson(personByPhone);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -247,14 +421,6 @@ public class BilangSwitch<T> extends Switch<T>
       {
         PersonByAddress personByAddress = (PersonByAddress)theEObject;
         T result = casePersonByAddress(personByAddress);
-        if (result == null) result = casePerson(personByAddress);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BilangPackage.MESSAGE:
-      {
-        Message message = (Message)theEObject;
-        T result = caseMessage(message);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -286,6 +452,141 @@ public class BilangSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case BilangPackage.DOCUMENT_OPERATION:
+      {
+        DocumentOperation documentOperation = (DocumentOperation)theEObject;
+        T result = caseDocumentOperation(documentOperation);
+        if (result == null) result = caseStatement(documentOperation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.FILTER_DOCUMENTS:
+      {
+        FilterDocuments filterDocuments = (FilterDocuments)theEObject;
+        T result = caseFilterDocuments(filterDocuments);
+        if (result == null) result = caseDocumentOperation(filterDocuments);
+        if (result == null) result = caseStatement(filterDocuments);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.SORT_DOCUMENTS:
+      {
+        SortDocuments sortDocuments = (SortDocuments)theEObject;
+        T result = caseSortDocuments(sortDocuments);
+        if (result == null) result = caseDocumentOperation(sortDocuments);
+        if (result == null) result = caseStatement(sortDocuments);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.ARCHIVE_DOCUMENT:
+      {
+        ArchiveDocument archiveDocument = (ArchiveDocument)theEObject;
+        T result = caseArchiveDocument(archiveDocument);
+        if (result == null) result = caseDocumentOperation(archiveDocument);
+        if (result == null) result = caseStatement(archiveDocument);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.DELETE_DOCUMENT:
+      {
+        DeleteDocument deleteDocument = (DeleteDocument)theEObject;
+        T result = caseDeleteDocument(deleteDocument);
+        if (result == null) result = caseDocumentOperation(deleteDocument);
+        if (result == null) result = caseStatement(deleteDocument);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.CREATE_INVOICE_WITH_PRODUCTS:
+      {
+        CreateInvoiceWithProducts createInvoiceWithProducts = (CreateInvoiceWithProducts)theEObject;
+        T result = caseCreateInvoiceWithProducts(createInvoiceWithProducts);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.PRODUCT_REFERENCE:
+      {
+        ProductReference productReference = (ProductReference)theEObject;
+        T result = caseProductReference(productReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.CREATE_PRODUCT:
+      {
+        CreateProduct createProduct = (CreateProduct)theEObject;
+        T result = caseCreateProduct(createProduct);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.RETRIEVE_PRODUCT_INFORMATION:
+      {
+        RetrieveProductInformation retrieveProductInformation = (RetrieveProductInformation)theEObject;
+        T result = caseRetrieveProductInformation(retrieveProductInformation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.RETRIEVE_ORDER_STATUS_BY_INVOICE:
+      {
+        RetrieveOrderStatusByInvoice retrieveOrderStatusByInvoice = (RetrieveOrderStatusByInvoice)theEObject;
+        T result = caseRetrieveOrderStatusByInvoice(retrieveOrderStatusByInvoice);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.BINARY_EXPRESSION:
+      {
+        BinaryExpression binaryExpression = (BinaryExpression)theEObject;
+        T result = caseBinaryExpression(binaryExpression);
+        if (result == null) result = caseExpression(binaryExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.PARENTHESIZED_EXPRESSION:
+      {
+        ParenthesizedExpression parenthesizedExpression = (ParenthesizedExpression)theEObject;
+        T result = caseParenthesizedExpression(parenthesizedExpression);
+        if (result == null) result = caseExpression(parenthesizedExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.STRING_LITERAL:
+      {
+        StringLiteral stringLiteral = (StringLiteral)theEObject;
+        T result = caseStringLiteral(stringLiteral);
+        if (result == null) result = caseExpression(stringLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.NUMBER_LITERAL:
+      {
+        NumberLiteral numberLiteral = (NumberLiteral)theEObject;
+        T result = caseNumberLiteral(numberLiteral);
+        if (result == null) result = caseExpression(numberLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.BOOLEAN_LITERAL:
+      {
+        BooleanLiteral booleanLiteral = (BooleanLiteral)theEObject;
+        T result = caseBooleanLiteral(booleanLiteral);
+        if (result == null) result = caseExpression(booleanLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.VARIABLE_REFERENCE:
+      {
+        VariableReference variableReference = (VariableReference)theEObject;
+        T result = caseVariableReference(variableReference);
+        if (result == null) result = caseExpression(variableReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BilangPackage.LIST_LITERAL:
+      {
+        ListLiteral listLiteral = (ListLiteral)theEObject;
+        T result = caseListLiteral(listLiteral);
+        if (result == null) result = caseExpression(listLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -307,17 +608,17 @@ public class BilangSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Empty Process</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Task</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Empty Process</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTask(Task object)
+  public T caseEmptyProcess(EmptyProcess object)
   {
     return null;
   }
@@ -371,49 +672,433 @@ public class BilangSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Retrieve Task</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Workflow</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Retrieve Task</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Workflow</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRetrieveTask(RetrieveTask object)
+  public T caseWorkflow(Workflow object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Send Task</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Workflow Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Send Task</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Workflow Definition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSendTask(SendTask object)
+  public T caseWorkflowDefinition(WorkflowDefinition object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Person Task</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Person Task</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePersonTask(PersonTask object)
+  public T caseParameter(Parameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Task</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTask(Task object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Let Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Let Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLetStatement(LetStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariableDeclaration(VariableDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfStatement(IfStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Each Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Each Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForEachStatement(ForEachStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhileStatement(WhileStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parallel Process</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parallel Process</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParallelProcess(ParallelProcess object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parallel Branch</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parallel Branch</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParallelBranch(ParallelBranch object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Try Catch Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Try Catch Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTryCatchStatement(TryCatchStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Retry Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Retry Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRetryStatement(RetryStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Timeout Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Timeout Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTimeoutStatement(TimeoutStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Compensate Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Compensate Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompensateStatement(CompensateStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Require Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Require Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRequireStatement(RequireStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Wait Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Wait Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWaitStatement(WaitStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Assert Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Assert Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAssertStatement(AssertStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Log Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Log Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogStatement(LogStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Workflow Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Workflow Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWorkflowCall(WorkflowCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Argument</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Argument</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArgument(Argument object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Retrieve Document</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Retrieve Document</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRetrieveDocument(RetrieveDocument object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Retrieve Invoices</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Retrieve Invoices</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRetrieveInvoices(RetrieveInvoices object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Retrieve Full Address</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Retrieve Full Address</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRetrieveFullAddress(RetrieveFullAddress object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Retrieve Persons</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Retrieve Persons</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRetrievePersons(RetrievePersons object)
   {
     return null;
   }
@@ -467,49 +1152,17 @@ public class BilangSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Retrieve Document</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Retrieve Document</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Message</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRetrieveDocument(RetrieveDocument object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Retrieve Full Address</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Retrieve Full Address</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRetrieveFullAddress(RetrieveFullAddress object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Retrieve Persons</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Retrieve Persons</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRetrievePersons(RetrievePersons object)
+  public T caseMessage(Message object)
   {
     return null;
   }
@@ -558,6 +1211,54 @@ public class BilangSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDeletePerson(DeletePerson object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Update Person</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Update Person</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUpdatePerson(UpdatePerson object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Person Change</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Person Change</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePersonChange(PersonChange object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Search Person</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Search Person</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSearchPerson(SearchPerson object)
   {
     return null;
   }
@@ -659,22 +1360,6 @@ public class BilangSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Message</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMessage(Message object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Document</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -734,6 +1419,278 @@ public class BilangSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDocumentTopic(DocumentTopic object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Document Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Document Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDocumentOperation(DocumentOperation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Filter Documents</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Filter Documents</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFilterDocuments(FilterDocuments object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sort Documents</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sort Documents</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSortDocuments(SortDocuments object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Archive Document</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Archive Document</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArchiveDocument(ArchiveDocument object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Delete Document</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Delete Document</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeleteDocument(DeleteDocument object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Create Invoice With Products</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Create Invoice With Products</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCreateInvoiceWithProducts(CreateInvoiceWithProducts object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Product Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Product Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProductReference(ProductReference object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Create Product</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Create Product</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCreateProduct(CreateProduct object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Retrieve Product Information</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Retrieve Product Information</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRetrieveProductInformation(RetrieveProductInformation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Retrieve Order Status By Invoice</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Retrieve Order Status By Invoice</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRetrieveOrderStatusByInvoice(RetrieveOrderStatusByInvoice object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Binary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Binary Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBinaryExpression(BinaryExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parenthesized Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parenthesized Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParenthesizedExpression(ParenthesizedExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringLiteral(StringLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Number Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Number Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNumberLiteral(NumberLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBooleanLiteral(BooleanLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariableReference(VariableReference object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>List Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>List Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseListLiteral(ListLiteral object)
   {
     return null;
   }

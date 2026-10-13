@@ -6,39 +6,137 @@
     complianceLevel="17.0" copyrightFields="false" runtimeVersion="2.36">
   <genPackages prefix="Bilang" basePackage="org.xtext.example.bilang" disposableProviderFactory="true"
       fileExtensions="bilang" ecorePackage="Bilang.ecore#/">
-    <genClasses ecoreClass="Bilang.ecore#//Model"/>
-    <genClasses ecoreClass="Bilang.ecore#//Task">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Task/kind"/>
+    <genClasses ecoreClass="Bilang.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Model/elements"/>
     </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//EmptyProcess"/>
     <genClasses ecoreClass="Bilang.ecore#//CompoundProcess">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//CompoundProcess/task"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//CompoundProcess/tasks"/>
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//AbstractProcess">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//AbstractProcess/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//AbstractProcess/paramValues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//AbstractProcess/parameters"/>
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//ParamValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//ParamValue/param"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//ParamValue/value"/>
     </genClasses>
-    <genClasses ecoreClass="Bilang.ecore#//RetrieveTask"/>
-    <genClasses ecoreClass="Bilang.ecore#//SendTask">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendTask/person"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendTask/message"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendTask/attachment"/>
+    <genClasses ecoreClass="Bilang.ecore#//Workflow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Workflow/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Workflow/statements"/>
     </genClasses>
-    <genClasses ecoreClass="Bilang.ecore#//PersonTask"/>
-    <genClasses ecoreClass="Bilang.ecore#//SendEmail"/>
-    <genClasses ecoreClass="Bilang.ecore#//SendSMS"/>
-    <genClasses ecoreClass="Bilang.ecore#//SendSnailMail"/>
+    <genClasses ecoreClass="Bilang.ecore#//WorkflowDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//WorkflowDefinition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//WorkflowDefinition/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//WorkflowDefinition/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//Statement"/>
+    <genClasses ecoreClass="Bilang.ecore#//Task">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Task/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Task/result"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//LetStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//LetStatement/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//LetStatement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//VariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//VariableDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//Expression"/>
+    <genClasses ecoreClass="Bilang.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//IfStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//IfStatement/thenBranch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//IfStatement/elseBranch"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//ForEachStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//ForEachStatement/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//ForEachStatement/collection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//ForEachStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//WhileStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//WhileStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//WhileStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//ParallelProcess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//ParallelProcess/branches"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//ParallelBranch">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//ParallelBranch/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//TryCatchStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//TryCatchStatement/tryBody"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//TryCatchStatement/errorVariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//TryCatchStatement/catchBody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//TryCatchStatement/finallyBody"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//RetryStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//RetryStatement/attempts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//RetryStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//TimeoutStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//TimeoutStatement/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//TimeoutStatement/unit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//TimeoutStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//CompensateStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//CompensateStatement/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//RequireStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//RequireStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//RequireStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//WaitStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//WaitStatement/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//WaitStatement/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//AssertStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//AssertStatement/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//AssertStatement/message"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//LogStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//LogStatement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//WorkflowCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Bilang.ecore#//WorkflowCall/workflow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//WorkflowCall/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Argument/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Argument/value"/>
+    </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//RetrieveDocument">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//RetrieveDocument/document"/>
     </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//RetrieveInvoices">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//RetrieveInvoices/invoiceNumbers"/>
+    </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//RetrieveFullAddress">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//RetrieveFullAddress/personAdress"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//RetrieveFullAddress/personAddress"/>
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//RetrievePersons">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//RetrievePersons/personSearch"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//SendEmail">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendEmail/recipients"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendEmail/message"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendEmail/attachments"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//SendSMS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendSMS/recipients"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendSMS/message"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendSMS/attachments"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//SendSnailMail">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendSnailMail/recipients"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendSnailMail/message"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//SendSnailMail/attachments"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Message/message"/>
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//CallPerson">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//CallPerson/person"/>
@@ -50,7 +148,23 @@
     <genClasses ecoreClass="Bilang.ecore#//DeletePerson">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//DeletePerson/alias"/>
     </genClasses>
-    <genClasses ecoreClass="Bilang.ecore#//Person"/>
+    <genClasses ecoreClass="Bilang.ecore#//UpdatePerson">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//UpdatePerson/person"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//UpdatePerson/changes"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//PersonChange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonChange/email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonChange/phone"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonChange/alias"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//SearchPerson">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//SearchPerson/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//SearchPerson/email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//SearchPerson/phone"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//Person">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Person/kind"/>
+    </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//PersonByEmail">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByEmail/emailaddress"/>
     </genClasses>
@@ -69,9 +183,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByAddress/housenumber"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//PersonByAddress/suffix"/>
     </genClasses>
-    <genClasses ecoreClass="Bilang.ecore#//Message">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//Message/message"/>
-    </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//Document">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//Document/kind"/>
     </genClasses>
@@ -83,6 +194,62 @@
     </genClasses>
     <genClasses ecoreClass="Bilang.ecore#//DocumentTopic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//DocumentTopic/topic"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//DocumentOperation"/>
+    <genClasses ecoreClass="Bilang.ecore#//FilterDocuments">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//FilterDocuments/field"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//FilterDocuments/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//FilterDocuments/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//SortDocuments">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//SortDocuments/field"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//SortDocuments/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//ArchiveDocument">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//ArchiveDocument/document"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//DeleteDocument">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//DeleteDocument/document"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//CreateInvoiceWithProducts">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//CreateInvoiceWithProducts/products"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//ProductReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//ProductReference/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//CreateProduct">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//CreateProduct/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//CreateProduct/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//CreateProduct/price"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//RetrieveProductInformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//RetrieveProductInformation/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//RetrieveOrderStatusByInvoice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//RetrieveOrderStatusByInvoice/invoiceCode"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//BinaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//BinaryExpression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//BinaryExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//BinaryExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//ParenthesizedExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//ParenthesizedExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//NumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//NumberLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//BooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bilang.ecore#//BooleanLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//VariableReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Bilang.ecore#//VariableReference/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Bilang.ecore#//ListLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bilang.ecore#//ListLiteral/elements"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

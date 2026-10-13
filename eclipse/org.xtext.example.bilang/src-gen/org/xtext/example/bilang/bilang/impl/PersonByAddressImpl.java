@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.PersonByAddress;
@@ -27,7 +28,7 @@ import org.xtext.example.bilang.bilang.PersonByAddress;
  *
  * @generated
  */
-public class PersonByAddressImpl extends PersonImpl implements PersonByAddress
+public class PersonByAddressImpl extends MinimalEObjectImpl.Container implements PersonByAddress
 {
   /**
    * The default value of the '{@link #getZipcode() <em>Zipcode</em>}' attribute.

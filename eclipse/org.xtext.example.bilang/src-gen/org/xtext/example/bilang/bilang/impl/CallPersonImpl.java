@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.CallPerson;
@@ -28,7 +29,7 @@ import org.xtext.example.bilang.bilang.Person;
  *
  * @generated
  */
-public class CallPersonImpl extends PersonTaskImpl implements CallPerson
+public class CallPersonImpl extends MinimalEObjectImpl.Container implements CallPerson
 {
   /**
    * The cached value of the '{@link #getPerson() <em>Person</em>}' containment reference.

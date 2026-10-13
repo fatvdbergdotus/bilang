@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.PersonByAddress;
@@ -23,22 +24,22 @@ import org.xtext.example.bilang.bilang.RetrieveFullAddress;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.bilang.bilang.impl.RetrieveFullAddressImpl#getPersonAdress <em>Person Adress</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.RetrieveFullAddressImpl#getPersonAddress <em>Person Address</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements RetrieveFullAddress
+public class RetrieveFullAddressImpl extends MinimalEObjectImpl.Container implements RetrieveFullAddress
 {
   /**
-   * The cached value of the '{@link #getPersonAdress() <em>Person Adress</em>}' containment reference.
+   * The cached value of the '{@link #getPersonAddress() <em>Person Address</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPersonAdress()
+   * @see #getPersonAddress()
    * @generated
    * @ordered
    */
-  protected PersonByAddress personAdress;
+  protected PersonByAddress personAddress;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,9 +68,9 @@ public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements Retriev
    * @generated
    */
   @Override
-  public PersonByAddress getPersonAdress()
+  public PersonByAddress getPersonAddress()
   {
-    return personAdress;
+    return personAddress;
   }
 
   /**
@@ -77,13 +78,13 @@ public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements Retriev
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPersonAdress(PersonByAddress newPersonAdress, NotificationChain msgs)
+  public NotificationChain basicSetPersonAddress(PersonByAddress newPersonAddress, NotificationChain msgs)
   {
-    PersonByAddress oldPersonAdress = personAdress;
-    personAdress = newPersonAdress;
+    PersonByAddress oldPersonAddress = personAddress;
+    personAddress = newPersonAddress;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS, oldPersonAdress, newPersonAdress);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS, oldPersonAddress, newPersonAddress);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -95,20 +96,20 @@ public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements Retriev
    * @generated
    */
   @Override
-  public void setPersonAdress(PersonByAddress newPersonAdress)
+  public void setPersonAddress(PersonByAddress newPersonAddress)
   {
-    if (newPersonAdress != personAdress)
+    if (newPersonAddress != personAddress)
     {
       NotificationChain msgs = null;
-      if (personAdress != null)
-        msgs = ((InternalEObject)personAdress).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS, null, msgs);
-      if (newPersonAdress != null)
-        msgs = ((InternalEObject)newPersonAdress).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS, null, msgs);
-      msgs = basicSetPersonAdress(newPersonAdress, msgs);
+      if (personAddress != null)
+        msgs = ((InternalEObject)personAddress).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS, null, msgs);
+      if (newPersonAddress != null)
+        msgs = ((InternalEObject)newPersonAddress).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS, null, msgs);
+      msgs = basicSetPersonAddress(newPersonAddress, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS, newPersonAdress, newPersonAdress));
+      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS, newPersonAddress, newPersonAddress));
   }
 
   /**
@@ -121,8 +122,8 @@ public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements Retriev
   {
     switch (featureID)
     {
-      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS:
-        return basicSetPersonAdress(null, msgs);
+      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS:
+        return basicSetPersonAddress(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +138,8 @@ public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements Retriev
   {
     switch (featureID)
     {
-      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS:
-        return getPersonAdress();
+      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS:
+        return getPersonAddress();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +154,8 @@ public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements Retriev
   {
     switch (featureID)
     {
-      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS:
-        setPersonAdress((PersonByAddress)newValue);
+      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS:
+        setPersonAddress((PersonByAddress)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +171,8 @@ public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements Retriev
   {
     switch (featureID)
     {
-      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS:
-        setPersonAdress((PersonByAddress)null);
+      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS:
+        setPersonAddress((PersonByAddress)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,8 +188,8 @@ public class RetrieveFullAddressImpl extends RetrieveTaskImpl implements Retriev
   {
     switch (featureID)
     {
-      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS:
-        return personAdress != null;
+      case BilangPackage.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS:
+        return personAddress != null;
     }
     return super.eIsSet(featureID);
   }

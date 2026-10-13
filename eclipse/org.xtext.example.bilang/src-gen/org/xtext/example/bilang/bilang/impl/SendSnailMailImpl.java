@@ -3,20 +3,75 @@
  */
 package org.xtext.example.bilang.bilang.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
+import org.xtext.example.bilang.bilang.Document;
+import org.xtext.example.bilang.bilang.Message;
+import org.xtext.example.bilang.bilang.Person;
 import org.xtext.example.bilang.bilang.SendSnailMail;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Send Snail Mail</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.SendSnailMailImpl#getRecipients <em>Recipients</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.SendSnailMailImpl#getMessage <em>Message</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.SendSnailMailImpl#getAttachments <em>Attachments</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class SendSnailMailImpl extends SendTaskImpl implements SendSnailMail
+public class SendSnailMailImpl extends MinimalEObjectImpl.Container implements SendSnailMail
 {
+  /**
+   * The cached value of the '{@link #getRecipients() <em>Recipients</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRecipients()
+   * @generated
+   * @ordered
+   */
+  protected EList<Person> recipients;
+
+  /**
+   * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMessage()
+   * @generated
+   * @ordered
+   */
+  protected Message message;
+
+  /**
+   * The cached value of the '{@link #getAttachments() <em>Attachments</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttachments()
+   * @generated
+   * @ordered
+   */
+  protected EList<Document> attachments;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +91,195 @@ public class SendSnailMailImpl extends SendTaskImpl implements SendSnailMail
   protected EClass eStaticClass()
   {
     return BilangPackage.Literals.SEND_SNAIL_MAIL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Person> getRecipients()
+  {
+    if (recipients == null)
+    {
+      recipients = new EObjectContainmentEList<Person>(Person.class, this, BilangPackage.SEND_SNAIL_MAIL__RECIPIENTS);
+    }
+    return recipients;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Message getMessage()
+  {
+    return message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMessage(Message newMessage, NotificationChain msgs)
+  {
+    Message oldMessage = message;
+    message = newMessage;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BilangPackage.SEND_SNAIL_MAIL__MESSAGE, oldMessage, newMessage);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMessage(Message newMessage)
+  {
+    if (newMessage != message)
+    {
+      NotificationChain msgs = null;
+      if (message != null)
+        msgs = ((InternalEObject)message).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BilangPackage.SEND_SNAIL_MAIL__MESSAGE, null, msgs);
+      if (newMessage != null)
+        msgs = ((InternalEObject)newMessage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BilangPackage.SEND_SNAIL_MAIL__MESSAGE, null, msgs);
+      msgs = basicSetMessage(newMessage, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BilangPackage.SEND_SNAIL_MAIL__MESSAGE, newMessage, newMessage));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Document> getAttachments()
+  {
+    if (attachments == null)
+    {
+      attachments = new EObjectContainmentEList<Document>(Document.class, this, BilangPackage.SEND_SNAIL_MAIL__ATTACHMENTS);
+    }
+    return attachments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BilangPackage.SEND_SNAIL_MAIL__RECIPIENTS:
+        return ((InternalEList<?>)getRecipients()).basicRemove(otherEnd, msgs);
+      case BilangPackage.SEND_SNAIL_MAIL__MESSAGE:
+        return basicSetMessage(null, msgs);
+      case BilangPackage.SEND_SNAIL_MAIL__ATTACHMENTS:
+        return ((InternalEList<?>)getAttachments()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case BilangPackage.SEND_SNAIL_MAIL__RECIPIENTS:
+        return getRecipients();
+      case BilangPackage.SEND_SNAIL_MAIL__MESSAGE:
+        return getMessage();
+      case BilangPackage.SEND_SNAIL_MAIL__ATTACHMENTS:
+        return getAttachments();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case BilangPackage.SEND_SNAIL_MAIL__RECIPIENTS:
+        getRecipients().clear();
+        getRecipients().addAll((Collection<? extends Person>)newValue);
+        return;
+      case BilangPackage.SEND_SNAIL_MAIL__MESSAGE:
+        setMessage((Message)newValue);
+        return;
+      case BilangPackage.SEND_SNAIL_MAIL__ATTACHMENTS:
+        getAttachments().clear();
+        getAttachments().addAll((Collection<? extends Document>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case BilangPackage.SEND_SNAIL_MAIL__RECIPIENTS:
+        getRecipients().clear();
+        return;
+      case BilangPackage.SEND_SNAIL_MAIL__MESSAGE:
+        setMessage((Message)null);
+        return;
+      case BilangPackage.SEND_SNAIL_MAIL__ATTACHMENTS:
+        getAttachments().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case BilangPackage.SEND_SNAIL_MAIL__RECIPIENTS:
+        return recipients != null && !recipients.isEmpty();
+      case BilangPackage.SEND_SNAIL_MAIL__MESSAGE:
+        return message != null;
+      case BilangPackage.SEND_SNAIL_MAIL__ATTACHMENTS:
+        return attachments != null && !attachments.isEmpty();
+    }
+    return super.eIsSet(featureID);
   }
 
 } //SendSnailMailImpl

@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.example.bilang.services.BilangGrammarAccess;
@@ -18,27 +21,21 @@ import org.xtext.example.bilang.services.BilangGrammarAccess;
 public class BilangSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BilangGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_IfStatement___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q;
+	protected AbstractElementAlias match_TryCatchStatement___FinallyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_3__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BilangGrammarAccess) access;
+		match_IfStatement___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getIfStatementAccess().getElseKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getIfStatementAccess().getLeftCurlyBracketKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getIfStatementAccess().getRightCurlyBracketKeyword_6_3()));
+		match_TryCatchStatement___FinallyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getTryCatchStatementAccess().getFinallyKeyword_9_0()), new TokenAlias(false, false, grammarAccess.getTryCatchStatementAccess().getLeftCurlyBracketKeyword_9_1()), new TokenAlias(false, false, grammarAccess.getTryCatchStatementAccess().getRightCurlyBracketKeyword_9_3()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getEmptyProcessRule())
-			return getEmptyProcessToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * EmptyProcess: 'empty' 'process';
-	 */
-	protected String getEmptyProcessToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "empty process";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -46,8 +43,42 @@ public class BilangSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_IfStatement___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q.equals(syntax))
+				emit_IfStatement___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_TryCatchStatement___FinallyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_3__q.equals(syntax))
+				emit_TryCatchStatement___FinallyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('else' '{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     condition=Expression 'then' '{' '}' (ambiguity) (rule end)
+	 *     thenBranch+=Statement '}' (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_IfStatement___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('finally' '{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     catchBody+=Statement '}' (ambiguity) (rule end)
+	 *     errorVariable=ID '{' '}' (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_TryCatchStatement___FinallyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

@@ -16,28 +16,70 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.bilang.bilang.AbstractProcess;
 import org.xtext.example.bilang.bilang.AddPerson;
+import org.xtext.example.bilang.bilang.ArchiveDocument;
+import org.xtext.example.bilang.bilang.Argument;
+import org.xtext.example.bilang.bilang.AssertStatement;
 import org.xtext.example.bilang.bilang.BilangPackage;
+import org.xtext.example.bilang.bilang.BinaryExpression;
+import org.xtext.example.bilang.bilang.BooleanLiteral;
 import org.xtext.example.bilang.bilang.CallPerson;
+import org.xtext.example.bilang.bilang.CompensateStatement;
 import org.xtext.example.bilang.bilang.CompoundProcess;
+import org.xtext.example.bilang.bilang.CreateInvoiceWithProducts;
+import org.xtext.example.bilang.bilang.CreateProduct;
+import org.xtext.example.bilang.bilang.DeleteDocument;
 import org.xtext.example.bilang.bilang.DeletePerson;
 import org.xtext.example.bilang.bilang.Document;
 import org.xtext.example.bilang.bilang.DocumentPerson;
 import org.xtext.example.bilang.bilang.DocumentTopic;
+import org.xtext.example.bilang.bilang.EmptyProcess;
+import org.xtext.example.bilang.bilang.FilterDocuments;
+import org.xtext.example.bilang.bilang.ForEachStatement;
+import org.xtext.example.bilang.bilang.IfStatement;
 import org.xtext.example.bilang.bilang.Invoice;
+import org.xtext.example.bilang.bilang.LetStatement;
+import org.xtext.example.bilang.bilang.ListLiteral;
+import org.xtext.example.bilang.bilang.LogStatement;
 import org.xtext.example.bilang.bilang.Message;
+import org.xtext.example.bilang.bilang.Model;
+import org.xtext.example.bilang.bilang.NumberLiteral;
+import org.xtext.example.bilang.bilang.ParallelBranch;
+import org.xtext.example.bilang.bilang.ParallelProcess;
 import org.xtext.example.bilang.bilang.ParamValue;
+import org.xtext.example.bilang.bilang.ParenthesizedExpression;
+import org.xtext.example.bilang.bilang.Person;
 import org.xtext.example.bilang.bilang.PersonByAddress;
 import org.xtext.example.bilang.bilang.PersonByAlias;
 import org.xtext.example.bilang.bilang.PersonByEmail;
 import org.xtext.example.bilang.bilang.PersonByName;
 import org.xtext.example.bilang.bilang.PersonByPhone;
+import org.xtext.example.bilang.bilang.PersonChange;
+import org.xtext.example.bilang.bilang.ProductReference;
+import org.xtext.example.bilang.bilang.RequireStatement;
 import org.xtext.example.bilang.bilang.RetrieveDocument;
 import org.xtext.example.bilang.bilang.RetrieveFullAddress;
+import org.xtext.example.bilang.bilang.RetrieveInvoices;
+import org.xtext.example.bilang.bilang.RetrieveOrderStatusByInvoice;
 import org.xtext.example.bilang.bilang.RetrievePersons;
+import org.xtext.example.bilang.bilang.RetrieveProductInformation;
+import org.xtext.example.bilang.bilang.RetryStatement;
+import org.xtext.example.bilang.bilang.SearchPerson;
 import org.xtext.example.bilang.bilang.SendEmail;
 import org.xtext.example.bilang.bilang.SendSMS;
 import org.xtext.example.bilang.bilang.SendSnailMail;
+import org.xtext.example.bilang.bilang.SortDocuments;
+import org.xtext.example.bilang.bilang.StringLiteral;
 import org.xtext.example.bilang.bilang.Task;
+import org.xtext.example.bilang.bilang.TimeoutStatement;
+import org.xtext.example.bilang.bilang.TryCatchStatement;
+import org.xtext.example.bilang.bilang.UpdatePerson;
+import org.xtext.example.bilang.bilang.VariableDeclaration;
+import org.xtext.example.bilang.bilang.VariableReference;
+import org.xtext.example.bilang.bilang.WaitStatement;
+import org.xtext.example.bilang.bilang.WhileStatement;
+import org.xtext.example.bilang.bilang.Workflow;
+import org.xtext.example.bilang.bilang.WorkflowCall;
+import org.xtext.example.bilang.bilang.WorkflowDefinition;
 import org.xtext.example.bilang.services.BilangGrammarAccess;
 
 @SuppressWarnings("all")
@@ -60,11 +102,53 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case BilangPackage.ADD_PERSON:
 				sequence_AddPerson(context, (AddPerson) semanticObject); 
 				return; 
+			case BilangPackage.ARCHIVE_DOCUMENT:
+				sequence_ArchiveDocument(context, (ArchiveDocument) semanticObject); 
+				return; 
+			case BilangPackage.ARGUMENT:
+				sequence_Argument(context, (Argument) semanticObject); 
+				return; 
+			case BilangPackage.ASSERT_STATEMENT:
+				sequence_AssertStatement(context, (AssertStatement) semanticObject); 
+				return; 
+			case BilangPackage.BINARY_EXPRESSION:
+				if (rule == grammarAccess.getAndExpressionRule()
+						|| action == grammarAccess.getAndExpressionAccess().getBinaryExpressionLeftAction_1_0()) {
+					sequence_AndExpression_ComparisonExpression(context, (BinaryExpression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getExpressionRule()
+						|| rule == grammarAccess.getOrExpressionRule()
+						|| action == grammarAccess.getOrExpressionAccess().getBinaryExpressionLeftAction_1_0()) {
+					sequence_AndExpression_ComparisonExpression_OrExpression(context, (BinaryExpression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getComparisonExpressionRule()
+						|| action == grammarAccess.getComparisonExpressionAccess().getBinaryExpressionLeftAction_1_0()) {
+					sequence_ComparisonExpression(context, (BinaryExpression) semanticObject); 
+					return; 
+				}
+				else break;
+			case BilangPackage.BOOLEAN_LITERAL:
+				sequence_PrimaryExpression(context, (BooleanLiteral) semanticObject); 
+				return; 
 			case BilangPackage.CALL_PERSON:
 				sequence_CallPerson(context, (CallPerson) semanticObject); 
 				return; 
+			case BilangPackage.COMPENSATE_STATEMENT:
+				sequence_CompensateStatement(context, (CompensateStatement) semanticObject); 
+				return; 
 			case BilangPackage.COMPOUND_PROCESS:
 				sequence_CompoundProcess(context, (CompoundProcess) semanticObject); 
+				return; 
+			case BilangPackage.CREATE_INVOICE_WITH_PRODUCTS:
+				sequence_CreateInvoiceWithProducts(context, (CreateInvoiceWithProducts) semanticObject); 
+				return; 
+			case BilangPackage.CREATE_PRODUCT:
+				sequence_CreateProduct(context, (CreateProduct) semanticObject); 
+				return; 
+			case BilangPackage.DELETE_DOCUMENT:
+				sequence_DeleteDocument(context, (DeleteDocument) semanticObject); 
 				return; 
 			case BilangPackage.DELETE_PERSON:
 				sequence_DeletePerson(context, (DeletePerson) semanticObject); 
@@ -78,14 +162,56 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case BilangPackage.DOCUMENT_TOPIC:
 				sequence_DocumentTopic(context, (DocumentTopic) semanticObject); 
 				return; 
+			case BilangPackage.EMPTY_PROCESS:
+				sequence_EmptyProcess(context, (EmptyProcess) semanticObject); 
+				return; 
+			case BilangPackage.FILTER_DOCUMENTS:
+				sequence_FilterDocuments(context, (FilterDocuments) semanticObject); 
+				return; 
+			case BilangPackage.FOR_EACH_STATEMENT:
+				sequence_ForEachStatement(context, (ForEachStatement) semanticObject); 
+				return; 
+			case BilangPackage.IF_STATEMENT:
+				sequence_IfStatement(context, (IfStatement) semanticObject); 
+				return; 
 			case BilangPackage.INVOICE:
 				sequence_Invoice(context, (Invoice) semanticObject); 
+				return; 
+			case BilangPackage.LET_STATEMENT:
+				sequence_LetStatement(context, (LetStatement) semanticObject); 
+				return; 
+			case BilangPackage.LIST_LITERAL:
+				sequence_PrimaryExpression(context, (ListLiteral) semanticObject); 
+				return; 
+			case BilangPackage.LOG_STATEMENT:
+				sequence_LogStatement(context, (LogStatement) semanticObject); 
 				return; 
 			case BilangPackage.MESSAGE:
 				sequence_Message(context, (Message) semanticObject); 
 				return; 
+			case BilangPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case BilangPackage.NUMBER_LITERAL:
+				sequence_PrimaryExpression(context, (NumberLiteral) semanticObject); 
+				return; 
+			case BilangPackage.PARALLEL_BRANCH:
+				sequence_ParallelBranch(context, (ParallelBranch) semanticObject); 
+				return; 
+			case BilangPackage.PARALLEL_PROCESS:
+				sequence_ParallelProcess(context, (ParallelProcess) semanticObject); 
+				return; 
 			case BilangPackage.PARAM_VALUE:
 				sequence_ParamValue(context, (ParamValue) semanticObject); 
+				return; 
+			case BilangPackage.PARAMETER:
+				sequence_Parameter(context, (org.xtext.example.bilang.bilang.Parameter) semanticObject); 
+				return; 
+			case BilangPackage.PARENTHESIZED_EXPRESSION:
+				sequence_PrimaryExpression(context, (ParenthesizedExpression) semanticObject); 
+				return; 
+			case BilangPackage.PERSON:
+				sequence_Person(context, (Person) semanticObject); 
 				return; 
 			case BilangPackage.PERSON_BY_ADDRESS:
 				sequence_PersonByAddress(context, (PersonByAddress) semanticObject); 
@@ -102,14 +228,38 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case BilangPackage.PERSON_BY_PHONE:
 				sequence_PersonByPhone(context, (PersonByPhone) semanticObject); 
 				return; 
+			case BilangPackage.PERSON_CHANGE:
+				sequence_PersonChange(context, (PersonChange) semanticObject); 
+				return; 
+			case BilangPackage.PRODUCT_REFERENCE:
+				sequence_ProductReference(context, (ProductReference) semanticObject); 
+				return; 
+			case BilangPackage.REQUIRE_STATEMENT:
+				sequence_RequireStatement(context, (RequireStatement) semanticObject); 
+				return; 
 			case BilangPackage.RETRIEVE_DOCUMENT:
 				sequence_RetrieveDocument(context, (RetrieveDocument) semanticObject); 
 				return; 
 			case BilangPackage.RETRIEVE_FULL_ADDRESS:
 				sequence_RetrieveFullAddress(context, (RetrieveFullAddress) semanticObject); 
 				return; 
+			case BilangPackage.RETRIEVE_INVOICES:
+				sequence_RetrieveInvoices(context, (RetrieveInvoices) semanticObject); 
+				return; 
+			case BilangPackage.RETRIEVE_ORDER_STATUS_BY_INVOICE:
+				sequence_RetrieveOrderStatusByInvoice(context, (RetrieveOrderStatusByInvoice) semanticObject); 
+				return; 
 			case BilangPackage.RETRIEVE_PERSONS:
 				sequence_RetrievePersons(context, (RetrievePersons) semanticObject); 
+				return; 
+			case BilangPackage.RETRIEVE_PRODUCT_INFORMATION:
+				sequence_RetrieveProductInformation(context, (RetrieveProductInformation) semanticObject); 
+				return; 
+			case BilangPackage.RETRY_STATEMENT:
+				sequence_RetryStatement(context, (RetryStatement) semanticObject); 
+				return; 
+			case BilangPackage.SEARCH_PERSON:
+				sequence_SearchPerson(context, (SearchPerson) semanticObject); 
 				return; 
 			case BilangPackage.SEND_EMAIL:
 				sequence_SendEmail(context, (SendEmail) semanticObject); 
@@ -120,8 +270,44 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case BilangPackage.SEND_SNAIL_MAIL:
 				sequence_SendSnailMail(context, (SendSnailMail) semanticObject); 
 				return; 
+			case BilangPackage.SORT_DOCUMENTS:
+				sequence_SortDocuments(context, (SortDocuments) semanticObject); 
+				return; 
+			case BilangPackage.STRING_LITERAL:
+				sequence_PrimaryExpression(context, (StringLiteral) semanticObject); 
+				return; 
 			case BilangPackage.TASK:
 				sequence_Task(context, (Task) semanticObject); 
+				return; 
+			case BilangPackage.TIMEOUT_STATEMENT:
+				sequence_TimeoutStatement(context, (TimeoutStatement) semanticObject); 
+				return; 
+			case BilangPackage.TRY_CATCH_STATEMENT:
+				sequence_TryCatchStatement(context, (TryCatchStatement) semanticObject); 
+				return; 
+			case BilangPackage.UPDATE_PERSON:
+				sequence_UpdatePerson(context, (UpdatePerson) semanticObject); 
+				return; 
+			case BilangPackage.VARIABLE_DECLARATION:
+				sequence_VariableDeclaration(context, (VariableDeclaration) semanticObject); 
+				return; 
+			case BilangPackage.VARIABLE_REFERENCE:
+				sequence_PrimaryExpression(context, (VariableReference) semanticObject); 
+				return; 
+			case BilangPackage.WAIT_STATEMENT:
+				sequence_WaitStatement(context, (WaitStatement) semanticObject); 
+				return; 
+			case BilangPackage.WHILE_STATEMENT:
+				sequence_WhileStatement(context, (WhileStatement) semanticObject); 
+				return; 
+			case BilangPackage.WORKFLOW:
+				sequence_Workflow(context, (Workflow) semanticObject); 
+				return; 
+			case BilangPackage.WORKFLOW_CALL:
+				sequence_WorkflowCall(context, (WorkflowCall) semanticObject); 
+				return; 
+			case BilangPackage.WORKFLOW_DEFINITION:
+				sequence_WorkflowDefinition(context, (WorkflowDefinition) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -131,11 +317,10 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns AbstractProcess
 	 *     AbstractProcess returns AbstractProcess
 	 *
 	 * Constraint:
-	 *     (name=ID paramValues+=ParamValue*)
+	 *     (name=ID parameters+=ParamValue*)
 	 * </pre>
 	 */
 	protected void sequence_AbstractProcess(ISerializationContext context, AbstractProcess semanticObject) {
@@ -146,7 +331,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     PersonTask returns AddPerson
 	 *     AddPerson returns AddPerson
 	 *
 	 * Constraint:
@@ -161,7 +345,135 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     PersonTask returns CallPerson
+	 *     AndExpression returns BinaryExpression
+	 *     AndExpression.BinaryExpression_1_0 returns BinaryExpression
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=AndExpression_BinaryExpression_1_0 operator='and' right=ComparisonExpression) | 
+	 *         (
+	 *             left=ComparisonExpression_BinaryExpression_1_0 
+	 *             (
+	 *                 operator='==' | 
+	 *                 operator='!=' | 
+	 *                 operator='&lt;' | 
+	 *                 operator='&lt;=' | 
+	 *                 operator='&gt;' | 
+	 *                 operator='&gt;='
+	 *             ) 
+	 *             right=PrimaryExpression
+	 *         )
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_AndExpression_ComparisonExpression(ISerializationContext context, BinaryExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns BinaryExpression
+	 *     OrExpression returns BinaryExpression
+	 *     OrExpression.BinaryExpression_1_0 returns BinaryExpression
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=OrExpression_BinaryExpression_1_0 operator='or' right=AndExpression) | 
+	 *         (left=AndExpression_BinaryExpression_1_0 operator='and' right=ComparisonExpression) | 
+	 *         (
+	 *             left=ComparisonExpression_BinaryExpression_1_0 
+	 *             (
+	 *                 operator='==' | 
+	 *                 operator='!=' | 
+	 *                 operator='&lt;' | 
+	 *                 operator='&lt;=' | 
+	 *                 operator='&gt;' | 
+	 *                 operator='&gt;='
+	 *             ) 
+	 *             right=PrimaryExpression
+	 *         )
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_AndExpression_ComparisonExpression_OrExpression(ISerializationContext context, BinaryExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns ArchiveDocument
+	 *     DocumentOperation returns ArchiveDocument
+	 *     ArchiveDocument returns ArchiveDocument
+	 *
+	 * Constraint:
+	 *     document=Document
+	 * </pre>
+	 */
+	protected void sequence_ArchiveDocument(ISerializationContext context, ArchiveDocument semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.ARCHIVE_DOCUMENT__DOCUMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.ARCHIVE_DOCUMENT__DOCUMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getArchiveDocumentAccess().getDocumentDocumentParserRuleCall_1_0(), semanticObject.getDocument());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Argument returns Argument
+	 *
+	 * Constraint:
+	 *     (name=ID value=Expression)
+	 * </pre>
+	 */
+	protected void sequence_Argument(ISerializationContext context, Argument semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.ARGUMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.ARGUMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.ARGUMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.ARGUMENT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getArgumentAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getArgumentAccess().getValueExpressionParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns AssertStatement
+	 *     AssertStatement returns AssertStatement
+	 *
+	 * Constraint:
+	 *     (condition=Expression message=STRING)
+	 * </pre>
+	 */
+	protected void sequence_AssertStatement(ISerializationContext context, AssertStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.ASSERT_STATEMENT__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.ASSERT_STATEMENT__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.ASSERT_STATEMENT__MESSAGE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.ASSERT_STATEMENT__MESSAGE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAssertStatementAccess().getConditionExpressionParserRuleCall_1_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getAssertStatementAccess().getMessageSTRINGTerminalRuleCall_4_0(), semanticObject.getMessage());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     CallPerson returns CallPerson
 	 *
 	 * Constraint:
@@ -182,11 +494,51 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns CompoundProcess
+	 *     ComparisonExpression returns BinaryExpression
+	 *     ComparisonExpression.BinaryExpression_1_0 returns BinaryExpression
+	 *
+	 * Constraint:
+	 *     (
+	 *         left=ComparisonExpression_BinaryExpression_1_0 
+	 *         (
+	 *             operator='==' | 
+	 *             operator='!=' | 
+	 *             operator='&lt;' | 
+	 *             operator='&lt;=' | 
+	 *             operator='&gt;' | 
+	 *             operator='&gt;='
+	 *         ) 
+	 *         right=PrimaryExpression
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_ComparisonExpression(ISerializationContext context, BinaryExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns CompensateStatement
+	 *     CompensateStatement returns CompensateStatement
+	 *
+	 * Constraint:
+	 *     actions+=Statement+
+	 * </pre>
+	 */
+	protected void sequence_CompensateStatement(ISerializationContext context, CompensateStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     CompoundProcess returns CompoundProcess
 	 *
 	 * Constraint:
-	 *     task+=Task+
+	 *     tasks+=Task+
 	 * </pre>
 	 */
 	protected void sequence_CompoundProcess(ISerializationContext context, CompoundProcess semanticObject) {
@@ -197,7 +549,68 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     PersonTask returns DeletePerson
+	 *     CreateInvoiceWithProducts returns CreateInvoiceWithProducts
+	 *
+	 * Constraint:
+	 *     (products+=ProductReference products+=ProductReference*)
+	 * </pre>
+	 */
+	protected void sequence_CreateInvoiceWithProducts(ISerializationContext context, CreateInvoiceWithProducts semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     CreateProduct returns CreateProduct
+	 *
+	 * Constraint:
+	 *     (name=STRING description=STRING price=INT)
+	 * </pre>
+	 */
+	protected void sequence_CreateProduct(ISerializationContext context, CreateProduct semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.CREATE_PRODUCT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.CREATE_PRODUCT__NAME));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.CREATE_PRODUCT__DESCRIPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.CREATE_PRODUCT__DESCRIPTION));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.CREATE_PRODUCT__PRICE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.CREATE_PRODUCT__PRICE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCreateProductAccess().getNameSTRINGTerminalRuleCall_4_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCreateProductAccess().getDescriptionSTRINGTerminalRuleCall_7_0(), semanticObject.getDescription());
+		feeder.accept(grammarAccess.getCreateProductAccess().getPriceINTTerminalRuleCall_10_0(), semanticObject.getPrice());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns DeleteDocument
+	 *     DocumentOperation returns DeleteDocument
+	 *     DeleteDocument returns DeleteDocument
+	 *
+	 * Constraint:
+	 *     document=Document
+	 * </pre>
+	 */
+	protected void sequence_DeleteDocument(ISerializationContext context, DeleteDocument semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.DELETE_DOCUMENT__DOCUMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.DELETE_DOCUMENT__DOCUMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDeleteDocumentAccess().getDocumentDocumentParserRuleCall_1_0(), semanticObject.getDocument());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     DeletePerson returns DeletePerson
 	 *
 	 * Constraint:
@@ -230,7 +643,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.DOCUMENT_PERSON__PERSON));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDocumentPersonAccess().getPersonPersonParserRuleCall_2_0(), semanticObject.getPerson());
+		feeder.accept(grammarAccess.getDocumentPersonAccess().getPersonPersonParserRuleCall_3_0(), semanticObject.getPerson());
 		feeder.finish();
 	}
 	
@@ -241,7 +654,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DocumentTopic returns DocumentTopic
 	 *
 	 * Constraint:
-	 *     topic=STRING
+	 *     topic=Topic
 	 * </pre>
 	 */
 	protected void sequence_DocumentTopic(ISerializationContext context, DocumentTopic semanticObject) {
@@ -250,7 +663,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.DOCUMENT_TOPIC__TOPIC));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDocumentTopicAccess().getTopicSTRINGTerminalRuleCall_3_0(), semanticObject.getTopic());
+		feeder.accept(grammarAccess.getDocumentTopicAccess().getTopicTopicParserRuleCall_3_0(), semanticObject.getTopic());
 		feeder.finish();
 	}
 	
@@ -261,10 +674,82 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Document returns Document
 	 *
 	 * Constraint:
-	 *     (kind+=Invoice | kind+=DocumentPerson | kind+=DocumentTopic)
+	 *     (kind=Invoice | kind=DocumentPerson | kind=DocumentTopic)
 	 * </pre>
 	 */
 	protected void sequence_Document(ISerializationContext context, Document semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EmptyProcess returns EmptyProcess
+	 *
+	 * Constraint:
+	 *     {EmptyProcess}
+	 * </pre>
+	 */
+	protected void sequence_EmptyProcess(ISerializationContext context, EmptyProcess semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns FilterDocuments
+	 *     DocumentOperation returns FilterDocuments
+	 *     FilterDocuments returns FilterDocuments
+	 *
+	 * Constraint:
+	 *     (field=ID operator=FilterOperator value=STRING)
+	 * </pre>
+	 */
+	protected void sequence_FilterDocuments(ISerializationContext context, FilterDocuments semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.FILTER_DOCUMENTS__FIELD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.FILTER_DOCUMENTS__FIELD));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.FILTER_DOCUMENTS__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.FILTER_DOCUMENTS__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.FILTER_DOCUMENTS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.FILTER_DOCUMENTS__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFilterDocumentsAccess().getFieldIDTerminalRuleCall_3_0(), semanticObject.getField());
+		feeder.accept(grammarAccess.getFilterDocumentsAccess().getOperatorFilterOperatorParserRuleCall_4_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getFilterDocumentsAccess().getValueSTRINGTerminalRuleCall_5_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns ForEachStatement
+	 *     ForEachStatement returns ForEachStatement
+	 *
+	 * Constraint:
+	 *     (variable=VariableDeclaration collection=Expression body+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_ForEachStatement(ISerializationContext context, ForEachStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns IfStatement
+	 *     IfStatement returns IfStatement
+	 *
+	 * Constraint:
+	 *     (condition=Expression thenBranch+=Statement* elseBranch+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_IfStatement(ISerializationContext context, IfStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -292,6 +777,51 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Statement returns LetStatement
+	 *     LetStatement returns LetStatement
+	 *
+	 * Constraint:
+	 *     (variable=VariableDeclaration value=Expression)
+	 * </pre>
+	 */
+	protected void sequence_LetStatement(ISerializationContext context, LetStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.LET_STATEMENT__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.LET_STATEMENT__VARIABLE));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.LET_STATEMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.LET_STATEMENT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLetStatementAccess().getVariableVariableDeclarationParserRuleCall_1_0(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getLetStatementAccess().getValueExpressionParserRuleCall_3_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns LogStatement
+	 *     LogStatement returns LogStatement
+	 *
+	 * Constraint:
+	 *     value=Expression
+	 * </pre>
+	 */
+	protected void sequence_LogStatement(ISerializationContext context, LogStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.LOG_STATEMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.LOG_STATEMENT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLogStatementAccess().getValueExpressionParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Message returns Message
 	 *
 	 * Constraint:
@@ -312,10 +842,60 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Model returns Model
+	 *
+	 * Constraint:
+	 *     (
+	 *         elements+=Workflow | 
+	 *         elements+=WorkflowDefinition | 
+	 *         elements+=Task | 
+	 *         elements+=CompoundProcess | 
+	 *         elements+=AbstractProcess | 
+	 *         elements+=EmptyProcess
+	 *     )+
+	 * </pre>
+	 */
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ParallelBranch returns ParallelBranch
+	 *
+	 * Constraint:
+	 *     statements+=Statement+
+	 * </pre>
+	 */
+	protected void sequence_ParallelBranch(ISerializationContext context, ParallelBranch semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns ParallelProcess
+	 *     ParallelProcess returns ParallelProcess
+	 *
+	 * Constraint:
+	 *     branches+=ParallelBranch+
+	 * </pre>
+	 */
+	protected void sequence_ParallelProcess(ISerializationContext context, ParallelProcess semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     ParamValue returns ParamValue
 	 *
 	 * Constraint:
-	 *     (param=ID value=ID)
+	 *     (param=ID value=STRING)
 	 * </pre>
 	 */
 	protected void sequence_ParamValue(ISerializationContext context, ParamValue semanticObject) {
@@ -327,7 +907,7 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParamValueAccess().getParamIDTerminalRuleCall_1_0(), semanticObject.getParam());
-		feeder.accept(grammarAccess.getParamValueAccess().getValueIDTerminalRuleCall_4_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getParamValueAccess().getValueSTRINGTerminalRuleCall_4_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -335,7 +915,29 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Person returns PersonByAddress
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (name=ID type=ParameterType)
+	 * </pre>
+	 */
+	protected void sequence_Parameter(ISerializationContext context, org.xtext.example.bilang.bilang.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.PARAMETER__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParameterAccess().getTypeParameterTypeParserRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     PersonByAddress returns PersonByAddress
 	 *
 	 * Constraint:
@@ -350,7 +952,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Person returns PersonByAlias
 	 *     PersonByAlias returns PersonByAlias
 	 *
 	 * Constraint:
@@ -371,7 +972,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Person returns PersonByEmail
 	 *     PersonByEmail returns PersonByEmail
 	 *
 	 * Constraint:
@@ -392,7 +992,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Person returns PersonByName
 	 *     PersonByName returns PersonByName
 	 *
 	 * Constraint:
@@ -416,7 +1015,6 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Person returns PersonByPhone
 	 *     PersonByPhone returns PersonByPhone
 	 *
 	 * Constraint:
@@ -437,7 +1035,219 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     RetrieveTask returns RetrieveDocument
+	 *     PersonChange returns PersonChange
+	 *
+	 * Constraint:
+	 *     (email=EMAIL_ADDRESS | phone=PHONE_NUMBER | alias=ID)
+	 * </pre>
+	 */
+	protected void sequence_PersonChange(ISerializationContext context, PersonChange semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Person returns Person
+	 *
+	 * Constraint:
+	 *     (kind+=PersonByEmail | kind+=PersonByAlias | kind+=PersonByName | kind+=PersonByPhone | kind+=PersonByAddress)
+	 * </pre>
+	 */
+	protected void sequence_Person(ISerializationContext context, Person semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns BooleanLiteral
+	 *     OrExpression returns BooleanLiteral
+	 *     OrExpression.BinaryExpression_1_0 returns BooleanLiteral
+	 *     AndExpression returns BooleanLiteral
+	 *     AndExpression.BinaryExpression_1_0 returns BooleanLiteral
+	 *     ComparisonExpression returns BooleanLiteral
+	 *     ComparisonExpression.BinaryExpression_1_0 returns BooleanLiteral
+	 *     PrimaryExpression returns BooleanLiteral
+	 *
+	 * Constraint:
+	 *     (value='true' | value='false')
+	 * </pre>
+	 */
+	protected void sequence_PrimaryExpression(ISerializationContext context, BooleanLiteral semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns ListLiteral
+	 *     OrExpression returns ListLiteral
+	 *     OrExpression.BinaryExpression_1_0 returns ListLiteral
+	 *     AndExpression returns ListLiteral
+	 *     AndExpression.BinaryExpression_1_0 returns ListLiteral
+	 *     ComparisonExpression returns ListLiteral
+	 *     ComparisonExpression.BinaryExpression_1_0 returns ListLiteral
+	 *     PrimaryExpression returns ListLiteral
+	 *
+	 * Constraint:
+	 *     (elements+=Expression elements+=Expression*)?
+	 * </pre>
+	 */
+	protected void sequence_PrimaryExpression(ISerializationContext context, ListLiteral semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns NumberLiteral
+	 *     OrExpression returns NumberLiteral
+	 *     OrExpression.BinaryExpression_1_0 returns NumberLiteral
+	 *     AndExpression returns NumberLiteral
+	 *     AndExpression.BinaryExpression_1_0 returns NumberLiteral
+	 *     ComparisonExpression returns NumberLiteral
+	 *     ComparisonExpression.BinaryExpression_1_0 returns NumberLiteral
+	 *     PrimaryExpression returns NumberLiteral
+	 *
+	 * Constraint:
+	 *     value=INT
+	 * </pre>
+	 */
+	protected void sequence_PrimaryExpression(ISerializationContext context, NumberLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.NUMBER_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.NUMBER_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValueINTTerminalRuleCall_2_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns ParenthesizedExpression
+	 *     OrExpression returns ParenthesizedExpression
+	 *     OrExpression.BinaryExpression_1_0 returns ParenthesizedExpression
+	 *     AndExpression returns ParenthesizedExpression
+	 *     AndExpression.BinaryExpression_1_0 returns ParenthesizedExpression
+	 *     ComparisonExpression returns ParenthesizedExpression
+	 *     ComparisonExpression.BinaryExpression_1_0 returns ParenthesizedExpression
+	 *     PrimaryExpression returns ParenthesizedExpression
+	 *
+	 * Constraint:
+	 *     expression=Expression
+	 * </pre>
+	 */
+	protected void sequence_PrimaryExpression(ISerializationContext context, ParenthesizedExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.PARENTHESIZED_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.PARENTHESIZED_EXPRESSION__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getExpressionExpressionParserRuleCall_0_2_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns StringLiteral
+	 *     OrExpression returns StringLiteral
+	 *     OrExpression.BinaryExpression_1_0 returns StringLiteral
+	 *     AndExpression returns StringLiteral
+	 *     AndExpression.BinaryExpression_1_0 returns StringLiteral
+	 *     ComparisonExpression returns StringLiteral
+	 *     ComparisonExpression.BinaryExpression_1_0 returns StringLiteral
+	 *     PrimaryExpression returns StringLiteral
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 * </pre>
+	 */
+	protected void sequence_PrimaryExpression(ISerializationContext context, StringLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.STRING_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.STRING_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValueSTRINGTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns VariableReference
+	 *     OrExpression returns VariableReference
+	 *     OrExpression.BinaryExpression_1_0 returns VariableReference
+	 *     AndExpression returns VariableReference
+	 *     AndExpression.BinaryExpression_1_0 returns VariableReference
+	 *     ComparisonExpression returns VariableReference
+	 *     ComparisonExpression.BinaryExpression_1_0 returns VariableReference
+	 *     PrimaryExpression returns VariableReference
+	 *
+	 * Constraint:
+	 *     variable=[VariableDeclaration|ID]
+	 * </pre>
+	 */
+	protected void sequence_PrimaryExpression(ISerializationContext context, VariableReference semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.VARIABLE_REFERENCE__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.VARIABLE_REFERENCE__VARIABLE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getVariableVariableDeclarationIDTerminalRuleCall_4_1_0_1(), semanticObject.eGet(BilangPackage.Literals.VARIABLE_REFERENCE__VARIABLE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ProductReference returns ProductReference
+	 *
+	 * Constraint:
+	 *     name=STRING
+	 * </pre>
+	 */
+	protected void sequence_ProductReference(ISerializationContext context, ProductReference semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.PRODUCT_REFERENCE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.PRODUCT_REFERENCE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getProductReferenceAccess().getNameSTRINGTerminalRuleCall_3_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns RequireStatement
+	 *     RequireStatement returns RequireStatement
+	 *
+	 * Constraint:
+	 *     (condition=Expression body+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_RequireStatement(ISerializationContext context, RequireStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     RetrieveDocument returns RetrieveDocument
 	 *
 	 * Constraint:
@@ -458,20 +1268,19 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     RetrieveTask returns RetrieveFullAddress
 	 *     RetrieveFullAddress returns RetrieveFullAddress
 	 *
 	 * Constraint:
-	 *     personAdress=PersonByAddress
+	 *     personAddress=PersonByAddress
 	 * </pre>
 	 */
 	protected void sequence_RetrieveFullAddress(ISerializationContext context, RetrieveFullAddress semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.RETRIEVE_FULL_ADDRESS__PERSON_ADRESS));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRetrieveFullAddressAccess().getPersonAdressPersonByAddressParserRuleCall_4_0(), semanticObject.getPersonAdress());
+		feeder.accept(grammarAccess.getRetrieveFullAddressAccess().getPersonAddressPersonByAddressParserRuleCall_4_0(), semanticObject.getPersonAddress());
 		feeder.finish();
 	}
 	
@@ -479,7 +1288,40 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     RetrieveTask returns RetrievePersons
+	 *     RetrieveInvoices returns RetrieveInvoices
+	 *
+	 * Constraint:
+	 *     (invoiceNumbers+=INT invoiceNumbers+=INT*)
+	 * </pre>
+	 */
+	protected void sequence_RetrieveInvoices(ISerializationContext context, RetrieveInvoices semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     RetrieveOrderStatusByInvoice returns RetrieveOrderStatusByInvoice
+	 *
+	 * Constraint:
+	 *     invoiceCode=INT
+	 * </pre>
+	 */
+	protected void sequence_RetrieveOrderStatusByInvoice(ISerializationContext context, RetrieveOrderStatusByInvoice semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.RETRIEVE_ORDER_STATUS_BY_INVOICE__INVOICE_CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.RETRIEVE_ORDER_STATUS_BY_INVOICE__INVOICE_CODE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRetrieveOrderStatusByInvoiceAccess().getInvoiceCodeINTTerminalRuleCall_7_0(), semanticObject.getInvoiceCode());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     RetrievePersons returns RetrievePersons
 	 *
 	 * Constraint:
@@ -500,11 +1342,59 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     SendTask returns SendEmail
+	 *     RetrieveProductInformation returns RetrieveProductInformation
+	 *
+	 * Constraint:
+	 *     name=STRING
+	 * </pre>
+	 */
+	protected void sequence_RetrieveProductInformation(ISerializationContext context, RetrieveProductInformation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.RETRIEVE_PRODUCT_INFORMATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.RETRIEVE_PRODUCT_INFORMATION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRetrieveProductInformationAccess().getNameSTRINGTerminalRuleCall_7_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns RetryStatement
+	 *     RetryStatement returns RetryStatement
+	 *
+	 * Constraint:
+	 *     (attempts=INT body+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_RetryStatement(ISerializationContext context, RetryStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SearchPerson returns SearchPerson
+	 *
+	 * Constraint:
+	 *     ((name=STRING? email=EMAIL_ADDRESS phone=PHONE_NUMBER) | (name=STRING? phone=PHONE_NUMBER) | phone=PHONE_NUMBER)?
+	 * </pre>
+	 */
+	protected void sequence_SearchPerson(ISerializationContext context, SearchPerson semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     SendEmail returns SendEmail
 	 *
 	 * Constraint:
-	 *     (person+=Person+ message=Message attachment+=Document*)
+	 *     (recipients+=Person+ message=Message (attachments+=Document attachments+=Document*)?)
 	 * </pre>
 	 */
 	protected void sequence_SendEmail(ISerializationContext context, SendEmail semanticObject) {
@@ -515,11 +1405,10 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     SendTask returns SendSMS
 	 *     SendSMS returns SendSMS
 	 *
 	 * Constraint:
-	 *     (person+=Person+ message=Message attachment+=Document*)
+	 *     (recipients+=Person+ message=Message (attachments+=Document attachments+=Document*)?)
 	 * </pre>
 	 */
 	protected void sequence_SendSMS(ISerializationContext context, SendSMS semanticObject) {
@@ -530,11 +1419,10 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     SendTask returns SendSnailMail
 	 *     SendSnailMail returns SendSnailMail
 	 *
 	 * Constraint:
-	 *     (person+=Person+ message=Message attachment+=Document*)
+	 *     (recipients+=Person+ message=Message (attachments+=Document attachments+=Document*)?)
 	 * </pre>
 	 */
 	protected void sequence_SendSnailMail(ISerializationContext context, SendSnailMail semanticObject) {
@@ -545,14 +1433,196 @@ public class BilangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns Task
+	 *     Statement returns SortDocuments
+	 *     DocumentOperation returns SortDocuments
+	 *     SortDocuments returns SortDocuments
+	 *
+	 * Constraint:
+	 *     (field=ID (direction='ascending' | direction='descending')?)
+	 * </pre>
+	 */
+	protected void sequence_SortDocuments(ISerializationContext context, SortDocuments semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns Task
 	 *     Task returns Task
 	 *
 	 * Constraint:
-	 *     (kind+=SendTask | kind+=RetrieveTask | kind+=PersonTask)
+	 *     (
+	 *         (
+	 *             kind=SendEmail | 
+	 *             kind=SendSMS | 
+	 *             kind=SendSnailMail | 
+	 *             kind=RetrieveDocument | 
+	 *             kind=RetrieveInvoices | 
+	 *             kind=RetrieveFullAddress | 
+	 *             kind=RetrievePersons | 
+	 *             kind=CallPerson | 
+	 *             kind=AddPerson | 
+	 *             kind=DeletePerson | 
+	 *             kind=UpdatePerson | 
+	 *             kind=SearchPerson | 
+	 *             kind=CreateInvoiceWithProducts | 
+	 *             kind=CreateProduct | 
+	 *             kind=RetrieveProductInformation | 
+	 *             kind=RetrieveOrderStatusByInvoice
+	 *         ) 
+	 *         result=ID?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Task(ISerializationContext context, Task semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns TimeoutStatement
+	 *     TimeoutStatement returns TimeoutStatement
+	 *
+	 * Constraint:
+	 *     (duration=INT unit=TimeUnit body+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_TimeoutStatement(ISerializationContext context, TimeoutStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns TryCatchStatement
+	 *     TryCatchStatement returns TryCatchStatement
+	 *
+	 * Constraint:
+	 *     (tryBody+=Statement* errorVariable=ID catchBody+=Statement* finallyBody+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_TryCatchStatement(ISerializationContext context, TryCatchStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     UpdatePerson returns UpdatePerson
+	 *
+	 * Constraint:
+	 *     (person=Person changes+=PersonChange changes+=PersonChange*)
+	 * </pre>
+	 */
+	protected void sequence_UpdatePerson(ISerializationContext context, UpdatePerson semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     VariableDeclaration returns VariableDeclaration
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_VariableDeclaration(ISerializationContext context, VariableDeclaration semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.VARIABLE_DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.VARIABLE_DECLARATION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVariableDeclarationAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns WaitStatement
+	 *     WaitStatement returns WaitStatement
+	 *
+	 * Constraint:
+	 *     (duration=INT unit=TimeUnit)
+	 * </pre>
+	 */
+	protected void sequence_WaitStatement(ISerializationContext context, WaitStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.WAIT_STATEMENT__DURATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.WAIT_STATEMENT__DURATION));
+			if (transientValues.isValueTransient(semanticObject, BilangPackage.Literals.WAIT_STATEMENT__UNIT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BilangPackage.Literals.WAIT_STATEMENT__UNIT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getWaitStatementAccess().getDurationINTTerminalRuleCall_2_0(), semanticObject.getDuration());
+		feeder.accept(grammarAccess.getWaitStatementAccess().getUnitTimeUnitParserRuleCall_3_0(), semanticObject.getUnit());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns WhileStatement
+	 *     WhileStatement returns WhileStatement
+	 *
+	 * Constraint:
+	 *     (condition=Expression body+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_WhileStatement(ISerializationContext context, WhileStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns WorkflowCall
+	 *     WorkflowCall returns WorkflowCall
+	 *
+	 * Constraint:
+	 *     (workflow=[WorkflowDefinition|ID] (arguments+=Argument arguments+=Argument*)?)
+	 * </pre>
+	 */
+	protected void sequence_WorkflowCall(ISerializationContext context, WorkflowCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     WorkflowDefinition returns WorkflowDefinition
+	 *
+	 * Constraint:
+	 *     (name=ID (parameters+=Parameter parameters+=Parameter*)? statements+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_WorkflowDefinition(ISerializationContext context, WorkflowDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Workflow returns Workflow
+	 *
+	 * Constraint:
+	 *     (name=ID statements+=Statement*)
+	 * </pre>
+	 */
+	protected void sequence_Workflow(ISerializationContext context, Workflow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

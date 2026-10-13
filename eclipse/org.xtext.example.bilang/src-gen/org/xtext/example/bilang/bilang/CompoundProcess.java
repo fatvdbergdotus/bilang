@@ -5,6 +5,8 @@ package org.xtext.example.bilang.bilang;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Compound Process</b></em>'.
@@ -14,25 +16,25 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.bilang.bilang.CompoundProcess#getTask <em>Task</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.CompoundProcess#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.bilang.bilang.BilangPackage#getCompoundProcess()
  * @model
  * @generated
  */
-public interface CompoundProcess extends Model
+public interface CompoundProcess extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Task</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.bilang.bilang.Task}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Task</em>' containment reference list.
-   * @see org.xtext.example.bilang.bilang.BilangPackage#getCompoundProcess_Task()
+   * @return the value of the '<em>Tasks</em>' containment reference list.
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getCompoundProcess_Tasks()
    * @model containment="true"
    * @generated
    */
-  EList<Task> getTask();
+  EList<Task> getTasks();
 
 } // CompoundProcess

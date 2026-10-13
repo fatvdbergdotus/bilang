@@ -34,7 +34,7 @@ Background information:
 - The bilang instance should be parseable according to the grammar.
 
 GRAMMAR:
-https://raw.githubusercontent.com/fatvdbergdotus/bilang/d5794c40e137b89d79754efb13b0d83ec80322f7/eclipse/org.xtext.example.bilang/src/org/xtext/example/bilang/Bilang.xtext
+https://raw.githubusercontent.com/fatvdbergdotus/bilang/refs/heads/main/eclipse/org.xtext.example.bilang/src/org/xtext/example/bilang/Bilang.xtext
 
 SEMANTICS:
 Preserve the user's intended actions, recipients and parameters.

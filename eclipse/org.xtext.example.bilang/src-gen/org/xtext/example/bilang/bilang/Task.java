@@ -3,8 +3,6 @@
  */
 package org.xtext.example.bilang.bilang;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,24 +15,57 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.bilang.bilang.Task#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.Task#getResult <em>Result</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.bilang.bilang.BilangPackage#getTask()
  * @model
  * @generated
  */
-public interface Task extends Model
+public interface Task extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Kind</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * Returns the value of the '<em><b>Kind</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Kind</em>' containment reference list.
+   * @return the value of the '<em>Kind</em>' containment reference.
+   * @see #setKind(EObject)
    * @see org.xtext.example.bilang.bilang.BilangPackage#getTask_Kind()
    * @model containment="true"
    * @generated
    */
-  EList<EObject> getKind();
+  EObject getKind();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.bilang.bilang.Task#getKind <em>Kind</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Kind</em>' containment reference.
+   * @see #getKind()
+   * @generated
+   */
+  void setKind(EObject value);
+
+  /**
+   * Returns the value of the '<em><b>Result</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Result</em>' attribute.
+   * @see #setResult(String)
+   * @see org.xtext.example.bilang.bilang.BilangPackage#getTask_Result()
+   * @model
+   * @generated
+   */
+  String getResult();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.bilang.bilang.Task#getResult <em>Result</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Result</em>' attribute.
+   * @see #getResult()
+   * @generated
+   */
+  void setResult(String value);
 
 } // Task

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,12 +32,12 @@ import org.xtext.example.bilang.bilang.ParamValue;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.bilang.bilang.impl.AbstractProcessImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.bilang.bilang.impl.AbstractProcessImpl#getParamValues <em>Param Values</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.AbstractProcessImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AbstractProcessImpl extends ModelImpl implements AbstractProcess
+public class AbstractProcessImpl extends MinimalEObjectImpl.Container implements AbstractProcess
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -59,14 +60,14 @@ public class AbstractProcessImpl extends ModelImpl implements AbstractProcess
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParamValues() <em>Param Values</em>}' containment reference list.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParamValues()
+   * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<ParamValue> paramValues;
+  protected EList<ParamValue> parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,13 +121,13 @@ public class AbstractProcessImpl extends ModelImpl implements AbstractProcess
    * @generated
    */
   @Override
-  public EList<ParamValue> getParamValues()
+  public EList<ParamValue> getParameters()
   {
-    if (paramValues == null)
+    if (parameters == null)
     {
-      paramValues = new EObjectContainmentEList<ParamValue>(ParamValue.class, this, BilangPackage.ABSTRACT_PROCESS__PARAM_VALUES);
+      parameters = new EObjectContainmentEList<ParamValue>(ParamValue.class, this, BilangPackage.ABSTRACT_PROCESS__PARAMETERS);
     }
-    return paramValues;
+    return parameters;
   }
 
   /**
@@ -139,8 +140,8 @@ public class AbstractProcessImpl extends ModelImpl implements AbstractProcess
   {
     switch (featureID)
     {
-      case BilangPackage.ABSTRACT_PROCESS__PARAM_VALUES:
-        return ((InternalEList<?>)getParamValues()).basicRemove(otherEnd, msgs);
+      case BilangPackage.ABSTRACT_PROCESS__PARAMETERS:
+        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -157,8 +158,8 @@ public class AbstractProcessImpl extends ModelImpl implements AbstractProcess
     {
       case BilangPackage.ABSTRACT_PROCESS__NAME:
         return getName();
-      case BilangPackage.ABSTRACT_PROCESS__PARAM_VALUES:
-        return getParamValues();
+      case BilangPackage.ABSTRACT_PROCESS__PARAMETERS:
+        return getParameters();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -177,9 +178,9 @@ public class AbstractProcessImpl extends ModelImpl implements AbstractProcess
       case BilangPackage.ABSTRACT_PROCESS__NAME:
         setName((String)newValue);
         return;
-      case BilangPackage.ABSTRACT_PROCESS__PARAM_VALUES:
-        getParamValues().clear();
-        getParamValues().addAll((Collection<? extends ParamValue>)newValue);
+      case BilangPackage.ABSTRACT_PROCESS__PARAMETERS:
+        getParameters().clear();
+        getParameters().addAll((Collection<? extends ParamValue>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -198,8 +199,8 @@ public class AbstractProcessImpl extends ModelImpl implements AbstractProcess
       case BilangPackage.ABSTRACT_PROCESS__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case BilangPackage.ABSTRACT_PROCESS__PARAM_VALUES:
-        getParamValues().clear();
+      case BilangPackage.ABSTRACT_PROCESS__PARAMETERS:
+        getParameters().clear();
         return;
     }
     super.eUnset(featureID);
@@ -217,8 +218,8 @@ public class AbstractProcessImpl extends ModelImpl implements AbstractProcess
     {
       case BilangPackage.ABSTRACT_PROCESS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case BilangPackage.ABSTRACT_PROCESS__PARAM_VALUES:
-        return paramValues != null && !paramValues.isEmpty();
+      case BilangPackage.ABSTRACT_PROCESS__PARAMETERS:
+        return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);
   }

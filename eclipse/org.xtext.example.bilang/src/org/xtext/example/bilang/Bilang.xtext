@@ -15,7 +15,7 @@ Model:
     | elements+=EmptyProcess)*;
 
 EmptyProcess:
-    'empty' 'process';
+    {EmptyProcess} 'empty' 'process';
 
 CompoundProcess:
     'compound' 'process' tasks+=Task+;
@@ -75,7 +75,7 @@ Statement:
 // ============================================================
 
 Task:
-    'task'
+    '(' 'task'
     kind=(SendEmail
         | SendSMS
         | SendSnailMail
@@ -92,7 +92,7 @@ Task:
         | CreateProduct
         | RetrieveProductInformation
         | RetrieveOrderStatusByInvoice)
-    ('as' result=ID)?;
+    ('as' result=ID)? ')';
 
 // ============================================================
 // 4. VARIABLES AND EXPRESSIONS
@@ -294,11 +294,11 @@ SearchPerson:
 // ============================================================
 
 Person:
-    PersonByEmail
+    '(' kind+=(PersonByEmail
     | PersonByAlias
     | PersonByName
     | PersonByPhone
-    | PersonByAddress;
+    | PersonByAddress) ')';
 
 PersonByEmail:
     'person' 'with' 'email' emailaddress=EMAIL_ADDRESS;
@@ -323,7 +323,7 @@ PersonByAddress:
 // ============================================================
 
 Document:
-    'document' kind=(Invoice | DocumentPerson | DocumentTopic);
+    '(' 'document' kind=(Invoice | DocumentPerson | DocumentTopic) ')';
 
 Invoice:
     'invoice' 'with' 'code' code=INT;

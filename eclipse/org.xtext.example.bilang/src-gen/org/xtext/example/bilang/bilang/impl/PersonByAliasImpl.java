@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.PersonByAlias;
@@ -25,7 +26,7 @@ import org.xtext.example.bilang.bilang.PersonByAlias;
  *
  * @generated
  */
-public class PersonByAliasImpl extends PersonImpl implements PersonByAlias
+public class PersonByAliasImpl extends MinimalEObjectImpl.Container implements PersonByAlias
 {
   /**
    * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.

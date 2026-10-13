@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.Document;
@@ -28,7 +29,7 @@ import org.xtext.example.bilang.bilang.RetrieveDocument;
  *
  * @generated
  */
-public class RetrieveDocumentImpl extends RetrieveTaskImpl implements RetrieveDocument
+public class RetrieveDocumentImpl extends MinimalEObjectImpl.Container implements RetrieveDocument
 {
   /**
    * The cached value of the '{@link #getDocument() <em>Document</em>}' containment reference.

@@ -3,6 +3,7 @@
  */
 package org.xtext.example.bilang.bilang;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.example.bilang.bilang;
  * @model
  * @generated
  */
-public interface PersonByEmail extends Person
+public interface PersonByEmail extends EObject
 {
   /**
    * Returns the value of the '<em><b>Emailaddress</b></em>' attribute.

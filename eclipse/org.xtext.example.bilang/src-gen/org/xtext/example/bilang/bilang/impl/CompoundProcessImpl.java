@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -27,22 +29,22 @@ import org.xtext.example.bilang.bilang.Task;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.bilang.bilang.impl.CompoundProcessImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link org.xtext.example.bilang.bilang.impl.CompoundProcessImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CompoundProcessImpl extends ModelImpl implements CompoundProcess
+public class CompoundProcessImpl extends MinimalEObjectImpl.Container implements CompoundProcess
 {
   /**
-   * The cached value of the '{@link #getTask() <em>Task</em>}' containment reference list.
+   * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTask()
+   * @see #getTasks()
    * @generated
    * @ordered
    */
-  protected EList<Task> task;
+  protected EList<Task> tasks;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,13 +73,13 @@ public class CompoundProcessImpl extends ModelImpl implements CompoundProcess
    * @generated
    */
   @Override
-  public EList<Task> getTask()
+  public EList<Task> getTasks()
   {
-    if (task == null)
+    if (tasks == null)
     {
-      task = new EObjectContainmentEList<Task>(Task.class, this, BilangPackage.COMPOUND_PROCESS__TASK);
+      tasks = new EObjectContainmentEList<Task>(Task.class, this, BilangPackage.COMPOUND_PROCESS__TASKS);
     }
-    return task;
+    return tasks;
   }
 
   /**
@@ -90,8 +92,8 @@ public class CompoundProcessImpl extends ModelImpl implements CompoundProcess
   {
     switch (featureID)
     {
-      case BilangPackage.COMPOUND_PROCESS__TASK:
-        return ((InternalEList<?>)getTask()).basicRemove(otherEnd, msgs);
+      case BilangPackage.COMPOUND_PROCESS__TASKS:
+        return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +108,8 @@ public class CompoundProcessImpl extends ModelImpl implements CompoundProcess
   {
     switch (featureID)
     {
-      case BilangPackage.COMPOUND_PROCESS__TASK:
-        return getTask();
+      case BilangPackage.COMPOUND_PROCESS__TASKS:
+        return getTasks();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +125,9 @@ public class CompoundProcessImpl extends ModelImpl implements CompoundProcess
   {
     switch (featureID)
     {
-      case BilangPackage.COMPOUND_PROCESS__TASK:
-        getTask().clear();
-        getTask().addAll((Collection<? extends Task>)newValue);
+      case BilangPackage.COMPOUND_PROCESS__TASKS:
+        getTasks().clear();
+        getTasks().addAll((Collection<? extends Task>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +143,8 @@ public class CompoundProcessImpl extends ModelImpl implements CompoundProcess
   {
     switch (featureID)
     {
-      case BilangPackage.COMPOUND_PROCESS__TASK:
-        getTask().clear();
+      case BilangPackage.COMPOUND_PROCESS__TASKS:
+        getTasks().clear();
         return;
     }
     super.eUnset(featureID);
@@ -158,8 +160,8 @@ public class CompoundProcessImpl extends ModelImpl implements CompoundProcess
   {
     switch (featureID)
     {
-      case BilangPackage.COMPOUND_PROCESS__TASK:
-        return task != null && !task.isEmpty();
+      case BilangPackage.COMPOUND_PROCESS__TASKS:
+        return tasks != null && !tasks.isEmpty();
     }
     return super.eIsSet(featureID);
   }

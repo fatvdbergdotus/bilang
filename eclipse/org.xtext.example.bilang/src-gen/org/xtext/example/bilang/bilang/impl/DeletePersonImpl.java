@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.bilang.bilang.BilangPackage;
 import org.xtext.example.bilang.bilang.DeletePerson;
@@ -28,7 +29,7 @@ import org.xtext.example.bilang.bilang.PersonByAlias;
  *
  * @generated
  */
-public class DeletePersonImpl extends PersonTaskImpl implements DeletePerson
+public class DeletePersonImpl extends MinimalEObjectImpl.Container implements DeletePerson
 {
   /**
    * The cached value of the '{@link #getAlias() <em>Alias</em>}' containment reference.

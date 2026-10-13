@@ -3,8 +3,6 @@
  */
 package org.xtext.example.bilang.bilang;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,15 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface Document extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Kind</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * Returns the value of the '<em><b>Kind</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Kind</em>' containment reference list.
+   * @return the value of the '<em>Kind</em>' containment reference.
+   * @see #setKind(EObject)
    * @see org.xtext.example.bilang.bilang.BilangPackage#getDocument_Kind()
    * @model containment="true"
    * @generated
    */
-  EList<EObject> getKind();
+  EObject getKind();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.bilang.bilang.Document#getKind <em>Kind</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Kind</em>' containment reference.
+   * @see #getKind()
+   * @generated
+   */
+  void setKind(EObject value);
 
 } // Document

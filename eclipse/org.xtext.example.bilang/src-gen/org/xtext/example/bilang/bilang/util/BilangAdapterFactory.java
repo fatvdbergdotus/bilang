@@ -81,9 +81,9 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseTask(Task object)
+      public Adapter caseEmptyProcess(EmptyProcess object)
       {
-        return createTaskAdapter();
+        return createEmptyProcessAdapter();
       }
       @Override
       public Adapter caseCompoundProcess(CompoundProcess object)
@@ -101,19 +101,139 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
         return createParamValueAdapter();
       }
       @Override
-      public Adapter caseRetrieveTask(RetrieveTask object)
+      public Adapter caseWorkflow(Workflow object)
       {
-        return createRetrieveTaskAdapter();
+        return createWorkflowAdapter();
       }
       @Override
-      public Adapter caseSendTask(SendTask object)
+      public Adapter caseWorkflowDefinition(WorkflowDefinition object)
       {
-        return createSendTaskAdapter();
+        return createWorkflowDefinitionAdapter();
       }
       @Override
-      public Adapter casePersonTask(PersonTask object)
+      public Adapter caseParameter(Parameter object)
       {
-        return createPersonTaskAdapter();
+        return createParameterAdapter();
+      }
+      @Override
+      public Adapter caseStatement(Statement object)
+      {
+        return createStatementAdapter();
+      }
+      @Override
+      public Adapter caseTask(Task object)
+      {
+        return createTaskAdapter();
+      }
+      @Override
+      public Adapter caseLetStatement(LetStatement object)
+      {
+        return createLetStatementAdapter();
+      }
+      @Override
+      public Adapter caseVariableDeclaration(VariableDeclaration object)
+      {
+        return createVariableDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseIfStatement(IfStatement object)
+      {
+        return createIfStatementAdapter();
+      }
+      @Override
+      public Adapter caseForEachStatement(ForEachStatement object)
+      {
+        return createForEachStatementAdapter();
+      }
+      @Override
+      public Adapter caseWhileStatement(WhileStatement object)
+      {
+        return createWhileStatementAdapter();
+      }
+      @Override
+      public Adapter caseParallelProcess(ParallelProcess object)
+      {
+        return createParallelProcessAdapter();
+      }
+      @Override
+      public Adapter caseParallelBranch(ParallelBranch object)
+      {
+        return createParallelBranchAdapter();
+      }
+      @Override
+      public Adapter caseTryCatchStatement(TryCatchStatement object)
+      {
+        return createTryCatchStatementAdapter();
+      }
+      @Override
+      public Adapter caseRetryStatement(RetryStatement object)
+      {
+        return createRetryStatementAdapter();
+      }
+      @Override
+      public Adapter caseTimeoutStatement(TimeoutStatement object)
+      {
+        return createTimeoutStatementAdapter();
+      }
+      @Override
+      public Adapter caseCompensateStatement(CompensateStatement object)
+      {
+        return createCompensateStatementAdapter();
+      }
+      @Override
+      public Adapter caseRequireStatement(RequireStatement object)
+      {
+        return createRequireStatementAdapter();
+      }
+      @Override
+      public Adapter caseWaitStatement(WaitStatement object)
+      {
+        return createWaitStatementAdapter();
+      }
+      @Override
+      public Adapter caseAssertStatement(AssertStatement object)
+      {
+        return createAssertStatementAdapter();
+      }
+      @Override
+      public Adapter caseLogStatement(LogStatement object)
+      {
+        return createLogStatementAdapter();
+      }
+      @Override
+      public Adapter caseWorkflowCall(WorkflowCall object)
+      {
+        return createWorkflowCallAdapter();
+      }
+      @Override
+      public Adapter caseArgument(Argument object)
+      {
+        return createArgumentAdapter();
+      }
+      @Override
+      public Adapter caseRetrieveDocument(RetrieveDocument object)
+      {
+        return createRetrieveDocumentAdapter();
+      }
+      @Override
+      public Adapter caseRetrieveInvoices(RetrieveInvoices object)
+      {
+        return createRetrieveInvoicesAdapter();
+      }
+      @Override
+      public Adapter caseRetrieveFullAddress(RetrieveFullAddress object)
+      {
+        return createRetrieveFullAddressAdapter();
+      }
+      @Override
+      public Adapter caseRetrievePersons(RetrievePersons object)
+      {
+        return createRetrievePersonsAdapter();
       }
       @Override
       public Adapter caseSendEmail(SendEmail object)
@@ -131,19 +251,9 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
         return createSendSnailMailAdapter();
       }
       @Override
-      public Adapter caseRetrieveDocument(RetrieveDocument object)
+      public Adapter caseMessage(Message object)
       {
-        return createRetrieveDocumentAdapter();
-      }
-      @Override
-      public Adapter caseRetrieveFullAddress(RetrieveFullAddress object)
-      {
-        return createRetrieveFullAddressAdapter();
-      }
-      @Override
-      public Adapter caseRetrievePersons(RetrievePersons object)
-      {
-        return createRetrievePersonsAdapter();
+        return createMessageAdapter();
       }
       @Override
       public Adapter caseCallPerson(CallPerson object)
@@ -159,6 +269,21 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDeletePerson(DeletePerson object)
       {
         return createDeletePersonAdapter();
+      }
+      @Override
+      public Adapter caseUpdatePerson(UpdatePerson object)
+      {
+        return createUpdatePersonAdapter();
+      }
+      @Override
+      public Adapter casePersonChange(PersonChange object)
+      {
+        return createPersonChangeAdapter();
+      }
+      @Override
+      public Adapter caseSearchPerson(SearchPerson object)
+      {
+        return createSearchPersonAdapter();
       }
       @Override
       public Adapter casePerson(Person object)
@@ -191,11 +316,6 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
         return createPersonByAddressAdapter();
       }
       @Override
-      public Adapter caseMessage(Message object)
-      {
-        return createMessageAdapter();
-      }
-      @Override
       public Adapter caseDocument(Document object)
       {
         return createDocumentAdapter();
@@ -214,6 +334,91 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDocumentTopic(DocumentTopic object)
       {
         return createDocumentTopicAdapter();
+      }
+      @Override
+      public Adapter caseDocumentOperation(DocumentOperation object)
+      {
+        return createDocumentOperationAdapter();
+      }
+      @Override
+      public Adapter caseFilterDocuments(FilterDocuments object)
+      {
+        return createFilterDocumentsAdapter();
+      }
+      @Override
+      public Adapter caseSortDocuments(SortDocuments object)
+      {
+        return createSortDocumentsAdapter();
+      }
+      @Override
+      public Adapter caseArchiveDocument(ArchiveDocument object)
+      {
+        return createArchiveDocumentAdapter();
+      }
+      @Override
+      public Adapter caseDeleteDocument(DeleteDocument object)
+      {
+        return createDeleteDocumentAdapter();
+      }
+      @Override
+      public Adapter caseCreateInvoiceWithProducts(CreateInvoiceWithProducts object)
+      {
+        return createCreateInvoiceWithProductsAdapter();
+      }
+      @Override
+      public Adapter caseProductReference(ProductReference object)
+      {
+        return createProductReferenceAdapter();
+      }
+      @Override
+      public Adapter caseCreateProduct(CreateProduct object)
+      {
+        return createCreateProductAdapter();
+      }
+      @Override
+      public Adapter caseRetrieveProductInformation(RetrieveProductInformation object)
+      {
+        return createRetrieveProductInformationAdapter();
+      }
+      @Override
+      public Adapter caseRetrieveOrderStatusByInvoice(RetrieveOrderStatusByInvoice object)
+      {
+        return createRetrieveOrderStatusByInvoiceAdapter();
+      }
+      @Override
+      public Adapter caseBinaryExpression(BinaryExpression object)
+      {
+        return createBinaryExpressionAdapter();
+      }
+      @Override
+      public Adapter caseParenthesizedExpression(ParenthesizedExpression object)
+      {
+        return createParenthesizedExpressionAdapter();
+      }
+      @Override
+      public Adapter caseStringLiteral(StringLiteral object)
+      {
+        return createStringLiteralAdapter();
+      }
+      @Override
+      public Adapter caseNumberLiteral(NumberLiteral object)
+      {
+        return createNumberLiteralAdapter();
+      }
+      @Override
+      public Adapter caseBooleanLiteral(BooleanLiteral object)
+      {
+        return createBooleanLiteralAdapter();
+      }
+      @Override
+      public Adapter caseVariableReference(VariableReference object)
+      {
+        return createVariableReferenceAdapter();
+      }
+      @Override
+      public Adapter caseListLiteral(ListLiteral object)
+      {
+        return createListLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -253,16 +458,16 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Task <em>Task</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.EmptyProcess <em>Empty Process</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.Task
+   * @see org.xtext.example.bilang.bilang.EmptyProcess
    * @generated
    */
-  public Adapter createTaskAdapter()
+  public Adapter createEmptyProcessAdapter()
   {
     return null;
   }
@@ -313,46 +518,406 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrieveTask <em>Retrieve Task</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Workflow <em>Workflow</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.RetrieveTask
+   * @see org.xtext.example.bilang.bilang.Workflow
    * @generated
    */
-  public Adapter createRetrieveTaskAdapter()
+  public Adapter createWorkflowAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.SendTask <em>Send Task</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.WorkflowDefinition <em>Workflow Definition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.SendTask
+   * @see org.xtext.example.bilang.bilang.WorkflowDefinition
    * @generated
    */
-  public Adapter createSendTaskAdapter()
+  public Adapter createWorkflowDefinitionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.PersonTask <em>Person Task</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.PersonTask
+   * @see org.xtext.example.bilang.bilang.Parameter
    * @generated
    */
-  public Adapter createPersonTaskAdapter()
+  public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.Statement
+   * @generated
+   */
+  public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Task <em>Task</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.Task
+   * @generated
+   */
+  public Adapter createTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.LetStatement <em>Let Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.LetStatement
+   * @generated
+   */
+  public Adapter createLetStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.VariableDeclaration <em>Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.VariableDeclaration
+   * @generated
+   */
+  public Adapter createVariableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.IfStatement
+   * @generated
+   */
+  public Adapter createIfStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.ForEachStatement <em>For Each Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.ForEachStatement
+   * @generated
+   */
+  public Adapter createForEachStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.WhileStatement <em>While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.WhileStatement
+   * @generated
+   */
+  public Adapter createWhileStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.ParallelProcess <em>Parallel Process</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.ParallelProcess
+   * @generated
+   */
+  public Adapter createParallelProcessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.ParallelBranch <em>Parallel Branch</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.ParallelBranch
+   * @generated
+   */
+  public Adapter createParallelBranchAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.TryCatchStatement <em>Try Catch Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.TryCatchStatement
+   * @generated
+   */
+  public Adapter createTryCatchStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetryStatement <em>Retry Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.RetryStatement
+   * @generated
+   */
+  public Adapter createRetryStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.TimeoutStatement <em>Timeout Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.TimeoutStatement
+   * @generated
+   */
+  public Adapter createTimeoutStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.CompensateStatement <em>Compensate Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.CompensateStatement
+   * @generated
+   */
+  public Adapter createCompensateStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RequireStatement <em>Require Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.RequireStatement
+   * @generated
+   */
+  public Adapter createRequireStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.WaitStatement <em>Wait Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.WaitStatement
+   * @generated
+   */
+  public Adapter createWaitStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.AssertStatement <em>Assert Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.AssertStatement
+   * @generated
+   */
+  public Adapter createAssertStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.LogStatement <em>Log Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.LogStatement
+   * @generated
+   */
+  public Adapter createLogStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.WorkflowCall <em>Workflow Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.WorkflowCall
+   * @generated
+   */
+  public Adapter createWorkflowCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Argument <em>Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.Argument
+   * @generated
+   */
+  public Adapter createArgumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrieveDocument <em>Retrieve Document</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.RetrieveDocument
+   * @generated
+   */
+  public Adapter createRetrieveDocumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrieveInvoices <em>Retrieve Invoices</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.RetrieveInvoices
+   * @generated
+   */
+  public Adapter createRetrieveInvoicesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrieveFullAddress <em>Retrieve Full Address</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.RetrieveFullAddress
+   * @generated
+   */
+  public Adapter createRetrieveFullAddressAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrievePersons <em>Retrieve Persons</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.RetrievePersons
+   * @generated
+   */
+  public Adapter createRetrievePersonsAdapter()
   {
     return null;
   }
@@ -403,46 +968,16 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrieveDocument <em>Retrieve Document</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Message <em>Message</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.RetrieveDocument
+   * @see org.xtext.example.bilang.bilang.Message
    * @generated
    */
-  public Adapter createRetrieveDocumentAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrieveFullAddress <em>Retrieve Full Address</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.RetrieveFullAddress
-   * @generated
-   */
-  public Adapter createRetrieveFullAddressAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrievePersons <em>Retrieve Persons</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.RetrievePersons
-   * @generated
-   */
-  public Adapter createRetrievePersonsAdapter()
+  public Adapter createMessageAdapter()
   {
     return null;
   }
@@ -488,6 +1023,51 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDeletePersonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.UpdatePerson <em>Update Person</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.UpdatePerson
+   * @generated
+   */
+  public Adapter createUpdatePersonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.PersonChange <em>Person Change</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.PersonChange
+   * @generated
+   */
+  public Adapter createPersonChangeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.SearchPerson <em>Search Person</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.SearchPerson
+   * @generated
+   */
+  public Adapter createSearchPersonAdapter()
   {
     return null;
   }
@@ -583,21 +1163,6 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Message <em>Message</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.bilang.bilang.Message
-   * @generated
-   */
-  public Adapter createMessageAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.Document <em>Document</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -653,6 +1218,261 @@ public class BilangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDocumentTopicAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.DocumentOperation <em>Document Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.DocumentOperation
+   * @generated
+   */
+  public Adapter createDocumentOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.FilterDocuments <em>Filter Documents</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.FilterDocuments
+   * @generated
+   */
+  public Adapter createFilterDocumentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.SortDocuments <em>Sort Documents</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.SortDocuments
+   * @generated
+   */
+  public Adapter createSortDocumentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.ArchiveDocument <em>Archive Document</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.ArchiveDocument
+   * @generated
+   */
+  public Adapter createArchiveDocumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.DeleteDocument <em>Delete Document</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.DeleteDocument
+   * @generated
+   */
+  public Adapter createDeleteDocumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.CreateInvoiceWithProducts <em>Create Invoice With Products</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.CreateInvoiceWithProducts
+   * @generated
+   */
+  public Adapter createCreateInvoiceWithProductsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.ProductReference <em>Product Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.ProductReference
+   * @generated
+   */
+  public Adapter createProductReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.CreateProduct <em>Create Product</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.CreateProduct
+   * @generated
+   */
+  public Adapter createCreateProductAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrieveProductInformation <em>Retrieve Product Information</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.RetrieveProductInformation
+   * @generated
+   */
+  public Adapter createRetrieveProductInformationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.RetrieveOrderStatusByInvoice <em>Retrieve Order Status By Invoice</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.RetrieveOrderStatusByInvoice
+   * @generated
+   */
+  public Adapter createRetrieveOrderStatusByInvoiceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.BinaryExpression <em>Binary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.BinaryExpression
+   * @generated
+   */
+  public Adapter createBinaryExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.ParenthesizedExpression <em>Parenthesized Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.ParenthesizedExpression
+   * @generated
+   */
+  public Adapter createParenthesizedExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.StringLiteral
+   * @generated
+   */
+  public Adapter createStringLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.NumberLiteral <em>Number Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.NumberLiteral
+   * @generated
+   */
+  public Adapter createNumberLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.BooleanLiteral <em>Boolean Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.BooleanLiteral
+   * @generated
+   */
+  public Adapter createBooleanLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.VariableReference <em>Variable Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.VariableReference
+   * @generated
+   */
+  public Adapter createVariableReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.bilang.bilang.ListLiteral <em>List Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.bilang.bilang.ListLiteral
+   * @generated
+   */
+  public Adapter createListLiteralAdapter()
   {
     return null;
   }

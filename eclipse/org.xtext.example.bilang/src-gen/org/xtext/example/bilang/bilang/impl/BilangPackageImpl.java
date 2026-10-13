@@ -12,34 +12,75 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.bilang.bilang.AbstractProcess;
 import org.xtext.example.bilang.bilang.AddPerson;
+import org.xtext.example.bilang.bilang.ArchiveDocument;
+import org.xtext.example.bilang.bilang.Argument;
+import org.xtext.example.bilang.bilang.AssertStatement;
 import org.xtext.example.bilang.bilang.BilangFactory;
 import org.xtext.example.bilang.bilang.BilangPackage;
+import org.xtext.example.bilang.bilang.BinaryExpression;
+import org.xtext.example.bilang.bilang.BooleanLiteral;
 import org.xtext.example.bilang.bilang.CallPerson;
+import org.xtext.example.bilang.bilang.CompensateStatement;
 import org.xtext.example.bilang.bilang.CompoundProcess;
+import org.xtext.example.bilang.bilang.CreateInvoiceWithProducts;
+import org.xtext.example.bilang.bilang.CreateProduct;
+import org.xtext.example.bilang.bilang.DeleteDocument;
 import org.xtext.example.bilang.bilang.DeletePerson;
 import org.xtext.example.bilang.bilang.Document;
+import org.xtext.example.bilang.bilang.DocumentOperation;
 import org.xtext.example.bilang.bilang.DocumentPerson;
 import org.xtext.example.bilang.bilang.DocumentTopic;
+import org.xtext.example.bilang.bilang.EmptyProcess;
+import org.xtext.example.bilang.bilang.Expression;
+import org.xtext.example.bilang.bilang.FilterDocuments;
+import org.xtext.example.bilang.bilang.ForEachStatement;
+import org.xtext.example.bilang.bilang.IfStatement;
 import org.xtext.example.bilang.bilang.Invoice;
+import org.xtext.example.bilang.bilang.LetStatement;
+import org.xtext.example.bilang.bilang.ListLiteral;
+import org.xtext.example.bilang.bilang.LogStatement;
 import org.xtext.example.bilang.bilang.Message;
 import org.xtext.example.bilang.bilang.Model;
+import org.xtext.example.bilang.bilang.NumberLiteral;
+import org.xtext.example.bilang.bilang.ParallelBranch;
+import org.xtext.example.bilang.bilang.ParallelProcess;
 import org.xtext.example.bilang.bilang.ParamValue;
+import org.xtext.example.bilang.bilang.Parameter;
+import org.xtext.example.bilang.bilang.ParenthesizedExpression;
 import org.xtext.example.bilang.bilang.Person;
 import org.xtext.example.bilang.bilang.PersonByAddress;
 import org.xtext.example.bilang.bilang.PersonByAlias;
 import org.xtext.example.bilang.bilang.PersonByEmail;
 import org.xtext.example.bilang.bilang.PersonByName;
 import org.xtext.example.bilang.bilang.PersonByPhone;
-import org.xtext.example.bilang.bilang.PersonTask;
+import org.xtext.example.bilang.bilang.PersonChange;
+import org.xtext.example.bilang.bilang.ProductReference;
+import org.xtext.example.bilang.bilang.RequireStatement;
 import org.xtext.example.bilang.bilang.RetrieveDocument;
 import org.xtext.example.bilang.bilang.RetrieveFullAddress;
+import org.xtext.example.bilang.bilang.RetrieveInvoices;
+import org.xtext.example.bilang.bilang.RetrieveOrderStatusByInvoice;
 import org.xtext.example.bilang.bilang.RetrievePersons;
-import org.xtext.example.bilang.bilang.RetrieveTask;
+import org.xtext.example.bilang.bilang.RetrieveProductInformation;
+import org.xtext.example.bilang.bilang.RetryStatement;
+import org.xtext.example.bilang.bilang.SearchPerson;
 import org.xtext.example.bilang.bilang.SendEmail;
 import org.xtext.example.bilang.bilang.SendSMS;
 import org.xtext.example.bilang.bilang.SendSnailMail;
-import org.xtext.example.bilang.bilang.SendTask;
+import org.xtext.example.bilang.bilang.SortDocuments;
+import org.xtext.example.bilang.bilang.Statement;
+import org.xtext.example.bilang.bilang.StringLiteral;
 import org.xtext.example.bilang.bilang.Task;
+import org.xtext.example.bilang.bilang.TimeoutStatement;
+import org.xtext.example.bilang.bilang.TryCatchStatement;
+import org.xtext.example.bilang.bilang.UpdatePerson;
+import org.xtext.example.bilang.bilang.VariableDeclaration;
+import org.xtext.example.bilang.bilang.VariableReference;
+import org.xtext.example.bilang.bilang.WaitStatement;
+import org.xtext.example.bilang.bilang.WhileStatement;
+import org.xtext.example.bilang.bilang.Workflow;
+import org.xtext.example.bilang.bilang.WorkflowCall;
+import org.xtext.example.bilang.bilang.WorkflowDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,7 +102,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass taskEClass = null;
+  private EClass emptyProcessEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -89,21 +130,189 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass retrieveTaskEClass = null;
+  private EClass workflowEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sendTaskEClass = null;
+  private EClass workflowDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass personTaskEClass = null;
+  private EClass parameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass statementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass taskEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass letStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variableDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ifStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass forEachStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass whileStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parallelProcessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parallelBranchEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass tryCatchStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass retryStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass timeoutStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass compensateStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass requireStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass waitStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass assertStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass logStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass workflowCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass argumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass retrieveDocumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass retrieveInvoicesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass retrieveFullAddressEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass retrievePersonsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,21 +340,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass retrieveDocumentEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass retrieveFullAddressEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass retrievePersonsEClass = null;
+  private EClass messageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -167,6 +362,27 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   private EClass deletePersonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass updatePersonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass personChangeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass searchPersonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -215,13 +431,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass messageEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass documentEClass = null;
 
   /**
@@ -244,6 +453,125 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   private EClass documentTopicEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass documentOperationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass filterDocumentsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sortDocumentsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass archiveDocumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deleteDocumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass createInvoiceWithProductsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass productReferenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass createProductEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass retrieveProductInformationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass retrieveOrderStatusByInvoiceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass binaryExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parenthesizedExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stringLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass numberLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variableReferenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass listLiteralEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -324,9 +652,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getTask()
+  public EReference getModel_Elements()
   {
-    return taskEClass;
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -335,9 +663,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getTask_Kind()
+  public EClass getEmptyProcess()
   {
-    return (EReference)taskEClass.getEStructuralFeatures().get(0);
+    return emptyProcessEClass;
   }
 
   /**
@@ -357,7 +685,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getCompoundProcess_Task()
+  public EReference getCompoundProcess_Tasks()
   {
     return (EReference)compoundProcessEClass.getEStructuralFeatures().get(0);
   }
@@ -390,7 +718,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getAbstractProcess_ParamValues()
+  public EReference getAbstractProcess_Parameters()
   {
     return (EReference)abstractProcessEClass.getEStructuralFeatures().get(1);
   }
@@ -434,9 +762,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getRetrieveTask()
+  public EClass getWorkflow()
   {
-    return retrieveTaskEClass;
+    return workflowEClass;
   }
 
   /**
@@ -445,9 +773,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getSendTask()
+  public EAttribute getWorkflow_Name()
   {
-    return sendTaskEClass;
+    return (EAttribute)workflowEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -456,9 +784,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getSendTask_Person()
+  public EReference getWorkflow_Statements()
   {
-    return (EReference)sendTaskEClass.getEStructuralFeatures().get(0);
+    return (EReference)workflowEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -467,9 +795,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getSendTask_Message()
+  public EClass getWorkflowDefinition()
   {
-    return (EReference)sendTaskEClass.getEStructuralFeatures().get(1);
+    return workflowDefinitionEClass;
   }
 
   /**
@@ -478,9 +806,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getSendTask_Attachment()
+  public EAttribute getWorkflowDefinition_Name()
   {
-    return (EReference)sendTaskEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)workflowDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -489,9 +817,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getPersonTask()
+  public EReference getWorkflowDefinition_Parameters()
   {
-    return personTaskEClass;
+    return (EReference)workflowDefinitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -500,9 +828,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getSendEmail()
+  public EReference getWorkflowDefinition_Statements()
   {
-    return sendEmailEClass;
+    return (EReference)workflowDefinitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -511,9 +839,9 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getSendSMS()
+  public EClass getParameter()
   {
-    return sendSMSEClass;
+    return parameterEClass;
   }
 
   /**
@@ -522,9 +850,636 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getSendSnailMail()
+  public EAttribute getParameter_Name()
   {
-    return sendSnailMailEClass;
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getParameter_Type()
+  {
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getStatement()
+  {
+    return statementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTask()
+  {
+    return taskEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTask_Kind()
+  {
+    return (EReference)taskEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTask_Result()
+  {
+    return (EAttribute)taskEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLetStatement()
+  {
+    return letStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetStatement_Variable()
+  {
+    return (EReference)letStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetStatement_Value()
+  {
+    return (EReference)letStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getVariableDeclaration()
+  {
+    return variableDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVariableDeclaration_Name()
+  {
+    return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExpression()
+  {
+    return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIfStatement()
+  {
+    return ifStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfStatement_Condition()
+  {
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfStatement_ThenBranch()
+  {
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfStatement_ElseBranch()
+  {
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getForEachStatement()
+  {
+    return forEachStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getForEachStatement_Variable()
+  {
+    return (EReference)forEachStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getForEachStatement_Collection()
+  {
+    return (EReference)forEachStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getForEachStatement_Body()
+  {
+    return (EReference)forEachStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getWhileStatement()
+  {
+    return whileStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getWhileStatement_Condition()
+  {
+    return (EReference)whileStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getWhileStatement_Body()
+  {
+    return (EReference)whileStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getParallelProcess()
+  {
+    return parallelProcessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getParallelProcess_Branches()
+  {
+    return (EReference)parallelProcessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getParallelBranch()
+  {
+    return parallelBranchEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getParallelBranch_Statements()
+  {
+    return (EReference)parallelBranchEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTryCatchStatement()
+  {
+    return tryCatchStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTryCatchStatement_TryBody()
+  {
+    return (EReference)tryCatchStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTryCatchStatement_ErrorVariable()
+  {
+    return (EAttribute)tryCatchStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTryCatchStatement_CatchBody()
+  {
+    return (EReference)tryCatchStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTryCatchStatement_FinallyBody()
+  {
+    return (EReference)tryCatchStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRetryStatement()
+  {
+    return retryStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRetryStatement_Attempts()
+  {
+    return (EAttribute)retryStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRetryStatement_Body()
+  {
+    return (EReference)retryStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTimeoutStatement()
+  {
+    return timeoutStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTimeoutStatement_Duration()
+  {
+    return (EAttribute)timeoutStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTimeoutStatement_Unit()
+  {
+    return (EAttribute)timeoutStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTimeoutStatement_Body()
+  {
+    return (EReference)timeoutStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCompensateStatement()
+  {
+    return compensateStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCompensateStatement_Actions()
+  {
+    return (EReference)compensateStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRequireStatement()
+  {
+    return requireStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRequireStatement_Condition()
+  {
+    return (EReference)requireStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRequireStatement_Body()
+  {
+    return (EReference)requireStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getWaitStatement()
+  {
+    return waitStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getWaitStatement_Duration()
+  {
+    return (EAttribute)waitStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getWaitStatement_Unit()
+  {
+    return (EAttribute)waitStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAssertStatement()
+  {
+    return assertStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAssertStatement_Condition()
+  {
+    return (EReference)assertStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAssertStatement_Message()
+  {
+    return (EAttribute)assertStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLogStatement()
+  {
+    return logStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLogStatement_Value()
+  {
+    return (EReference)logStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getWorkflowCall()
+  {
+    return workflowCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getWorkflowCall_Workflow()
+  {
+    return (EReference)workflowCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getWorkflowCall_Arguments()
+  {
+    return (EReference)workflowCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArgument()
+  {
+    return argumentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getArgument_Name()
+  {
+    return (EAttribute)argumentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArgument_Value()
+  {
+    return (EReference)argumentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -555,6 +1510,28 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
+  public EClass getRetrieveInvoices()
+  {
+    return retrieveInvoicesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRetrieveInvoices_InvoiceNumbers()
+  {
+    return (EAttribute)retrieveInvoicesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getRetrieveFullAddress()
   {
     return retrieveFullAddressEClass;
@@ -566,7 +1543,7 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EReference getRetrieveFullAddress_PersonAdress()
+  public EReference getRetrieveFullAddress_PersonAddress()
   {
     return (EReference)retrieveFullAddressEClass.getEStructuralFeatures().get(0);
   }
@@ -591,6 +1568,160 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
   public EAttribute getRetrievePersons_PersonSearch()
   {
     return (EAttribute)retrievePersonsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSendEmail()
+  {
+    return sendEmailEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendEmail_Recipients()
+  {
+    return (EReference)sendEmailEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendEmail_Message()
+  {
+    return (EReference)sendEmailEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendEmail_Attachments()
+  {
+    return (EReference)sendEmailEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSendSMS()
+  {
+    return sendSMSEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendSMS_Recipients()
+  {
+    return (EReference)sendSMSEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendSMS_Message()
+  {
+    return (EReference)sendSMSEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendSMS_Attachments()
+  {
+    return (EReference)sendSMSEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSendSnailMail()
+  {
+    return sendSnailMailEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendSnailMail_Recipients()
+  {
+    return (EReference)sendSnailMailEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendSnailMail_Message()
+  {
+    return (EReference)sendSnailMailEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSendSnailMail_Attachments()
+  {
+    return (EReference)sendSnailMailEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMessage()
+  {
+    return messageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMessage_Message()
+  {
+    return (EAttribute)messageEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -676,9 +1807,141 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
+  public EClass getUpdatePerson()
+  {
+    return updatePersonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUpdatePerson_Person()
+  {
+    return (EReference)updatePersonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUpdatePerson_Changes()
+  {
+    return (EReference)updatePersonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPersonChange()
+  {
+    return personChangeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPersonChange_Email()
+  {
+    return (EAttribute)personChangeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPersonChange_Phone()
+  {
+    return (EAttribute)personChangeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPersonChange_Alias()
+  {
+    return (EAttribute)personChangeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSearchPerson()
+  {
+    return searchPersonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSearchPerson_Name()
+  {
+    return (EAttribute)searchPersonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSearchPerson_Email()
+  {
+    return (EAttribute)searchPersonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSearchPerson_Phone()
+  {
+    return (EAttribute)searchPersonEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getPerson()
   {
     return personEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPerson_Kind()
+  {
+    return (EReference)personEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -830,28 +2093,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
-  public EClass getMessage()
-  {
-    return messageEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getMessage_Message()
-  {
-    return (EAttribute)messageEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getDocument()
   {
     return documentEClass;
@@ -940,6 +2181,446 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
    * @generated
    */
   @Override
+  public EClass getDocumentOperation()
+  {
+    return documentOperationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFilterDocuments()
+  {
+    return filterDocumentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFilterDocuments_Field()
+  {
+    return (EAttribute)filterDocumentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFilterDocuments_Operator()
+  {
+    return (EAttribute)filterDocumentsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFilterDocuments_Value()
+  {
+    return (EAttribute)filterDocumentsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSortDocuments()
+  {
+    return sortDocumentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSortDocuments_Field()
+  {
+    return (EAttribute)sortDocumentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSortDocuments_Direction()
+  {
+    return (EAttribute)sortDocumentsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArchiveDocument()
+  {
+    return archiveDocumentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArchiveDocument_Document()
+  {
+    return (EReference)archiveDocumentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDeleteDocument()
+  {
+    return deleteDocumentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDeleteDocument_Document()
+  {
+    return (EReference)deleteDocumentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCreateInvoiceWithProducts()
+  {
+    return createInvoiceWithProductsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCreateInvoiceWithProducts_Products()
+  {
+    return (EReference)createInvoiceWithProductsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getProductReference()
+  {
+    return productReferenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getProductReference_Name()
+  {
+    return (EAttribute)productReferenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCreateProduct()
+  {
+    return createProductEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCreateProduct_Name()
+  {
+    return (EAttribute)createProductEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCreateProduct_Description()
+  {
+    return (EAttribute)createProductEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCreateProduct_Price()
+  {
+    return (EAttribute)createProductEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRetrieveProductInformation()
+  {
+    return retrieveProductInformationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRetrieveProductInformation_Name()
+  {
+    return (EAttribute)retrieveProductInformationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRetrieveOrderStatusByInvoice()
+  {
+    return retrieveOrderStatusByInvoiceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRetrieveOrderStatusByInvoice_InvoiceCode()
+  {
+    return (EAttribute)retrieveOrderStatusByInvoiceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBinaryExpression()
+  {
+    return binaryExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryExpression_Left()
+  {
+    return (EReference)binaryExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBinaryExpression_Operator()
+  {
+    return (EAttribute)binaryExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryExpression_Right()
+  {
+    return (EReference)binaryExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getParenthesizedExpression()
+  {
+    return parenthesizedExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getParenthesizedExpression_Expression()
+  {
+    return (EReference)parenthesizedExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getStringLiteral()
+  {
+    return stringLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getStringLiteral_Value()
+  {
+    return (EAttribute)stringLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNumberLiteral()
+  {
+    return numberLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNumberLiteral_Value()
+  {
+    return (EAttribute)numberLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBooleanLiteral()
+  {
+    return booleanLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBooleanLiteral_Value()
+  {
+    return (EAttribute)booleanLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getVariableReference()
+  {
+    return variableReferenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getVariableReference_Variable()
+  {
+    return (EReference)variableReferenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getListLiteral()
+  {
+    return listLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getListLiteral_Elements()
+  {
+    return (EReference)listLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public BilangFactory getBilangFactory()
   {
     return (BilangFactory)getEFactoryInstance();
@@ -966,44 +2647,139 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__ELEMENTS);
 
-    taskEClass = createEClass(TASK);
-    createEReference(taskEClass, TASK__KIND);
+    emptyProcessEClass = createEClass(EMPTY_PROCESS);
 
     compoundProcessEClass = createEClass(COMPOUND_PROCESS);
-    createEReference(compoundProcessEClass, COMPOUND_PROCESS__TASK);
+    createEReference(compoundProcessEClass, COMPOUND_PROCESS__TASKS);
 
     abstractProcessEClass = createEClass(ABSTRACT_PROCESS);
     createEAttribute(abstractProcessEClass, ABSTRACT_PROCESS__NAME);
-    createEReference(abstractProcessEClass, ABSTRACT_PROCESS__PARAM_VALUES);
+    createEReference(abstractProcessEClass, ABSTRACT_PROCESS__PARAMETERS);
 
     paramValueEClass = createEClass(PARAM_VALUE);
     createEAttribute(paramValueEClass, PARAM_VALUE__PARAM);
     createEAttribute(paramValueEClass, PARAM_VALUE__VALUE);
 
-    retrieveTaskEClass = createEClass(RETRIEVE_TASK);
+    workflowEClass = createEClass(WORKFLOW);
+    createEAttribute(workflowEClass, WORKFLOW__NAME);
+    createEReference(workflowEClass, WORKFLOW__STATEMENTS);
 
-    sendTaskEClass = createEClass(SEND_TASK);
-    createEReference(sendTaskEClass, SEND_TASK__PERSON);
-    createEReference(sendTaskEClass, SEND_TASK__MESSAGE);
-    createEReference(sendTaskEClass, SEND_TASK__ATTACHMENT);
+    workflowDefinitionEClass = createEClass(WORKFLOW_DEFINITION);
+    createEAttribute(workflowDefinitionEClass, WORKFLOW_DEFINITION__NAME);
+    createEReference(workflowDefinitionEClass, WORKFLOW_DEFINITION__PARAMETERS);
+    createEReference(workflowDefinitionEClass, WORKFLOW_DEFINITION__STATEMENTS);
 
-    personTaskEClass = createEClass(PERSON_TASK);
+    parameterEClass = createEClass(PARAMETER);
+    createEAttribute(parameterEClass, PARAMETER__NAME);
+    createEAttribute(parameterEClass, PARAMETER__TYPE);
 
-    sendEmailEClass = createEClass(SEND_EMAIL);
+    statementEClass = createEClass(STATEMENT);
 
-    sendSMSEClass = createEClass(SEND_SMS);
+    taskEClass = createEClass(TASK);
+    createEReference(taskEClass, TASK__KIND);
+    createEAttribute(taskEClass, TASK__RESULT);
 
-    sendSnailMailEClass = createEClass(SEND_SNAIL_MAIL);
+    letStatementEClass = createEClass(LET_STATEMENT);
+    createEReference(letStatementEClass, LET_STATEMENT__VARIABLE);
+    createEReference(letStatementEClass, LET_STATEMENT__VALUE);
+
+    variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
+    createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
+
+    expressionEClass = createEClass(EXPRESSION);
+
+    ifStatementEClass = createEClass(IF_STATEMENT);
+    createEReference(ifStatementEClass, IF_STATEMENT__CONDITION);
+    createEReference(ifStatementEClass, IF_STATEMENT__THEN_BRANCH);
+    createEReference(ifStatementEClass, IF_STATEMENT__ELSE_BRANCH);
+
+    forEachStatementEClass = createEClass(FOR_EACH_STATEMENT);
+    createEReference(forEachStatementEClass, FOR_EACH_STATEMENT__VARIABLE);
+    createEReference(forEachStatementEClass, FOR_EACH_STATEMENT__COLLECTION);
+    createEReference(forEachStatementEClass, FOR_EACH_STATEMENT__BODY);
+
+    whileStatementEClass = createEClass(WHILE_STATEMENT);
+    createEReference(whileStatementEClass, WHILE_STATEMENT__CONDITION);
+    createEReference(whileStatementEClass, WHILE_STATEMENT__BODY);
+
+    parallelProcessEClass = createEClass(PARALLEL_PROCESS);
+    createEReference(parallelProcessEClass, PARALLEL_PROCESS__BRANCHES);
+
+    parallelBranchEClass = createEClass(PARALLEL_BRANCH);
+    createEReference(parallelBranchEClass, PARALLEL_BRANCH__STATEMENTS);
+
+    tryCatchStatementEClass = createEClass(TRY_CATCH_STATEMENT);
+    createEReference(tryCatchStatementEClass, TRY_CATCH_STATEMENT__TRY_BODY);
+    createEAttribute(tryCatchStatementEClass, TRY_CATCH_STATEMENT__ERROR_VARIABLE);
+    createEReference(tryCatchStatementEClass, TRY_CATCH_STATEMENT__CATCH_BODY);
+    createEReference(tryCatchStatementEClass, TRY_CATCH_STATEMENT__FINALLY_BODY);
+
+    retryStatementEClass = createEClass(RETRY_STATEMENT);
+    createEAttribute(retryStatementEClass, RETRY_STATEMENT__ATTEMPTS);
+    createEReference(retryStatementEClass, RETRY_STATEMENT__BODY);
+
+    timeoutStatementEClass = createEClass(TIMEOUT_STATEMENT);
+    createEAttribute(timeoutStatementEClass, TIMEOUT_STATEMENT__DURATION);
+    createEAttribute(timeoutStatementEClass, TIMEOUT_STATEMENT__UNIT);
+    createEReference(timeoutStatementEClass, TIMEOUT_STATEMENT__BODY);
+
+    compensateStatementEClass = createEClass(COMPENSATE_STATEMENT);
+    createEReference(compensateStatementEClass, COMPENSATE_STATEMENT__ACTIONS);
+
+    requireStatementEClass = createEClass(REQUIRE_STATEMENT);
+    createEReference(requireStatementEClass, REQUIRE_STATEMENT__CONDITION);
+    createEReference(requireStatementEClass, REQUIRE_STATEMENT__BODY);
+
+    waitStatementEClass = createEClass(WAIT_STATEMENT);
+    createEAttribute(waitStatementEClass, WAIT_STATEMENT__DURATION);
+    createEAttribute(waitStatementEClass, WAIT_STATEMENT__UNIT);
+
+    assertStatementEClass = createEClass(ASSERT_STATEMENT);
+    createEReference(assertStatementEClass, ASSERT_STATEMENT__CONDITION);
+    createEAttribute(assertStatementEClass, ASSERT_STATEMENT__MESSAGE);
+
+    logStatementEClass = createEClass(LOG_STATEMENT);
+    createEReference(logStatementEClass, LOG_STATEMENT__VALUE);
+
+    workflowCallEClass = createEClass(WORKFLOW_CALL);
+    createEReference(workflowCallEClass, WORKFLOW_CALL__WORKFLOW);
+    createEReference(workflowCallEClass, WORKFLOW_CALL__ARGUMENTS);
+
+    argumentEClass = createEClass(ARGUMENT);
+    createEAttribute(argumentEClass, ARGUMENT__NAME);
+    createEReference(argumentEClass, ARGUMENT__VALUE);
 
     retrieveDocumentEClass = createEClass(RETRIEVE_DOCUMENT);
     createEReference(retrieveDocumentEClass, RETRIEVE_DOCUMENT__DOCUMENT);
 
+    retrieveInvoicesEClass = createEClass(RETRIEVE_INVOICES);
+    createEAttribute(retrieveInvoicesEClass, RETRIEVE_INVOICES__INVOICE_NUMBERS);
+
     retrieveFullAddressEClass = createEClass(RETRIEVE_FULL_ADDRESS);
-    createEReference(retrieveFullAddressEClass, RETRIEVE_FULL_ADDRESS__PERSON_ADRESS);
+    createEReference(retrieveFullAddressEClass, RETRIEVE_FULL_ADDRESS__PERSON_ADDRESS);
 
     retrievePersonsEClass = createEClass(RETRIEVE_PERSONS);
     createEAttribute(retrievePersonsEClass, RETRIEVE_PERSONS__PERSON_SEARCH);
+
+    sendEmailEClass = createEClass(SEND_EMAIL);
+    createEReference(sendEmailEClass, SEND_EMAIL__RECIPIENTS);
+    createEReference(sendEmailEClass, SEND_EMAIL__MESSAGE);
+    createEReference(sendEmailEClass, SEND_EMAIL__ATTACHMENTS);
+
+    sendSMSEClass = createEClass(SEND_SMS);
+    createEReference(sendSMSEClass, SEND_SMS__RECIPIENTS);
+    createEReference(sendSMSEClass, SEND_SMS__MESSAGE);
+    createEReference(sendSMSEClass, SEND_SMS__ATTACHMENTS);
+
+    sendSnailMailEClass = createEClass(SEND_SNAIL_MAIL);
+    createEReference(sendSnailMailEClass, SEND_SNAIL_MAIL__RECIPIENTS);
+    createEReference(sendSnailMailEClass, SEND_SNAIL_MAIL__MESSAGE);
+    createEReference(sendSnailMailEClass, SEND_SNAIL_MAIL__ATTACHMENTS);
+
+    messageEClass = createEClass(MESSAGE);
+    createEAttribute(messageEClass, MESSAGE__MESSAGE);
 
     callPersonEClass = createEClass(CALL_PERSON);
     createEReference(callPersonEClass, CALL_PERSON__PERSON);
@@ -1015,7 +2791,22 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     deletePersonEClass = createEClass(DELETE_PERSON);
     createEReference(deletePersonEClass, DELETE_PERSON__ALIAS);
 
+    updatePersonEClass = createEClass(UPDATE_PERSON);
+    createEReference(updatePersonEClass, UPDATE_PERSON__PERSON);
+    createEReference(updatePersonEClass, UPDATE_PERSON__CHANGES);
+
+    personChangeEClass = createEClass(PERSON_CHANGE);
+    createEAttribute(personChangeEClass, PERSON_CHANGE__EMAIL);
+    createEAttribute(personChangeEClass, PERSON_CHANGE__PHONE);
+    createEAttribute(personChangeEClass, PERSON_CHANGE__ALIAS);
+
+    searchPersonEClass = createEClass(SEARCH_PERSON);
+    createEAttribute(searchPersonEClass, SEARCH_PERSON__NAME);
+    createEAttribute(searchPersonEClass, SEARCH_PERSON__EMAIL);
+    createEAttribute(searchPersonEClass, SEARCH_PERSON__PHONE);
+
     personEClass = createEClass(PERSON);
+    createEReference(personEClass, PERSON__KIND);
 
     personByEmailEClass = createEClass(PERSON_BY_EMAIL);
     createEAttribute(personByEmailEClass, PERSON_BY_EMAIL__EMAILADDRESS);
@@ -1035,9 +2826,6 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     createEAttribute(personByAddressEClass, PERSON_BY_ADDRESS__HOUSENUMBER);
     createEAttribute(personByAddressEClass, PERSON_BY_ADDRESS__SUFFIX);
 
-    messageEClass = createEClass(MESSAGE);
-    createEAttribute(messageEClass, MESSAGE__MESSAGE);
-
     documentEClass = createEClass(DOCUMENT);
     createEReference(documentEClass, DOCUMENT__KIND);
 
@@ -1049,6 +2837,63 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     documentTopicEClass = createEClass(DOCUMENT_TOPIC);
     createEAttribute(documentTopicEClass, DOCUMENT_TOPIC__TOPIC);
+
+    documentOperationEClass = createEClass(DOCUMENT_OPERATION);
+
+    filterDocumentsEClass = createEClass(FILTER_DOCUMENTS);
+    createEAttribute(filterDocumentsEClass, FILTER_DOCUMENTS__FIELD);
+    createEAttribute(filterDocumentsEClass, FILTER_DOCUMENTS__OPERATOR);
+    createEAttribute(filterDocumentsEClass, FILTER_DOCUMENTS__VALUE);
+
+    sortDocumentsEClass = createEClass(SORT_DOCUMENTS);
+    createEAttribute(sortDocumentsEClass, SORT_DOCUMENTS__FIELD);
+    createEAttribute(sortDocumentsEClass, SORT_DOCUMENTS__DIRECTION);
+
+    archiveDocumentEClass = createEClass(ARCHIVE_DOCUMENT);
+    createEReference(archiveDocumentEClass, ARCHIVE_DOCUMENT__DOCUMENT);
+
+    deleteDocumentEClass = createEClass(DELETE_DOCUMENT);
+    createEReference(deleteDocumentEClass, DELETE_DOCUMENT__DOCUMENT);
+
+    createInvoiceWithProductsEClass = createEClass(CREATE_INVOICE_WITH_PRODUCTS);
+    createEReference(createInvoiceWithProductsEClass, CREATE_INVOICE_WITH_PRODUCTS__PRODUCTS);
+
+    productReferenceEClass = createEClass(PRODUCT_REFERENCE);
+    createEAttribute(productReferenceEClass, PRODUCT_REFERENCE__NAME);
+
+    createProductEClass = createEClass(CREATE_PRODUCT);
+    createEAttribute(createProductEClass, CREATE_PRODUCT__NAME);
+    createEAttribute(createProductEClass, CREATE_PRODUCT__DESCRIPTION);
+    createEAttribute(createProductEClass, CREATE_PRODUCT__PRICE);
+
+    retrieveProductInformationEClass = createEClass(RETRIEVE_PRODUCT_INFORMATION);
+    createEAttribute(retrieveProductInformationEClass, RETRIEVE_PRODUCT_INFORMATION__NAME);
+
+    retrieveOrderStatusByInvoiceEClass = createEClass(RETRIEVE_ORDER_STATUS_BY_INVOICE);
+    createEAttribute(retrieveOrderStatusByInvoiceEClass, RETRIEVE_ORDER_STATUS_BY_INVOICE__INVOICE_CODE);
+
+    binaryExpressionEClass = createEClass(BINARY_EXPRESSION);
+    createEReference(binaryExpressionEClass, BINARY_EXPRESSION__LEFT);
+    createEAttribute(binaryExpressionEClass, BINARY_EXPRESSION__OPERATOR);
+    createEReference(binaryExpressionEClass, BINARY_EXPRESSION__RIGHT);
+
+    parenthesizedExpressionEClass = createEClass(PARENTHESIZED_EXPRESSION);
+    createEReference(parenthesizedExpressionEClass, PARENTHESIZED_EXPRESSION__EXPRESSION);
+
+    stringLiteralEClass = createEClass(STRING_LITERAL);
+    createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
+
+    numberLiteralEClass = createEClass(NUMBER_LITERAL);
+    createEAttribute(numberLiteralEClass, NUMBER_LITERAL__VALUE);
+
+    booleanLiteralEClass = createEClass(BOOLEAN_LITERAL);
+    createEAttribute(booleanLiteralEClass, BOOLEAN_LITERAL__VALUE);
+
+    variableReferenceEClass = createEClass(VARIABLE_REFERENCE);
+    createEReference(variableReferenceEClass, VARIABLE_REFERENCE__VARIABLE);
+
+    listLiteralEClass = createEClass(LIST_LITERAL);
+    createEReference(listLiteralEClass, LIST_LITERAL__ELEMENTS);
   }
 
   /**
@@ -1080,64 +2925,169 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    taskEClass.getESuperTypes().add(this.getModel());
-    compoundProcessEClass.getESuperTypes().add(this.getModel());
-    abstractProcessEClass.getESuperTypes().add(this.getModel());
-    sendEmailEClass.getESuperTypes().add(this.getSendTask());
-    sendSMSEClass.getESuperTypes().add(this.getSendTask());
-    sendSnailMailEClass.getESuperTypes().add(this.getSendTask());
-    retrieveDocumentEClass.getESuperTypes().add(this.getRetrieveTask());
-    retrieveFullAddressEClass.getESuperTypes().add(this.getRetrieveTask());
-    retrievePersonsEClass.getESuperTypes().add(this.getRetrieveTask());
-    callPersonEClass.getESuperTypes().add(this.getPersonTask());
-    addPersonEClass.getESuperTypes().add(this.getPersonTask());
-    deletePersonEClass.getESuperTypes().add(this.getPersonTask());
-    personByEmailEClass.getESuperTypes().add(this.getPerson());
-    personByAliasEClass.getESuperTypes().add(this.getPerson());
-    personByNameEClass.getESuperTypes().add(this.getPerson());
-    personByPhoneEClass.getESuperTypes().add(this.getPerson());
-    personByAddressEClass.getESuperTypes().add(this.getPerson());
+    taskEClass.getESuperTypes().add(this.getStatement());
+    letStatementEClass.getESuperTypes().add(this.getStatement());
+    ifStatementEClass.getESuperTypes().add(this.getStatement());
+    forEachStatementEClass.getESuperTypes().add(this.getStatement());
+    whileStatementEClass.getESuperTypes().add(this.getStatement());
+    parallelProcessEClass.getESuperTypes().add(this.getStatement());
+    tryCatchStatementEClass.getESuperTypes().add(this.getStatement());
+    retryStatementEClass.getESuperTypes().add(this.getStatement());
+    timeoutStatementEClass.getESuperTypes().add(this.getStatement());
+    compensateStatementEClass.getESuperTypes().add(this.getStatement());
+    requireStatementEClass.getESuperTypes().add(this.getStatement());
+    waitStatementEClass.getESuperTypes().add(this.getStatement());
+    assertStatementEClass.getESuperTypes().add(this.getStatement());
+    logStatementEClass.getESuperTypes().add(this.getStatement());
+    workflowCallEClass.getESuperTypes().add(this.getStatement());
+    documentOperationEClass.getESuperTypes().add(this.getStatement());
+    filterDocumentsEClass.getESuperTypes().add(this.getDocumentOperation());
+    sortDocumentsEClass.getESuperTypes().add(this.getDocumentOperation());
+    archiveDocumentEClass.getESuperTypes().add(this.getDocumentOperation());
+    deleteDocumentEClass.getESuperTypes().add(this.getDocumentOperation());
+    binaryExpressionEClass.getESuperTypes().add(this.getExpression());
+    parenthesizedExpressionEClass.getESuperTypes().add(this.getExpression());
+    stringLiteralEClass.getESuperTypes().add(this.getExpression());
+    numberLiteralEClass.getESuperTypes().add(this.getExpression());
+    booleanLiteralEClass.getESuperTypes().add(this.getExpression());
+    variableReferenceEClass.getESuperTypes().add(this.getExpression());
+    listLiteralEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTask_Kind(), ecorePackage.getEObject(), null, "kind", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(emptyProcessEClass, EmptyProcess.class, "EmptyProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(compoundProcessEClass, CompoundProcess.class, "CompoundProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCompoundProcess_Task(), this.getTask(), null, "task", null, 0, -1, CompoundProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompoundProcess_Tasks(), this.getTask(), null, "tasks", null, 0, -1, CompoundProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractProcessEClass, AbstractProcess.class, "AbstractProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAbstractProcess_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAbstractProcess_ParamValues(), this.getParamValue(), null, "paramValues", null, 0, -1, AbstractProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractProcess_Parameters(), this.getParamValue(), null, "parameters", null, 0, -1, AbstractProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paramValueEClass, ParamValue.class, "ParamValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParamValue_Param(), ecorePackage.getEString(), "param", null, 0, 1, ParamValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParamValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, ParamValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(retrieveTaskEClass, RetrieveTask.class, "RetrieveTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(workflowEClass, Workflow.class, "Workflow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getWorkflow_Name(), ecorePackage.getEString(), "name", null, 0, 1, Workflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkflow_Statements(), this.getStatement(), null, "statements", null, 0, -1, Workflow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sendTaskEClass, SendTask.class, "SendTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSendTask_Person(), this.getPerson(), null, "person", null, 0, -1, SendTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSendTask_Message(), this.getMessage(), null, "message", null, 0, 1, SendTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSendTask_Attachment(), this.getDocument(), null, "attachment", null, 0, -1, SendTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(workflowDefinitionEClass, WorkflowDefinition.class, "WorkflowDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getWorkflowDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkflowDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkflowDefinition_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, WorkflowDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkflowDefinition_Statements(), this.getStatement(), null, "statements", null, 0, -1, WorkflowDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(personTaskEClass, PersonTask.class, "PersonTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameter_Type(), ecorePackage.getEString(), "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sendEmailEClass, SendEmail.class, "SendEmail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(sendSMSEClass, SendSMS.class, "SendSMS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTask_Kind(), ecorePackage.getEObject(), null, "kind", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTask_Result(), ecorePackage.getEString(), "result", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sendSnailMailEClass, SendSnailMail.class, "SendSnailMail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(letStatementEClass, LetStatement.class, "LetStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLetStatement_Variable(), this.getVariableDeclaration(), null, "variable", null, 0, 1, LetStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLetStatement_Value(), this.getExpression(), null, "value", null, 0, 1, LetStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(ifStatementEClass, IfStatement.class, "IfStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIfStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStatement_ThenBranch(), this.getStatement(), null, "thenBranch", null, 0, -1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStatement_ElseBranch(), this.getStatement(), null, "elseBranch", null, 0, -1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(forEachStatementEClass, ForEachStatement.class, "ForEachStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForEachStatement_Variable(), this.getVariableDeclaration(), null, "variable", null, 0, 1, ForEachStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForEachStatement_Collection(), this.getExpression(), null, "collection", null, 0, 1, ForEachStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForEachStatement_Body(), this.getStatement(), null, "body", null, 0, -1, ForEachStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(whileStatementEClass, WhileStatement.class, "WhileStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWhileStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhileStatement_Body(), this.getStatement(), null, "body", null, 0, -1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parallelProcessEClass, ParallelProcess.class, "ParallelProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParallelProcess_Branches(), this.getParallelBranch(), null, "branches", null, 0, -1, ParallelProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parallelBranchEClass, ParallelBranch.class, "ParallelBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParallelBranch_Statements(), this.getStatement(), null, "statements", null, 0, -1, ParallelBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(tryCatchStatementEClass, TryCatchStatement.class, "TryCatchStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTryCatchStatement_TryBody(), this.getStatement(), null, "tryBody", null, 0, -1, TryCatchStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTryCatchStatement_ErrorVariable(), ecorePackage.getEString(), "errorVariable", null, 0, 1, TryCatchStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTryCatchStatement_CatchBody(), this.getStatement(), null, "catchBody", null, 0, -1, TryCatchStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTryCatchStatement_FinallyBody(), this.getStatement(), null, "finallyBody", null, 0, -1, TryCatchStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(retryStatementEClass, RetryStatement.class, "RetryStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRetryStatement_Attempts(), ecorePackage.getEInt(), "attempts", null, 0, 1, RetryStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRetryStatement_Body(), this.getStatement(), null, "body", null, 0, -1, RetryStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(timeoutStatementEClass, TimeoutStatement.class, "TimeoutStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTimeoutStatement_Duration(), ecorePackage.getEInt(), "duration", null, 0, 1, TimeoutStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTimeoutStatement_Unit(), ecorePackage.getEString(), "unit", null, 0, 1, TimeoutStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTimeoutStatement_Body(), this.getStatement(), null, "body", null, 0, -1, TimeoutStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(compensateStatementEClass, CompensateStatement.class, "CompensateStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCompensateStatement_Actions(), this.getStatement(), null, "actions", null, 0, -1, CompensateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(requireStatementEClass, RequireStatement.class, "RequireStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRequireStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, RequireStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequireStatement_Body(), this.getStatement(), null, "body", null, 0, -1, RequireStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(waitStatementEClass, WaitStatement.class, "WaitStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getWaitStatement_Duration(), ecorePackage.getEInt(), "duration", null, 0, 1, WaitStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWaitStatement_Unit(), ecorePackage.getEString(), "unit", null, 0, 1, WaitStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(assertStatementEClass, AssertStatement.class, "AssertStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssertStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, AssertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssertStatement_Message(), ecorePackage.getEString(), "message", null, 0, 1, AssertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logStatementEClass, LogStatement.class, "LogStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogStatement_Value(), this.getExpression(), null, "value", null, 0, 1, LogStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(workflowCallEClass, WorkflowCall.class, "WorkflowCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWorkflowCall_Workflow(), this.getWorkflowDefinition(), null, "workflow", null, 0, 1, WorkflowCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkflowCall_Arguments(), this.getArgument(), null, "arguments", null, 0, -1, WorkflowCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getArgument_Name(), ecorePackage.getEString(), "name", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArgument_Value(), this.getExpression(), null, "value", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(retrieveDocumentEClass, RetrieveDocument.class, "RetrieveDocument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRetrieveDocument_Document(), this.getDocument(), null, "document", null, 0, 1, RetrieveDocument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(retrieveInvoicesEClass, RetrieveInvoices.class, "RetrieveInvoices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRetrieveInvoices_InvoiceNumbers(), ecorePackage.getEInt(), "invoiceNumbers", null, 0, -1, RetrieveInvoices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(retrieveFullAddressEClass, RetrieveFullAddress.class, "RetrieveFullAddress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRetrieveFullAddress_PersonAdress(), this.getPersonByAddress(), null, "personAdress", null, 0, 1, RetrieveFullAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRetrieveFullAddress_PersonAddress(), this.getPersonByAddress(), null, "personAddress", null, 0, 1, RetrieveFullAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(retrievePersonsEClass, RetrievePersons.class, "RetrievePersons", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRetrievePersons_PersonSearch(), ecorePackage.getEString(), "personSearch", null, 0, 1, RetrievePersons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sendEmailEClass, SendEmail.class, "SendEmail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSendEmail_Recipients(), this.getPerson(), null, "recipients", null, 0, -1, SendEmail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendEmail_Message(), this.getMessage(), null, "message", null, 0, 1, SendEmail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendEmail_Attachments(), this.getDocument(), null, "attachments", null, 0, -1, SendEmail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sendSMSEClass, SendSMS.class, "SendSMS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSendSMS_Recipients(), this.getPerson(), null, "recipients", null, 0, -1, SendSMS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendSMS_Message(), this.getMessage(), null, "message", null, 0, 1, SendSMS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendSMS_Attachments(), this.getDocument(), null, "attachments", null, 0, -1, SendSMS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sendSnailMailEClass, SendSnailMail.class, "SendSnailMail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSendSnailMail_Recipients(), this.getPerson(), null, "recipients", null, 0, -1, SendSnailMail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendSnailMail_Message(), this.getMessage(), null, "message", null, 0, 1, SendSnailMail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendSnailMail_Attachments(), this.getDocument(), null, "attachments", null, 0, -1, SendSnailMail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMessage_Message(), ecorePackage.getEString(), "message", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(callPersonEClass, CallPerson.class, "CallPerson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCallPerson_Person(), this.getPerson(), null, "person", null, 0, 1, CallPerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1149,7 +3099,22 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     initEClass(deletePersonEClass, DeletePerson.class, "DeletePerson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeletePerson_Alias(), this.getPersonByAlias(), null, "alias", null, 0, 1, DeletePerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(updatePersonEClass, UpdatePerson.class, "UpdatePerson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUpdatePerson_Person(), this.getPerson(), null, "person", null, 0, 1, UpdatePerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUpdatePerson_Changes(), this.getPersonChange(), null, "changes", null, 0, -1, UpdatePerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(personChangeEClass, PersonChange.class, "PersonChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPersonChange_Email(), ecorePackage.getEString(), "email", null, 0, 1, PersonChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPersonChange_Phone(), ecorePackage.getEString(), "phone", null, 0, 1, PersonChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPersonChange_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, PersonChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(searchPersonEClass, SearchPerson.class, "SearchPerson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSearchPerson_Name(), ecorePackage.getEString(), "name", null, 0, 1, SearchPerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSearchPerson_Email(), ecorePackage.getEString(), "email", null, 0, 1, SearchPerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSearchPerson_Phone(), ecorePackage.getEString(), "phone", null, 0, 1, SearchPerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPerson_Kind(), ecorePackage.getEObject(), null, "kind", null, 0, -1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(personByEmailEClass, PersonByEmail.class, "PersonByEmail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPersonByEmail_Emailaddress(), ecorePackage.getEString(), "emailaddress", null, 0, 1, PersonByEmail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1169,11 +3134,8 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
     initEAttribute(getPersonByAddress_Housenumber(), ecorePackage.getEInt(), "housenumber", null, 0, 1, PersonByAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPersonByAddress_Suffix(), ecorePackage.getEString(), "suffix", null, 0, 1, PersonByAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMessage_Message(), ecorePackage.getEString(), "message", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDocument_Kind(), ecorePackage.getEObject(), null, "kind", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDocument_Kind(), ecorePackage.getEObject(), null, "kind", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(invoiceEClass, Invoice.class, "Invoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInvoice_Code(), ecorePackage.getEInt(), "code", null, 0, 1, Invoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1183,6 +3145,63 @@ public class BilangPackageImpl extends EPackageImpl implements BilangPackage
 
     initEClass(documentTopicEClass, DocumentTopic.class, "DocumentTopic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDocumentTopic_Topic(), ecorePackage.getEString(), "topic", null, 0, 1, DocumentTopic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(documentOperationEClass, DocumentOperation.class, "DocumentOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(filterDocumentsEClass, FilterDocuments.class, "FilterDocuments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFilterDocuments_Field(), ecorePackage.getEString(), "field", null, 0, 1, FilterDocuments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFilterDocuments_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, FilterDocuments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFilterDocuments_Value(), ecorePackage.getEString(), "value", null, 0, 1, FilterDocuments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sortDocumentsEClass, SortDocuments.class, "SortDocuments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSortDocuments_Field(), ecorePackage.getEString(), "field", null, 0, 1, SortDocuments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSortDocuments_Direction(), ecorePackage.getEString(), "direction", null, 0, 1, SortDocuments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(archiveDocumentEClass, ArchiveDocument.class, "ArchiveDocument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArchiveDocument_Document(), this.getDocument(), null, "document", null, 0, 1, ArchiveDocument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deleteDocumentEClass, DeleteDocument.class, "DeleteDocument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDeleteDocument_Document(), this.getDocument(), null, "document", null, 0, 1, DeleteDocument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(createInvoiceWithProductsEClass, CreateInvoiceWithProducts.class, "CreateInvoiceWithProducts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCreateInvoiceWithProducts_Products(), this.getProductReference(), null, "products", null, 0, -1, CreateInvoiceWithProducts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(productReferenceEClass, ProductReference.class, "ProductReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProductReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProductReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(createProductEClass, CreateProduct.class, "CreateProduct", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCreateProduct_Name(), ecorePackage.getEString(), "name", null, 0, 1, CreateProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreateProduct_Description(), ecorePackage.getEString(), "description", null, 0, 1, CreateProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreateProduct_Price(), ecorePackage.getEInt(), "price", null, 0, 1, CreateProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(retrieveProductInformationEClass, RetrieveProductInformation.class, "RetrieveProductInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRetrieveProductInformation_Name(), ecorePackage.getEString(), "name", null, 0, 1, RetrieveProductInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(retrieveOrderStatusByInvoiceEClass, RetrieveOrderStatusByInvoice.class, "RetrieveOrderStatusByInvoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRetrieveOrderStatusByInvoice_InvoiceCode(), ecorePackage.getEInt(), "invoiceCode", null, 0, 1, RetrieveOrderStatusByInvoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(binaryExpressionEClass, BinaryExpression.class, "BinaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBinaryExpression_Left(), this.getExpression(), null, "left", null, 0, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryExpression_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryExpression_Right(), this.getExpression(), null, "right", null, 0, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parenthesizedExpressionEClass, ParenthesizedExpression.class, "ParenthesizedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParenthesizedExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, ParenthesizedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(numberLiteralEClass, NumberLiteral.class, "NumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNumberLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanLiteralEClass, BooleanLiteral.class, "BooleanLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, BooleanLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariableReference_Variable(), this.getVariableDeclaration(), null, "variable", null, 0, 1, VariableReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(listLiteralEClass, ListLiteral.class, "ListLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getListLiteral_Elements(), this.getExpression(), null, "elements", null, 0, -1, ListLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

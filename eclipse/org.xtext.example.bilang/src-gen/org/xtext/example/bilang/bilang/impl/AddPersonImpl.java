@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,7 +38,7 @@ import org.xtext.example.bilang.bilang.PersonByAlias;
  *
  * @generated
  */
-public class AddPersonImpl extends PersonTaskImpl implements AddPerson
+public class AddPersonImpl extends MinimalEObjectImpl.Container implements AddPerson
 {
   /**
    * The cached value of the '{@link #getAlias() <em>Alias</em>}' containment reference.

@@ -2,50 +2,412 @@ grammar org.xtext.example.bilang.Bilang with org.eclipse.xtext.common.Terminals
 
 generate bilang "http://www.xtext.org/example/bilang/Bilang"
 
-Model: Task | CompoundProcess | AbstractProcess | EmptyProcess;
+// ============================================================
+// 1. MODEL
+// ============================================================
 
-Task: 'task' kind+=(SendTask | RetrieveTask | PersonTask);
-EmptyProcess: 'empty' 'process';
-CompoundProcess: 'compound' 'process' task+=Task+;
-AbstractProcess: 'abstract' 'process' 'with' 'name' name=ID 'and' paramValues+=ParamValue*;
+Model:
+    (elements+=Workflow
+    | elements+=WorkflowDefinition
+    | elements+=Task
+    | elements+=CompoundProcess
+    | elements+=AbstractProcess
+    | elements+=EmptyProcess)*;
 
-ParamValue: 'parameter' param=ID 'and' 'value' value=ID;
+EmptyProcess:
+    'empty' 'process';
 
-RetrieveTask: RetrieveDocument | RetrieveFullAddress | RetrievePersons;
-SendTask: SendEmail | SendSMS | SendSnailMail;
-PersonTask: CallPerson | AddPerson | DeletePerson;
+CompoundProcess:
+    'compound' 'process' tasks+=Task+;
 
-SendEmail: 'send' 'an' 'email' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
-SendSMS: 'send' 'an' 'sms' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
-SendSnailMail: 'send' 'a' 'snail' 'mail' 'to' person+=Person+ 'with' message=Message ('and' attachment+=Document+)?;
-RetrieveDocument: 'retrieve' document=Document;
-RetrieveFullAddress: 'retrieve' 'full' 'address' 'of' personAdress=PersonByAddress;
-RetrievePersons: 'retrieve' 'persons' 'with' 'search' personSearch=ID;
-CallPerson: 'phone' 'call' person=Person;
-AddPerson: 'add' alias=PersonByAlias ('and' person+=Person)+;
-DeletePerson: 'delete' alias=PersonByAlias;
+AbstractProcess:
+    'abstract' 'process' 'with' 'name' name=ID
+    ('and' parameters+=ParamValue)*;
 
-Person: PersonByEmail | PersonByAlias | PersonByName | PersonByPhone | PersonByAddress;
-PersonByEmail: 'person' 'with' 'email' emailaddress=EMAIL_ADDRESS;
-PersonByAlias: 'person' 'with' 'alias' alias=ID;
-PersonByName: 'person' 'with' 'first' 'name' firstName=ID 'and' 'last' 'name' lastName=STRING;
-PersonByPhone: 'person' 'with' 'phone' 'number' phone=PHONE_NUMBER;
-PersonByAddress: 'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE 'and' 'house' 'number' housenumber=INT ('and' 'suffix' suffix=STRING)?;
+ParamValue:
+    'parameter' param=ID 'and' 'value' value=STRING;
 
-Message: 'message' message=STRING;
+// ============================================================
+// 2. WORKFLOWS
+// ============================================================
 
-Document: 'document' kind+=(Invoice | DocumentPerson | DocumentTopic);
-Invoice: 'invoice' 'with' 'code' code=INT;
-DocumentPerson: 'information' 'about' person=Person;
-DocumentTopic: 'information' 'about' 'topic' topic=STRING;
+Workflow:
+    'workflow' 'with' 'name' name=ID
+    '{' statements+=Statement* '}';
 
+WorkflowDefinition:
+    'define' 'workflow' name=ID
+    '(' (parameters+=Parameter
+        (',' parameters+=Parameter)*)? ')'
+    '{' statements+=Statement* '}';
+
+Parameter:
+    name=ID ':' type=ParameterType;
+
+ParameterType:
+    'text'
+    | 'number'
+    | 'boolean'
+    | 'person'
+    | 'document'
+    | 'list';
+
+Statement:
+    Task
+    | LetStatement
+    | IfStatement
+    | ForEachStatement
+    | WhileStatement
+    | ParallelProcess
+    | TryCatchStatement
+    | RetryStatement
+    | TimeoutStatement
+    | CompensateStatement
+    | RequireStatement
+    | WaitStatement
+    | AssertStatement
+    | LogStatement
+    | WorkflowCall
+    | DocumentOperation;
+
+// ============================================================
+// 3. TASKS AND RESULTS
+// ============================================================
+
+Task:
+    'task'
+    kind=(SendEmail
+        | SendSMS
+        | SendSnailMail
+        | RetrieveDocument
+        | RetrieveInvoices
+        | RetrieveFullAddress
+        | RetrievePersons
+        | CallPerson
+        | AddPerson
+        | DeletePerson
+        | UpdatePerson
+        | SearchPerson
+        | CreateInvoiceWithProducts
+        | CreateProduct
+        | RetrieveProductInformation
+        | RetrieveOrderStatusByInvoice)
+    ('as' result=ID)?;
+
+// ============================================================
+// 4. VARIABLES AND EXPRESSIONS
+// ============================================================
+
+LetStatement:
+    'let' variable=VariableDeclaration
+    '=' value=Expression;
+
+VariableDeclaration:
+    name=ID;
+
+Expression returns Expression:
+    OrExpression;
+
+OrExpression returns Expression:
+    AndExpression
+    ({BinaryExpression.left=current}
+        operator='or' right=AndExpression)*;
+
+AndExpression returns Expression:
+    ComparisonExpression
+    ({BinaryExpression.left=current}
+        operator='and' right=ComparisonExpression)*;
+
+ComparisonExpression returns Expression:
+    PrimaryExpression
+    ({BinaryExpression.left=current}
+        operator=('==' | '!=' | '<' | '<=' | '>' | '>=')
+        right=PrimaryExpression)*;
+
+PrimaryExpression returns Expression:
+    {ParenthesizedExpression}
+        '(' expression=Expression ')'
+    | {StringLiteral}
+        value=STRING
+    | {NumberLiteral}
+        value=INT
+    | {BooleanLiteral}
+        value=('true' | 'false')
+    | {VariableReference}
+        variable=[VariableDeclaration|ID]
+    | {ListLiteral}
+        '[' (elements+=Expression
+            (',' elements+=Expression)*)? ']';
+
+// ============================================================
+// 5. CONTROL FLOW
+// ============================================================
+
+IfStatement:
+    'if' condition=Expression
+    'then' '{' thenBranch+=Statement* '}'
+    ('else' '{' elseBranch+=Statement* '}')?;
+
+ForEachStatement:
+    'for' variable=VariableDeclaration
+    'in' collection=Expression
+    '{' body+=Statement* '}';
+
+WhileStatement:
+    'while' condition=Expression
+    'do' '{' body+=Statement* '}';
+
+ParallelProcess:
+    'parallel' '{' branches+=ParallelBranch+ '}';
+
+ParallelBranch:
+    'branch' '{' statements+=Statement* '}';
+
+// ============================================================
+// 6. ERROR HANDLING AND RELIABILITY
+// ============================================================
+
+TryCatchStatement:
+    'try' '{' tryBody+=Statement* '}'
+    'catch' errorVariable=ID
+    '{' catchBody+=Statement* '}'
+    ('finally' '{' finallyBody+=Statement* '}')?;
+
+RetryStatement:
+    'retry' 'up' 'to' attempts=INT
+    'times' '{' body+=Statement* '}';
+
+TimeoutStatement:
+    'with' 'timeout' duration=INT unit=TimeUnit
+    '{' body+=Statement* '}';
+
+CompensateStatement:
+    'compensate' 'with'
+    '{' actions+=Statement+ '}';
+
+RequireStatement:
+    'require' condition=Expression
+    'before' '{' body+=Statement* '}';
+
+WaitStatement:
+    'wait' 'for' duration=INT unit=TimeUnit;
+
+TimeUnit:
+    'seconds' | 'minutes' | 'hours' | 'days';
+
+AssertStatement:
+    'assert' condition=Expression
+    'with' 'message' message=STRING;
+
+LogStatement:
+    'log' value=Expression;
+
+// ============================================================
+// 7. REUSABLE WORKFLOWS
+// ============================================================
+
+WorkflowCall:
+    'run' workflow=[WorkflowDefinition|ID]
+    '(' (arguments+=Argument
+        (',' arguments+=Argument)*)? ')';
+
+Argument:
+    name=ID '=' value=Expression;
+
+// ============================================================
+// 8. RETRIEVAL
+// ============================================================
+
+RetrieveDocument:
+    'retrieve' document=Document;
+
+RetrieveInvoices:
+    'retrieve' 'invoices' 'with' 'codes'
+    invoiceNumbers+=INT
+    (',' invoiceNumbers+=INT)*;
+
+RetrieveFullAddress:
+    'retrieve' 'full' 'address' 'of'
+    personAddress=PersonByAddress;
+
+RetrievePersons:
+    'retrieve' 'persons' 'with' 'search'
+    personSearch=ID;
+
+// ============================================================
+// 9. COMMUNICATION
+// ============================================================
+
+SendEmail:
+    'send' 'an' 'email' 'to' recipients+=Person+
+    'with' message=Message
+    ('and' 'attachment' attachments+=Document
+        ('and' 'attachment' attachments+=Document)*)?;
+
+SendSMS:
+    'send' 'an' 'sms' 'to' recipients+=Person+
+    'with' message=Message
+    ('and' 'attachment' attachments+=Document
+        ('and' 'attachment' attachments+=Document)*)?;
+
+SendSnailMail:
+    'send' 'a' 'snail' 'mail' 'to' recipients+=Person+
+    'with' message=Message
+    ('and' 'attachment' attachments+=Document
+        ('and' 'attachment' attachments+=Document)*)?;
+
+Message:
+    'message' message=STRING;
+
+// ============================================================
+// 10. PERSON MANAGEMENT
+// ============================================================
+
+CallPerson:
+    'phone' 'call' person=Person;
+
+AddPerson:
+    'add' alias=PersonByAlias
+    ('and' person+=Person)+;
+
+DeletePerson:
+    'delete' alias=PersonByAlias;
+
+UpdatePerson:
+    'update' 'person' person=Person
+    'set' changes+=PersonChange
+    ('and' changes+=PersonChange)*;
+
+PersonChange:
+    'email' 'to' email=EMAIL_ADDRESS
+    | 'phone' 'to' phone=PHONE_NUMBER
+    | 'alias' 'to' alias=ID;
+
+SearchPerson:
+    'search' 'for' 'person'
+    ('with' 'name' name=STRING)?
+    ('with' 'email' email=EMAIL_ADDRESS)?
+    ('with' 'phone' phone=PHONE_NUMBER)?;
+
+// ============================================================
+// 11. PERSON IDENTIFICATION
+// ============================================================
+
+Person:
+    PersonByEmail
+    | PersonByAlias
+    | PersonByName
+    | PersonByPhone
+    | PersonByAddress;
+
+PersonByEmail:
+    'person' 'with' 'email' emailaddress=EMAIL_ADDRESS;
+
+PersonByAlias:
+    'person' 'with' 'alias' alias=ID;
+
+PersonByName:
+    'person' 'with' 'first' 'name' firstName=ID
+    'and' 'last' 'name' lastName=STRING;
+
+PersonByPhone:
+    'person' 'with' 'phone' 'number' phone=PHONE_NUMBER;
+
+PersonByAddress:
+    'person' 'with' 'zip' 'code' zipcode=DUTCH_POSTCODE
+    'and' 'house' 'number' housenumber=INT
+    ('and' 'suffix' suffix=STRING)?;
+
+// ============================================================
+// 12. DOCUMENTS
+// ============================================================
+
+Document:
+    'document' kind=(Invoice | DocumentPerson | DocumentTopic);
+
+Invoice:
+    'invoice' 'with' 'code' code=INT;
+
+DocumentPerson:
+    'information' 'about' 'person' person=Person;
+
+DocumentTopic:
+    'information' 'about' 'topic' topic=Topic;
+
+Topic:
+    STRING | ID;
+
+DocumentOperation:
+    FilterDocuments
+    | SortDocuments
+    | ArchiveDocument
+    | DeleteDocument;
+
+FilterDocuments:
+    'filter' 'documents' 'where'
+    field=ID operator=FilterOperator value=STRING;
+
+FilterOperator:
+    'equals'
+    | 'contains'
+    | 'starts' 'with';
+
+SortDocuments:
+    'sort' 'documents' 'by' field=ID
+    direction=('ascending' | 'descending')?;
+
+ArchiveDocument:
+    'archive' document=Document;
+
+DeleteDocument:
+    'delete' document=Document;
+
+// ============================================================
+// 13. PRODUCTS AND INVOICES
+// ============================================================
+
+// Create an invoice containing one or more products.
+CreateInvoiceWithProducts:
+    'create' 'invoice' 'with' 'products'
+    products+=ProductReference
+    (',' products+=ProductReference)*;
+
+// Reference a product by its name.
+ProductReference:
+    'product' 'with' 'name' name=STRING;
+
+// Create a product with its name, description and price.
+CreateProduct:
+    'create' 'product'
+    'with' 'name' name=STRING
+    'and' 'description' description=STRING
+    'and' 'price' price=INT;
+
+// Retrieve information about a product by name.
+RetrieveProductInformation:
+    'retrieve' 'product' 'information'
+    'for' 'product' 'with' 'name' name=STRING;
+
+// Retrieve order status using an invoice code.
+RetrieveOrderStatusByInvoice:
+    'retrieve' 'order' 'status'
+    'by' 'invoice' 'with' 'code' invoiceCode=INT;
+
+// ============================================================
+// 14. TERMINALS
+// ============================================================
 
 terminal EMAIL_ADDRESS:
     ('a'..'z' | 'A'..'Z' | '0'..'9' | '_' | '-' | '.')+
     '@'
     ('a'..'z' | 'A'..'Z' | '0'..'9' | '-' | '.')+;
 
-terminal PHONE_NUMBER: 
-	'+' ('0'..'9')+;
+terminal PHONE_NUMBER:
+    '+' ('0'..'9')+
+    | '0' ('0'..'9') ('0'..'9') ('0'..'9')
+      ('0'..'9') ('0'..'9') ('0'..'9')
+      ('0'..'9') ('0'..'9') ('0'..'9');
 
-terminal DUTCH_POSTCODE: ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9') ' '? ('A'..'Z') ('A'..'Z');
+terminal DUTCH_POSTCODE:
+    ('0'..'9') ('0'..'9') ('0'..'9') ('0'..'9')
+    ' '? ('A'..'Z') ('A'..'Z');
